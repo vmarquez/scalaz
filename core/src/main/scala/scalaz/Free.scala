@@ -69,12 +69,12 @@ sealed abstract class Free[S[_], A] {
     resume.fold(s, r)
 
   /* performs a bind type operation that does not cause expansion of Gosubs at the expense of not being tail recursive*/
-  final def fastFlatMap[B](i: Int, f: A => Free[S,B])(implicit S: Functor[S]): Free[S,B] = {
+  @inline final def fastFlatMap[B](i: Int, f: A => Free[S,B])(implicit S: Functor[S]): Free[S,B] = {
     this match {
       case Return(a) => f(a)
       case Suspend(t) => Suspend(S.map(t)(_ fastFlatMap(i+1, f)))
       case a @ Gosub() => 
-        if (i < 500)
+        if (i < 10) 
           a.a().fastFlatMap(i+1, aa => a.f(aa).fastFlatMap(i+1, f))
         else 
           gosub(a.a)(x => gosub(() => a.f(x))(f))
@@ -83,7 +83,7 @@ sealed abstract class Free[S[_], A] {
 
   /** Evaluates a single layer of the free monad **/
   @tailrec final def resume(implicit S: Functor[S]): (S[Free[S,A]] \/ A) = {
-    resumeCtr = resumeCtr + 1
+    //resumeCtr = resumeCtr + 1
     this match {
       case Return(a) => \/-(a)
       case Suspend(t) => -\/(t)
@@ -98,7 +98,7 @@ sealed abstract class Free[S[_], A] {
 
   /** Evaluates a single layer of the free monad, left in for performance comparison */
   @tailrec final def resumeOld(implicit S: Functor[S]): (S[Free[S, A]] \/ A) = {
-    resumeCtr = resumeCtr + 1
+    //resumeCtr = resumeCtr + 1
     this match {
       case Return(a)  => \/-(a)
       case Suspend(t) => -\/(t)

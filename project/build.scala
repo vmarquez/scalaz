@@ -23,6 +23,7 @@ import sbtbuildinfo.Plugin._
 
 import sbtunidoc.Plugin._
 import sbtunidoc.Plugin.UnidocKeys._
+import pl.project13.scala.sbt.SbtJmh._
 
 object build extends Build {
   type Sett = Def.Setting[_]
@@ -216,6 +217,15 @@ object build extends Build {
       typeClasses := TypeClass.effect,
       osgiExport("scalaz.effect", "scalaz.std.effect", "scalaz.syntax.effect")
     ),
+    dependencies = Seq(core)
+  )
+
+  lazy val bench = Project(
+    id = "bench",
+    base = file("bench"),
+    settings = standardSettings ++ Seq[Sett](
+      name := "scalaz-bench"
+    ) ++ jmhSettings,
     dependencies = Seq(core)
   )
 
