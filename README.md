@@ -1,5 +1,7 @@
 # Scalaz
 
+[![Join the chat at https://gitter.im/vmarquez/scalaz](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/vmarquez/scalaz?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 Scalaz is a Scala library for functional programming.
 
 It provides purely functional data structures to complement those from the Scala standard library.
