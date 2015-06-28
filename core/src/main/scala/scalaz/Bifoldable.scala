@@ -44,6 +44,12 @@ trait Bifoldable[F[_, _]]  { self =>
     bifoldMap(fa)(a => some(f(a)))(b => some(g(b)))
   }
 
+  final def bifoldProduct[A,B](fa: F[A, B])(implicit M: Monoid[A], N: Monoid[B]): (A,B) = {
+    import scalaz.std.tuple._
+    bifoldMap(fa)(f => (f, N.zero))(g => (M.zero, g))
+  }
+    
+
   /**Curried version of `bifoldRight` */
   final def bifoldR[A, B, C](fa: F[A, B], z: => C)(f: A => (=> C) => C)(g: B => (=> C) => C): C =
     bifoldRight(fa, z)(Function.uncurried(f))(Function.uncurried(g))

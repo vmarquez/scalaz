@@ -11,7 +11,7 @@ final class BifoldableOps[F[_, _],A, B] private[syntax](val self: F[A, B])(impli
   def bifoldMap1[M: Semigroup](f: A => M)(g: B => M): Option[M] = F.bifoldMap1(self)(f)(g)
   def bifoldR[C](z: => C)(f: A => (=> C) => C)(g: B => (=> C) => C): C = F.bifoldR(self, z)(f)(g)
   def bifoldL[C](z: C)(f: C => A => C)(g: C => B => C): C = F.bifoldL(self, z)(f)(g)
-
+  def bifoldProduct(implicit M: Monoid[A], N: Monoid[B]): (A,B) = F.bifoldProduct(self)
   ////
 }
 
