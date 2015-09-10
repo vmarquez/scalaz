@@ -4,7 +4,7 @@ import std.AllInstances._
 import syntax.foldable._
 import syntax.equal._
 import org.scalacheck.Prop.forAll
-import org.scalacheck.Arbitrary
+import org.scalacheck.{Arbitrary, Properties}
 
 object FoldableTest extends SpecLite {
   "to" ! forAll {
@@ -57,6 +57,20 @@ object FoldableTest extends SpecLite {
         (xs minimumBy f) must_== None
       else
         (xs minimumBy f) must_== Some((xs zip (xs map f)).minBy(_._2)._1)
+  }
+
+  "sumr1Opt" ! forAll {
+    (xs: List[String]) => xs match {
+      case Nil => xs.sumr1Opt must_== None
+      case _ => xs.sumr1Opt must_== Some(xs.mkString)
+    }
+  }
+
+  "suml1Opt" ! forAll {
+    (xs: List[String]) => xs match {
+      case Nil => xs.suml1Opt must_== None
+      case _ => xs.suml1Opt must_== Some(xs.mkString)
+    }
   }
 
   "non-empty folding" should {
@@ -112,6 +126,28 @@ object FoldableTest extends SpecLite {
       (xs: List[String]) => xs.foldMapM(x => Some(x): Option[String]) must_== Some(xs.mkString)
     }
 
+    type StateInt[A] = State[Int, A]
+
+    def found(z: Int): State[Int, Option[Int]] =
+      State(n => (n + 1, Some(z * 2)))
+
+    def notfound: State[Int, Option[Int]] =
+      State(n => (n + 1, None))
+
+    "findMapM: finding the first element performs transform and only runs only necessary effects" ! forAll {
+      (x: Int, xs: List[Int]) => (x :: xs).findMapM[StateInt, Int](found).run(0) must_== (1 -> Some(x * 2))
+    }
+
+    "findMapM: finding the last element performs transform and runs all effects (once only)" ! forAll {
+      (x: Int, xs: List[Int]) => !xs.contains(x) ==> {
+        (xs ++ List(x)).findMapM[StateInt, Int](z => if (z == x) found(z) else notfound).run(0) must_==
+          ((xs.length + 1) -> Some(x * 2))
+      }
+    }
+
+    "findMapM: runs all effects but doesn't return a value for not found" ! forAll {
+      (xs: List[Int]) => xs.findMapM[StateInt, Int](_ => notfound).run(0) must_== (xs.length -> None)
+    }
   }
 
   private val L = Foldable[List]
@@ -148,4 +184,22 @@ object FoldableTests {
     val expected = if (fa.empty) 0 else 1
     i === expected
   }
+
+  def anyConsistent[F[_], A](f: A => Boolean)(implicit F: Foldable[F], fa: Arbitrary[F[A]]) =
+    forAll { fa: F[A] =>
+      F.any(fa)(f) === F.toList(fa).exists(f)
+    }
+
+  def allConsistent[F[_], A](f: A => Boolean)(implicit F: Foldable[F], fa: Arbitrary[F[A]]) =
+    forAll { fa: F[A] =>
+      F.all(fa)(f) === F.toList(fa).forall(f)
+    }
+
+  def anyAndAllLazy[F[_]](implicit fa: Arbitrary[F[Int]], F: Foldable[F]) =
+    new Properties("foldable") {
+      property("consistent any") = anyConsistent[F, Int](_ > 0)
+      property("consistent all") = allConsistent[F, Int](_ > 0)
+      property("any is lazy") = anyIsLazy[F, Int]
+      property("all is lazy") = allIsLazy[F, Int]
+    }
 }

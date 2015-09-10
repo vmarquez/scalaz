@@ -2,6 +2,7 @@ package scalaz
 
 import std.stream.{streamInstance, streamMonoid}
 import std.string.stringInstance
+import Free.Trampoline
 
 /**
  * A multi-way tree, also known as a rose tree. Also known as Cofree[Stream, A].
@@ -24,8 +25,14 @@ sealed abstract class Tree[A] {
     Foldable[Stream].foldRight(flatten, z)(f)
 
   /** A 2D String representation of this Tree. */
-  def drawTree(implicit sh: Show[A]): String =
-    Foldable[Stream].foldMap(draw)((_: String) + "\n")
+  def drawTree(implicit sh: Show[A]): String = {
+    val reversedLines = draw.run
+    val first = new StringBuilder(reversedLines.head.toString.reverse)
+    val rest = reversedLines.tail
+    rest.foldLeft(first) { (acc, elem) => 
+      acc.append("\n").append(elem.toString.reverse) 
+    }.append("\n").toString
+  }
 
   /** A histomorphic transform. Each element in the resulting tree
    * is a function of the corresponding element in this tree
@@ -36,19 +43,38 @@ sealed abstract class Tree[A] {
     node(g(rootLabel, c), c)
   }
 
-  /** A 2D String representation of this Tree, separated into lines. */
-  def draw(implicit sh: Show[A]): Stream[String] = {
-    def drawSubTrees(s: Stream[Tree[A]]): Stream[String] = s match {
-      case Stream.Empty => Stream.Empty
-      case Stream(t)    => "|" #:: shift("`- ", "   ", t.draw)
-      case t #:: ts     => "|" #:: shift("+- ", "|  ", t.draw) append drawSubTrees(ts)
-    }
-    def shift(first: String, other: String, s: Stream[String]): Stream[String] =
-      (first #:: Stream.continually(other)).zip(s).map {
-        case (a, b) => a + b
-      }
+  /** A 2D String representation of this Tree, separated into lines. 
+    * Uses reversed StringBuilders for performance, because they are
+    * prepended to.
+    **/
+  private def draw(implicit sh: Show[A]): Trampoline[Vector[StringBuilder]] = {
+    import Trampoline._
+    val branch = " -+" // "+- ".reverse
+    val stem = " -`" // "`- ".reverse
+    val trunk = "  |" // "|  ".reverse
 
-    sh.shows(rootLabel) #:: drawSubTrees(subForest)
+    def drawSubTrees(s: Stream[Tree[A]]): Trampoline[Vector[StringBuilder]] = s match {
+      case ts if ts.isEmpty       => done(Vector.empty[StringBuilder])
+      case t #:: ts if ts.isEmpty => suspend(t.draw).map(subtree => new StringBuilder("|") +: shift(stem, "   ", subtree))
+      case t #:: ts               => for {
+                                       subtree <- suspend(t.draw)
+                                       otherSubtrees <- suspend(drawSubTrees(ts))
+                                     } yield new StringBuilder("|") +: (shift(branch, trunk, subtree) ++ otherSubtrees)
+    }
+
+    def shift(first: String, other: String, s: Vector[StringBuilder]): Vector[StringBuilder] = {
+      var i = 0
+      while (i < s.length) {
+        if (i == 0) s(i).append(first)
+        else s(i).append(other)
+        i += 1
+      }
+      s
+    }
+    
+    drawSubTrees(subForest).map { subtrees => 
+      new StringBuilder(sh.shows(rootLabel).reverse) +: subtrees
+    }
   }
 
   /** Pre-order traversal. */
@@ -97,7 +123,7 @@ sealed abstract class Tree[A] {
     import Stream._
     subForest match {
       case Empty => G.map(f(rootLabel))(Tree(_))
-      case x #:: xs => G.apply2(f(rootLabel), NonEmptyList.nel(x, xs.toList).traverse1(_.traverse1(f))) {
+      case x #:: xs => G.apply2(f(rootLabel), NonEmptyList.nel(x, IList.fromFoldable(xs)).traverse1(_.traverse1(f))) {
         case (h, t) => Tree.node(h, t.list.toStream)
       }
     }
@@ -116,7 +142,7 @@ object Tree extends TreeInstances with TreeFunctions {
 }
 
 sealed abstract class TreeInstances {
-  implicit val treeInstance: Traverse1[Tree] with Monad[Tree] with Comonad[Tree] = new Traverse1[Tree] with Monad[Tree] with Comonad[Tree] {
+  implicit val treeInstance: Traverse1[Tree] with Monad[Tree] with Comonad[Tree] with Align[Tree] = new Traverse1[Tree] with Monad[Tree] with Comonad[Tree] with Align[Tree] {
     def point[A](a: => A): Tree[A] = Tree.leaf(a)
     def cobind[A, B](fa: Tree[A])(f: Tree[A] => B): Tree[B] = fa cobind f
     def copoint[A](p: Tree[A]): A = p.rootLabel
@@ -133,6 +159,15 @@ sealed abstract class TreeInstances {
       case h #:: t => t.foldLeft(z(h))(f)
     }
     override def foldMap[A, B](fa: Tree[A])(f: A => B)(implicit F: Monoid[B]): B = fa foldMap f
+    def alignWith[A, B, C](f: (\&/[A, B]) ⇒ C) = { 
+      def align(ta: Tree[A], tb: Tree[B]): Tree[C] =
+        Tree.node(f(\&/(ta.rootLabel, tb.rootLabel)), Align[Stream].alignWith[Tree[A], Tree[B], Tree[C]]({
+          case \&/.This(sta) ⇒ sta map {a ⇒ f(\&/.This(a))}
+          case \&/.That(stb) ⇒ stb map {b ⇒ f(\&/.That(b))}
+          case \&/(sta, stb) ⇒ align(sta, stb)
+        })(ta.subForest, tb.subForest))
+      align _
+    }
   }
 
   implicit def treeEqual[A](implicit A: Equal[A]): Equal[Tree[A]] = new Equal[Tree[A]] {

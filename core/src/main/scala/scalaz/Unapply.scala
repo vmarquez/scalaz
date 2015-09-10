@@ -66,7 +66,7 @@ trait Unapply[TC[_[_]], MA] {
   @inline final def apply(ma: MA): M[A] = leibniz(ma)
 }
 
-sealed trait Unapply_5 {
+sealed abstract class Unapply_5 {
   /**Unpack a value of type `M0[F[_], A0, B0, C0, D0, E0]` into types `[e]M0[F, A0, B0, C0, D0, e]` and `E0`, given an instance of `TC` */
   implicit def unapplyMFABCDE5[TC[_[_]], F[_], M0[F[_], _, _, _, _, _], A0, B0, C0, D0, E0](implicit TC0: TC[M0[F, A0, B0, C0, D0, ?]]): Unapply[TC, M0[F, A0, B0, C0, D0, E0]] {
     type M[X] = M0[F, A0, B0, C0, D0, X]
@@ -80,7 +80,7 @@ sealed trait Unapply_5 {
     }
 }
 
-sealed trait Unapply_4 extends Unapply_5 {
+sealed abstract class Unapply_4 extends Unapply_5 {
   // /** Unpack a value of type `A0` into type `[a]A0`, given a instance of `TC` */
   implicit def unapplyA[TC[_[_]], A0](implicit TC0: TC[λ[α => A0]]): Unapply[TC, A0] {
     type M[X] = A0
@@ -94,7 +94,7 @@ sealed trait Unapply_4 extends Unapply_5 {
     }
 }
 
-sealed trait Unapply_3 extends Unapply_4 {
+sealed abstract class Unapply_3 extends Unapply_4 {
   /**Unpack a value of type `M0[F[_], A0, A0, B0]` into types `[a]M0[F, a, a, B0]` and `A0`, given an instance of `TC` */
   implicit def unapplyMFABC1and2[TC[_[_]], F[_], M0[F[_], _, _, _], A0, B0](implicit TC0: TC[λ[α => M0[F, α, α, B0]]]): Unapply[TC, M0[F, A0, A0, B0]] {
     type M[X] = M0[F, X, X, B0]
@@ -120,7 +120,7 @@ sealed trait Unapply_3 extends Unapply_4 {
     }
 }
 
-sealed trait Unapply_2 extends Unapply_3 {
+sealed abstract class Unapply_2 extends Unapply_3 {
   // Things get tricky with type State[S, A] = StateT[Id, S, A], both unapplyMAB2 and unapplyMFAB2 are applicable
   // Without characterizing this fully, I'm using the standard implicit prioritization to avoid this.
 
@@ -149,7 +149,7 @@ sealed trait Unapply_2 extends Unapply_3 {
     }
 }
 
-sealed trait Unapply_1 extends Unapply_2 {
+sealed abstract class Unapply_1 extends Unapply_2 {
   /**Unpack a value of type `M0[A0, B0, C0, D0, E0, F0, G0]` into types `[g]M0[A0, B0, C0, D0, E0, F0, g]` and `G0`, given an instance of `TC` */
   implicit def unapplyMABCDEFG7[TC[_[_]], M0[_, _, _, _, _, _, _], A0, B0, C0, D0, E0, F0, G0](implicit TC0: TC[M0[A0, B0, C0, D0, E0, F0, ?]]): Unapply[TC, M0[A0, B0, C0, D0, E0, F0, G0]] {
     type M[X] = M0[A0, B0, C0, D0, E0, F0, X]
@@ -211,7 +211,7 @@ sealed trait Unapply_1 extends Unapply_2 {
     }
 }
 
-sealed trait Unapply_0 extends Unapply_1 {
+sealed abstract class Unapply_0 extends Unapply_1 {
   /** Unpack a value of type `M0[F0, A0]` where `F0: * -> *` into
     * types `[a]M0[F0, a]` and `A`, given an instance of `TC`
     */
@@ -298,7 +298,7 @@ trait Unapply2[TC[_[_, _]], MAB] {
   @inline final def apply(ma: MAB): M[A, B] = leibniz(ma)
 }
 
-sealed trait Unapply2_0 {
+sealed abstract class Unapply2_0 {
   /**Unpack a value of type `M0[F[_], A0, B0]` into types `[a, b]=M0[F, a, b]`, `A0`, and 'B9', given an instance of `TC` */
   implicit def unapplyMFAB[TC[_[_, _]], F[_], M0[F[_], _, _], A0, B0](implicit TC0: TC[M0[F, ?, ?]]): Unapply2[TC, M0[F, A0, B0]] {
     type M[X, Y] = M0[F, X, Y]
@@ -382,28 +382,46 @@ trait UnapplyProduct[TC[_[_]], MA, MB] {
 
 object UnapplyProduct {
   import Isomorphism.<~>
-  // This seems to motivate multiple implicit parameter sections. Is there another way?
-  // Currently, a type annotation in a parameter declaration may be path-dependent on a
-  // parameter from a previous parameter section, hence `iso` can't be in the first parameter
-  // section; which itself can't be implicit.
-  //
-  // There are two possible changes to Scalac that could help:
-  //
-  // 1. Allow multiple implicit parameter sections
-  // 2. Allow path-dependent parameter types to refer to the current (or even subsequent)
-  //    parameter sections.
-  //
-  //    A motivating example for #2 is in neg/depmet_try_implicit.scala
-  //
-  //    def foo[T, T2](a: T, x: T2)(implicit w: ComputeT2[T, T2]) // awkward, if you provide T you must also provide T2
-  //    def foo[T](a: T, x: w.T2)(implicit w: ComputeT2[T])       // more compact, and allows you to provide T1 and infer T2.
-  //
-  /*implicit */ def unapply[TC[_[_]], MA0, MB0](/*implicit */U1: Unapply[TC, MA0], U2: Unapply[TC, MB0])(implicit iso: U1.M <~> U2.M) = new UnapplyProduct[TC, MA0, MB0] {
-    type M[X] = U1.M[X]
-    type A = U1.A
-    type B = U2.A
-    def TC = U1.TC
-    def _1(ma: MA0) = U1(ma)
-    def _2(mb: MB0) = iso.from(U2(mb))
+
+  /** Fetch a well-typed `UnapplyProduct` for the given typeclass and types. */
+  def apply[TC[_[_]], MA, MB](implicit U: UnapplyProduct[TC, MA, MB]): U.type {
+    type M[A] = U.M[A]
+    type A = U.A
+    type B = U.B
+  } = U
+
+  /**
+   * This is a workaround that allows us to approximate multiple implicit
+   * parameter sections (which Scala does not currently support). See this gist
+   * by Miles Sabin for the original context:
+   *
+   *   https://gist.github.com/milessabin/cadd73b7756fe4097ca0
+   *
+   * The key idea is that we can use an intermediate type to capture the type
+   * members of the two `Unapply` instances in such a way that we can refer to
+   * them in the implicit parameter list.
+   */
+  case class SingletonOf[T, U <: { type A; type M[_] }](widen: T { type A = U#A; type M[x] = U#M[x] })
+
+  object SingletonOf {
+    implicit def mkSingletonOf[T <: { type A; type M[_] }](implicit t: T): SingletonOf[T, t.type] =
+      SingletonOf(t)
+  }
+
+  implicit def unapply[TC[_[_]], MA0, MB0, U1 <: { type A; type M[_] }, U2 <: { type A; type M[_] }](implicit
+    sU1: SingletonOf[Unapply[TC, MA0], U1],
+    sU2: SingletonOf[Unapply[TC, MB0], U2],
+    iso: U1#M <~> U2#M
+  ): UnapplyProduct[TC, MA0, MB0] {
+    type M[x] = U1#M[x]
+    type A = U1#A
+    type B = U2#A
+  } = new UnapplyProduct[TC, MA0, MB0] {
+    type M[x] = U1#M[x]
+    type A = U1#A
+    type B = U2#A
+    def TC = sU1.widen.TC
+    def _1(ma: MA0) = sU1.widen(ma)
+    def _2(mb: MB0) = iso.from(sU2.widen(mb))
   }
 }

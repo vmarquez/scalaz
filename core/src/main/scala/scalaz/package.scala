@@ -114,6 +114,7 @@ package object scalaz {
   type |>=|[G[_], F[_]] = MonadPartialOrder[G, F]
 
   type ReaderT[F[_], E, A] = Kleisli[F, E, A]
+  val ReaderT = Kleisli
   type =?>[E, A] = Kleisli[Option, E, A]
   type Reader[E, A] = ReaderT[Id, E, A]
 
@@ -134,7 +135,7 @@ package object scalaz {
 
   type StateT[F[_], S, A] = IndexedStateT[F, S, S, A]
   type IndexedState[-S1, S2, A] = IndexedStateT[Id, S1, S2, A]
-  /** A state transition, representing a function `S => (A, S)`. */
+  /** A state transition, representing a function `S => (S, A)`. */
   type State[S, A] = StateT[Id, S, A]
 
   object StateT extends StateTInstances with StateTFunctions {
@@ -200,7 +201,7 @@ package object scalaz {
    *
    * Useful for accumulating errors through the corresponding [[scalaz.Applicative]] instance.
    */
-  type ValidationNel[+E, +X] = Validation[NonEmptyList[E], X]
+  type ValidationNel[E, +X] = Validation[NonEmptyList[E], X]
 
   type FirstOf[A] = A @@ Tags.FirstVal
   type LastOf[A] = A @@ Tags.LastVal

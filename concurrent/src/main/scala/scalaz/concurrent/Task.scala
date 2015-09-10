@@ -1,13 +1,13 @@
 package scalaz.concurrent
 
-import java.util.concurrent.{ScheduledExecutorService, ConcurrentLinkedQueue, ExecutorService, Executors}
+import java.util.concurrent.{ScheduledExecutorService, ConcurrentLinkedQueue, ExecutorService}
 import java.util.concurrent.atomic.{AtomicBoolean, AtomicInteger}
 
-import scalaz.{Catchable, Maybe, MonadError, Nondeterminism, Reducer, Traverse, \/, -\/, \/-}
+import scalaz._
+import scalaz.Tags.Parallel
 import scalaz.syntax.monad._
 import scalaz.std.list._
 import scalaz.Free.Trampoline
-import scalaz.Trampoline
 import scalaz.\/._
 
 import collection.JavaConversions._
@@ -144,7 +144,7 @@ class Task[+A](val get: Future[Throwable \/ A]) {
   /**
    * Run this computation to obtain either a result or an exception, then
    * invoke the given callback. Any pure, non-asynchronous computation at the
-   * head of this `Future` will be forced in the calling thread. At the first
+   * head of this `Task` will be forced in the calling thread. At the first
    * `Async` encountered, control to whatever thread backs the `Async` and
    * this function returns immediately.
    */
@@ -154,7 +154,7 @@ class Task[+A](val get: Future[Throwable \/ A]) {
   /**
    * Run this `Task` and block until its result is available, or until
    * `timeoutInMillis` milliseconds have elapsed, at which point a `TimeoutException`
-   * will be thrown and the `Future` will attempt to be canceled.
+   * will be thrown and the `Task` will attempt to be canceled.
    */
   def runFor(timeoutInMillis: Long): A = get.runFor(timeoutInMillis) match {
     case -\/(e) => throw e
@@ -282,12 +282,12 @@ object Task {
       case \/-(f) => f
   }))
 
-  /** Create a `Future` that will evaluate `a` using the given `ExecutorService`. */
+  /** Create a `Task` that will evaluate `a` using the given `ExecutorService`. */
   def apply[A](a: => A)(implicit pool: ExecutorService = Strategy.DefaultExecutorService): Task[A] =
     new Task(Future(Try(a))(pool))
 
   /**
-   * Create a `Future` that starts evaluating `a` using the given `ExecutorService` right away.
+   * Create a `Task` that starts evaluating `a` using the given `ExecutorService` right away.
    * This will start executing side effects immediately, and is thus morally equivalent to
    * `unsafePerformIO`. The resulting `Task` cannot be rerun to repeat the effects.
    * Use with care.
@@ -296,24 +296,26 @@ object Task {
     new Task(Future(Task.Try(a))(pool).start)
 
   /**
-   * Returns a `Future` that produces the same result as the given `Future`,
+   * Returns a `Task` that produces the same result as the given `Future`,
    * but forks its evaluation off into a separate (logical) thread, using
    * the given `ExecutorService`. Note that this forking is only described
-   * by the returned `Future`--nothing occurs until the `Future` is run.
+   * by the returned `Task`--nothing occurs until the `Task` is run.
    */
   def fork[A](a: => Task[A])(implicit pool: ExecutorService = Strategy.DefaultExecutorService): Task[A] =
     apply(a).join
 
 
   /**
-   * Create a `Future` from an asynchronous computation, which takes the form
+   * Create a `Task` from an asynchronous computation, which takes the form
    * of a function with which we can register a callback. This can be used
    * to translate from a callback-based API to a straightforward monadic
-   * version. See `Task.async` for a version that allows for asynchronous
-   * exceptions.
+   * version.
    */
   def async[A](register: ((Throwable \/ A) => Unit) => Unit): Task[A] =
     new Task(Future.async(register))
+
+  def schedule[A](a: => A, delay: Duration)(implicit pool: ScheduledExecutorService =
+    Strategy.DefaultTimeoutScheduler): Task[A] = new Task(Future.schedule(Try(a), delay))
 
   /**
    * Like `Nondeterminism[Task].gatherUnordered`, but if `exceptionCancels` is true,
@@ -389,5 +391,15 @@ object Task {
 
   def fromDisjunction[A <: Throwable, B](x: A \/ B): Task[B] =
     x.fold(Task.fail, Task.now)
+
+  /** type for Tasks which need to be executed in parallel when using an Applicative instance */
+  type ParallelTask[A] = Task[A] @@ Parallel
+
+  /** This Applicative instance runs Tasks in parallel.
+   *
+   * It is different from the Applicative instance obtained from Monad[Task] which runs tasks sequentially.
+   */
+  implicit val taskParallelApplicativeInstance: Applicative[ParallelTask] =
+    taskInstance.parallel
 }
 

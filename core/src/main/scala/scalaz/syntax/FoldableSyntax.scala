@@ -19,6 +19,7 @@ final class FoldableOps[F[_],A] private[syntax](val self: F[A])(implicit val F: 
   final def foldRightM[G[_], B](z: => B)(f: (A, => B) => G[B])(implicit M: Monad[G]): G[B] = F.foldRightM(self, z)(f)
   final def foldLeftM[G[_], B](z: B)(f: (B, A) => G[B])(implicit M: Monad[G]): G[B] = F.foldLeftM(self, z)(f)
   final def foldMapM[G[_] : Monad, B : Monoid](f: A => G[B]): G[B] = F.foldMapM(self)(f)
+  final def findMapM[G[_] : Monad, B](f: A => G[Option[B]]): G[Option[B]] = F.findMapM(self)(f)
   final def fold(implicit A: Monoid[A]): A = F.fold(self)(A)
   final def foldr[B](z: => B)(f: A => (=> B) => B): B = F.foldr(self, z)(f)
   final def foldr1Opt(f: A => (=> A) => A): Option[A] = F.foldr1Opt(self)(f)
@@ -29,8 +30,10 @@ final class FoldableOps[F[_],A] private[syntax](val self: F[A])(implicit val F: 
   final def length: Int = F.length(self)
   final def index(n: Int): Option[A] = F.index(self, n)
   final def indexOr(default: => A, n: Int): A = F.indexOr(self, default, n)
-  final def sumr(implicit A: Monoid[A]): A = F.foldRight(self, A.zero)(A.append)
-  final def suml(implicit A: Monoid[A]): A = F.foldLeft(self, A.zero)(A.append(_, _))
+  final def sumr(implicit A: Monoid[A]): A = F.sumr(self)
+  final def sumr1Opt(implicit A: Semigroup[A]): Option[A] = F.sumr1Opt(self)
+  final def suml(implicit A: Monoid[A]): A = F.suml(self)
+  final def suml1Opt(implicit A: Semigroup[A]): Option[A] = F.suml1Opt(self)
   final def toList: List[A] = F.toList(self)
   final def toVector: Vector[A] = F.toVector(self)
   final def toSet: Set[A] = F.toSet(self)
@@ -66,7 +69,7 @@ final class FoldableOps[F[_],A] private[syntax](val self: F[A])(implicit val F: 
   final def sequence_[G[_], B](implicit ev: A === G[B], G: Applicative[G]): G[Unit] = F.sequence_(ev.subst[F](self))(G)
   final def sequenceS_[S, B](implicit ev: A === State[S,B]): State[S,Unit] = F.sequenceS_(ev.subst[F](self))
   def sequenceF_[M[_],B](implicit ev: F[A] <~< F[Free[M,B]]): Free[M, Unit] = F.sequenceF_(ev(self))
-  final def msuml[G[_], B](implicit ev: A === G[B], G: PlusEmpty[G]): G[B] = F.foldLeft(ev.subst[F](self), G.empty[B])(G.plus[B](_, _))
+  final def msuml[G[_], B](implicit ev: A === G[B], G: PlusEmpty[G]): G[B] = F.msuml(ev.subst[F](self))
   ////
 }
 

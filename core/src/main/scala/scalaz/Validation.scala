@@ -21,7 +21,7 @@ import scala.reflect.ClassTag
  *
  * def parseInt(s: String): Validation[String, Int] =
  *   try { Success(s.toInt) } catch { case ex: NumberFormatException => Failure(ex.getMessage) }
- * val V = Applicative[λ[α => ValidationNel[String, ?]]]
+ * val V = Applicative[ValidationNel[String, ?]]
  *
  * val x: ValidationNel[String, Int] =
  *   V.apply2(parseInt("1.x").toValidationNel, parseInt("1..0").toValidationNel)(_ * _)
@@ -130,7 +130,7 @@ sealed abstract class Validation[+E, +A] extends Product with Serializable {
   def ap[EE >: E, B](x: => Validation[EE, A => B])(implicit E: Semigroup[EE]): Validation[EE, B] = (this, x) match {
     case (Success(a), Success(f))   => Success(f(a))
     case (e @ Failure(_), Success(_)) => e
-    case (Success(f), e @ Failure(_)) => e
+    case (Success(_), e @ Failure(_)) => e
     case (Failure(e1), Failure(e2)) => Failure(E.append(e2, e1))
   }
 
@@ -303,7 +303,7 @@ sealed abstract class Validation[+E, +A] extends Product with Serializable {
   }
 
   /** Wraps the failure value in a [[scalaz.NonEmptyList]] */
-  def toValidationNel: ValidationNel[E, A] =
+  def toValidationNel[EE >: E, AA >: A]: ValidationNel[EE, AA] =
     this match {
       case a @ Success(_) => a
       case Failure(e) => Failure(NonEmptyList(e))
@@ -421,7 +421,7 @@ sealed abstract class ValidationInstances0 extends ValidationInstances1 {
   }
 }
 
-final class ValidationFlatMap[E, A] private[scalaz](val self: Validation[E, A]) {
+final class ValidationFlatMap[E, A] private[scalaz](val self: Validation[E, A]) extends AnyVal {
   /** Bind through the success of this validation. */
   def flatMap[EE >: E, B](f: A => Validation[EE, B]): Validation[EE, B] =
     self match {

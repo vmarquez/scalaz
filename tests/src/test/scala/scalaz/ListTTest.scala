@@ -25,6 +25,11 @@ object ListTTest extends SpecLite {
       val isEmpty = filtered.isEmpty
       isEmpty.toList.forall(identity)
   }
+
+  "find" ! forAll {
+    (ass: ListTOpt[Int]) =>
+      ass.find(_ > 0 ) must_===(OptionT.optionT(ass.run.map(_.find( _ > 0))))
+  }
   
   "drop" ! forAll {
     (ass: Option[List[Int]], x: Int) =>
@@ -52,6 +57,11 @@ object ListTTest extends SpecLite {
     val list = (0 to 400).toList.map(_ => (0 to 400).toList)
     ListT.fromList(list).map(_ * 2).toList must_===(list.map(_.map(_ * 2)))
     ()
+  }
+  
+  "listT" ! forAll {
+    (ass: Option[List[Int]]) =>
+      ListT.listT(ass).run == ass
   }
 
   checkAll(equal.laws[ListTOpt[Int]])

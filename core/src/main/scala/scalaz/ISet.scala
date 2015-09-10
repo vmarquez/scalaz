@@ -599,7 +599,7 @@ sealed abstract class ISetInstances {
       a union b
   }
 
-  implicit def setFoldable: Foldable[ISet] = new Foldable[ISet] {
+  implicit val setFoldable: Foldable[ISet] = new Foldable[ISet] {
     def foldMap[A, B](fa: ISet[A])(f: A => B)(implicit F: Monoid[B]): B =
       fa match {
         case Tip() =>
@@ -625,6 +625,20 @@ sealed abstract class ISetInstances {
 
     override def empty[A](fa: ISet[A]) =
       fa.isEmpty
+
+    override def any[A](fa: ISet[A])(f: A => Boolean) =
+      fa match {
+        case Tip() => false
+        case Bin(x, l, r) =>
+          any(l)(f) || f(x) || any(r)(f)
+      }
+
+    override def all[A](fa: ISet[A])(f: A => Boolean) =
+      fa match {
+        case Tip() => true
+        case Bin(x, l, r) =>
+          all(l)(f) && f(x) && all(r)(f)
+      }
   }
 }
 

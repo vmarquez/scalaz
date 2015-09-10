@@ -152,9 +152,9 @@ sealed abstract class IList[A] extends Product with Serializable {
 
   // no forall; use Foldable#all
 
-  def groupBy[K](f: A => K)(implicit ev: Order[K]): K ==>> IList[A] =
-    foldLeft(==>>.empty[K, IList[A]]) { (m, a) =>
-      m.alter(f(a), _.map(a :: _) orElse Some(single(a)))
+  def groupBy[K](f: A => K)(implicit ev: Order[K]): K ==>> NonEmptyList[A] =
+    foldLeft(==>>.empty[K, NonEmptyList[A]]) { (m, a) =>
+      m.alter(f(a), _.map(a <:: _) orElse Some(NonEmptyList(a)))
     } .map(_.reverse) // should we bother with this? we don't do it for groupBy1
 
   def groupBy1[K](f: A => K)(implicit ev: Order[K]): K ==>> OneAnd[IList, A] =
@@ -194,6 +194,16 @@ sealed abstract class IList[A] extends Product with Serializable {
 
   def inits: IList[IList[A]] =
     reverse.tails.map(_.reverse)
+
+  def interleave(that: IList[A]): IList[A] = {
+    @tailrec def loop(xs: IList[A], ys: IList[A], acc: IList[A]): IList[A] = xs match {
+      case ICons(h, t) =>
+        loop(ys, t, h :: acc)
+      case INil() =>
+        acc reverse_::: ys
+    }
+    loop(this, that, IList.empty[A])
+  }
 
   def intersperse(a: A): IList[A] = {
     @tailrec def intersperse0(accum: IList[A], rest: IList[A]): IList[A] = rest match {
@@ -235,11 +245,11 @@ sealed abstract class IList[A] extends Product with Serializable {
     as.foldLeft((c, IList.empty[B])) { case ((c, bs), a) => BFT.rightMap(f(c, a))(_ :: bs) }
 
   /** All of the `B`s, in order, and the final `C` acquired by a stateful left fold over `as`. */
-  def mapAccumLeft[B, C](c: C, f: (C, A) => (C, B)): (C, IList[B]) =
+  def mapAccumLeft[B, C](c: C)(f: (C, A) => (C, B)): (C, IList[B]) =
     BFT.rightMap(mapAccum(this)(c, f))(_.reverse)
 
   /** All of the `B`s, in order `as`-wise, and the final `C` acquired by a stateful right fold over `as`. */
-  final def mapAccumRight[B, C](c: C, f: (C, A) => (C, B)): (C, IList[B]) =
+  final def mapAccumRight[B, C](c: C)(f: (C, A) => (C, B)): (C, IList[B]) =
     mapAccum(reverse)(c, f)
 
   // no min/max; use Foldable#minimum, maximum, etc.
@@ -398,7 +408,7 @@ sealed abstract class IList[A] extends Product with Serializable {
     foldRight(Nil : List[A])(_ :: _)
 
   def toNel: Option[NonEmptyList[A]] =
-    uncons(None, (h, t) => Some(NonEmptyList.nel(h, t.toList)))
+    uncons(None, (h, t) => Some(NonEmptyList.nel(h, t)))
 
   def toMap[K, V](implicit ev0: A <~< (K, V), ev1: Order[K]): K ==>> V =
     widen[(K,V)].foldLeft(==>>.empty[K,V])(_ + _)
@@ -494,6 +504,13 @@ object IList extends IListInstances with IListFunctions{
     else go(n, empty)
   }
 
+  import Isomorphism._
+
+  val listIListIso: List <~> IList =
+    new IsoFunctorTemplate[List, IList] {
+      def to[A](fa: List[A]) = fromList(fa)
+      def from[A](fa: IList[A]) = fa.toList
+    }
 }
 
 sealed trait IListFunctions
@@ -598,10 +615,10 @@ sealed abstract class IListInstances extends IListInstance0 {
         fa.reverse
 
       override def mapAccumL[S, A, B](fa: IList[A], z: S)(f: (S, A) => (S, B)) =
-        fa.mapAccumLeft(z, f)
+        fa.mapAccumLeft(z)(f)
 
       override def mapAccumR[S, A, B](fa: IList[A], z: S)(f: (S, A) => (S, B)) =
-        fa.mapAccumRight(z, f)
+        fa.mapAccumRight(z)(f)
 
       override def any[A](fa: IList[A])(p: A => Boolean): Boolean = {
         @tailrec def loop(fa: IList[A]): Boolean = fa match {

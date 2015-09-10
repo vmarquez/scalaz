@@ -87,6 +87,15 @@ sealed abstract class EphemeralStream[A] {
       Monad[M].bind(p(hh))(if (_) Monad[M].point(Some(hh)) else tail() findM p)
     }
 
+  def findMapM[M[_]: Monad, B](f: A => M[Option[B]]): M[Option[B]] = {
+    if(isEmpty)
+      Monad[M].point(None)
+    else{
+      val hh = head()
+      Monad[M].bind(f(hh)) { case Some(b) => Monad[M].point(Some(b)); case None => tail() findMapM f }
+    }
+  }
+
   def reverse: EphemeralStream[A] = {
     def lcons(xs: => List[A])(x: => A) = x :: xs
     apply(foldLeft(Nil: List[A])(lcons _) : _*)
@@ -165,8 +174,9 @@ object EphemeralStream extends EphemeralStreamInstances with EphemeralStreamFunc
 
 sealed abstract class EphemeralStreamInstances {
   // TODO more instances
-  implicit val ephemeralStreamInstance: MonadPlus[EphemeralStream] with Zip[EphemeralStream] with Unzip[EphemeralStream] with Align[EphemeralStream] with Traverse[EphemeralStream] with Cobind[EphemeralStream] = new MonadPlus[EphemeralStream] with Zip[EphemeralStream] with Unzip[EphemeralStream] with Align[EphemeralStream] with Traverse[EphemeralStream] with Cobind[EphemeralStream] {
+  implicit val ephemeralStreamInstance: MonadPlus[EphemeralStream] with Zip[EphemeralStream] with Unzip[EphemeralStream] with Align[EphemeralStream] with Traverse[EphemeralStream] with Cobind[EphemeralStream] with IsEmpty[EphemeralStream] = new MonadPlus[EphemeralStream] with Zip[EphemeralStream] with Unzip[EphemeralStream] with Align[EphemeralStream] with Traverse[EphemeralStream] with Cobind[EphemeralStream] with IsEmpty[EphemeralStream] {
     import EphemeralStream._
+    override def isEmpty[A](fa: EphemeralStream[A]) = fa.isEmpty
     override def cojoin[A](a: EphemeralStream[A]): EphemeralStream[EphemeralStream[A]] = a match {
       case _ ##:: tl  => if (tl.isEmpty) EphemeralStream(a)
                          else cons(a, cojoin(tl))

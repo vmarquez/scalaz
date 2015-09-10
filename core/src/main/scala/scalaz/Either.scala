@@ -254,6 +254,18 @@ sealed abstract class \/[+A, +B] extends Product with Serializable {
     case -\/(_) => this
   }
 
+  /** Run the given function on the left and return right with the result. */
+  def recover[BB >: B](pf: PartialFunction[A, BB]): (A \/ BB) = this match {
+    case -\/(a) if (pf isDefinedAt a) => \/-(pf(a))
+    case _ => this
+  }
+
+  /** Run the given function on the left and return the result. */
+  def recoverWith[AA >: A, BB >: B](pf: PartialFunction[AA, AA \/ BB]): (AA \/ BB) = this match {
+    case -\/(a) if (pf isDefinedAt a) => pf(a)
+    case _ => this
+  }
+
   /** Compare two disjunction values for equality. */
   def ===[AA >: A, BB >: B](x: AA \/ BB)(implicit EA: Equal[AA], EB: Equal[BB]): Boolean =
     this match {
@@ -452,14 +464,14 @@ sealed abstract class DisjunctionInstances2 {
         a => \/.left(\/.left(a)),
         _.fold(
           b => \/.left(\/.right(b)),
-          \/.right(_)
+          \/.right
         )
       )
 
     def reassociateRight[A, B, C](f: \/[\/[A, B], C]) =
       f.fold(
         _.fold(
-          \/.left(_),
+          \/.left,
           b => \/.right(\/.left(b))
         ),
         c => \/.right(\/.right(c))

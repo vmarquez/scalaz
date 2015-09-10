@@ -20,6 +20,8 @@ final case class ListT[M[_], A](run: M[List[A]]){
 
   def headOption(implicit M: Functor[M]) : OptionT[M, A] = new OptionT(M.map(run)(_.headOption))
 
+  def find(predicate: A => Boolean)(implicit M: Functor[M]) : OptionT[M, A] = new OptionT(M.map(run)(_.find(predicate)))
+
   def headMaybe(implicit M: Functor[M]) : MaybeT[M, A] = new MaybeT(M.map(run)(l => Maybe.fromOption(l.headOption)))
   
   def tailM(implicit M: Applicative[M]) : M[ListT[M, A]] = M.map(uncons)(_.get._2)
@@ -102,13 +104,20 @@ sealed abstract class ListTInstances extends ListTInstances1 {
     new ListTHoist {}
 }
 
-object ListT extends ListTInstances {
+trait ListTFunctions {
+  def listT[M[_]]: (λ[α => M[List[α]]] ~> ListT[M, ?]) =
+    new (λ[α => M[List[α]]] ~> ListT[M, ?]) {
+      def apply[A](a: M[List[A]]) = new ListT[M, A](a)
+    }
+  
   def empty[M[_], A](implicit M: Applicative[M]): ListT[M, A] =
     new ListT[M, A](M.point(Nil))
 
   def fromList[M[_], A](mas: M[List[A]]): ListT[M, A] =
     new ListT(mas)
 }
+
+object ListT extends ListTInstances with ListTFunctions
 
 //
 // Implementation traits for type class instances

@@ -2,8 +2,6 @@ package scalaz
 
 import std.option.{none, some}
 
-import Free.Suspend
-
 /**
  * Inject type class as described in "Data types a la carte" (Swierstra 2008).
  *
@@ -35,8 +33,8 @@ sealed abstract class InjectInstances {
 }
 
 trait InjectFunctions {
-  def inject[F[_], G[_], A](ga: G[Free[F, A]])(implicit F: Functor[F], I: Inject[G, F]): Free[F, A] =
-    Suspend[F, A](I.inj(ga))
+  def inject[F[_], G[_], A](ga: G[Free[F, A]])(implicit I: Inject[G, F]): Free[F, A] =
+    Free[F, A](I.inj(ga))
 
   def match_[F[_], G[_], A](fa: Free[F, A])(implicit F: Functor[F], I: Inject[G, F]): Option[G[Free[F, A]]] =
     fa.resume.fold(I.prj(_), _ => none)

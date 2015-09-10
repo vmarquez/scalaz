@@ -45,8 +45,14 @@ trait Traverse1[F[_]] extends Traverse[F] with Foldable1[F] { self =>
   def traverse1[G[_], A, B](fa: F[A])(f: A => G[B])(implicit a: Apply[G]): G[F[B]] =
     traverse1Impl(fa)(f)
 
+  final def traverse1U[A, GB](fa: F[A])(f: A => GB)(implicit G: Unapply[Apply, GB]): G.M[F[G.A]] =
+    traverse1(fa)(G.leibniz.onF(f))(G.TC)
+
   def sequence1[G[_]:Apply,A](fga: F[G[A]]): G[F[A]] =
     traverse1Impl[G, G[A], A](fga)(identity)
+
+  final def sequence1U[GA](fga: F[GA])(implicit G: Unapply[Apply, GA]): G.M[F[G.A]] =
+    sequence1(G.leibniz.subst(fga))(G.TC)
 
   trait Traverse1Law extends TraverseLaw {
     /** Traversal through the [[scalaz.Id]] effect is equivalent to
@@ -63,7 +69,7 @@ trait Traverse1[F[_]] extends Traverse[F] with Foldable1[F] { self =>
                                                (implicit N: Apply[N], M: Apply[M], MN: Equal[M[N[F[C]]]]): Boolean = {
       type MN[A] = M[N[A]]
       val t1: MN[F[C]] = M.map(traverse1[M, A, B](fa)(amb))(fb => traverse1[N, B, C](fb)(bnc))
-      val t2: MN[F[C]] = traverse1[MN, A, C](fa)(a => M.map(amb(a))(b => bnc(b)))(M compose N)
+      val t2: MN[F[C]] = traverse1[MN, A, C](fa)(a => M.map(amb(a))(bnc))(M compose N)
       MN.equal(t1, t2)
     }
 

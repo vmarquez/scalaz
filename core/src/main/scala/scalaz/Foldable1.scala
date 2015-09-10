@@ -103,6 +103,15 @@ trait Foldable1[F[_]] extends Foldable[F] { self =>
   override def minimumOf[A, B: Order](fa: F[A])(f: A => B): Option[B] = Some(minimumOf1(fa)(f))
   override def minimumBy[A, B: Order](fa: F[A])(f: A => B): Option[A] = Some(minimumBy1(fa)(f))
 
+  def sumr1[A](fa: F[A])(implicit A: Semigroup[A]): A =
+    foldRight1(fa)(A.append)
+
+  def suml1[A](fa: F[A])(implicit A: Semigroup[A]): A =
+    foldLeft1(fa)(A.append(_, _))
+
+  def msuml1[G[_], A](fa: F[G[A]])(implicit G: Plus[G]): G[A] =
+    foldLeft1[G[A]](fa)(G.plus[A](_, _))
+
   /** Insert an `A` between every A, yielding the sum. */
   def intercalate1[A](fa: F[A], a: A)(implicit A: Semigroup[A]): A =
     foldLeft1(fa)((x, y) => A.append(x, A.append(a, y)))
@@ -127,7 +136,7 @@ trait Foldable1[F[_]] extends Foldable[F] { self =>
     }
 
   def toNel[A](fa: F[A]): NonEmptyList[A] =
-    foldMapRight1(fa)(NonEmptyList.nel(_, Nil))(_ <:: _)
+    foldMapRight1(fa)(NonEmptyList.nel(_, INil()))(_ <:: _)
 
   trait Foldable1Law extends FoldableLaw {
     import std.vector._

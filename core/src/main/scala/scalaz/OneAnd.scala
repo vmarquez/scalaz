@@ -107,7 +107,7 @@ private sealed trait OneAndTraverse[F[_]] extends Traverse1[OneAnd[F, ?]] with O
   def F: Traverse[F]
 
   def traverse1Impl[G[_],A,B](fa: OneAnd[F, A])(f: A => G[B])(implicit G: Apply[G]) =
-    G.applyApplicative.traverse(fa.tail)(a => -\/(f(a)))(F)
+    G.applyApplicative.traverse(fa.tail)(f andThen \/.left)(F)
      .fold(ftl => G.apply2(f(fa.head), ftl)(OneAnd.apply),
            tl => G.map(f(fa.head))(OneAnd(_, tl)))
 
@@ -233,8 +233,11 @@ sealed abstract class OneAndInstances extends OneAndInstances0 {
 
   implicit def oneAndZip[F[_]: Zip]: Zip[OneAnd[F, ?]] =
     new Zip[OneAnd[F, ?]] {
-      def zip[A, B](a: => OneAnd[F, A], b: => OneAnd[F, B]) =
-        OneAnd((a.head, b.head), Zip[F].zip(a.tail, b.tail))
+      def zip[A, B](a: => OneAnd[F, A], b: => OneAnd[F, B]) = {
+        val a0 = a
+        val b0 = b
+        OneAnd((a0.head, b0.head), Zip[F].zip(a0.tail, b0.tail))
+      }
     }
 
   implicit def oneAndUnzip[F[_]: Unzip]: Unzip[OneAnd[F, ?]] =
@@ -254,7 +257,7 @@ trait OneAndFunctions {
 
   val oneAndNelIso: NonEmptyList <~> OneAnd[List, ?] =
     new IsoFunctorTemplate[NonEmptyList, OneAnd[List, ?]] {
-      def to[A](fa: NonEmptyList[A]) = OneAnd(fa.head, fa.tail)
-      def from[A](ga: OneAnd[List, A]) = NonEmptyList.nel(ga.head, ga.tail)
+      def to[A](fa: NonEmptyList[A]) = OneAnd(fa.head, fa.tail.toList)
+      def from[A](ga: OneAnd[List, A]) = NonEmptyList.nel(ga.head, IList.fromList(ga.tail))
     }
 }

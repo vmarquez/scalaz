@@ -9,8 +9,7 @@ import java.awt.Desktop
 import scala.collection.immutable.IndexedSeq
 
 import sbtrelease._
-import sbtrelease.ReleasePlugin._
-import sbtrelease.ReleasePlugin.ReleaseKeys._
+import sbtrelease.ReleasePlugin.autoImport._
 import sbtrelease.ReleaseStateTransformations._
 import sbtrelease.Utilities._
 
@@ -19,7 +18,7 @@ import com.typesafe.sbt.pgp.PgpKeys._
 import com.typesafe.sbt.osgi.OsgiKeys
 import com.typesafe.sbt.osgi.SbtOsgi._
 
-import sbtbuildinfo.Plugin._
+import sbtbuildinfo.BuildInfoPlugin.autoImport._
 
 import sbtunidoc.Plugin._
 import sbtunidoc.Plugin.UnidocKeys._
@@ -43,26 +42,31 @@ object build extends Build {
     enableCrossBuild = true
   )
 
-  def scalaCheckVersion = "1.11.6"
+  val scalaCheckVersion = SettingKey[String]("scalaCheckVersion")
 
   private def gitHash = sys.process.Process("git rev-parse HEAD").lines_!.head
 
-  lazy val standardSettings: Seq[Sett] = Defaults.defaultSettings ++ sbtrelease.ReleasePlugin.releaseSettings ++ Seq[Sett](
+  // no generic signatures for scala 2.10.x, see SI-7932, #571 and #828
+  def scalac210Options = Seq("-Yno-generic-signatures")
+
+  lazy val standardSettings: Seq[Sett] = Seq[Sett](
     organization := "org.scalaz",
 
-    scalaVersion := "2.10.4",
-    crossScalaVersions := Seq("2.10.4", "2.11.5"),
+    scalaVersion := "2.10.5",
+    crossScalaVersions := Seq("2.10.5", "2.11.7", "2.12.0-M2"),
     resolvers ++= (if (scalaVersion.value.endsWith("-SNAPSHOT")) List(Opts.resolver.sonatypeSnapshots) else Nil),
+    scalaCheckVersion := "1.12.4",
     scalacOptions ++= Seq(
       // contains -language:postfixOps (because 1+ as a parameter to a higher-order function is treated as a postfix op)
-      // no generic signatures, see SI-7932 and #571
       "-deprecation",
       "-encoding", "UTF-8",
       "-feature",
       "-language:implicitConversions", "-language:higherKinds", "-language:existentials", "-language:postfixOps",
-      "-unchecked",
-      "-Yno-generic-signatures"
-    ),
+      "-unchecked"
+    ) ++ (CrossVersion.partialVersion(scalaVersion.value) match {
+      case Some((2,10)) => scalac210Options
+      case _ => Nil
+    }),
 
     scalacOptions in (Compile, doc) <++= (baseDirectory in LocalProject("scalaz"), version) map { (bd, v) =>
       val tagOrBranch = if(v endsWith "SNAPSHOT") gitHash else ("v" + v)
@@ -130,7 +134,7 @@ object build extends Build {
         <licenses>
           <license>
             <name>BSD-style</name>
-            <url>http://www.opensource.org/licenses/bsd-license.php</url>
+            <url>http://opensource.org/licenses/BSD-3-Clause</url>
             <distribution>repo</distribution>
           </license>
         </licenses>
@@ -164,7 +168,7 @@ object build extends Build {
       ),
     // kind-projector plugin
     resolvers += "bintray/non" at "http://dl.bintray.com/non/maven",
-    addCompilerPlugin("org.spire-math" % "kind-projector" % "0.5.2"  cross CrossVersion.binary)
+    addCompilerPlugin("org.spire-math" % "kind-projector" % "0.6.1" cross CrossVersion.binary)
   ) ++ osgiSettings ++ Seq[Sett](
     OsgiKeys.additionalHeaders := Map("-removeheaders" -> "Include-Resource,Private-Package")
   )
@@ -182,19 +186,18 @@ object build extends Build {
   lazy val core = Project(
     id = "core",
     base = file("core"),
-    settings = standardSettings ++ buildInfoSettings ++ Seq[Sett](
+    settings = standardSettings ++ Seq[Sett](
       name := "scalaz-core",
       typeClasses := TypeClass.core,
       sourceGenerators in Compile <+= (sourceManaged in Compile) map {
         dir => Seq(GenerateTupleW(dir))
       },
-      sourceGenerators in Compile <+= buildInfo,
       buildInfoKeys := Seq[BuildInfoKey](version, scalaVersion),
       buildInfoPackage := "scalaz",
       osgiExport("scalaz"),
       OsgiKeys.importPackage := Seq("javax.swing;resolution:=optional", "*")
     )
-  )
+  ).enablePlugins(sbtbuildinfo.BuildInfoPlugin)
 
   lazy val concurrent = Project(
     id = "concurrent",
@@ -245,7 +248,7 @@ object build extends Build {
     dependencies = Seq(core, concurrent, iteratee),
     settings     = standardSettings ++ Seq[Sett](
       name := "scalaz-scalacheck-binding",
-      libraryDependencies += "org.scalacheck" %% "scalacheck" % scalaCheckVersion,
+      libraryDependencies += "org.scalacheck" %% "scalacheck" % scalaCheckVersion.value,
       osgiExport("scalaz.scalacheck")
     )
   )
@@ -257,7 +260,7 @@ object build extends Build {
     settings = standardSettings ++Seq[Sett](
       name := "scalaz-tests",
       publishArtifact := false,
-      libraryDependencies += "org.scalacheck" %% "scalacheck" % scalaCheckVersion % "test"
+      libraryDependencies += "org.scalacheck" %% "scalacheck" % scalaCheckVersion.value % "test"
     )
   )
 

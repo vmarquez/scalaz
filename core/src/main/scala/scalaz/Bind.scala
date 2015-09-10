@@ -36,11 +36,22 @@ trait Bind[F[_]] extends Apply[F] { self =>
     lazy val f = ifFalse
     bind(value)(if(_) t else f)
   }
-    
+
   /**
    * Repeats a monadic action infinitely
    */
   def forever[A, B](fa: F[A]): F[B] = bind(fa)(_ => forever(fa))
+
+  /** Pair `A` with the result of function application. */
+  def mproduct[A, B](fa: F[A])(f: A => F[B]): F[(A, B)] =
+    bind(fa)(a => map(f(a))((a, _)))
+
+  /**The product of Bind `F` and `G`, `[x](F[x], G[x]])`, is a Bind */
+  def product[G[_]](implicit G0: Bind[G]): Bind[λ[α => (F[α], G[α])]] =
+    new ProductBind[F, G] {
+      def F = self
+      def G = G0
+    }
 
   trait BindLaw extends ApplyLaw {
     /**

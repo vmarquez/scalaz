@@ -88,7 +88,7 @@ final case class EitherT[F[_], A, B](run: F[A \/ B]) {
 
   /** Bind the inner monad through the right of this disjunction. */
   def flatMapF[C](f: B => F[A \/ C])(implicit F: Monad[F]): EitherT[F, A, C] =
-    EitherT(F.bind(run)(_.fold(a => F.point(-\/(a): (A \/ C)), b => f(b))))
+    EitherT(F.bind(run)(_.fold(a => F.point(-\/(a): (A \/ C)), f)))
 
   /** Fold on the right of this disjunction. */
   def foldRight[Z](z: => Z)(f: (B, => Z) => Z)(implicit F: Foldable[F]): Z =
@@ -214,6 +214,28 @@ object EitherT extends EitherTInstances with EitherTFunctions {
   def right[F[_], A, B](b: F[B])(implicit F: Functor[F]): EitherT[F, A, B] =
     apply(F.map(b)(\/.right))
 
+  def leftU[B]: EitherTLeft[B] =
+    new EitherTLeft[B](true)
+
+  /**
+   * @example {{{
+   * val a: String \/ Int = \/-(1)
+   * val b: EitherT[({type l[a] = String \/ a})#l, Boolean, Int] = EitherT.rightU[Boolean](a)
+   * }}}
+   */
+  def rightU[A]: EitherTRight[A] =
+    new EitherTRight[A](true)
+
+  private[scalaz] final class EitherTLeft[B](val dummy: Boolean) extends AnyVal {
+    def apply[FA](fa: FA)(implicit F: Unapply[Functor, FA]): EitherT[F.M, F.A, B] =
+      left[F.M, F.A, B](F(fa))(F.TC)
+  }
+
+  private[scalaz] final class EitherTRight[A](val dummy: Boolean) extends AnyVal {
+    def apply[FB](fb: FB)(implicit F: Unapply[Functor, FB]): EitherT[F.M, A, F.A] =
+      right[F.M, A, F.A](F(fb))(F.TC)
+  }
+
   /** Construct a disjunction value from a standard `scala.Either`. */
   def fromEither[F[_], A, B](e: F[Either[A, B]])(implicit F: Functor[F]): EitherT[F, A, B] =
     apply(F.map(e)(_ fold (\/.left, \/.right)))
@@ -303,6 +325,17 @@ sealed abstract class EitherTInstances extends EitherTInstances0 {
 
 trait EitherTFunctions {
   def eitherT[F[_], A, B](a: F[A \/ B]): EitherT[F, A, B] = EitherT[F, A, B](a)
+
+  def fromDisjunction[F[_]]: FromDisjunctionAux[F] = new FromDisjunctionAux
+
+  final class FromDisjunctionAux[F[_]] private[EitherTFunctions] {
+    def apply[A, B](a: A \/ B)(implicit F: Applicative[F]): EitherT[F, A, B] =
+      eitherT(F.point(a))
+  }
+
+  def eitherTU[FAB, AB, A0, B0](fab: FAB)(
+    implicit u1: Unapply[Functor, FAB]{type A = AB}, u2: Unapply2[Bifunctor, AB]{type A = A0; type B = B0}, l: Leibniz.===[AB, A0 \/ B0])
+      : EitherT[u1.M, A0, B0] = eitherT(l.subst[u1.M](u1(fab)))
 
   def monadTell[F[_, _], W, A](implicit MT0: MonadTell[F, W]): EitherTMonadTell[F, W, A] = new EitherTMonadTell[F, W, A]{
     def MT = MT0

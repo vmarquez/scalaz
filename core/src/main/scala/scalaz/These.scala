@@ -138,8 +138,8 @@ sealed abstract class \&/[+A, +B] extends Product with Serializable {
 
   def traverse[F[_]: Applicative, AA >: A, D](g: B => F[D]): F[AA \&/ D] =
     this match {
-      case This(a) =>
-        Applicative[F].point(This(a))
+      case a @ This(_) =>
+        Applicative[F].point(a)
       case That(b) =>
         Functor[F].map(g(b))(That(_))
       case Both(a, b) =>
@@ -151,8 +151,8 @@ sealed abstract class \&/[+A, +B] extends Product with Serializable {
 
   def flatMap[AA >: A, D](g: B => (AA \&/ D))(implicit M: Semigroup[AA]): (AA \&/ D) =
     this match {
-      case This(a) =>
-        This(a)
+      case a @ This(_) =>
+        a
       case That(b) =>
         g(b)
       case Both(a, b) =>
@@ -360,6 +360,39 @@ sealed abstract class TheseInstances0 extends TheseInstances1 {
         fab.bitraverse(f, g)
     }
 
+  implicit final def TheseOrder[A, B](implicit A: Order[A], B: Order[B]): Order[A \&/ B] =
+    new Order[A \&/ B] {
+      override def equal(x: A \&/ B, y: A \&/ B) =
+        x === y
+      override def order(x: A \&/ B, y: A \&/ B) = x match {
+        case \&/.This(a1) =>
+          y match {
+            case \&/.This(a2) =>
+              A.order(a1, a2)
+            case _ =>
+              Ordering.GT
+          }
+        case \&/.That(b1) =>
+          y match {
+            case \&/.That(b2) =>
+              B.order(b1, b2)
+            case _ =>
+              Ordering.LT
+          }
+        case \&/.Both(a1, b1) =>
+          y match {
+            case \&/.Both(a2, b2) =>
+              A.order(a1, a2) match {
+                case Ordering.EQ => B.order(b1, b2)
+                case o => o
+              }
+            case \&/.This(_) =>
+              Ordering.LT
+            case \&/.That(_) =>
+              Ordering.GT
+          }
+      }
+    }
 }
 
 sealed abstract class TheseInstances1 {

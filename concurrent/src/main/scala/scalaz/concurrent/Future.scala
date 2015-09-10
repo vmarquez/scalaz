@@ -4,12 +4,11 @@ import java.util.concurrent.{Callable, ConcurrentLinkedQueue, CountDownLatch, Ex
 import java.util.concurrent.atomic.{AtomicInteger, AtomicBoolean, AtomicReference}
 
 import collection.JavaConversions._
+import scalaz.Tags.Parallel
 
-import scalaz.{Nondeterminism, Reducer}
+import scalaz._
 import scalaz.Free.Trampoline
-import scalaz.Trampoline
 import scalaz.syntax.monad._
-import scalaz.{\/, -\/, \/-}
 
 import scala.concurrent.SyncVar
 import scala.concurrent.duration._
@@ -183,7 +182,7 @@ sealed abstract class Future[+A] {
     runAsyncInterruptibly(a => sync.put(\/-(a)), interrupt)
     sync.get(timeoutInMillis).getOrElse {
       interrupt.set(true)
-      -\/(new TimeoutException())
+      -\/(new TimeoutException(s"Timed out after $timeoutInMillis milliseconds"))
     }
   }
 
@@ -204,7 +203,7 @@ sealed abstract class Future[+A] {
         def run() { 
           if (done.compareAndSet(false,true)) {
             cancel.set(true)
-            cb(-\/(new TimeoutException()))
+            cb(-\/(new TimeoutException(s"Timed out after $timeoutInMillis milliseconds")))
           } 
         }
       }
@@ -324,6 +323,17 @@ object Future {
       }
     }
   }
+
+  /** type for Futures which need to be executed in parallel when using an Applicative instance */
+  type ParallelFuture[A] = Future[A] @@ Parallel
+
+  /**
+   * This Applicative instance runs Futures in parallel.
+   *
+   * It is different from the Applicative instance obtained from Monad[Future] which runs futures sequentially.
+   */
+  implicit val futureParallelApplicativeInstance: Applicative[ParallelFuture] =
+    futureInstance.parallel
 
   /** Convert a strict value to a `Future`. */
   def now[A](a: A): Future[A] = Now(a)
