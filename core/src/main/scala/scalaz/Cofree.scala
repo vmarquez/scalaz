@@ -63,11 +63,11 @@ sealed abstract class Cofree[S[_], A] {
     applyCofree(x => b, g)
 
   /** Applies a function `f` to a value in this comonad and a corresponding value in the dual monad, annihilating both. */
-  final def zapWith[G[_], B, C](bs: Free[G, B])(f: (A, B) => C)(implicit S: Functor[S], G: Functor[G], d: Zap[S, G]): C =
+  final def zapWith[G[_], B, C](bs: Free[G, B])(f: (A, B) => C)(implicit G: Functor[G], d: Zap[S, G]): C =
     Zap.comonadMonadZap.zapWith(this, bs)(f)
 
   /** Applies a function in a monad to the corresponding value in this comonad, annihilating both. */
-  final def zap[G[_], B](fs: Free[G, A => B])(implicit S: Functor[S], G: Functor[G], d: Zap[S, G]): B =
+  final def zap[G[_], B](fs: Free[G, A => B])(implicit G: Functor[G], d: Zap[S, G]): B =
     zapWith(fs)((a, f) => f(a))
 }
 
@@ -222,7 +222,7 @@ private trait CofreeZipApply[F[_]] extends Apply[CofreeZip[F, ?]] with CofreeZip
 private trait CofreeZipApplicative[F[_]] extends Applicative[CofreeZip[F, ?]] with CofreeZipApply[F]{
   implicit def F: Applicative[F]
 
-  def point[A](a: => A) = CofreeZip[F, A](a, F.point(Tag.unwrap[Cofree[F, A], Tags.Zip](point(a))))
+  def point[A](a: => A) = Tags.Zip(Cofree.delay(a, F.point(Tag.unwrap[Cofree[F, A], Tags.Zip](point(a)))))
 }
 
 private trait CofreeBind[F[_]] extends Bind[Cofree[F, ?]] with CofreeComonad[F]{

@@ -96,30 +96,86 @@ object ScalazArbitrary {
   import scalaz.Ordering._
   implicit val OrderingArbitrary: Arbitrary[Ordering] = Arbitrary(oneOf(LT, EQ, GT))
 
-  implicit def TreeArbitrary[A: Arbitrary]: Arbitrary[Tree[A]] = Arbitrary {
-  import scalaz.Tree._
-    def tree(n: Int): Gen[Tree[A]] = n match {
-      case 0 => arbitrary[A] map (leaf(_))
-      case _ => {
-        val nextSize = n.abs / 2
-        Apply[Gen].apply2(arbitrary[A], resize(nextSize, containerOf[Stream, Tree[A]](Arbitrary(tree(nextSize)).arbitrary)))(node(_, _))
+  private[this] def withSize[A](size: Int)(f: Int => Gen[A]): Gen[Stream[A]] = {
+    Applicative[Gen].sequence(
+      Stream.fill(size)(Gen.choose(1, size))
+    ).flatMap { s =>
+      val ns = Traverse[Stream].traverseS(s) { n =>
+        for {
+          sum <- State.get[Int]
+          r <- if (sum >= size) {
+            State.state[Int, Option[Int]](None)
+          } else if ((sum + n) > size) {
+            State((s: Int) => (s + n) -> Option(size - sum))
+          } else {
+            State((s: Int) => (s + n) -> Option(n))
+          }
+        } yield r
+      }.eval(0).flatten
+
+      Applicative[Gen].sequence(ns.map(f))
+    }
+  }
+
+  private[scalaz] def treeGenSized[A: NotNothing](size: Int)(implicit A: Arbitrary[A]): Gen[Tree[A]] =
+    size match {
+      case n if n <= 1 =>
+        A.arbitrary.map(a => Tree.leaf(a))
+      case 2 =>
+        arb[(A, A)].arbitrary.map{ case (a1, a2) =>
+          Tree.node(a1, Stream(Tree.leaf(a2)))
+        }
+      case 3 =>
+        arb[(A, A, A)].arbitrary.flatMap{ case (a1, a2, a3) =>
+          Gen.oneOf(
+            Tree.node(a1, Stream(Tree.leaf(a2), Tree.leaf(a3))),
+            Tree.node(a1, Stream(Tree.node(a2, Stream(Tree.leaf(a3)))))
+          )
+        }
+      case _ =>
+        withSize(size - 1)(treeGenSized[A]).flatMap{ as =>
+          A.arbitrary.map(a => Tree.node(a, as))
+        }
+    }
+
+  implicit def TreeArbitrary[A: Arbitrary]: Arbitrary[Tree[A]] =
+    Arbitrary(Gen.sized(n =>
+      Gen.choose(1, n).flatMap(treeGenSized[A])
+    ))
+
+  private[scalaz] def treeLocGenSized[A: NotNothing](size: Int)(implicit A: Arbitrary[A]): Gen[TreeLoc[A]] = {
+    def forest(n: Int): Gen[TreeLoc.TreeForest[A]] =
+      withSize(n)(treeGenSized[A])
+
+    val parent: Int => Gen[TreeLoc.Parent[A]] = { n =>
+      Gen.choose(0, n - 1).flatMap { x1 =>
+        Apply[Gen].tuple3(
+          forest(x1), A.arbitrary, forest(n - x1 - 1)
+        )
       }
     }
-    Gen.sized(tree _)
+
+    for{
+      a <- Gen.choose(1, size)
+      b = size - a
+      aa <- Gen.choose(1, a)
+      ba <- Gen.choose(0, b)
+      t <- Apply[Gen].apply4(
+        treeGenSized[A](aa),
+        forest(a - aa),
+        forest(ba),
+        withSize(b - ba)(parent)
+      )(TreeLoc.apply[A])
+    } yield t
   }
 
   implicit def IterableArbitrary[A: Arbitrary]: Arbitrary[Iterable[A]] =
       Apply[Arbitrary].apply2[A, List[A], Iterable[A]](arb[A], arb[List[A]])((a, list) => a :: list)
 
-  // could not use type alias `TreeLoc.Parents` and `TreeLoc.TreeForest`.
-  // https://github.com/scalaz/scalaz/pull/527#discussion_r6315123
   implicit def TreeLocArbitrary[A: Arbitrary]: Arbitrary[TreeLoc[A]] =
-    Apply[Arbitrary].apply4(
-      arb[Tree[A]],
-      arb[Stream[Tree[A]]],
-      arb[Stream[Tree[A]]],
-      arb[Stream[(Stream[Tree[A]], A, Stream[Tree[A]])]]
-    )(TreeLoc.loc)
+    Arbitrary(Gen.sized(n =>
+      Gen.choose(0, n).flatMap(treeLocGenSized[A])
+    ))
 
   implicit def DisjunctionArbitrary[A: Arbitrary, B: Arbitrary]: Arbitrary[A \/ B] =
     Functor[Arbitrary].map(arb[Either[A, B]]) {

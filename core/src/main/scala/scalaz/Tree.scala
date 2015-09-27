@@ -131,7 +131,7 @@ sealed abstract class Tree[A] {
 }
 
 sealed abstract class TreeInstances {
-  implicit val treeInstance: Traverse1[Tree] with Monad[Tree] with Comonad[Tree] with Align[Tree] = new Traverse1[Tree] with Monad[Tree] with Comonad[Tree] with Align[Tree] {
+  implicit val treeInstance: Traverse1[Tree] with Monad[Tree] with Comonad[Tree] with Align[Tree] with Zip[Tree] = new Traverse1[Tree] with Monad[Tree] with Comonad[Tree] with Align[Tree] with Zip[Tree] {
     def point[A](a: => A): Tree[A] = Tree.leaf(a)
     def cobind[A, B](fa: Tree[A])(f: Tree[A] => B): Tree[B] = fa cobind f
     def copoint[A](p: Tree[A]): A = p.rootLabel
@@ -157,13 +157,30 @@ sealed abstract class TreeInstances {
         })(ta.subForest, tb.subForest))
       align _
     }
-  }
-
-  implicit def treeEqual[A](implicit A: Equal[A]): Equal[Tree[A]] = new Equal[Tree[A]] {
-    def equal(a1: Tree[A], a2: Tree[A]): Boolean = {
-      A.equal(a1.rootLabel, a2.rootLabel) && a1.subForest.corresponds(a2.subForest)(equal _)
+    def zip[A, B](aa: => Tree[A], bb: => Tree[B]) = {
+      val a = aa
+      val b = bb
+      Tree.node(
+        (a.rootLabel, b.rootLabel),
+        Zip[Stream].zipWith(a.subForest, b.subForest)(zip(_, _))
+      )
     }
   }
+
+  implicit def treeEqual[A](implicit A0: Equal[A]): Equal[Tree[A]] =
+    new TreeEqual[A] { def A = A0 }
+
+  implicit def treeOrder[A](implicit A0: Order[A]): Order[Tree[A]] =
+    new Order[Tree[A]] with TreeEqual[A] {
+      def A = A0
+      import std.stream._
+      override def order(x: Tree[A], y: Tree[A]) =
+        A.order(x.rootLabel, y.rootLabel) match {
+          case Ordering.EQ =>
+            Order[Stream[Tree[A]]].order(x.subForest, y.subForest)
+          case x => x
+        }
+    }
 
   /* TODO
   def applic[A, B](f: Tree[A => B]) = a => Tree.node((f.rootLabel)(a.rootLabel), implicitly[Applic[newtypes.ZipStream]].applic(f.subForest.map(applic[A, B](_)).ʐ)(a.subForest ʐ).value)
@@ -196,4 +213,10 @@ object Tree extends TreeInstances {
     f(v) match {
       case (a, bs) => node(a, unfoldForest(bs.apply())(f))
     }
+}
+
+private trait TreeEqual[A] extends Equal[Tree[A]] {
+  def A: Equal[A]
+  override final def equal(a1: Tree[A], a2: Tree[A]) =
+    A.equal(a1.rootLabel, a2.rootLabel) && a1.subForest.corresponds(a2.subForest)(equal _)
 }
