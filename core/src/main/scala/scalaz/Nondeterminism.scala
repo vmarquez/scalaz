@@ -62,6 +62,8 @@ trait Nondeterminism[F[_]] extends Monad[F] { self =>
 
   def chooseAny[A](head: F[A], tail: Seq[F[A]]): F[(A, Seq[F[A]])]
 
+  def chooseAnyG[G[_], A](head: F[A], tail: G[F[A]]): F[(A, G[F[A]])] = ???
+
   // derived functions
 
   /**

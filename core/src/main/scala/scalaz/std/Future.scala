@@ -33,6 +33,25 @@ private class FutureInstance(implicit ec: ExecutionContext) extends Nondetermini
   override def map[A, B](fa: Future[A])(f: A => B): Future[B] = fa map f
   def cobind[A, B](fa: Future[A])(f: Future[A] => B): Future[B] = Future(f(fa))
   override def cojoin[A](a: Future[A]): Future[Future[A]] = Future(a)
+  
+  override def chooseAnyG[G[_], A](head: Future[A], tail: G[Future[A]])(implicit G: Traverse[G]): Future[(A, G[Future[A]])] = {
+    val counter = new AtomicInteger(1+G.foldLeft(tail, 0)((b, _) => b+1)) //h + tail
+    val result = Promise[(A, Int)]()
+    def attemptComplete(t: Try[(A, Int)]): Unit = {
+      val remaining = counter.decrementAndGet
+      t match {
+        case TSuccess(_) => result tryComplete t
+        case _ if remaining == 0 => result tryComplete t
+        case _ =>
+      }
+    }
+    head.onComplete(t => attemptComplete(t.map(a => (a, 0))))
+    
+    val indexed = G.indexed(tail)
+
+    G.map(indexed) { case (i, fa) => fa.onComplete { t => attemptComplete(t.map(_ -> i)) } }
+    //result.future.map { case (a, i) => (a
+  }
 
   def chooseAny[A](head: Future[A], tail: Seq[Future[A]]): Future[(A, Seq[Future[A]])] = {
     val fs = (head +: tail).iterator.zipWithIndex.toIndexedSeq
