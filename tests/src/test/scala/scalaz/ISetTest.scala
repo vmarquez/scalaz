@@ -11,7 +11,7 @@ object ISetTest extends SpecLite {
   import std.list._
   import std.option._
   import std.tuple._
-
+  //import scalaz.Cofoldable
   import ISet._
 
   // Check some laws
@@ -19,6 +19,7 @@ object ISetTest extends SpecLite {
   checkAll(order.laws[ISet[Int]])
   checkAll(monoid.laws[ISet[Int]])
   checkAll(foldable.laws[ISet])
+  checkAll(cofoldable.laws[ISet, Int]) 
   checkAll(FoldableTests.anyAndAllLazy[ISet])
 
   def structurallySound[A: Order: Show](s: ISet[A]) = {
