@@ -31,18 +31,23 @@ trait Cofoldable[F[_], A] {
       val tol: F[A] => IList[A] = (fa: F[A]) => G.fromIList(F.toIList(fa)).map(F.toIList(_)).getOrElse(IList[A]())
       E.equal(tol(fa), F.toIList(fa)) 
     }
+
+    def fromListWeakIdempotence[F[_], A](fa: F[A])(implicit F: Foldable[F], G: Cofoldable[F, A], E: Equal[Option[F[A]]]): Boolean = {
+      val fl: IList[A] => Option[F[A]] = (il: IList[A]) => G.fromIList(G.fromIList(il).map(F.toIList(_)).getOrElse(IList[A]()))
+      E.equal(fl(F.toIList(fa)), G.fromIList(F.toIList(fa))) 
+    }
   }
   
   val cofoldLaw = new CofoldLaw {}
 
 }
 
-object Cofold {
+object Cofoldable extends Instances {
   @inline def apply[F[_], A](implicit F: Cofoldable[F, A]): Cofoldable[F, A] = F
 
 }
 
-object Instances {
+trait Instances {
 
   implicit def listCofoldable[A](implicit l: IList[A]): Cofoldable[IList, A] = new Cofoldable[IList, A] {
     def build[B](b: B)(f: B => (A, Option[B])): IList[A] = {
@@ -83,7 +88,7 @@ object Instances {
     }
   }
 
-  def ISetCofoldable[A](implicit is: ISet[A], o: Order[A]): Cofoldable[ISet, A] = new Cofoldable[ISet, A] {
+  implicit def ISetCofoldable[A](implicit o: Order[A]): Cofoldable[ISet, A] = new Cofoldable[ISet, A] {
     def build[B](b: B)(f: B => (A, Option[B])): ISet[A] = {
       def unfold(b: B, is: ISet[A]): ISet[A] = f(b) match {
         case (a, Some(b)) => unfold(b, is.insert(a)) 

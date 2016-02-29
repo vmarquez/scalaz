@@ -11,7 +11,7 @@ object ISetTest extends SpecLite {
   import std.list._
   import std.option._
   import std.tuple._
-  //import scalaz.Cofoldable
+  import scalaz.Cofoldable._
   import ISet._
 
   // Check some laws
