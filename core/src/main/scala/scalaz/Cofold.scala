@@ -97,6 +97,12 @@ trait Instances {
       unfold(b, ISet.empty[A]) 
     }
   }
+
+  implicit def OptionCofoldable[A]: Cofoldable[Option, A] = new Cofoldable[Option, A] {
+    def build[B](b: B)(f: B => (A, Option[B])): Option[A] = 
+      Some(f(b)._1)
+  }
+
   /*
   def ICofreeCofoldable[F[_], A](implicit F: MonadPlus[F]): Cofoldable[({ type l[a] = Cofree[F, a]})#l] = new Cofoldable[({ type l[a] = Cofree[F, a]})#l] {
     def cofold[b](b: B)(f: B => Option[(A, B)]): Cofree[F, A] = {
