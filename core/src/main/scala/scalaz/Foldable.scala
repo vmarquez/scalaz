@@ -239,6 +239,9 @@ trait Foldable[F[_]]  { self =>
 
   def msuml[G[_], A](fa: F[G[A]])(implicit G: PlusEmpty[G]): G[A] =
     foldLeft(fa, G.empty[A])(G.plus[A](_, _))
+  
+  def msumlU[GA](fa: F[GA])(implicit G: Unapply[PlusEmpty, GA]): G.M[G.A] =
+    msuml[G.M, G.A](G.leibniz.subst[F](fa))(G.TC)
 
   def longDigits[A](fa: F[A])(implicit d: A <:< Digit): Long = foldLeft(fa, 0L)((n, a) => n * 10L + (a: Digit))
   /** Deforested alias for `toStream(fa).isEmpty`. */
@@ -263,6 +266,28 @@ trait Foldable[F[_]]  { self =>
       }, Some(pa))
     })._1
 
+  /**
+    * Splits the elements into groups that produce the same result by a function f.
+    */
+  def splitBy[A, B: Equal](fa: F[A])(f: A => B): IList[(B, NonEmptyList[A])] =
+    foldRight(fa, IList[(B, NonEmptyList[A])]())((a, bas) => {
+      val fa = f(a)
+      bas match {
+        case INil() => IList.single((fa, NonEmptyList.nel(a, INil())))
+        case ICons((b, as), tail) => if (Equal[B].equal(fa, b)) ICons((b, a <:: as), tail) else ICons((fa, NonEmptyList.nel(a, INil())), bas)
+      }
+    })
+
+  /**
+    * Splits into groups of elements that are transitively dependant by a relation r.
+    */
+  def splitByRelation[A](fa: F[A])(r: (A, A) => Boolean): IList[NonEmptyList[A]] =
+    foldRight(fa, IList[NonEmptyList[A]]())((a, neas) => {
+      neas match {
+        case INil() => IList.single(NonEmptyList.nel(a, INil()))
+        case ICons(nea, tail) => if (r(a, nea.head)) ICons(a <:: nea, tail) else ICons(NonEmptyList.nel(a, INil()), neas)
+      }
+    })
 
   /**
    * Selects groups of elements that satisfy p and discards others.

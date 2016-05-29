@@ -125,8 +125,13 @@ object TaskTest extends SpecLite {
     Task { Thread.sleep(10); throw FailWhale; 42 }.handleWith { case FailWhale => Task.delay(throw SadTrombone) }.unsafePerformSyncAttempt ==
       -\/(SadTrombone)
   }
+
+  "catches exceptions thrown by onFinish argument function" ! {
+    Task { Thread.sleep(10); 42 }.onFinish { _ => throw SadTrombone; Task.now(()) }.unsafePerformSyncAttemptFor(1000) ==
+      -\/(SadTrombone)
+  }  
   
-  "evalutes Monad[Task].point lazily" in {
+  "evaluates Monad[Task].point lazily" in {
     val M = implicitly[Monad[Task]]
     var x = 0
     M point { x += 1 }
@@ -275,7 +280,7 @@ object TaskTest extends SpecLite {
   "retries a retriable task n times" ! forAll { xs: List[Byte] =>
     import scala.concurrent.duration._
     var x = 0
-    Task.delay {x += 1; sys.error("oops")}.unsafePerformRetry(xs.map(_ => 0.milliseconds)).attempt.unsafePerformSync
+    Task.delay {x += 1; sys.error("oops")}.retry(xs.map(_ => 0.milliseconds)).attempt.unsafePerformSync
     x == (xs.length + 1)
   }
 

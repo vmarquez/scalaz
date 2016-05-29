@@ -237,13 +237,14 @@ sealed abstract class Future[+A] {
   def attemptRunFor(timeout: Duration): Throwable \/ A =
     unsafePerformSyncAttemptFor(timeout)
   
-  /**
+  
+    /**
    * Returns a `Future` which returns a `TimeoutException` after `timeoutInMillis`,
    * and attempts to cancel the running computation.
    * This implementation will not block the future's execution thread
    */
-  def unsafePerformTimed(timeoutInMillis: Long)(implicit scheduler:ScheduledExecutorService): Future[Throwable \/ A] =  
-    //instead of run this though chooseAny, it is run through simple primitive, 
+  def timed(timeoutInMillis: Long)(implicit scheduler:ScheduledExecutorService): Future[Throwable \/ A] =
+    //instead of run this though chooseAny, it is run through simple primitive,
     //as we are never interested in results of timeout callback, and this is more resource savvy
     async[Throwable \/ A] { cb =>
       val cancel = new AtomicBoolean(false)
@@ -261,26 +262,25 @@ sealed abstract class Future[+A] {
       unsafePerformAsyncInterruptibly(a => if(done.compareAndSet(false,true)) cb(\/-(a)), cancel) 
     }
 
-  def unsafePerformTimed(timeout: Duration)(implicit scheduler:ScheduledExecutorService = Strategy.DefaultTimeoutScheduler): Future[Throwable \/ A] = 
-    unsafePerformTimed(timeout.toMillis)
-
-  @deprecated("use unsafePerformTimed", "7.2")
-  def timed(timeoutInMillis: Long)(implicit scheduler:ScheduledExecutorService): Future[Throwable \/ A] =  
-    unsafePerformTimed(timeoutInMillis)
-    
-
-  @deprecated("use unsafePerformTimed", "7.2")
   def timed(timeout: Duration)(implicit scheduler:ScheduledExecutorService = Strategy.DefaultTimeoutScheduler): Future[Throwable \/ A] = 
-    unsafePerformTimed(timeout)
+    timed(timeout.toMillis)
 
-  /**
+  @deprecated("use timed", "7.2") 
+  def unsafePerformTimed(timeout: Duration)(implicit scheduler:ScheduledExecutorService = Strategy.DefaultTimeoutScheduler): Future[Throwable \/ A] =
+    timed(timeout.toMillis)
+
+  @deprecated("use timed", "7.2") 
+  def unsafePerformTimed(timeoutInMillis: Long)(implicit scheduler:ScheduledExecutorService): Future[Throwable \/ A] =
+    timed(timeoutInMillis) 
+  
+   /**
    * Returns a `Future` that delays the execution of this `Future` by the duration `t`.
    */
-  def after(t: Duration): Future[A] =
-    after(t.toMillis)
+  def after(t: Duration)(implicit scheduler:ScheduledExecutorService = Strategy.DefaultTimeoutScheduler): Future[A] =
+    schedule((), t)(scheduler).flatMap(_ => this)
 
-  def after(t: Long): Future[A] =
-    Timer.default.valueWait((), t).flatMap(_ => this)
+  def afterMillis(delay: Long)(implicit scheduler:ScheduledExecutorService = Strategy.DefaultTimeoutScheduler): Future[A] =
+    after(FiniteDuration(delay, TimeUnit.MILLISECONDS))(scheduler)
 }
 
 object Future {
@@ -348,7 +348,7 @@ object Future {
       }
     }
 
-    private val finishedCallback: Any => Trampoline[Unit] =
+    private[this] val finishedCallback: Any => Trampoline[Unit] =
       _ => sys.error("impossible, since there can only be one runner of chooseAny")
 
     // implementation runs all threads, dumping to a shared queue

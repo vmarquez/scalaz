@@ -63,6 +63,8 @@ final class FoldableOps[F[_],A] private[syntax](val self: F[A])(implicit val F: 
   final def empty: Boolean = F.empty(self)
   final def element(a: A)(implicit A: Equal[A]): Boolean = F.element(self, a)
   final def splitWith(p: A => Boolean): List[NonEmptyList[A]] = F.splitWith(self)(p)
+  final def splitBy[B: Equal](f: A => B): IList[(B, NonEmptyList[A])] = F.splitBy(self)(f)
+  final def splitByRelation(r: (A, A) => Boolean): IList[NonEmptyList[A]] = F.splitByRelation(self)(r)
   final def selectSplit(p: A => Boolean): List[NonEmptyList[A]] = F.selectSplit(self)(p)
   final def collapse[X[_]](implicit A: ApplicativePlus[X]): X[A] = F.collapse(self)
   final def concatenate(implicit A: Monoid[A]): A = F.fold(self)
@@ -75,6 +77,7 @@ final class FoldableOps[F[_],A] private[syntax](val self: F[A])(implicit val F: 
   final def sequenceS_[S, B](implicit ev: A === State[S,B]): State[S,Unit] = F.sequenceS_(ev.subst[F](self))
   def sequenceF_[M[_],B](implicit ev: F[A] <~< F[Free[M,B]]): Free[M, Unit] = F.sequenceF_(ev(self))
   final def msuml[G[_], B](implicit ev: A === G[B], G: PlusEmpty[G]): G[B] = F.msuml(ev.subst[F](self))
+  final def msumlU(implicit G: Unapply[PlusEmpty, A]): G.M[G.A] = F.msumlU(self)
   ////
 }
 
