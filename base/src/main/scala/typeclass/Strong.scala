@@ -11,5 +11,7 @@ trait Strong[P[_, _]] {
     profunctor.dimap[(A, C), (B, C), (C, A), (C, B)](first(pab))(_.swap)(_.swap)
 }
 
-object Strong extends StrongInstances
+object Strong extends StrongInstances {
+  def apply[P[_,_]](implicit P: Strong[P]): Strong[P] = P
+}
 

@@ -13,5 +13,7 @@ trait Choice[P[_, _]] {
     profunctor.dimap[A \/ C, B \/ C, C \/ A, C \/ B](left(pab))(swap(_))(swap(_))
 }
 
-object Choice extends ChoiceInstances
+object Choice extends ChoiceInstances {
+  def apply[P[_,_]](implicit P: Choice[P]): Choice[P] = P 
+}
 
