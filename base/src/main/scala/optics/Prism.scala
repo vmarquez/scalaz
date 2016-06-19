@@ -5,15 +5,14 @@ import scalaz.data._
 import scalaz.typeclass._
 import scalaz.data.Disjunction._
 import scalaz.data.Maybe._
+import scalaz.typeclass.Monoid._
 
 trait Prism[S, T, A, B] {
   def stab[P[_, _]: Choice]: P[A, B] => P[S, T]
 
   def getMaybe(s: S): Maybe[A] = {
-    val p = Choice[({ type l[a, b] = Forget[\/[T, A], a, b]})#l]
-    val x = (stab[({ type l[a, b] = Forget[\/[T, A], a, b]})#l])(p)(Forget[\/[T, A], A, B](a => \/-(a))).forget(s)
-    //x.fold(a => Just(a))(Empty[A])   
-    x.fold[Maybe[A]](l => Empty[A])(a => Just(a))
+    val la = (stab[Forget[List[A], ?, ?]])(Choice[Forget[List[A], ?, ?]])(Forget[List[A], A, B](a => List(a))).forget(s)
+    la.headOption.fold[Maybe[A]](Empty[A])( s => Just(s))
   }
 }
 
