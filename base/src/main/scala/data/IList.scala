@@ -1,11 +1,9 @@
 package scalaz
+package data
 
-<<<<<<< HEAD
-=======
+import Maybe._
 import scala.annotation.tailrec
 import scala.annotation.unchecked.uncheckedVariance
-import Scalaz._
-import Liskov.{ <~<, refl }
 
 /**
  * Safe, invariant alternative to stdlib `List`. Most methods on `List` have a sensible equivalent 
@@ -40,23 +38,16 @@ sealed abstract class IList[A] {
   def :\[B](b: B)(f: (A, B) => B): B = 
     foldRight(b)(f)
 
-  /** Returns `f` applied to contents if non-empty, otherwise the zero of `B`. */
-  final def <^>[B](f: OneAnd[IList, A] => B)(implicit B: Monoid[B]): B = 
-    uncons(B.zero, (h, t) => f(OneAnd(h, t)))
-
   def collect[B](pf: PartialFunction[A,B]): IList[B] = 
-    flatMap(a => IList.fromOption(pf.lift(a)))
+    flatMap(a => IList.fromMaybe(pf.lift(a)))
 
-  def collectFirst[B](pf: PartialFunction[A,B]): Option[B] = 
+  def collectFirst[B](pf: PartialFunction[A,B]): Maybe[B] = 
     find(a => pf.lift(a).isDefined).map(pf)
 
   def concat(as: IList[A]): IList[A] = 
     foldRight(as)(_ :: _)
 
   // no contains; use Foldable#element
-
-  def containsSlice(as: IList[A])(implicit ev: Equal[A]): Boolean = 
-    indexOfSlice(as).isDefined
 
   def count(f: A => Boolean): Int = 
     foldLeft(0)((n, a) => if (f(a)) n + 1 else n)
@@ -85,9 +76,6 @@ sealed abstract class IList[A] {
     dropWhile0(this)
   }
 
-  def endsWith(as: IList[A])(implicit ev: Equal[A]): Boolean =
-    reverse.startsWith(as.reverse)
-
   // no exists; use Foldable#any
 
   def filter(f: A => Boolean): IList[A] = 
@@ -96,20 +84,17 @@ sealed abstract class IList[A] {
   def filterNot(f: A => Boolean): IList[A] = 
     filter(a => !f(a))
 
-  def find(f: A => Boolean): Option[A] = {
-    @tailrec def find0[A](as: IList[A])(f: A => Boolean): Option[A] =
+  def find(f: A => Boolean): Maybe[A] = {
+    @tailrec def find0[A](as: IList[A])(f: A => Boolean): Maybe[A] =
       as match {
-        case INil() => none
-        case ICons(a, as) => if (f(a)) a.some else find0[A](as)(f)
+        case INil() => Empty[A] 
+        case ICons(a, as) => if (f(a)) Just(a) else find0[A](as)(f)
       }
     find0(this)(f)
   }
 
   def flatMap[B](f: A => IList[B]): IList[B] = 
     foldRight(IList.empty[B])(f(_) ++ _)
-
-  def flatten[B](implicit ev: A <~< IList[B]): IList[B] = 
-    flatMap(a => ev(a))
 
   def foldLeft[B](b: B)(f: (B, A) => B): B = {
     @tailrec def foldLeft0[A,B](as: IList[A])(b: B)(f: (B, A) => B): B =
@@ -126,42 +111,21 @@ sealed abstract class IList[A] {
   // no forall; use Foldable#all
   // no foreach; use Each#each if you dare
 
-  def groupBy[K](f: A => K)(implicit ev: Order[K]): K ==>> IList[A] =
-    foldLeft(==>>.empty[K, IList[A]]) { (m, a) => 
-      m.alter(f(a), _.map(a :: _) orElse Some(IList(a)))
-    } .map(_.reverse) // should we bother with this? we don't do it for groupBy1
 
-  def groupBy1[K](f: A => K)(implicit ev: Order[K]): K ==>> OneAnd[IList, A] =
-    foldLeft(==>>.empty[K, OneAnd[IList,A]]) { (m, a) => 
-      m.alter(f(a), _.map(oa => OneAnd(a, oa.head :: oa.tail)) orElse Some(OneAnd(a, INil())))
-    }
+  def headMaybe: Maybe[A] = 
+    uncons(Empty[A], (h, _) => Just(h))
 
-  def headOption: Option[A] = 
-    uncons(None, (h, _) => Some(h))
-
-  def indexOf(a: A)(implicit ev: Equal[A]): Option[Int] = 
-    indexWhere(_ === a)
-   
-  def indexOfSlice(slice: IList[A])(implicit ev: Equal[A]): Option[Int] = {
-    @tailrec def indexOfSlice0(i: Int, as: IList[A]): Option[Int] =
-      if (as.startsWith(slice)) Some(i) else as match {
-        case INil() => None
-        case ICons(_, t) => indexOfSlice0(i + 1, t)
-      }
-    indexOfSlice0(0, this)
-  }
-
-  def indexWhere(f: A => Boolean): Option[Int] = {
-    @tailrec def indexWhere0(i: Int, as: IList[A]): Option[Int] =
+  def indexWhere(f: A => Boolean): Maybe[Int] = {
+    @tailrec def indexWhere0(i: Int, as: IList[A]): Maybe[Int] =
       as match {
-        case INil() => None
-        case ICons(h, t) => if (f(h)) Some(i) else indexWhere0(i + 1, t)
+        case INil() => (Empty[A]: Maybe[A])
+        case ICons(h, t) => if (f(h)) Just(i) else indexWhere0(i + 1, t)
       }
     indexWhere0(0, this)
   }
 
-  def initOption: Option[IList[A]] = 
-    reverse.tailOption.map(_.reverse)
+  def initOption: Maybe[IList[A]] = 
+    reverse.tailMaybe.map(_.reverse)
 
   def inits: IList[IList[A]] = 
     reverse.tails.map(_.reverse)
@@ -178,17 +142,11 @@ sealed abstract class IList[A] {
   def isEmpty: Boolean = 
     uncons(true, (_, _) => false)
 
-  def lastIndexOf(a:A)(implicit ev: Equal[A]): Option[Int] =
-    reverse.indexOf(a).map((length - 1) - _)
-
-  def lastIndexOfSlice(as: IList[A])(implicit ev: Equal[A]): Option[Int] =
-    reverse.indexOfSlice(as.reverse).map(length - _ - as.length)
-
-  def lastIndexWhere(f: A => Boolean): Option[Int] =
+  def lastIndexWhere(f: A => Boolean): Maybe[Int] =
     reverse.indexWhere(f).map((length - 1) - _)
 
-  def lastOption: Option[A] = 
-    reverse.headOption
+  def lastMaybe: Maybe[A] = 
+    reverse.headMaybe
 
   def length: Int = 
     foldLeft(0)((n, _) => n + 1)
@@ -243,11 +201,11 @@ sealed abstract class IList[A] {
 
   // no product, use Foldable#fold
 
-  def reduceLeftOption(f: (A, A) => A): Option[A] = 
-    uncons(None, (h, t) => Some(t.foldLeft(h)(f)))
+  def reduceLeftMaybe(f: (A, A) => A): Maybe[A] = 
+    uncons(Empty[A], (h, t) => Just(t.foldLeft(h)(f)))
 
-  def reduceRightOption(f: (A, A) => A): Option[A] = 
-    reverse.reduceLeftOption((a, b) => f(b, a)) 
+  def reduceRightMaybe(f: (A, A) => A): Maybe[A] = 
+    reverse.reduceLeftMaybe((a, b) => f(b, a)) 
 
   def reverse: IList[A] = 
     foldLeft(IList.empty[A])((as, a) => a :: as)
@@ -293,17 +251,6 @@ sealed abstract class IList[A] {
       }
     splitAt0(n, this, INil())
   }
-
-  def startsWith(as: IList[A])(implicit ev: Equal[A]): Boolean = {
-    @tailrec def startsWith0(a: IList[A], b: IList[A]): Boolean =
-      (a, b) match {
-        case (_, INil()) => true
-        case (ICons(ha, ta), ICons(hb, tb)) if ha === hb => startsWith0(ta, tb)
-        case _ => false
-      }
-    startsWith0(this, as)
-  }
-
   // no sum, use Foldable#fold
 
   def tails: IList[IList[A]] = {
@@ -315,8 +262,8 @@ sealed abstract class IList[A] {
     inits0(this, INil())
   }
 
-  def tailOption: Option[IList[A]] = 
-    uncons(None, (_, t) => Some(t))
+  def tailMaybe: Maybe[IList[A]] = 
+    uncons(Empty[A], (_, t) => Just(t))
 
   def take(n: Int): IList[A] = {
     @tailrec def take0(n: Int, as: IList[A], accum: IList[A]): IList[A] =
@@ -342,40 +289,17 @@ sealed abstract class IList[A] {
     takeWhile0(this, INil()).reverse
   }
 
-  def toEphemeralStream: EphemeralStream[A] =
-    uncons(EphemeralStream(), (h, t) => EphemeralStream.cons(h, t.toEphemeralStream))
-
-  def toList: List[A] = 
+    def toList: List[A] = 
     foldRight(Nil : List[A])(_ :: _)
-
-  def toNel: Option[NonEmptyList[A]] =
-    uncons(None, (h, t) => Some(NonEmptyList(h, t.toList: _*)))
-
-  def toMap[K, V](implicit ev0: A <~< (K, V), ev1: Order[K]): K ==>> V =
-    widen[(K,V)].foldLeft(==>>.empty[K,V])(_ + _)
-
-  def toStream: Stream[A] =
-    uncons(Stream.empty, (h, t) => h #:: t.toStream)
-
-  override def toString: String =
-    IList.show(Show.showA).shows(this) // lame, but helpful for debugging
 
   def toVector: Vector[A] = 
     foldRight(Vector[A]())(_ +: _)
-
-  def toZipper: Option[Zipper[A]] =
-    toStream.toZipper
 
   def uncons[B](n: => B, c: (A, IList[A]) => B): B =
     this match {
       case INil() => n
       case ICons(h, t) => c(h, t)
     }
-
-  def unzip[B, C](implicit ev: A <~< (B, C)): (IList[B], IList[C]) =
-    widen[(B,C)].foldLeft((IList.empty[B], IList.empty[C])) { 
-      case ((as, bs), (a, b)) => (a :: as, b :: bs)
-    }.bimap(_.reverse, _.reverse)
 
   /** Unlike stdlib's version, this is total and simply ignores indices that are out of range */
   def updated(index: Int, a: A): IList[A] = {
@@ -399,11 +323,6 @@ sealed abstract class IList[A] {
     zaccum(this, b, INil()).reverse
   }
 
-  // IList is invariant in behavior but covariant by nature, so we can safely widen to IList[B] 
-  // given evidence that A is a subtype of B.
-  def widen[B](implicit ev: A <~< B): IList[B] = 
-    ev.subst[({type λ[-α] = IList[α @uncheckedVariance] <~< IList[B]})#λ](refl)(this)
-
   def zipWithIndex: IList[(A, Int)] = 
     zip(IList(0 until length : _*))
 
@@ -425,8 +344,8 @@ object IList extends IListFunctions with IListInstances {
   def fromList[A](as: List[A]): IList[A] = 
     as.foldRight(empty[A])(ICons(_, _))
   
-  def fromOption[A](a: Option[A]): IList[A] = 
-    a.cata(IList(_), IList.empty[A])
+  def fromMaybe[A](a: Maybe[A]): IList[A] = 
+    a.fold(a => IList(a), IList.empty[A])
 
   def fill[A](n: Int)(a: A): IList[A] =
     INil().padTo(n, a)
@@ -434,132 +353,3 @@ object IList extends IListFunctions with IListInstances {
 }
 
 trait IListFunctions
-
-trait IListInstance0 {
-
-  implicit def equal[A](implicit A0: Equal[A]): Equal[IList[A]] =
-    new IListEqual[A] {
-      val A = A0
-    }
-
-}
-
-trait IListInstances extends IListInstance0 {
-
-  implicit val instances =
-
-    new Traverse[IList] with MonadPlus[IList] with Each[IList] with Zip[IList] with Unzip[IList] with Align[IList] with IsEmpty[IList] with Cobind[IList] {
-
-      override def map[A, B](fa: IList[A])(f: A => B): IList[B] = 
-        fa map f
-
-      def point[A](a: => A): IList[A] = 
-        IList(a)
-
-      def bind[A, B](fa: IList[A])(f: A => IList[B]): IList[B] = 
-        fa flatMap f
-
-      def plus[A](a: IList[A],b: => IList[A]): IList[A] = 
-        a ++ b
-
-      def empty[A]: IList[A] = 
-        IList.empty[A]
-
-      def each[A](fa: IList[A])(f: A => Unit): Unit = 
-        fa.foldLeft(()) { (_, a) => f(a); () }
-
-      def zip[A, B](a: => IList[A], b: => IList[B]): IList[(A, B)] = 
-        a zip b
-
-      def isEmpty[A](fa: IList[A]): Boolean = 
-        fa.headOption.isEmpty
-      
-      def cobind[A, B](fa: IList[A])(f: IList[A] => B) = 
-        fa.uncons(INil(), (_, t) => f(fa) :: cobind(t)(f))
-
-      override def cojoin[A](a: IList[A]) = 
-        a.uncons(INil(), (_, t) => a :: cojoin(t))
-
-      def traverseImpl[F[_], A, B](fa: IList[A])(f: A => F[B])(implicit F: Applicative[F]): F[IList[B]] =
-        fa.foldRight(F.point(IList.empty[B]))((a, fbs) => F.apply2(f(a), fbs)(_ :: _))
-
-      def unzip[A, B](a: IList[(A, B)]): (IList[A], IList[B]) =
-        a.unzip
-
-      def alignWith[A, B, C](f: A \&/ B => C): (IList[A], IList[B]) => IList[C] = {
-        @tailrec def loop(aa: IList[A], bb: IList[B], accum: IList[C]): IList[C] = 
-          (aa, bb) match {
-            case (INil(), _) => accum.reverse ++ bb.map(b => f(\&/.That(b)))
-            case (_, INil()) => accum.reverse ++ aa.map(a => f(\&/.This(a)))
-            case (ICons(ah, at), ICons(bh, bt)) => loop(at, bt, f(\&/.Both(ah, bh)) :: accum)
-          }
-        (a, b) => loop(a, b, INil())
-      }
-
-    }
-
-
-  implicit def order[A](implicit A0: Order[A]): Order[IList[A]] =
-    new IListOrder[A] {
-      val A = A0
-    }
-
-  implicit def monoid[A]: Monoid[IList[A]] =
-    new Monoid[IList[A]] {      
-      def append(f1: IList[A], f2: => IList[A]) = f1 ++ f2
-      def zero: IList[A] = INil()
-    }
-
-  implicit def show[A](implicit A: Show[A]): Show[IList[A]] = 
-    new Show[IList[A]] {
-      override def show(as: IList[A]) = {
-        @tailrec def commaSep(rest: IList[A], acc: Cord): Cord =
-          rest match {
-            case INil() => acc
-            case ICons(x, xs) => commaSep(xs, (acc :+ ",") ++ A.show(x))
-          }
-        "[" +: (as match {
-          case INil() => Cord()
-          case ICons(x, xs) => commaSep(xs, A.show(x))
-        }) :+ "]"
-      }
-    }
-
-}
-
-
-private trait IListEqual[A] extends Equal[IList[A]] {
-  implicit def A: Equal[A]
-
-  @tailrec final override def equal(a: IList[A], b: IList[A]): Boolean =
-    (a, b) match {
-      case (INil(), INil()) => true
-      case (ICons(a, as), ICons(b, bs)) if a === b => equal(as, bs)
-      case _ => false
-    }
-
-}
-
-private trait IListOrder[A] extends Order[IList[A]] with IListEqual[A] {
-  implicit def A: Order[A]
-
-  import Ordering._
-
-  @tailrec final def order(a1: IList[A], a2: IList[A]) =
-    (a1, a2) match {
-      case (INil(), INil()) => EQ
-      case (INil(), ICons(_, _)) => LT
-      case (ICons(_, _), INil()) => GT
-      case (ICons(a, as), ICons(b, bs)) => 
-        A.order(a, b) match {
-          case EQ => order(as, bs)
-          case x => x
-        }
-    }
-
-}
-
-
-
-
->>>>>>> e75b82e... IList; safe, invariant cons list
