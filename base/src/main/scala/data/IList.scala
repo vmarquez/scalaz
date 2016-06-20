@@ -39,7 +39,7 @@ sealed abstract class IList[A] {
     foldRight(b)(f)
 
   def collect[B](pf: PartialFunction[A,B]): IList[B] = 
-    flatMap(a => IList.fromMaybe(pf.lift(a)))
+    flatMap(a => IList.fromMaybe(pf.lift(a).asMaybe))
 
   def collectFirst[B](pf: PartialFunction[A,B]): Maybe[B] = 
     find(a => pf.lift(a).isDefined).map(pf)
@@ -85,10 +85,10 @@ sealed abstract class IList[A] {
     filter(a => !f(a))
 
   def find(f: A => Boolean): Maybe[A] = {
-    @tailrec def find0[A](as: IList[A])(f: A => Boolean): Maybe[A] =
+    @tailrec def find0(as: IList[A])(f: A => Boolean): Maybe[A] =
       as match {
         case INil() => Empty[A] 
-        case ICons(a, as) => if (f(a)) Just(a) else find0[A](as)(f)
+        case ICons(a, as) => if (f(a)) Just(a) else find0(as)(f)
       }
     find0(this)(f)
   }
@@ -97,10 +97,10 @@ sealed abstract class IList[A] {
     foldRight(IList.empty[B])(f(_) ++ _)
 
   def foldLeft[B](b: B)(f: (B, A) => B): B = {
-    @tailrec def foldLeft0[A,B](as: IList[A])(b: B)(f: (B, A) => B): B =
+    @tailrec def foldLeft0(as: IList[A])(b: B)(f: (B, A) => B): B =
       as match {
         case INil() => b
-        case ICons(a, as) => foldLeft0[A,B](as)(f(b, a))(f)
+        case ICons(a, as) => foldLeft0(as)(f(b, a))(f)
       }
     foldLeft0(this)(b)(f)
   }
@@ -118,7 +118,7 @@ sealed abstract class IList[A] {
   def indexWhere(f: A => Boolean): Maybe[Int] = {
     @tailrec def indexWhere0(i: Int, as: IList[A]): Maybe[Int] =
       as match {
-        case INil() => (Empty[A]: Maybe[A])
+        case INil() => Empty[Int]
         case ICons(h, t) => if (f(h)) Just(i) else indexWhere0(i + 1, t)
       }
     indexWhere0(0, this)
@@ -156,11 +156,18 @@ sealed abstract class IList[A] {
 
   // private helper for mapAccumLeft/Right below
   private[this] def mapAccum[B, C](as: IList[A])(c: C, f: (C, A) => (C, B)): (C, IList[B]) =
-    as.foldLeft((c, IList.empty[B])) { case ((c, bs), a) => f(c, a).rightMap(_ :: bs) }
+    as.foldLeft((c, IList.empty[B])) 
+      { case ((c, bs), a) => {
+          val t = f(c, a)
+          (t._1, t._2 :: bs)
+        } 
+      }
 
   /** All of the `B`s, in order, and the final `C` acquired by a stateful left fold over `as`. */
-  def mapAccumLeft[B, C](c: C, f: (C, A) => (C, B)): (C, IList[B]) =
-    mapAccum(this)(c, f).rightMap(_.reverse)
+  def mapAccumLeft[B, C](c: C, f: (C, A) => (C, B)): (C, IList[B]) = {
+    val t = mapAccum(this)(c, f)  
+    (t._1, t._2.reverse) 
+  }
 
   /** All of the `B`s, in order `as`-wise, and the final `C` acquired by a stateful right fold over `as`. */
   final def mapAccumRight[B, C](c: C, f: (C, A) => (C, B)): (C, IList[B]) =
@@ -180,10 +187,12 @@ sealed abstract class IList[A] {
     padTo0(n, INil(), this)
   }
 
-  def partition(f: A => Boolean): (IList[A], IList[A]) =
-    foldLeft((IList.empty[A], IList.empty[A])) {
+  def partition(f: A => Boolean): (IList[A], IList[A]) = {
+    val t = foldLeft((IList.empty[A], IList.empty[A])) {
       case ((ts, fs), a) => if (f(a)) (a :: ts, fs) else (ts, a :: fs)
-    }.bimap(_.reverse, _.reverse)
+    }
+    (t._1.reverse, t._2.reverse)
+  }
 
   def patch(from: Int, patch: IList[A], replaced: Int): IList[A] = {
     val (init, tail) = splitAt(from)
@@ -228,12 +237,6 @@ sealed abstract class IList[A] {
   def slice(from: Int, until: Int): IList[A] =
     drop(from).take((until max 0)- (from max 0))
 
-  def sortBy[B](f: A => B)(implicit B: Order[B]): IList[A] =     
-    IList(toList.sortBy(f)(B.toScalaOrdering): _*)
-
-  def sorted(implicit ev: Order[A]): IList[A] =
-    sortBy(identity)
-
   def span(f: A => Boolean): (IList[A], IList[A]) = {
     @tailrec def span0(as: IList[A], accum: IList[A]): (IList[A], IList[A]) =
       as match {
@@ -263,7 +266,7 @@ sealed abstract class IList[A] {
   }
 
   def tailMaybe: Maybe[IList[A]] = 
-    uncons(Empty[A], (_, t) => Just(t))
+    uncons(Empty[IList[A]], (_, t) => Just(t))
 
   def take(n: Int): IList[A] = {
     @tailrec def take0(n: Int, as: IList[A], accum: IList[A]): IList[A] =
@@ -333,7 +336,7 @@ sealed abstract class IList[A] {
 case class INil[A]() extends IList[A]
 case class ICons[A](head: A, tail: IList[A]) extends IList[A]
 
-object IList extends IListFunctions with IListInstances {
+object IList {
 
   def apply[A](as: A*): IList[A] = 
     as.foldRight(empty[A])(ICons(_, _))
@@ -349,7 +352,4 @@ object IList extends IListFunctions with IListInstances {
 
   def fill[A](n: Int)(a: A): IList[A] =
     INil().padTo(n, a)
-
 }
-
-trait IListFunctions
