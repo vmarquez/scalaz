@@ -9,11 +9,16 @@ import scalaz.data.Maybe._
 trait Prism[S, T, A, B] {
   def stab[P[_, _]: Choice]: P[A, B] => P[S, T]
 
+  //load.plugin.ivy("org.spire-math" %% "kind-projector" % "0.6.3")
+  
   def getMaybe(s: S): Maybe[A] = {
-    val p = Choice[({ type l[a, b] = Forget[\/[T, A], a, b]})#l]
-    val x = (stab[({ type l[a, b] = Forget[\/[T, A], a, b]})#l])(p)(Forget[\/[T, A], A, B](a => \/-(a))).forget(s)
+    val m = Monoid[Maybe[A]] 
+    val p = Choice[({ type l[a, b] = Forget[Maybe[A], a, b]})#l]
+    //val x = (stab[({ type l[a, b] = Forget[\/[T, A], a, b]})#l])(p)(Forget[\/[T, A], A, B](a => \/-(a))).forget(s)
+    val x = stab[({ type l[a, b] = Forget[Maybe[A], a, b]})#l](p)(Forget[Maybe[A], A, B](a => Just(a)))
     //x.fold(a => Just(a))(Empty[A])   
-    x.fold[Maybe[A]](l => Empty[A])(a => Just(a))
+    //x.fold[Maybe[A]](l => Empty[A])(a => Just(a))
+    ""
   }
 }
 

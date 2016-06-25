@@ -1,0 +1,526 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+Ap	base/src/main/scala/typeclass/BindClass.scala	/^  trait Ap[F[_]] extends Apply[F] { self: Bind[F] =>$/;"	t
+Applicative	base/src/main/scala/typeclass/Applicative.scala	/^object Applicative {$/;"	o
+Applicative	base/src/main/scala/typeclass/Applicative.scala	/^trait Applicative[F[_]] {$/;"	t
+Applicative	prelude/src/main/scala/Prelude.scala	/^  def Applicative[F[_]](implicit F: Applicative[F]): Applicative[F] = F$/;"	m
+Applicative	prelude/src/main/scala/Prelude.scala	/^  type Applicative[F[_]] = typeclass.Applicative[F]$/;"	T
+ApplicativeClass	base/src/main/scala/typeclass/ApplicativeClass.scala	/^object ApplicativeClass {$/;"	o
+ApplicativeClass	base/src/main/scala/typeclass/ApplicativeClass.scala	/^trait ApplicativeClass[F[_]] extends Applicative[F] with ApplyClass[F] {$/;"	t
+ApplicativeSyntax	base/src/main/scala/typeclass/ApplicativeSyntax.scala	/^object ApplicativeSyntax {$/;"	o
+ApplicativeSyntax	base/src/main/scala/typeclass/ApplicativeSyntax.scala	/^trait ApplicativeSyntax {$/;"	t
+Apply	base/src/main/scala/typeclass/Apply.scala	/^object Apply {$/;"	o
+Apply	base/src/main/scala/typeclass/Apply.scala	/^trait Apply[F[_]] {$/;"	t
+Apply	prelude/src/main/scala/Prelude.scala	/^  def Apply[F[_]](implicit F: Apply[F]): Apply[F] = F$/;"	m
+Apply	prelude/src/main/scala/Prelude.scala	/^  type Apply[F[_]] = typeclass.Apply[F]$/;"	T
+ApplyClass	base/src/main/scala/typeclass/ApplyClass.scala	/^trait ApplyClass[F[_]] extends Apply[F] with FunctorClass[F] {$/;"	t
+ApplySyntax	base/src/main/scala/typeclass/ApplySyntax.scala	/^object ApplySyntax {$/;"	o
+ApplySyntax	base/src/main/scala/typeclass/ApplySyntax.scala	/^trait ApplySyntax {$/;"	t
+BH0	base/src/main/scala/BaseHierarchy.scala	/^  trait BH0 extends BH1 {$/;"	t
+BH1	base/src/main/scala/BaseHierarchy.scala	/^  trait BH1 extends BH2 {$/;"	t
+BH2	base/src/main/scala/BaseHierarchy.scala	/^  trait BH2 extends BH3 {$/;"	t
+BH3	base/src/main/scala/BaseHierarchy.scala	/^  trait BH3 extends BH4 {$/;"	t
+BH4	base/src/main/scala/BaseHierarchy.scala	/^  trait BH4 {$/;"	t
+BaseHierarchy	base/src/main/scala/BaseHierarchy.scala	/^class BaseHierarchy extends BaseHierarchy.BH0$/;"	c
+BaseHierarchy	base/src/main/scala/BaseHierarchy.scala	/^object BaseHierarchy {$/;"	o
+Bind	base/src/main/scala/typeclass/Bind.scala	/^object Bind extends BindInstances {$/;"	o
+Bind	base/src/main/scala/typeclass/Bind.scala	/^trait Bind[M[_]] {$/;"	t
+Bind	prelude/src/main/scala/Prelude.scala	/^  def Bind[F[_]](implicit F: Bind[F]): Bind[F] = F$/;"	m
+Bind	prelude/src/main/scala/Prelude.scala	/^  type Bind[M[_]] = typeclass.Bind[M]$/;"	T
+BindClass	base/src/main/scala/typeclass/BindClass.scala	/^object BindClass {$/;"	o
+BindClass	base/src/main/scala/typeclass/BindClass.scala	/^trait BindClass[F[_]] extends Bind[F] with ApplyClass[F] {$/;"	t
+BindInstances	base/src/main/scala/typeclass/BindInstances.scala	/^trait BindInstances {$/;"	t
+BindSyntax	base/src/main/scala/typeclass/BindSyntax.scala	/^object BindSyntax {$/;"	o
+BindSyntax	base/src/main/scala/typeclass/BindSyntax.scala	/^trait BindSyntax {$/;"	t
+Choice	base/src/main/scala/typeclass/Choice.scala	/^object Choice extends ChoiceInstances {$/;"	o
+Choice	base/src/main/scala/typeclass/Choice.scala	/^trait Choice[P[_, _]] {$/;"	t
+ChoiceClass	base/src/main/scala/typeclass/ChoiceClass.scala	/^trait ChoiceClass[P[_,_]] extends Choice[P] with ProfunctorClass[P] {$/;"	t
+ChoiceInstances	base/src/main/scala/typeclass/ChoiceInstances.scala	/^trait ChoiceInstances { instances =>$/;"	t
+Compose	base/src/main/scala/typeclass/Compose.scala	/^trait Compose[=>:[_, _]] {$/;"	t
+Const	base/src/main/scala/data/Const.scala	/^final case class  Const[A, B](getConst: A){$/;"	c
+Const	base/src/main/scala/data/Const.scala	/^object Const extends ConstInstances$/;"	o
+ConstInstances	base/src/main/scala/data/ConstInstances.scala	/^trait ConstInstances {$/;"	t
+Disjunction	base/src/main/scala/data/Disjunction.scala	/^object Disjunction extends DisjunctionInstances with DisjunctionFunctions{$/;"	o
+Disjunction	base/src/main/scala/data/Disjunction.scala	/^sealed trait Disjunction[+L, +R] {$/;"	t
+DisjunctionFunctions	base/src/main/scala/data/DisjunctionFunctions.scala	/^trait DisjunctionFunctions {$/;"	t
+DisjunctionInstances	base/src/main/scala/data/DisjunctionInstances.scala	/^trait DisjunctionInstances {$/;"	t
+DisjunctionSyntax	base/src/main/scala/data/DisjunctionSyntax.scala	/^trait DisjunctionSyntax {$/;"	t
+DownStar	base/src/main/scala/data/DownStar.scala	/^final case class DownStar[F[_], A, B](run: F[A] => B) extends AnyVal$/;"	c
+DownStar	base/src/main/scala/data/DownStar.scala	/^object DownStar extends DownStarInstances$/;"	o
+DownStarInstances	base/src/main/scala/data/DownStarInstances.scala	/^trait DownStarInstances {$/;"	t
+EitherAsDisjunction	base/src/main/scala/data/DisjunctionSyntax.scala	/^  implicit class EitherAsDisjunction[A, B](ab: Either[A, B]) {$/;"	c
+Empty	base/src/main/scala/data/Maybe.scala	/^  final case class Empty[A]() extends Maybe[A]$/;"	c
+Endo	base/src/main/scala/data/Endo.scala	/^final case class Endo[=>:[_, _], A](run: A =>: A) {$/;"	c
+Foldable	base/src/main/scala/typeclass/Foldable.scala	/^object Foldable extends FoldableInstances {$/;"	o
+Foldable	base/src/main/scala/typeclass/Foldable.scala	/^trait Foldable[F[_]] {$/;"	t
+Foldable	prelude/src/main/scala/Prelude.scala	/^  def Foldable[F[_]](implicit F: Foldable[F]): Foldable[F] = F$/;"	m
+Foldable	prelude/src/main/scala/Prelude.scala	/^  type Foldable[T[_]] = typeclass.Foldable[T]$/;"	T
+FoldableClass	base/src/main/scala/typeclass/FoldableClass.scala	/^trait FoldableClass[F[_]] extends Foldable[F]{$/;"	t
+FoldableInstances	base/src/main/scala/typeclass/FoldableInstances.scala	/^trait FoldableInstances {$/;"	t
+FoldableSyntax	base/src/main/scala/typeclass/FoldableSyntax.scala	/^object FoldableSyntax {$/;"	o
+FoldableSyntax	base/src/main/scala/typeclass/FoldableSyntax.scala	/^trait FoldableSyntax {$/;"	t
+Forget	base/src/main/scala/data/Forget.scala	/^final case class Forget[A, B, C](forget: B => A){$/;"	c
+Forget	base/src/main/scala/data/Forget.scala	/^object Forget extends ForgetInstances$/;"	o
+ForgetInstances	base/src/main/scala/data/ForgetInstances.scala	/^trait ForgetInstances { self =>$/;"	t
+Functor	base/src/main/scala/typeclass/Functor.scala	/^object Functor {$/;"	o
+Functor	base/src/main/scala/typeclass/Functor.scala	/^trait Functor[F[_]] {$/;"	t
+Functor	prelude/src/main/scala/Prelude.scala	/^  def Functor[F[_]](implicit F: Functor[F]): Functor[F] = F$/;"	m
+Functor	prelude/src/main/scala/Prelude.scala	/^  type Functor[F[_]] = typeclass.Functor[F]$/;"	T
+FunctorClass	base/src/main/scala/typeclass/FunctorClass.scala	/^trait FunctorClass[F[_]] extends Functor[F]{$/;"	t
+FunctorSyntax	base/src/main/scala/typeclass/FunctorSyntax.scala	/^object FunctorSyntax {$/;"	o
+FunctorSyntax	base/src/main/scala/typeclass/FunctorSyntax.scala	/^trait FunctorSyntax {$/;"	t
+Id	base/src/main/scala/Identity.scala	/^  type Id[X] = X$/;"	T
+Identity	base/src/main/scala/Identity.scala	/^case class Identity[A](run: A) extends AnyVal$/;"	c
+Identity	base/src/main/scala/Identity.scala	/^object Identity {$/;"	o
+Iso	base/src/main/scala/optics/Iso.scala	/^object Iso {$/;"	o
+Iso	base/src/main/scala/optics/Iso.scala	/^trait Iso[S, T, A, B] { self =>$/;"	t
+Just	base/src/main/scala/data/Maybe.scala	/^  final case class Just[A](a: A) extends Maybe[A]$/;"	c
+Lazy	base/src/main/scala/control/package.scala	/^  type Lazy[A] = Unit => A$/;"	T
+Leibniz	base/src/main/scala/Leibniz.scala	/^object Leibniz {$/;"	o
+Map	base/src/main/scala/typeclass/ApplicativeClass.scala	/^  trait Map[F[_]] extends Functor[F] { self: Applicative[F] =>$/;"	t
+Map	base/src/main/scala/typeclass/MonadClass.scala	/^  trait Map[F[_]] extends Functor[F] { self: Monad[F] =>$/;"	t
+Maybe	base/src/main/scala/data/Maybe.scala	/^object Maybe extends MaybeInstances with MaybeSyntax {$/;"	o
+Maybe	base/src/main/scala/data/Maybe.scala	/^sealed abstract class Maybe[A] {$/;"	c
+Maybe	prelude/src/main/scala/Prelude.scala	/^  type Maybe[A] = data.Maybe[A]$/;"	T
+MaybeInstances	base/src/main/scala/data/MaybeInstances.scala	/^trait MaybeInstances extends MonadClass[Maybe] {$/;"	t
+MaybeSyntax	base/src/main/scala/data/MaybeSyntax.scala	/^trait MaybeSyntax {$/;"	t
+Monad	base/src/main/scala/typeclass/Monad.scala	/^object Monad extends MonadInstances {$/;"	o
+Monad	base/src/main/scala/typeclass/Monad.scala	/^trait Monad[M[_]] {$/;"	t
+Monad	prelude/src/main/scala/Prelude.scala	/^  def Monad[M[_]](implicit M: Monad[M]): Monad[M] = M$/;"	m
+Monad	prelude/src/main/scala/Prelude.scala	/^  type Monad[M[_]] = typeclass.Monad[M]$/;"	T
+MonadClass	base/src/main/scala/typeclass/MonadClass.scala	/^object MonadClass {$/;"	o
+MonadClass	base/src/main/scala/typeclass/MonadClass.scala	/^trait MonadClass[F[_]] extends Monad[F] with BindClass[F] with ApplicativeClass[F] {$/;"	t
+MonadInstances	base/src/main/scala/typeclass/MonadInstances.scala	/^trait MonadInstances {$/;"	t
+Monoid	base/src/main/scala/typeclass/Monoid.scala	/^object Monoid {$/;"	o
+Monoid	base/src/main/scala/typeclass/Monoid.scala	/^trait Monoid[A] {$/;"	t
+MonoidClass	base/src/main/scala/typeclass/MonoidClass.scala	/^trait MonoidClass[A] extends Monoid[A] with SemigroupClass[A]{$/;"	t
+MonoidInstances	base/src/main/scala/typeclass/MonoidInstances.scala	/^trait MonoidInstances {$/;"	t
+Ops	base/src/main/scala/typeclass/ApplySyntax.scala	/^  class Ops[F[_], A](fa: F[A])(implicit F: Apply[F]) {$/;"	c
+Ops	base/src/main/scala/typeclass/BindSyntax.scala	/^  class Ops[M[_], A](ma: M[A])(implicit M: Bind[M]) {$/;"	c
+Ops	base/src/main/scala/typeclass/FoldableSyntax.scala	/^  class Ops[F[_], A](self: F[A])(implicit F: Foldable[F]) {$/;"	c
+Ops	base/src/main/scala/typeclass/FunctorSyntax.scala	/^  class Ops[F[_], A](self: F[A])(implicit F: Functor[F]) {$/;"	c
+Ops	base/src/main/scala/typeclass/ProfunctorSyntax.scala	/^  class Ops[F[_, _], A, B](self: F[A, B])(implicit F: Profunctor[F]) {$/;"	c
+Ops	base/src/main/scala/typeclass/TraversableSyntax.scala	/^  class Ops[T[_], A](self: T[A])(implicit T: Traversable[T]) {$/;"	c
+OpsA	base/src/main/scala/typeclass/ApplicativeSyntax.scala	/^  class OpsA[A](a: A) {$/;"	c
+OpsA	base/src/main/scala/typeclass/SemigroupSyntax.scala	/^  class OpsA[A](a: A)(implicit A: Semigroup[A]) {$/;"	c
+OptionAsMaybe	base/src/main/scala/data/MaybeSyntax.scala	/^  implicit class OptionAsMaybe[A](oa: Option[A]) { def asMaybe: Maybe[A] = Maybe.fromOption(oa) }$/;"	c
+POptionAsMaybe	prelude/src/main/scala/Prelude.scala	/^  implicit class POptionAsMaybe[A](oa: Option[A]) { def asMaybe: Maybe[A] = Maybe.fromOption(oa) }$/;"	c
+PapplicativeOpsA	prelude/src/main/scala/Prelude.scala	/^  implicit def PapplicativeOpsA[A](a: A): ApplicativeSyntax.OpsA[A] = new ApplicativeSyntax.OpsA(a)$/;"	m
+PapplyOps	prelude/src/main/scala/Prelude.scala	/^  implicit def PapplyOps[F[_], A](fa: F[A])(implicit F: Apply[F]): ApplySyntax.Ops[F, A] =$/;"	m
+PbindOps	prelude/src/main/scala/Prelude.scala	/^  implicit def PbindOps[M[_], A](ma: M[A])(implicit M: Bind[M]): BindSyntax.Ops[M, A] =$/;"	m
+PfoldableOps	prelude/src/main/scala/Prelude.scala	/^  implicit def PfoldableOps[F[_], A](fa: F[A])(implicit F: Foldable[F]): FoldableSyntax.Ops[F, A] =$/;"	m
+PfunctorOps	prelude/src/main/scala/Prelude.scala	/^  implicit def PfunctorOps[F[_], A](fa: F[A])(implicit F: Functor[F]): FunctorSyntax.Ops[F, A] =$/;"	m
+Prelude	prelude/src/main/scala/Prelude.scala	/^object Prelude extends Prelude$/;"	o
+Prelude	prelude/src/main/scala/Prelude.scala	/^trait Prelude extends data.DisjunctionFunctions {$/;"	t
+Prism	base/src/main/scala/optics/Prism.scala	/^object Prism {$/;"	o
+Prism	base/src/main/scala/optics/Prism.scala	/^trait Prism[S, T, A, B] {$/;"	t
+Profunctor	base/src/main/scala/typeclass/Profunctor.scala	/^object Profunctor extends ProfunctorInstances {$/;"	o
+Profunctor	base/src/main/scala/typeclass/Profunctor.scala	/^trait Profunctor[F[_, _]] {$/;"	t
+ProfunctorClass	base/src/main/scala/typeclass/ProfunctorClass.scala	/^trait ProfunctorClass[P[_,_]] extends Profunctor[P] {$/;"	t
+ProfunctorInstances	base/src/main/scala/typeclass/ProfunctorInstances.scala	/^trait ProfunctorInstances { instances =>$/;"	t
+ProfunctorSyntax	base/src/main/scala/typeclass/ProfunctorSyntax.scala	/^object ProfunctorSyntax {$/;"	o
+ProfunctorSyntax	base/src/main/scala/typeclass/ProfunctorSyntax.scala	/^trait ProfunctorSyntax {$/;"	t
+PtraversableOps	prelude/src/main/scala/Prelude.scala	/^  implicit def PtraversableOps[T[_], A](ta: T[A])(implicit T: Traversable[T]): TraversableSyntax.Ops[T, A] =$/;"	m
+RConst	base/src/main/scala/data/RConst.scala	/^final case class RConst[A, B](rconst: B) {$/;"	c
+RConst	base/src/main/scala/data/RConst.scala	/^object RConst extends RConstInstances$/;"	o
+RConstInstances	base/src/main/scala/data/RConstInstances.scala	/^trait RConstInstances {$/;"	t
+Scalaz	project/ScalazBuild.scala	/^object Scalaz extends Build {$/;"	o
+Semigroup	base/src/main/scala/typeclass/Semigroup.scala	/^object Semigroup {$/;"	o
+Semigroup	base/src/main/scala/typeclass/Semigroup.scala	/^trait Semigroup[A] {$/;"	t
+SemigroupClass	base/src/main/scala/typeclass/SemigroupClass.scala	/^trait SemigroupClass[A] extends Semigroup[A]{$/;"	t
+SemigroupInstances	base/src/main/scala/typeclass/SemigroupInstances.scala	/^trait SemigroupInstances {$/;"	t
+SemigroupSyntax	base/src/main/scala/typeclass/SemigroupSyntax.scala	/^object SemigroupSyntax {$/;"	o
+SemigroupSyntax	base/src/main/scala/typeclass/SemigroupSyntax.scala	/^trait SemigroupSyntax {$/;"	t
+Show	base/src/main/scala/typeclass/Show.scala	/^abstract class Show[A] {$/;"	c
+Strong	base/src/main/scala/typeclass/Strong.scala	/^object Strong extends StrongInstances {$/;"	o
+Strong	base/src/main/scala/typeclass/Strong.scala	/^trait Strong[P[_, _]] {$/;"	t
+StrongClass	base/src/main/scala/typeclass/StrongClass.scala	/^trait StrongClass[P[_,_]] extends Strong[P] with ProfunctorClass[P] {$/;"	t
+StrongInstances	base/src/main/scala/typeclass/StrongInstances.scala	/^trait StrongInstances { instances =>$/;"	t
+Syntax	base/src/main/scala/data/Disjunction.scala	/^  object Syntax extends DisjunctionSyntax$/;"	o
+Template	base/src/main/scala/typeclass/ApplicativeClass.scala	/^  trait Template[F[_]] extends ApplicativeClass[F] with Map[F]$/;"	t
+Template	base/src/main/scala/typeclass/BindClass.scala	/^  trait Template[F[_]] extends BindClass[F] with Ap[F]$/;"	t
+Template	base/src/main/scala/typeclass/MonadClass.scala	/^  trait Template[F[_]] extends MonadClass[F] with Map[F] with BindClass.Ap[F]$/;"	t
+ToEitherOps	base/src/main/scala/data/DisjunctionSyntax.scala	/^  implicit class ToEitherOps[A](a: A) {$/;"	c
+Traversable	base/src/main/scala/typeclass/Traversable.scala	/^object Traversable extends TraversableInstances {$/;"	o
+Traversable	base/src/main/scala/typeclass/Traversable.scala	/^trait Traversable[T[_]] {$/;"	t
+Traversable	prelude/src/main/scala/Prelude.scala	/^  def Traversable[T[_]](implicit T: Traversable[T]): Traversable[T] = T$/;"	m
+Traversable	prelude/src/main/scala/Prelude.scala	/^  type Traversable[T[_]] = typeclass.Traversable[T]$/;"	T
+TraversableClass	base/src/main/scala/typeclass/TraversableClass.scala	/^trait TraversableClass[F[_]] extends Traversable[F] with FunctorClass[F] with FoldableClass[F] {$/;"	t
+TraversableInstances	base/src/main/scala/typeclass/TraversableInstances.scala	/^trait TraversableInstances {$/;"	t
+TraversableSyntax	base/src/main/scala/typeclass/TraversableSyntax.scala	/^object TraversableSyntax {$/;"	o
+TraversableSyntax	base/src/main/scala/typeclass/TraversableSyntax.scala	/^trait TraversableSyntax {$/;"	t
+UpStar	base/src/main/scala/data/UpStar.scala	/^final case class UpStar[F[_], A, B](run: A => F[B]) extends AnyVal$/;"	c
+UpStar	base/src/main/scala/data/UpStar.scala	/^object UpStar extends UpStarInstances$/;"	o
+UpStarInstances	base/src/main/scala/data/UpStarInstances.scala	/^trait UpStarInstances {$/;"	t
+\	base/src/main/scala/data/DisjunctionFunctions.scala	/^  @inline def \\\/-[R](value: R): Disjunction[Nothing, R] = Disjunction.\\\/-(value)$/;"	m
+ap	base/src/main/scala/Identity.scala	/^    override def ap[A, B](fa: Identity[A])(f: Identity[A => B]): Identity[B] = Identity(f.run.apply(fa.run))$/;"	m
+ap	base/src/main/scala/data/ConstInstances.scala	/^    def ap[A, B](fa: Const[R, A])(f: Const[R, A => B]): Const[R, B] =$/;"	m
+ap	base/src/main/scala/data/DisjunctionInstances.scala	/^    override def ap[A, B](ma: L \\\/ A)(mf: L \\\/ (A => B)): L \\\/ B =$/;"	m
+ap	base/src/main/scala/data/MaybeInstances.scala	/^  override def ap[A, B](ma: Maybe[A])(mf: Maybe[A => B]): Maybe[B] =$/;"	m
+ap	base/src/main/scala/typeclass/Apply.scala	/^  def ap[A, B](fa: F[A])(f: F[A => B]): F[B]$/;"	m
+ap	base/src/main/scala/typeclass/ApplySyntax.scala	/^    def ap[B](fab: F[A => B]): F[B] = F.ap(fa)(fab)$/;"	m
+ap	base/src/main/scala/typeclass/BindClass.scala	/^    override final def ap[A, B](fa: F[A])(f: F[A => B]): F[B] = flatMap(f)(functor.map(fa))$/;"	m
+ap	base/src/main/scala/typeclass/MonadInstances.scala	/^    override def ap[A, B](oa: Option[A])(f: Option[A => B]): Option[B] = oa.flatMap(a => f.map(_(a)))$/;"	m
+ap	base/src/main/scala/typeclass/MonadInstances.scala	/^    override def ap[A, B](xs: List[A])(f: List[A => B]): List[B] = xs.flatMap(a => f.map(_(a)))$/;"	m
+append	base/src/main/scala/data/ConstInstances.scala	/^    def append(a1: Const[A, B], a2: => Const[A, B]): Const[A, B] =$/;"	m
+append	base/src/main/scala/typeclass/Semigroup.scala	/^  def append(a1: A, a2: => A): A$/;"	m
+append	base/src/main/scala/typeclass/SemigroupSyntax.scala	/^    def append(other: => A): A = A.append(a, other)$/;"	m
+applicative	base/src/main/scala/data/ConstInstances.scala	/^  implicit def applicative[R](implicit R: Monoid[R]): Applicative[Const[R, ?]] = new Applicative[Const[R, ?]] {$/;"	m
+applicative	base/src/main/scala/typeclass/ApplicativeClass.scala	/^  final def applicative: Applicative[F] = this$/;"	m
+applicative	base/src/main/scala/typeclass/Monad.scala	/^  def applicative: Applicative[M]$/;"	m
+applicativeApply	base/src/main/scala/BaseHierarchy.scala	/^    implicit def applicativeApply[M[_]](implicit M: Applicative[M]): Apply[M] = M.apply$/;"	m
+applicativeFunctor	base/src/main/scala/BaseHierarchy.scala	/^    implicit def applicativeFunctor[M[_]](implicit M: Applicative[M]): Functor[M] = M.apply.functor$/;"	m
+applicativeOpsA	base/src/main/scala/typeclass/ApplicativeSyntax.scala	/^  implicit def applicativeOpsA[A](a: A): ApplicativeSyntax.OpsA[A] = new ApplicativeSyntax.OpsA(a)$/;"	m
+apply	base/src/main/scala/Leibniz.scala	/^    def apply(a: A): B = subst[Id](a)$/;"	m
+apply	base/src/main/scala/data/ConstInstances.scala	/^    def apply: Apply[Const[R, ?]] = implicitly$/;"	m
+apply	base/src/main/scala/data/ConstInstances.scala	/^  implicit def apply[R](implicit R: Semigroup[R]): Apply[Const[R, ?]] = new Apply[Const[R, ?]] {$/;"	m
+apply	base/src/main/scala/optics/Iso.scala	/^  def apply[S, T, A, B](sa: S => A, bt: B => T): Iso[S, T, A, B] = new Iso[S, T, A, B] {$/;"	m
+apply	base/src/main/scala/optics/Prism.scala	/^  def apply[S, T, A, B](sa: S => \\\/[T, A], bt: B => T): Prism[S, T, A, B] = new Prism[S, T, A, B] {$/;"	m
+apply	base/src/main/scala/typeclass/Applicative.scala	/^  def apply: Apply[F]$/;"	m
+apply	base/src/main/scala/typeclass/Applicative.scala	/^  def apply[F[_]](implicit F: Applicative[F]): Applicative[F] = F$/;"	m
+apply	base/src/main/scala/typeclass/Apply.scala	/^  def apply[F[_]](implicit F: Apply[F]): Apply[F] = F$/;"	m
+apply	base/src/main/scala/typeclass/ApplyClass.scala	/^  implicit final def apply: Apply[F] = this$/;"	m
+apply	base/src/main/scala/typeclass/Bind.scala	/^  def apply: Apply[M]$/;"	m
+apply	base/src/main/scala/typeclass/Bind.scala	/^  def apply[F[_]](implicit F: Bind[F]): Bind[F] = F$/;"	m
+apply	base/src/main/scala/typeclass/Choice.scala	/^  def apply[P[_,_]](implicit P: Choice[P]): Choice[P] = P $/;"	m
+apply	base/src/main/scala/typeclass/Foldable.scala	/^  def apply[F[_]](implicit F: Foldable[F]): Foldable[F] = F$/;"	m
+apply	base/src/main/scala/typeclass/Functor.scala	/^  def apply[F[_]](implicit F: Functor[F]): Functor[F] = F$/;"	m
+apply	base/src/main/scala/typeclass/Monad.scala	/^  def apply[M[_]](implicit M: Monad[M]): Monad[M] = M$/;"	m
+apply	base/src/main/scala/typeclass/Monoid.scala	/^  def apply[A](implicit A: Monoid[A]): Monoid[A] = A$/;"	m
+apply	base/src/main/scala/typeclass/Profunctor.scala	/^  def apply[F[_, _]](implicit F: Profunctor[F]): Profunctor[F] = F$/;"	m
+apply	base/src/main/scala/typeclass/Semigroup.scala	/^  def apply[A](implicit A: Semigroup[A]): Semigroup[A] = A$/;"	m
+apply	base/src/main/scala/typeclass/Strong.scala	/^  def apply[P[_,_]](implicit P: Strong[P]): Strong[P] = P$/;"	m
+apply	base/src/main/scala/typeclass/Traversable.scala	/^  def apply[T[_]](implicit T: Traversable[T]): Traversable[T] = T$/;"	m
+applyFunctor	base/src/main/scala/BaseHierarchy.scala	/^    implicit def applyFunctor[M[_]](implicit M: Apply[M]): Functor[M] = M.functor$/;"	m
+applyOps	base/src/main/scala/typeclass/ApplySyntax.scala	/^  implicit def applyOps[F[_], A](fa: F[A])(implicit F: Apply[F]): ApplySyntax.Ops[F, A] =$/;"	m
+asDisjunction	base/src/main/scala/data/DisjunctionSyntax.scala	/^    def asDisjunction: A \\\/ B = Disjunction.fromEither(ab)$/;"	m
+asMaybe	base/src/main/scala/data/MaybeSyntax.scala	/^  implicit class OptionAsMaybe[A](oa: Option[A]) { def asMaybe: Maybe[A] = Maybe.fromOption(oa) }$/;"	m
+asMaybe	prelude/src/main/scala/Prelude.scala	/^  implicit class POptionAsMaybe[A](oa: Option[A]) { def asMaybe: Maybe[A] = Maybe.fromOption(oa) }$/;"	m
+baze	project/ScalazBuild.scala	/^  lazy val baze         = module("base")$/;"	C
+benchmarks	project/ScalazBuild.scala	/^  lazy val benchmarks   = module("benchmarks")$/;"	C
+bind	base/src/main/scala/typeclass/BindClass.scala	/^  final def bind: Bind[F] = this$/;"	m
+bind	base/src/main/scala/typeclass/Monad.scala	/^  def bind: Bind[M]$/;"	m
+bindApply	base/src/main/scala/BaseHierarchy.scala	/^    implicit def bindApply[M[_]](implicit M: Bind[M]): Apply[M] = M.apply$/;"	m
+bindFunctor	base/src/main/scala/BaseHierarchy.scala	/^    implicit def bindFunctor[M[_]](implicit M: Bind[M]): Functor[M] = M.apply.functor$/;"	m
+bindOps	base/src/main/scala/typeclass/BindSyntax.scala	/^  implicit def bindOps[M[_], A](ma: M[A])(implicit M: Bind[M]): BindSyntax.Ops[M, A] =$/;"	m
+choice	base/src/main/scala/data/ForgetInstances.scala	/^  implicit def choice[A]: Choice[Forget[A, ?, ?]] = new ChoiceClass[Forget[A, ?, ?]] {$/;"	m
+choice	base/src/main/scala/typeclass/ChoiceClass.scala	/^  final def choice: Choice[P] = this$/;"	m
+choiceProfunctor	base/src/main/scala/BaseHierarchy.scala	/^    implicit def choiceProfunctor[P[_, _]](implicit P: Choice[P]): Profunctor[P] = P.profunctor$/;"	m
+compose	base/src/main/scala/data/Endo.scala	/^  final def compose(that: Endo[=>:, A])(implicit F: Compose[=>:]): Endo[=>:, A] =$/;"	m
+compose	base/src/main/scala/optics/Iso.scala	/^  def compose[C, D](abcd: Iso[A, B, C, D]): Iso[S, T, C, D] = new Iso[S, T, C, D] { $/;"	m
+compose	base/src/main/scala/typeclass/Compose.scala	/^  def compose[A, B, C](f: B =>: C, g: A =>: B): (A =>: C)$/;"	m
+control	base/src/main/scala/control/package.scala	/^package object control {$/;"	o
+data	base/src/main/scala/data/Const.scala	/^package data$/;"	p
+data	base/src/main/scala/data/ConstInstances.scala	/^package data$/;"	p
+data	base/src/main/scala/data/Disjunction.scala	/^package data$/;"	p
+data	base/src/main/scala/data/DisjunctionFunctions.scala	/^package data$/;"	p
+data	base/src/main/scala/data/DisjunctionInstances.scala	/^package data$/;"	p
+data	base/src/main/scala/data/DisjunctionSyntax.scala	/^package data$/;"	p
+data	base/src/main/scala/data/DownStar.scala	/^package data$/;"	p
+data	base/src/main/scala/data/DownStarInstances.scala	/^package data$/;"	p
+data	base/src/main/scala/data/Endo.scala	/^package data$/;"	p
+data	base/src/main/scala/data/Forget.scala	/^package data$/;"	p
+data	base/src/main/scala/data/ForgetInstances.scala	/^package data$/;"	p
+data	base/src/main/scala/data/Maybe.scala	/^package data$/;"	p
+data	base/src/main/scala/data/MaybeInstances.scala	/^package data$/;"	p
+data	base/src/main/scala/data/MaybeSyntax.scala	/^package data$/;"	p
+data	base/src/main/scala/data/RConst.scala	/^package data$/;"	p
+data	base/src/main/scala/data/RConstInstances.scala	/^package data$/;"	p
+data	base/src/main/scala/data/UpStar.scala	/^package data$/;"	p
+data	base/src/main/scala/data/UpStarInstances.scala	/^package data$/;"	p
+dimap	base/src/main/scala/data/DownStarInstances.scala	/^      override def dimap[A, B, C, D](fab: DownStar[F, A, B])(ca: C => A)(bd: B => D): DownStar[F, C, D] =$/;"	m
+dimap	base/src/main/scala/data/ForgetInstances.scala	/^    override def dimap[B, C, D, E](fbc: Forget[A, B, C])(fdb: D => B)(fce: C => E): Forget[A, D, E] = $/;"	m
+dimap	base/src/main/scala/data/UpStarInstances.scala	/^    override def dimap[A, B, C, D](fab: UpStar[F, A, B])(ca: C => A)(bd: B => D): UpStar[F, C, D] =$/;"	m
+dimap	base/src/main/scala/typeclass/Profunctor.scala	/^  def dimap[A, B, C, D](fab: F[A, B])(ca: C => A)(bd: B => D): F[C, D] = rmap(lmap(fab)(ca))(bd)$/;"	m
+dimap	base/src/main/scala/typeclass/ProfunctorInstances.scala	/^    override def dimap[A, B, C, D](ab: A => B)(ca: C => A)(bd: B => D): C => D = c => bd(ab(ca(c)))$/;"	m
+dimap	base/src/main/scala/typeclass/ProfunctorSyntax.scala	/^    def dimap[C, D](ab: C => A)(bc: B => D): F[C, D] = F.dimap[A, B, C, D](self)(ab)(bc)$/;"	m
+empty	base/src/main/scala/data/ConstInstances.scala	/^    def empty: Const[A, B] = Const(A.empty)$/;"	m
+empty	base/src/main/scala/data/Maybe.scala	/^  def empty[A]: Maybe[A] = Empty()$/;"	m
+empty	base/src/main/scala/typeclass/Monoid.scala	/^  def empty: A$/;"	m
+equalOpsA	base/src/main/scala/typeclass/SemigroupSyntax.scala	/^  implicit def equalOpsA[A: Semigroup](a: A): SemigroupSyntax.OpsA[A] = new SemigroupSyntax.OpsA(a)$/;"	m
+first	base/src/main/scala/typeclass/Strong.scala	/^  def first[A, B, C](pab: P[A, B]): P[(A, C), (B, C)] =$/;"	m
+first	base/src/main/scala/typeclass/StrongInstances.scala	/^    override def first[A, B, C](pab: A => B): ((A, C)) => (B, C) = _ match {$/;"	m
+flatMap	base/src/main/scala/Identity.scala	/^    override def flatMap[A, B](oa: Identity[A])(f: A => Identity[B]): Identity[B] = f(oa.run)$/;"	m
+flatMap	base/src/main/scala/data/DisjunctionInstances.scala	/^    override def flatMap[A, B](oa: L \\\/ A)(f: A => L \\\/ B): L \\\/ B =$/;"	m
+flatMap	base/src/main/scala/data/MaybeInstances.scala	/^  override def flatMap[A, B](ma: Maybe[A])(f: A => Maybe[B]): Maybe[B] =$/;"	m
+flatMap	base/src/main/scala/typeclass/Bind.scala	/^  def flatMap[A, B](ma: M[A])(f: A => M[B]): M[B]$/;"	m
+flatMap	base/src/main/scala/typeclass/BindSyntax.scala	/^    def flatMap[B](f: A => M[B]): M[B] = M.flatMap(ma)(f)$/;"	m
+flatMap	base/src/main/scala/typeclass/BindSyntax.scala	/^  def flatMap[M[_], A, B](ma: M[A])(f: A => M[B])(implicit M: Bind[M]): M[B] = M.flatMap(ma)(f)$/;"	m
+flatMap	base/src/main/scala/typeclass/MonadInstances.scala	/^    override def flatMap[A, B](oa: Option[A])(f: A => Option[B]): Option[B] = oa.flatMap(f)$/;"	m
+flatMap	base/src/main/scala/typeclass/MonadInstances.scala	/^    override def flatMap[A, B](xs: List[A])(f: A => List[B]): List[B] = xs.flatMap(f)$/;"	m
+flip	base/src/main/scala/optics/Iso.scala	/^  def flip: Iso[B, A, T, S] = Iso(rget _, get _)    $/;"	m
+fold	base/src/main/scala/data/Disjunction.scala	/^  final def fold[A](la: L => A)(ra: R => A): A = this match {$/;"	m
+fold	base/src/main/scala/data/Maybe.scala	/^  final def fold[B](f: A => B, b: => B): B = this match {$/;"	m
+foldLeft	base/src/main/scala/data/ConstInstances.scala	/^    def foldLeft[A, B](fa: Const[R, A], z: B)(f: (B, A) => B): B = z$/;"	m
+foldLeft	base/src/main/scala/typeclass/Foldable.scala	/^  def foldLeft[A, B](fa: F[A], z: B)(f: (B, A) => B): B$/;"	m
+foldLeft	base/src/main/scala/typeclass/FoldableInstances.scala	/^    override def foldLeft[A, B](fa: List[A], z: B)(f: (B, A) => B): B = fa.foldLeft(z)(f)$/;"	m
+foldLeft	base/src/main/scala/typeclass/FoldableSyntax.scala	/^    def foldLeft[B](z: B)(f: (B, A) => B): B = F.foldLeft(self, z)(f)$/;"	m
+foldRight	base/src/main/scala/data/ConstInstances.scala	/^    def foldRight[A, B](fa: Const[R, A], z: => B)(f: (A, => B) => B): B = z$/;"	m
+foldRight	base/src/main/scala/typeclass/Foldable.scala	/^  def foldRight[A, B](fa: F[A], z: => B)(f: (A, => B) => B): B$/;"	m
+foldRight	base/src/main/scala/typeclass/FoldableInstances.scala	/^    override def foldRight[A, B](fa: List[A], z: => B)(f: (A, => B) => B): B = fa.foldRight(z) { (a, b) => f(a, b) }$/;"	m
+foldRight	base/src/main/scala/typeclass/FoldableSyntax.scala	/^    def foldRight[B](z: => B)(f: (A, => B) => B): B = F.foldRight(self, z)(f)$/;"	m
+foldable	base/src/main/scala/typeclass/FoldableClass.scala	/^  final def foldable: Foldable[F] = this$/;"	m
+foldable	base/src/main/scala/typeclass/Traversable.scala	/^  def foldable: Foldable[T]$/;"	m
+foldable	base/src/main/scala/typeclass/TraversableInstances.scala	/^    override val foldable = Foldable.list$/;"	C
+foldableOps	base/src/main/scala/typeclass/FoldableSyntax.scala	/^  implicit def foldableOps[F[_], A](fa: F[A])(implicit F: Foldable[F]): FoldableSyntax.Ops[F, A] =$/;"	m
+fromEither	base/src/main/scala/data/Disjunction.scala	/^  def fromEither[L, R](ab: Either[L, R]): L \\\/ R = ab.fold(-\\\/(_), \\\/-(_))$/;"	m
+fromOption	base/src/main/scala/data/Maybe.scala	/^  def fromOption[A](oa: Option[A]): Maybe[A] = oa.fold[Maybe[A]](Empty[A])(Just(_))$/;"	m
+function	base/src/main/scala/data/DownStarInstances.scala	/^  implicit def function[F[_]](implicit F: Functor[F]): Profunctor[DownStar[F, ?, ?]] =$/;"	m
+function	base/src/main/scala/data/UpStarInstances.scala	/^  implicit def function[F[_]](implicit F: Functor[F]): Profunctor[UpStar[F, ?, ?]] = new Profunctor[UpStar[F, ?, ?]] {$/;"	m
+function	base/src/main/scala/typeclass/ChoiceInstances.scala	/^  implicit val function: Choice[Function] = new ChoiceClass[Function] {$/;"	C
+function	base/src/main/scala/typeclass/ProfunctorInstances.scala	/^  implicit val function: Profunctor[Function] = new Profunctor[Function] {$/;"	C
+function	base/src/main/scala/typeclass/StrongInstances.scala	/^  implicit val function: Strong[Function] = new StrongClass[Function] {$/;"	C
+functor	base/src/main/scala/data/ConstInstances.scala	/^    def functor: Functor[Const[R, ?]] = implicitly$/;"	m
+functor	base/src/main/scala/typeclass/Apply.scala	/^  def functor: Functor[F]$/;"	m
+functor	base/src/main/scala/typeclass/FunctorClass.scala	/^  final def functor: Functor[F] = this$/;"	m
+functor	base/src/main/scala/typeclass/Traversable.scala	/^  def functor: Functor[T]$/;"	m
+functor	base/src/main/scala/typeclass/TraversableInstances.scala	/^    override val functor = Monad.list.applicative.apply.functor$/;"	C
+functorOps	base/src/main/scala/typeclass/FunctorSyntax.scala	/^  implicit def functorOps[F[_], A](fa: F[A])(implicit F: Functor[F]): FunctorSyntax.Ops[F, A] =$/;"	m
+get	base/src/main/scala/optics/Iso.scala	/^  def get(s: S): A = {$/;"	m
+getMaybe	base/src/main/scala/optics/Prism.scala	/^  def getMaybe(s: S): Maybe[A] = {$/;"	m
+just	base/src/main/scala/data/Maybe.scala	/^  def just[A](a: A): Maybe[A] = Just(a)$/;"	m
+l	base/src/main/scala/optics/Iso.scala	/^    (stab[({ type l[a, b] = Forget[A, a, b]})#l])(p)(Forget[A, A, B](a => a)).forget(s)$/;"	T
+l	base/src/main/scala/optics/Iso.scala	/^    val p = Profunctor[({ type l[a, b] = Forget[A, a, b]})#l]$/;"	T
+l	base/src/main/scala/optics/Prism.scala	/^    val p = Choice[({ type l[a, b] = Forget[\\\/[T, A], a, b]})#l]$/;"	T
+l	base/src/main/scala/optics/Prism.scala	/^    val x = (stab[({ type l[a, b] = Forget[\\\/[T, A], a, b]})#l])(p)(Forget[\\\/[T, A], A, B](a => \\\/-(a))).forget(s)$/;"	T
+left	base/src/main/scala/data/DisjunctionFunctions.scala	/^  @inline def left[L](value: L): Disjunction[L, Nothing] = Disjunction.-\\\/(value)$/;"	m
+left	base/src/main/scala/data/DisjunctionSyntax.scala	/^    def left[B]: A \\\/ B = -\\\/(a)$/;"	m
+left	base/src/main/scala/data/ForgetInstances.scala	/^    override def left[B, C, D](pab: Forget[A, B, C]): Forget[B \\\/ D, C \\\/ D] = {$/;"	m
+left	base/src/main/scala/typeclass/Choice.scala	/^  def left[A, B, C](pab: P[A, B]): P[A \\\/ C, B \\\/ C] =$/;"	m
+left	base/src/main/scala/typeclass/ChoiceInstances.scala	/^    override def left[A, B, C](ab: A => B): A \\\/ C => B \\\/ C  =$/;"	m
+list	base/src/main/scala/typeclass/FoldableInstances.scala	/^  implicit val list: Foldable[List] = new Foldable[List] {$/;"	C
+list	base/src/main/scala/typeclass/MonadInstances.scala	/^  implicit val list: Monad[List] = new MonadClass[List] {$/;"	C
+list	base/src/main/scala/typeclass/TraversableInstances.scala	/^  implicit val list: Traversable[List] = new Traversable[List] {$/;"	C
+lmap	base/src/main/scala/data/DownStarInstances.scala	/^      override def lmap[A, B, C](fab: DownStar[F, A, B])(ca: C => A): DownStar[F, C, B] =$/;"	m
+lmap	base/src/main/scala/data/ForgetInstances.scala	/^    override def lmap[B, C, D](fbc: Forget[A, B, C])(fdb: D => B): Forget[A, D, C] =$/;"	m
+lmap	base/src/main/scala/data/RConstInstances.scala	/^    override def lmap[A, B, C](fab: RConst[A, B])(ca: C => A): RConst[C, B] = fab.retag[C]$/;"	m
+lmap	base/src/main/scala/data/UpStarInstances.scala	/^    override def lmap[A, B, C](fab: UpStar[F, A, B])(ca: C => A): UpStar[F, C, B] =$/;"	m
+lmap	base/src/main/scala/typeclass/Profunctor.scala	/^  def lmap[A, B, C](fab: F[A, B])(ca: C => A): F[C, B] = dimap[A, B, C, B](fab)(ca)(identity)$/;"	m
+lmap	base/src/main/scala/typeclass/ProfunctorInstances.scala	/^    override def lmap[A, B, C](ab: A => B)(ca: C => A): C => B = c => ab(ca(c))$/;"	m
+lmap	base/src/main/scala/typeclass/ProfunctorSyntax.scala	/^    def lmap[C](ac: C => A): F[C, B] = F.lmap(self)(ac)$/;"	m
+map	base/src/main/scala/Identity.scala	/^    override def map[A, B](fa: Identity[A])(f: A => B): Identity[B] = Identity(f(fa.run))$/;"	m
+map	base/src/main/scala/data/ConstInstances.scala	/^    def map[A, B](ma: Const[R, A])(f: A => B): Const[R, B] = ma.retag$/;"	m
+map	base/src/main/scala/data/DisjunctionInstances.scala	/^    override def map[A, B](ma: L \\\/ A)(f: A => B): L \\\/ B =$/;"	m
+map	base/src/main/scala/data/MaybeInstances.scala	/^  override def map[A, B](ma: Maybe[A])(f: A => B): Maybe[B] =$/;"	m
+map	base/src/main/scala/typeclass/ApplicativeClass.scala	/^    override final def map[A, B](ma: F[A])(f: (A) => B): F[B] = apply.ap(ma)(pure(f))$/;"	m
+map	base/src/main/scala/typeclass/Functor.scala	/^  def map[A, B](ma: F[A])(f: A => B): F[B]$/;"	m
+map	base/src/main/scala/typeclass/FunctorSyntax.scala	/^    def map[B](f: A => B): F[B] = F.map[A, B](self)(f)$/;"	m
+map	base/src/main/scala/typeclass/FunctorSyntax.scala	/^  def map[F[_], A, B](fa: F[A])(f: A => B)(implicit F: Functor[F]): F[B] = F.map(fa)(f)$/;"	m
+map	base/src/main/scala/typeclass/MonadClass.scala	/^    override final def map[A, B](ma: F[A])(f: (A) => B): F[B] = bind.flatMap(ma)(a => applicative.pure(f(a)))$/;"	m
+map	base/src/main/scala/typeclass/MonadInstances.scala	/^    override def map[A, B](oa: Option[A])(f: A => B): Option[B] = oa.map(f)$/;"	m
+map	base/src/main/scala/typeclass/MonadInstances.scala	/^    override def map[A, B](xs: List[A])(f: A => B): List[B] = xs.map(f)$/;"	m
+maybe	base/src/main/scala/data/Maybe.scala	/^  def maybe[A, B](n: B)(f: A => B): Maybe[A] => B = _ match {$/;"	m
+maybeprism	base/src/main/scala/optics/Prism.scala	/^  def maybeprism[A] = Prism[Maybe[A], Unit, A, Unit](s => s match {$/;"	m
+module	project/ScalazBuild.scala	/^  def module(prjName: String) = Project($/;"	m
+monad	base/src/main/scala/Identity.scala	/^  implicit val monad: Monad[Identity] = new MonadClass[Identity] {$/;"	C
+monad	base/src/main/scala/data/DisjunctionInstances.scala	/^  implicit def monad[L]: Monad[L \\\/ ?] = new MonadClass[L \\\/ ?] {$/;"	m
+monad	base/src/main/scala/typeclass/MonadClass.scala	/^  final def monad: Monad[F] = this$/;"	m
+monadApplicative	base/src/main/scala/BaseHierarchy.scala	/^    implicit def monadApplicative[M[_]](implicit M: Monad[M]): Applicative[M] = M.applicative$/;"	m
+monadApply	base/src/main/scala/BaseHierarchy.scala	/^    implicit def monadApply[M[_]](implicit M: Monad[M]): Apply[M] = M.applicative.apply$/;"	m
+monadBind	base/src/main/scala/BaseHierarchy.scala	/^    implicit def monadBind[M[_]](implicit M: Monad[M]): Bind[M] = M.bind$/;"	m
+monadFunctor	base/src/main/scala/BaseHierarchy.scala	/^    implicit def monadFunctor[M[_]](implicit M: Monad[M]): Functor[M] = M.applicative.apply.functor$/;"	m
+monadInstance	base/src/main/scala/data/MaybeInstances.scala	/^  implicit def monadInstance: Monad[Maybe] = this$/;"	m
+monoid	base/src/main/scala/data/ConstInstances.scala	/^  implicit def monoid[A, B](implicit A: Monoid[A]): Monoid[Const[A, B]] = new Monoid[Const[A, B]] {$/;"	m
+monoid	base/src/main/scala/typeclass/MonoidClass.scala	/^  final def monoid: Monoid[A] = this$/;"	m
+monoidSemigroup	base/src/main/scala/BaseHierarchy.scala	/^    implicit def monoidSemigroup[A](implicit A: Monoid[A]): Semigroup[A] = A.semigroup$/;"	m
+object	base/src/main/scala/control/package.scala	/^package object control {$/;"	p
+object	base/src/main/scala/package.scala	/^package object scalaz extends scalaz.BaseHierarchy$/;"	p
+onF	base/src/main/scala/Leibniz.scala	/^    def onF[X](fa: X => A): X => B = subst[X => ?](fa)$/;"	m
+optics	base/src/main/scala/optics/Iso.scala	/^package optics$/;"	p
+optics	base/src/main/scala/optics/Prism.scala	/^package optics$/;"	p
+option	base/src/main/scala/typeclass/MonadInstances.scala	/^  implicit val option: Monad[Option] = new MonadClass[Option] {$/;"	C
+p	base/src/main/scala/optics/Iso.scala	/^    val p = Profunctor[({ type l[a, b] = Forget[A, a, b]})#l]$/;"	C
+p	base/src/main/scala/optics/Iso.scala	/^    val p = implicitly[Profunctor[RConst]]$/;"	C
+p	base/src/main/scala/optics/Prism.scala	/^    val p = Choice[({ type l[a, b] = Forget[\\\/[T, A], a, b]})#l]$/;"	C
+prelude	project/ScalazBuild.scala	/^  lazy val prelude      = module("prelude").dependsOn(baze)$/;"	C
+profunctor	base/src/main/scala/typeclass/Choice.scala	/^  def profunctor: Profunctor[P]$/;"	m
+profunctor	base/src/main/scala/typeclass/ProfunctorClass.scala	/^  final def profunctor: Profunctor[P] = this$/;"	m
+profunctor	base/src/main/scala/typeclass/Strong.scala	/^  def profunctor: Profunctor[P]$/;"	m
+profunctorOps	base/src/main/scala/typeclass/ProfunctorSyntax.scala	/^  implicit def profunctorOps[F[_, _], A, B](fa: F[A, B])(implicit F: Profunctor[F]): ProfunctorSyntax.Ops[F, A, B] =$/;"	m
+pure	base/src/main/scala/Identity.scala	/^    override def pure[A](a: A): Identity[A] = Identity(a)$/;"	m
+pure	base/src/main/scala/data/ConstInstances.scala	/^    def pure[A](a: A): Const[R, A] = Const(R.empty)$/;"	m
+pure	base/src/main/scala/data/DisjunctionInstances.scala	/^    override def pure[A](a: A): L \\\/ A =$/;"	m
+pure	base/src/main/scala/data/MaybeInstances.scala	/^  override def pure[A](a: A): Maybe[A] =$/;"	m
+pure	base/src/main/scala/typeclass/Applicative.scala	/^  def pure[A](a: A): F[A]$/;"	m
+pure	base/src/main/scala/typeclass/ApplicativeSyntax.scala	/^    def pure[F[_]](implicit F: Applicative[F]): F[A] = F.pure(a)$/;"	m
+pure	base/src/main/scala/typeclass/MonadInstances.scala	/^    override def pure[A](a: A): List[A] = List(a)$/;"	m
+pure	base/src/main/scala/typeclass/MonadInstances.scala	/^    override def pure[A](a: A): Option[A] = Option(a)$/;"	m
+rconstProfunctor	base/src/main/scala/data/RConstInstances.scala	/^  implicit def rconstProfunctor = new Profunctor[RConst] {$/;"	m
+refl	base/src/main/scala/Leibniz.scala	/^  def refl[A]: A === A = new (A === A) {$/;"	m
+retag	base/src/main/scala/data/Const.scala	/^  def retag[C]: Const[A, C] = this.asInstanceOf[Const[A, C]]$/;"	m
+retag	base/src/main/scala/data/Forget.scala	/^  def retag[D]: Forget[A, B, D] = this.asInstanceOf[Forget[A, B, D]]$/;"	m
+retag	base/src/main/scala/data/RConst.scala	/^  def retag[C]: RConst[C, B] = this.asInstanceOf[RConst[C, B]]$/;"	m
+rget	base/src/main/scala/optics/Iso.scala	/^  def rget(b: B): T = {$/;"	m
+right	base/src/main/scala/data/DisjunctionFunctions.scala	/^  @inline def right[R](value: R): Disjunction[Nothing, R] = Disjunction.\\\/-(value)$/;"	m
+right	base/src/main/scala/data/DisjunctionSyntax.scala	/^    def right[B]: B \\\/ A = \\\/-(a)$/;"	m
+right	base/src/main/scala/data/ForgetInstances.scala	/^    \/\/def right[A, B, C](pab: P[A, B]): P[C \\\/ A, C \\\/ B] = ???$/;"	m
+right	base/src/main/scala/typeclass/Choice.scala	/^  def right[A, B, C](pab: P[A, B]): P[C \\\/ A, C \\\/ B] =$/;"	m
+right	base/src/main/scala/typeclass/ChoiceInstances.scala	/^    override def right[A, B, C](ab: A => B): C \\\/ A => C \\\/ B =$/;"	m
+rmap	base/src/main/scala/data/DownStarInstances.scala	/^      override def rmap[A, B, C](fab: DownStar[F, A, B])(bc: B => C): DownStar[F, A, C] =$/;"	m
+rmap	base/src/main/scala/data/ForgetInstances.scala	/^    override def rmap[B, C, D](fbc: Forget[A, B, C])(fcd: C => D): Forget[A, B, D] =$/;"	m
+rmap	base/src/main/scala/data/RConstInstances.scala	/^    override def rmap[A, B, C](fab: RConst[A, B])(bc: B => C): RConst[A, C] = RConst[A, C](bc(fab.rconst))$/;"	m
+rmap	base/src/main/scala/data/UpStarInstances.scala	/^    override def rmap[A, B, C](fab: UpStar[F, A, B])(bc: B => C): UpStar[F, A, C] =$/;"	m
+rmap	base/src/main/scala/typeclass/Profunctor.scala	/^  def rmap[A, B, C](fab: F[A, B])(bc: B => C): F[A, C] = dimap[A, B, A, C](fab)(identity)(bc)$/;"	m
+rmap	base/src/main/scala/typeclass/ProfunctorInstances.scala	/^    override def rmap[A, B, C](ab: A => B)(bc: B => C): A => C = a => bc(ab(a))$/;"	m
+rmap	base/src/main/scala/typeclass/ProfunctorSyntax.scala	/^    def rmap[C](bc: B => C): F[A, C] = F.rmap(self)(bc)$/;"	m
+root	project/ScalazBuild.scala	/^  lazy val root = Project($/;"	C
+scalaz	base/src/main/scala/BaseHierarchy.scala	/^package scalaz$/;"	p
+scalaz	base/src/main/scala/Identity.scala	/^package scalaz$/;"	p
+scalaz	base/src/main/scala/Leibniz.scala	/^package scalaz$/;"	p
+scalaz	base/src/main/scala/control/package.scala	/^package scalaz$/;"	p
+scalaz	base/src/main/scala/data/Const.scala	/^package scalaz$/;"	p
+scalaz	base/src/main/scala/data/ConstInstances.scala	/^package scalaz$/;"	p
+scalaz	base/src/main/scala/data/Disjunction.scala	/^package scalaz$/;"	p
+scalaz	base/src/main/scala/data/DisjunctionFunctions.scala	/^package scalaz$/;"	p
+scalaz	base/src/main/scala/data/DisjunctionInstances.scala	/^package scalaz$/;"	p
+scalaz	base/src/main/scala/data/DisjunctionSyntax.scala	/^package scalaz$/;"	p
+scalaz	base/src/main/scala/data/DownStar.scala	/^package scalaz$/;"	p
+scalaz	base/src/main/scala/data/DownStarInstances.scala	/^package scalaz$/;"	p
+scalaz	base/src/main/scala/data/Endo.scala	/^package scalaz$/;"	p
+scalaz	base/src/main/scala/data/Forget.scala	/^package scalaz$/;"	p
+scalaz	base/src/main/scala/data/ForgetInstances.scala	/^package scalaz$/;"	p
+scalaz	base/src/main/scala/data/Maybe.scala	/^package scalaz$/;"	p
+scalaz	base/src/main/scala/data/MaybeInstances.scala	/^package scalaz$/;"	p
+scalaz	base/src/main/scala/data/MaybeSyntax.scala	/^package scalaz$/;"	p
+scalaz	base/src/main/scala/data/RConst.scala	/^package scalaz$/;"	p
+scalaz	base/src/main/scala/data/RConstInstances.scala	/^package scalaz$/;"	p
+scalaz	base/src/main/scala/data/UpStar.scala	/^package scalaz$/;"	p
+scalaz	base/src/main/scala/data/UpStarInstances.scala	/^package scalaz$/;"	p
+scalaz	base/src/main/scala/optics/Iso.scala	/^package scalaz$/;"	p
+scalaz	base/src/main/scala/optics/Prism.scala	/^package scalaz$/;"	p
+scalaz	base/src/main/scala/package.scala	/^package object scalaz extends scalaz.BaseHierarchy$/;"	o
+scalaz	base/src/main/scala/typeclass/Applicative.scala	/^package scalaz$/;"	p
+scalaz	base/src/main/scala/typeclass/ApplicativeClass.scala	/^package scalaz$/;"	p
+scalaz	base/src/main/scala/typeclass/ApplicativeSyntax.scala	/^package scalaz$/;"	p
+scalaz	base/src/main/scala/typeclass/Apply.scala	/^package scalaz$/;"	p
+scalaz	base/src/main/scala/typeclass/ApplyClass.scala	/^package scalaz$/;"	p
+scalaz	base/src/main/scala/typeclass/ApplySyntax.scala	/^package scalaz$/;"	p
+scalaz	base/src/main/scala/typeclass/Bind.scala	/^package scalaz$/;"	p
+scalaz	base/src/main/scala/typeclass/BindClass.scala	/^package scalaz$/;"	p
+scalaz	base/src/main/scala/typeclass/BindInstances.scala	/^package scalaz$/;"	p
+scalaz	base/src/main/scala/typeclass/BindSyntax.scala	/^package scalaz$/;"	p
+scalaz	base/src/main/scala/typeclass/Choice.scala	/^package scalaz$/;"	p
+scalaz	base/src/main/scala/typeclass/ChoiceClass.scala	/^package scalaz$/;"	p
+scalaz	base/src/main/scala/typeclass/ChoiceInstances.scala	/^package scalaz$/;"	p
+scalaz	base/src/main/scala/typeclass/Compose.scala	/^package scalaz$/;"	p
+scalaz	base/src/main/scala/typeclass/Foldable.scala	/^package scalaz$/;"	p
+scalaz	base/src/main/scala/typeclass/FoldableClass.scala	/^package scalaz$/;"	p
+scalaz	base/src/main/scala/typeclass/FoldableInstances.scala	/^package scalaz$/;"	p
+scalaz	base/src/main/scala/typeclass/FoldableSyntax.scala	/^package scalaz$/;"	p
+scalaz	base/src/main/scala/typeclass/Functor.scala	/^package scalaz$/;"	p
+scalaz	base/src/main/scala/typeclass/FunctorClass.scala	/^package scalaz$/;"	p
+scalaz	base/src/main/scala/typeclass/FunctorSyntax.scala	/^package scalaz$/;"	p
+scalaz	base/src/main/scala/typeclass/Monad.scala	/^package scalaz$/;"	p
+scalaz	base/src/main/scala/typeclass/MonadClass.scala	/^package scalaz$/;"	p
+scalaz	base/src/main/scala/typeclass/MonadInstances.scala	/^package scalaz$/;"	p
+scalaz	base/src/main/scala/typeclass/Monoid.scala	/^package scalaz$/;"	p
+scalaz	base/src/main/scala/typeclass/MonoidClass.scala	/^package scalaz$/;"	p
+scalaz	base/src/main/scala/typeclass/Profunctor.scala	/^package scalaz$/;"	p
+scalaz	base/src/main/scala/typeclass/ProfunctorClass.scala	/^package scalaz$/;"	p
+scalaz	base/src/main/scala/typeclass/ProfunctorInstances.scala	/^package scalaz$/;"	p
+scalaz	base/src/main/scala/typeclass/ProfunctorSyntax.scala	/^package scalaz$/;"	p
+scalaz	base/src/main/scala/typeclass/Semigroup.scala	/^package scalaz$/;"	p
+scalaz	base/src/main/scala/typeclass/SemigroupClass.scala	/^package scalaz$/;"	p
+scalaz	base/src/main/scala/typeclass/SemigroupInstances.scala	/^package scalaz$/;"	p
+scalaz	base/src/main/scala/typeclass/SemigroupSyntax.scala	/^package scalaz$/;"	p
+scalaz	base/src/main/scala/typeclass/Show.scala	/^package scalaz$/;"	p
+scalaz	base/src/main/scala/typeclass/Strong.scala	/^package scalaz$/;"	p
+scalaz	base/src/main/scala/typeclass/StrongClass.scala	/^package scalaz$/;"	p
+scalaz	base/src/main/scala/typeclass/StrongInstances.scala	/^package scalaz$/;"	p
+scalaz	base/src/main/scala/typeclass/Traversable.scala	/^package scalaz$/;"	p
+scalaz	base/src/main/scala/typeclass/TraversableClass.scala	/^package scalaz$/;"	p
+scalaz	base/src/main/scala/typeclass/TraversableInstances.scala	/^package scalaz$/;"	p
+scalaz	base/src/main/scala/typeclass/TraversableSyntax.scala	/^package scalaz$/;"	p
+scalaz	prelude/src/main/scala/Prelude.scala	/^package scalaz$/;"	p
+second	base/src/main/scala/typeclass/Strong.scala	/^  def second[A, B, C](pab: P[A, B]): P[(C, A), (C, B)] =$/;"	m
+second	base/src/main/scala/typeclass/StrongInstances.scala	/^    override def second[A, B, C](pab: A => B): ((C, A)) => (C, B) = _ match {$/;"	m
+semigroup	base/src/main/scala/data/ConstInstances.scala	/^    def semigroup: Semigroup[Const[A, B]] = implicitly$/;"	m
+semigroup	base/src/main/scala/data/ConstInstances.scala	/^  implicit def semigroup[A, B](implicit A: Semigroup[A]): Semigroup[Const[A, B]] = new Semigroup[Const[A, B]] {$/;"	m
+semigroup	base/src/main/scala/typeclass/Monoid.scala	/^  def semigroup: Semigroup[A]$/;"	m
+semigroup	base/src/main/scala/typeclass/SemigroupClass.scala	/^  final def semigroup: Semigroup[A] = this$/;"	m
+sequence	base/src/main/scala/data/ConstInstances.scala	/^    def sequence[F[_], A](ta: Const[R, F[A]])(implicit F: Applicative[F]): F[Const[R, A]] =$/;"	m
+sequence	base/src/main/scala/typeclass/Traversable.scala	/^  def sequence[F[_], A](ta: T[F[A]])(implicit F: Applicative[F]): F[T[A]]$/;"	m
+sequence	base/src/main/scala/typeclass/TraversableInstances.scala	/^    override def sequence[F[_], A](ta: List[F[A]])(implicit F: Applicative[F]): F[List[A]] =$/;"	m
+sequence	base/src/main/scala/typeclass/TraversableSyntax.scala	/^  def sequence[T[_], F[_], A](tfa: T[F[A]])(implicit F: Applicative[F], T: Traversable[T]): F[T[A]] =$/;"	m
+show	base/src/main/scala/typeclass/Show.scala	/^  def show(a: A): String$/;"	m
+stab	base/src/main/scala/optics/Iso.scala	/^    override def stab[P[_, _]: Profunctor]: P[C, D] => P[S, T] = abcd.stab[P](Profunctor[P]) andThen self.stab[P](Profunctor[P])$/;"	m
+stab	base/src/main/scala/optics/Iso.scala	/^    override def stab[P[_, _]](implicit P: Profunctor[P]): P[A, B] => P[S, T] = Profunctor[P].dimap(_)(sa)(bt) $/;"	m
+stab	base/src/main/scala/optics/Iso.scala	/^  def stab[P[_, _]: Profunctor]: P[A, B] => P[S, T]$/;"	m
+stab	base/src/main/scala/optics/Prism.scala	/^    override def stab[P[_, _]](implicit P: Choice[P]): P[A, B] => P[S, T] = (pab: P[A, B]) =>$/;"	m
+stab	base/src/main/scala/optics/Prism.scala	/^  def stab[P[_, _]: Choice]: P[A, B] => P[S, T]$/;"	m
+strong	base/src/main/scala/typeclass/StrongClass.scala	/^  final def strong: Strong[P] = this$/;"	m
+strongProfunctor	base/src/main/scala/BaseHierarchy.scala	/^    implicit def strongProfunctor[P[_, _]](implicit P: Strong[P]): Profunctor[P] = P.profunctor$/;"	m
+subst	base/src/main/scala/Leibniz.scala	/^    def subst[F[_]](fa: F[A]): F[A] = fa$/;"	m
+subst	base/src/main/scala/Leibniz.scala	/^    def subst[F[_]](fa: F[A]): F[B]$/;"	m
+swap	base/src/main/scala/data/Disjunction.scala	/^  def swap[L, R](ab: L \\\/ R): R \\\/ L = ab.fold[R \\\/ L](\\\/-(_))(-\\\/(_))$/;"	m
+syntax	base/src/main/scala/typeclass/Applicative.scala	/^  object syntax extends ApplicativeSyntax$/;"	o
+syntax	base/src/main/scala/typeclass/Apply.scala	/^  object syntax extends ApplySyntax$/;"	o
+syntax	base/src/main/scala/typeclass/Bind.scala	/^  object syntax extends BindSyntax$/;"	o
+syntax	base/src/main/scala/typeclass/Foldable.scala	/^  object syntax extends FoldableSyntax$/;"	o
+syntax	base/src/main/scala/typeclass/Functor.scala	/^  object syntax extends FunctorSyntax$/;"	o
+syntax	base/src/main/scala/typeclass/Profunctor.scala	/^  object syntax extends ProfunctorSyntax$/;"	o
+syntax	base/src/main/scala/typeclass/Semigroup.scala	/^  object syntax extends SemigroupSyntax$/;"	o
+syntax	base/src/main/scala/typeclass/Traversable.scala	/^  object syntax extends TraversableSyntax$/;"	o
+test	base/src/main/scala/optics/Prism.scala	/^object test{$/;"	o
+testDeps	project/ScalazBuild.scala	/^  val testDeps = Seq("org.scalacheck" %% "scalacheck" % "1.13.0" % "test")$/;"	C
+toList	base/src/main/scala/typeclass/Foldable.scala	/^  def toList[A](fa: F[A]): List[A] = foldLeft(fa, List[A]())((t, h) => h :: t).reverse$/;"	m
+toList	base/src/main/scala/typeclass/FoldableInstances.scala	/^    override def toList[A](xs: List[A]): List[A] = xs$/;"	m
+toList	base/src/main/scala/typeclass/FoldableSyntax.scala	/^    def toList: List[A] = F.toList(self)$/;"	m
+traversable	base/src/main/scala/typeclass/TraversableClass.scala	/^  final def traversable: Traversable[F] = this$/;"	m
+traversableFoldable	base/src/main/scala/BaseHierarchy.scala	/^    implicit def traversableFoldable[T[_]](implicit T: Traversable[T]): Foldable[T] = T.foldable$/;"	m
+traversableFunctor	base/src/main/scala/BaseHierarchy.scala	/^    implicit def traversableFunctor[T[_]](implicit T: Traversable[T]): Functor[T] = T.functor$/;"	m
+traversableOps	base/src/main/scala/typeclass/TraversableSyntax.scala	/^  implicit def traversableOps[T[_], A](ta: T[A])(implicit T: Traversable[T]): TraversableSyntax.Ops[T, A] =$/;"	m
+traverse	base/src/main/scala/data/ConstInstances.scala	/^    def traverse[F[_], A, B](ta: Const[R, A])(f: A => F[B])(implicit F: Applicative[F]): F[Const[R, B]] =$/;"	m
+traverse	base/src/main/scala/data/ConstInstances.scala	/^  implicit def traverse[R]: Traversable[Const[R, ?]] = new TraversableClass[Const[R, ?]] {$/;"	m
+traverse	base/src/main/scala/typeclass/Traversable.scala	/^  def traverse[F[_], A, B](ta: T[A])(f: A => F[B])(implicit F: Applicative[F]): F[T[B]]$/;"	m
+traverse	base/src/main/scala/typeclass/TraversableInstances.scala	/^    override def traverse[F[_], A, B](ta: List[A])(f: A => F[B])(implicit F: Applicative[F]): F[List[B]] =$/;"	m
+traverse	base/src/main/scala/typeclass/TraversableSyntax.scala	/^    def traverse[F[_], B](f: A => F[B])(implicit F: Applicative[F]): F[T[B]] =$/;"	m
+typeclass	base/src/main/scala/typeclass/Applicative.scala	/^package typeclass$/;"	p
+typeclass	base/src/main/scala/typeclass/ApplicativeClass.scala	/^package typeclass$/;"	p
+typeclass	base/src/main/scala/typeclass/ApplicativeSyntax.scala	/^package typeclass$/;"	p
+typeclass	base/src/main/scala/typeclass/Apply.scala	/^package typeclass$/;"	p
+typeclass	base/src/main/scala/typeclass/ApplyClass.scala	/^package typeclass$/;"	p
+typeclass	base/src/main/scala/typeclass/ApplySyntax.scala	/^package typeclass$/;"	p
+typeclass	base/src/main/scala/typeclass/Bind.scala	/^package typeclass$/;"	p
+typeclass	base/src/main/scala/typeclass/BindClass.scala	/^package typeclass$/;"	p
+typeclass	base/src/main/scala/typeclass/BindInstances.scala	/^package typeclass$/;"	p
+typeclass	base/src/main/scala/typeclass/BindSyntax.scala	/^package typeclass$/;"	p
+typeclass	base/src/main/scala/typeclass/Choice.scala	/^package typeclass$/;"	p
+typeclass	base/src/main/scala/typeclass/ChoiceClass.scala	/^package typeclass$/;"	p
+typeclass	base/src/main/scala/typeclass/ChoiceInstances.scala	/^package typeclass$/;"	p
+typeclass	base/src/main/scala/typeclass/Compose.scala	/^package typeclass$/;"	p
+typeclass	base/src/main/scala/typeclass/Foldable.scala	/^package typeclass$/;"	p
+typeclass	base/src/main/scala/typeclass/FoldableClass.scala	/^package typeclass$/;"	p
+typeclass	base/src/main/scala/typeclass/FoldableInstances.scala	/^package typeclass$/;"	p
+typeclass	base/src/main/scala/typeclass/FoldableSyntax.scala	/^package typeclass$/;"	p
+typeclass	base/src/main/scala/typeclass/Functor.scala	/^package typeclass$/;"	p
+typeclass	base/src/main/scala/typeclass/FunctorClass.scala	/^package typeclass$/;"	p
+typeclass	base/src/main/scala/typeclass/FunctorSyntax.scala	/^package typeclass$/;"	p
+typeclass	base/src/main/scala/typeclass/Monad.scala	/^package typeclass$/;"	p
+typeclass	base/src/main/scala/typeclass/MonadClass.scala	/^package typeclass$/;"	p
+typeclass	base/src/main/scala/typeclass/MonadInstances.scala	/^package typeclass$/;"	p
+typeclass	base/src/main/scala/typeclass/Monoid.scala	/^package typeclass$/;"	p
+typeclass	base/src/main/scala/typeclass/MonoidClass.scala	/^package typeclass$/;"	p
+typeclass	base/src/main/scala/typeclass/MonoidInstances.scala	/^package typeclass$/;"	p
+typeclass	base/src/main/scala/typeclass/Profunctor.scala	/^package typeclass$/;"	p
+typeclass	base/src/main/scala/typeclass/ProfunctorClass.scala	/^package typeclass$/;"	p
+typeclass	base/src/main/scala/typeclass/ProfunctorInstances.scala	/^package typeclass$/;"	p
+typeclass	base/src/main/scala/typeclass/ProfunctorSyntax.scala	/^package typeclass$/;"	p
+typeclass	base/src/main/scala/typeclass/Semigroup.scala	/^package typeclass$/;"	p
+typeclass	base/src/main/scala/typeclass/SemigroupClass.scala	/^package typeclass$/;"	p
+typeclass	base/src/main/scala/typeclass/SemigroupInstances.scala	/^package typeclass$/;"	p
+typeclass	base/src/main/scala/typeclass/SemigroupSyntax.scala	/^package typeclass$/;"	p
+typeclass	base/src/main/scala/typeclass/Strong.scala	/^package typeclass$/;"	p
+typeclass	base/src/main/scala/typeclass/StrongClass.scala	/^package typeclass$/;"	p
+typeclass	base/src/main/scala/typeclass/StrongInstances.scala	/^package typeclass$/;"	p
+typeclass	base/src/main/scala/typeclass/Traversable.scala	/^package typeclass$/;"	p
+typeclass	base/src/main/scala/typeclass/TraversableClass.scala	/^package typeclass$/;"	p
+typeclass	base/src/main/scala/typeclass/TraversableInstances.scala	/^package typeclass$/;"	p
+typeclass	base/src/main/scala/typeclass/TraversableSyntax.scala	/^package typeclass$/;"	p
+void	base/src/main/scala/typeclass/FunctorSyntax.scala	/^    def void: F[Unit] = F.map[A, Unit](self)(_ => ())$/;"	m
+x	base/src/main/scala/data/ForgetInstances.scala	/^      val x = dimap(pab)(a => -\\\/[B, D](a) ) _$/;"	C
+x	base/src/main/scala/optics/Prism.scala	/^    val x = (stab[({ type l[a, b] = Forget[\\\/[T, A], a, b]})#l])(p)(Forget[\\\/[T, A], A, B](a => \\\/-(a))).forget(s)$/;"	C

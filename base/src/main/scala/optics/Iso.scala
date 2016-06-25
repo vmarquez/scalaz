@@ -3,7 +3,8 @@ package optics
 
 import scalaz.typeclass._
 import scalaz.data._
-
+import Forget._
+/*
 trait Iso[S, T, A, B] { self =>
 
   def stab[P[_, _]: Profunctor]: P[A, B] => P[S, T]
@@ -29,4 +30,4 @@ object Iso {
   def apply[S, T, A, B](sa: S => A, bt: B => T): Iso[S, T, A, B] = new Iso[S, T, A, B] {
     override def stab[P[_, _]](implicit P: Profunctor[P]): P[A, B] => P[S, T] = Profunctor[P].dimap(_)(sa)(bt) 
   }
-}
+}*/
