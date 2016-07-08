@@ -24,11 +24,6 @@ trait Iso[S, T, A, B] { self =>
   def compose[C, D](abcd: Iso[A, B, C, D]): Iso[S, T, C, D] = new Iso[S, T, C, D] { 
     override def stab[P[_, _]: Profunctor]: P[C, D] => P[S, T] = abcd.stab[P](Profunctor[P]) andThen self.stab[P](Profunctor[P])
   }
-  /*
-  def compose[C, D](abcd: Prism[A, B, C, D]: Prism[S, T, C, D] = new Prism[S, T, C, D] {
-    override def stab[P[_, _]: Profunctor]: P[
-  }*/
-  
 }
 
 object Iso {
