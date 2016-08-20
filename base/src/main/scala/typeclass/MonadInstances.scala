@@ -15,4 +15,11 @@ trait MonadInstances {
     override def map[A, B](xs: List[A])(f: A => B): List[B] = xs.map(f)
     override def pure[A](a: A): List[A] = List(a)
   }
+
+  implicit def function1[A]: Monad[Function1[A, ?]] = new MonadClass[Function1[A, ?]] {
+    override def ap[B, C](fa: A => B)(f: Function1[A, Function1[B, C]]): Function1[A, C] = (a: A) => f(a)(fa(a))
+    override def map[B, C](fa: Function1[A, B])(f: B => C): Function[A, C] = (a: A) => f(fa(a))
+    override def flatMap[B, C](fa: Function1[A, B])(f: B => Function1[A, C]): Function1[A, C] = (a: A) => f(fa(a))(a)
+    override def pure[B](b: B): Function1[A, B] = (a: A) => b
+  }
 }
