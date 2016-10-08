@@ -12,7 +12,7 @@ trait Prism[S, T, A, B] {
 
   def getMaybe(s: S): Maybe[A] = {
     val la = (stab[Forget[List[A], ?, ?]])(Choice[Forget[List[A], ?, ?]])(Forget[List[A], A, B](a => List(a))).forget(s)
-    la.headOption.fold[Maybe[A]](Empty[A])( s => Just(s))
+    la.headOption.fold[Maybe[A]](empty[A])( s => Just(s))
   }
 
   def get(b: B): T =
@@ -22,7 +22,7 @@ trait Prism[S, T, A, B] {
 object Prism {
   def apply[S, T, A, B](sa: S => \/[T, A], bt: B => T): Prism[S, T, A, B] = new Prism[S, T, A, B] {
     override def stab[P[_, _]](implicit P: Choice[P]): P[A, B] => P[S, T] = (pab: P[A, B]) =>
-      P.profunctor.dimap(P.right[A, B, T](pab))(sa)(e => e.fold(identity)(bt))
+      P.profunctor.dimap(P.rightchoice[A, B, T](pab))(sa)(e => e.fold(identity)(bt))
   }
 }
 

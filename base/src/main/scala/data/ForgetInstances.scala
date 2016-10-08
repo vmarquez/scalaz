@@ -34,13 +34,13 @@ trait ForgetInstances { self =>
     override def rmap[B, C, D](fbc: Forget[A, B, C])(fcd: C => D): Forget[A, B, D] =
       fbc.retag[D]
 
-    override def left[B, C, D](pab: Forget[A, B, C]): Forget[A,  B \/ D, C \/ D] =
+    override def leftchoice[B, C, D](pab: Forget[A, B, C]): Forget[A,  B \/ D, C \/ D] =
       Forget( {
         case \/-(d) => M.empty 
         case -\/(b) => pab.forget(b)
       })
 
-    override def right[B, C, D](pab: Forget[A, B, C]): Forget[A, D \/ B, D \/ C] =
+    override def rightchoice[B, C, D](pab: Forget[A, B, C]): Forget[A, D \/ B, D \/ C] =
       Forget( {
         case \/-(b) => pab.forget(b)
         case -\/(c) => M.empty 

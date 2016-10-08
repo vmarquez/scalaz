@@ -4,6 +4,8 @@ package optics
 import scalaz.data._
 import scalaz.typeclass._
 import scalaz.data.Disjunction._
+import scalaz.typeclass.Bind._
+import scalaz.typeclass.Functor._
 
 trait EPrism[S, A, I] { self =>
 
@@ -19,7 +21,7 @@ trait EPrism[S, A, I] { self =>
     ((stab[RConst])(p)(RConst[I \/ A, A](a))).rconst
   }
 
-  def compose[B](ab: Iso[A, A, B, B]): EPrism[S, B, I] = new EPrism[S, B, I] { 
+  def compose[B](ab: EPrism[A, B, I]): EPrism[S, B, I] = new EPrism[S, B, I] { 
     override def stab[P[_,_]: Profunctor]: P[I \/ B, B] => P[I \/ S, S] = ab.stab[P](Profunctor[P]) andThen self.stab(Profunctor[P])
   }
 }
@@ -31,10 +33,10 @@ object EPrism {
   }
 
     //TODO: move to ISO 
-    def toEPrism[S, A, I](i: Iso[S, A]): EPrism[S, A, I] = EPrism((i.get _).map(_.right), i.rget _)
+    def toEPrism[S, A, I](i: Iso[S, S, A, A]): EPrism[S, A, I] = EPrism((i.get _).map(Disjunction.right), i.rget _)
     
     def compose[S, A, B, I](sa: EPrism[S, A, I])(ab: Iso[A, A, B, B]): EPrism[S, B, I] = new EPrism[S, B, I] { 
-      override def stab[P[_,_]: Profunctor]: P[I \/ B, B] => P[I \/ S, S] = ab.stab[P](Profunctor[P]) andThen sa.stab(Profunctor[P])
+      override def stab[P[_,_]: Profunctor]: P[I \/ B, B] => P[I \/ S, S] = toEPrism(ab).stab[P](Profunctor[P]) andThen sa.stab(Profunctor[P])
     }
 }
 
