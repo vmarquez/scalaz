@@ -13,7 +13,6 @@ trait ChoiceInstances { instances =>
 
     override def rightchoice[A, B, C](ab: A => B): C \/ A => C \/ B =
       _.fold[C \/ B](Disjunction.left(_))((a => Disjunction.right(ab(a))))
-  
   }
 }
 

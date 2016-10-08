@@ -10,6 +10,6 @@ trait Strong[P[_, _]] {
 }
 
 object Strong extends StrongInstances {
-  def apply[P[_,_]](implicit P: Strong[P]): Strong[P] = P
+  def apply[F[_, _]](implicit F: Strong[F]): Strong[F] = F
 }
 
