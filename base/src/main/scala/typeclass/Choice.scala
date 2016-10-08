@@ -4,6 +4,7 @@ package typeclass
 import data.Disjunction._
 
 trait Choice[P[_, _]] {
+
   def profunctor: Profunctor[P]
 
   def left[A, B, C](pab: P[A, B]): P[A \/ C, B \/ C] =

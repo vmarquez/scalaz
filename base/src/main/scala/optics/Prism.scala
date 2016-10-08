@@ -14,6 +14,9 @@ trait Prism[S, T, A, B] {
     val la = (stab[Forget[List[A], ?, ?]])(Choice[Forget[List[A], ?, ?]])(Forget[List[A], A, B](a => List(a))).forget(s)
     la.headOption.fold[Maybe[A]](Empty[A])( s => Just(s))
   }
+
+  def get(b: B): T =
+    (stab[RConst](Choice[RConst])(RConst[A, B](b))).rconst
 }
 
 object Prism {
