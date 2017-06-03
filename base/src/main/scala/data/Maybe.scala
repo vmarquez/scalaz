@@ -11,4 +11,6 @@ sealed abstract class Maybe[A] {
 object Maybe extends MaybeFunctions with MaybeInstances with MaybeSyntax {
   final private[data] case object Empty extends Maybe[Nothing]
   final case class Just[A](a: A) extends Maybe[A]
+
+   final def fromNullable[A](a: A): Maybe[A] = if (null == a) empty else just(a)
 }
