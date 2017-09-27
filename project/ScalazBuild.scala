@@ -17,7 +17,7 @@ object Scalaz {
     "-language:higherKinds", "-language:existentials",
     "-unchecked",
     "-Yno-adapted-args",
-    "-opt-warnings",
+    //"-opt-warnings",
     "-Xlint:_,-type-parameter-shadow",
     "-Ywarn-dead-code",
     "-Ywarn-extra-implicit",

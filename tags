@@ -1,0 +1,1254 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+A	base/shared/src/main/scala/scalaz/data/APair.scala	/^ * (F[A], G[A]) forSome { type A <: U }$/;"	T
+A	base/shared/src/main/scala/scalaz/data/package.scala	/^   * (F[A], G[A]) forSome { type A }$/;"	T
+ACatenable1	base/shared/src/main/scala/scalaz/data/ACatenable1.scala	/^object ACatenable1 {$/;"	o
+ACatenable1	base/shared/src/main/scala/scalaz/data/ACatenable1.scala	/^sealed abstract class ACatenable1[=>:[_, _], A, B] {$/;"	c
+ACons	base/shared/src/main/scala/scalaz/data/AList.scala	/^final case class ACons[F[_, _], A, X, B](head: F[A, X], tail: AList[F, X, B]) extends AList[F, A, B] {$/;"	c
+ACons1	base/shared/src/main/scala/scalaz/data/AList1.scala	/^final case class ACons1[F[_, _], A, X, B](head: F[A, X], tail: AList[F, X, B]) extends AList1[F, A, B] {$/;"	c
+AEmpty	base/shared/src/main/scala/scalaz/data/AMaybe.scala	/^sealed abstract case class AEmpty[F[_, _], A, B]() extends AMaybe[F, A, B] {$/;"	c
+AJust	base/shared/src/main/scala/scalaz/data/AMaybe.scala	/^case class AJust[F[_, _], A, B](value: F[A, B]) extends AMaybe[F, A, B]$/;"	c
+AList	base/shared/src/main/scala/scalaz/data/AList.scala	/^object AList {$/;"	o
+AList	base/shared/src/main/scala/scalaz/data/AList.scala	/^sealed abstract class AList[F[_, _], A, B] {$/;"	c
+AList1	base/shared/src/main/scala/scalaz/data/AList1.scala	/^object AList1 {$/;"	o
+AList1	base/shared/src/main/scala/scalaz/data/AList1.scala	/^sealed abstract class AList1[F[_, _], A, B] {$/;"	c
+AMaybe	base/shared/src/main/scala/scalaz/data/AMaybe.scala	/^object AMaybe {$/;"	o
+AMaybe	base/shared/src/main/scala/scalaz/data/AMaybe.scala	/^sealed abstract class AMaybe[F[_, _], A, B]$/;"	c
+ANil	base/shared/src/main/scala/scalaz/data/AList.scala	/^sealed abstract case class ANil[F[_, _], A, B]() extends AList[F, A, B] {$/;"	c
+APair	base/shared/src/main/scala/scalaz/data/package.scala	/^  object APair {$/;"	o
+APair	base/shared/src/main/scala/scalaz/data/package.scala	/^  type APair[F[_], G[_]] = BoundedAPair[Any, F, G]$/;"	T
+Alt	base/shared/src/main/scala/scalaz/typeclass/BindClass.scala	/^  trait Alt[D <: Alt[D]] { self: D => }$/;"	t
+Alt	base/shared/src/main/scala/scalaz/typeclass/ChoiceClass.scala	/^  trait Alt[D <: Alt[D]] { self: D => }$/;"	t
+Alt	base/shared/src/main/scala/scalaz/typeclass/CobindClass.scala	/^  trait Alt[D <: Alt[D]] { self: D => }$/;"	t
+Alt	base/shared/src/main/scala/scalaz/typeclass/ComonadClass.scala	/^  trait Alt[D <: Alt[D]] { self: D => }$/;"	t
+Alt	base/shared/src/main/scala/scalaz/typeclass/FoldableClass.scala	/^  trait Alt[D <: Alt[D]] { self: D => }$/;"	t
+Alt	base/shared/src/main/scala/scalaz/typeclass/IsContravariantClass.scala	/^  trait Alt[D <: Alt[D]] { self: D => }$/;"	t
+Alt	base/shared/src/main/scala/scalaz/typeclass/IsCovariantClass.scala	/^  trait Alt[D <: Alt[D]] { self: D => }$/;"	t
+Alt	base/shared/src/main/scala/scalaz/typeclass/ProfunctorClass.scala	/^  trait Alt[D <: Alt[D]] { self: D => }$/;"	t
+Alt	base/shared/src/main/scala/scalaz/typeclass/StrongClass.scala	/^  trait Alt[D <: Alt[D]] { self: D => }$/;"	t
+Alt	base/shared/src/main/scala/scalaz/typeclass/TraversableClass.scala	/^  trait Alt[D <: Alt[D]] { self: D => }$/;"	t
+Ap	base/shared/src/main/scala/scalaz/typeclass/BindClass.scala	/^  trait Ap[M[_]] { self: Bind[M] with Apply[M] with Functor[M] =>$/;"	t
+Applicative	base/shared/src/main/scala/scalaz/Prelude.scala	/^  def Applicative[F[_]](implicit F: Applicative[F]): Applicative[F] = F$/;"	m
+Applicative	base/shared/src/main/scala/scalaz/Prelude.scala	/^  type Applicative[F[_]] = typeclass.Applicative[F]$/;"	T
+Applicative	base/shared/src/main/scala/scalaz/typeclass/Applicative.scala	/^object Applicative extends ApplicativeSyntax {$/;"	o
+Applicative	base/shared/src/main/scala/scalaz/typeclass/Applicative.scala	/^trait Applicative[F[_]] {$/;"	t
+ApplicativeClass	base/shared/src/main/scala/scalaz/typeclass/ApplicativeClass.scala	/^object ApplicativeClass {$/;"	o
+ApplicativeClass	base/shared/src/main/scala/scalaz/typeclass/ApplicativeClass.scala	/^trait ApplicativeClass[F[_]] extends Applicative[F] with ApplyClass[F] {$/;"	t
+ApplicativeSyntax	base/shared/src/main/scala/scalaz/typeclass/ApplicativeSyntax.scala	/^object ApplicativeSyntax {$/;"	o
+ApplicativeSyntax	base/shared/src/main/scala/scalaz/typeclass/ApplicativeSyntax.scala	/^trait ApplicativeSyntax {$/;"	t
+Apply	base/shared/src/main/scala/scalaz/Prelude.scala	/^  def Apply[F[_]](implicit F: Apply[F]): Apply[F] = F$/;"	m
+Apply	base/shared/src/main/scala/scalaz/Prelude.scala	/^  type Apply[F[_]] = typeclass.Apply[F]$/;"	T
+Apply	base/shared/src/main/scala/scalaz/typeclass/Apply.scala	/^object Apply extends ApplySyntax {$/;"	o
+Apply	base/shared/src/main/scala/scalaz/typeclass/Apply.scala	/^trait Apply[F[_]] {$/;"	t
+ApplyClass	base/shared/src/main/scala/scalaz/typeclass/ApplyClass.scala	/^trait ApplyClass[F[_]] extends Apply[F] with FunctorClass[F] {$/;"	t
+ApplySyntax	base/shared/src/main/scala/scalaz/typeclass/ApplySyntax.scala	/^object ApplySyntax {$/;"	o
+ApplySyntax	base/shared/src/main/scala/scalaz/typeclass/ApplySyntax.scala	/^trait ApplySyntax {$/;"	t
+BH0	base/shared/src/main/scala/scalaz/BaseHierarchy.scala	/^  trait BH0 extends BH1 {$/;"	t
+BH1	base/shared/src/main/scala/scalaz/BaseHierarchy.scala	/^  trait BH1 extends BH2 {$/;"	t
+BH2	base/shared/src/main/scala/scalaz/BaseHierarchy.scala	/^  trait BH2 extends BH3 {$/;"	t
+BH3	base/shared/src/main/scala/scalaz/BaseHierarchy.scala	/^  trait BH3 extends BH4 {$/;"	t
+BH4	base/shared/src/main/scala/scalaz/BaseHierarchy.scala	/^  trait BH4 {$/;"	t
+BaseHierarchy	base/shared/src/main/scala/scalaz/BaseHierarchy.scala	/^class BaseHierarchy extends BaseHierarchy.BH0$/;"	c
+BaseHierarchy	base/shared/src/main/scala/scalaz/BaseHierarchy.scala	/^object BaseHierarchy {$/;"	o
+BinaturalTransformationOps	example/shared/src/main/scala/scalaz/example/ForallUsage.scala	/^  implicit class BinaturalTransformationOps[F[_, _], G[_, _]](trans: F ~~> G) {$/;"	c
+Bind	base/shared/src/main/scala/scalaz/Prelude.scala	/^  def Bind[F[_]](implicit F: Bind[F]): Bind[F] = F$/;"	m
+Bind	base/shared/src/main/scala/scalaz/Prelude.scala	/^  type Bind[M[_]] = typeclass.Bind[M]$/;"	T
+Bind	base/shared/src/main/scala/scalaz/typeclass/Bind.scala	/^object Bind extends BindInstances with BindFunctions with BindSyntax {$/;"	o
+Bind	base/shared/src/main/scala/scalaz/typeclass/Bind.scala	/^trait Bind[M[_]] {$/;"	t
+BindClass	base/shared/src/main/scala/scalaz/typeclass/BindClass.scala	/^object BindClass {$/;"	o
+BindClass	base/shared/src/main/scala/scalaz/typeclass/BindClass.scala	/^trait BindClass[M[_]] extends Bind[M] with ApplyClass[M] {$/;"	t
+BindFunctions	base/shared/src/main/scala/scalaz/typeclass/BindFunctions.scala	/^trait BindFunctions {$/;"	t
+BindInstances	base/shared/src/main/scala/scalaz/typeclass/BindInstances.scala	/^trait BindInstances {$/;"	t
+BindSyntax	base/shared/src/main/scala/scalaz/typeclass/BindSyntax.scala	/^object BindSyntax {$/;"	o
+BindSyntax	base/shared/src/main/scala/scalaz/typeclass/BindSyntax.scala	/^trait BindSyntax {$/;"	t
+BoundedAPair	base/shared/src/main/scala/scalaz/data/APair.scala	/^object BoundedAPair {$/;"	o
+BoundedAPair	base/shared/src/main/scala/scalaz/data/APair.scala	/^sealed abstract class BoundedAPair[U, F[_ <: U], G[_ <: U]] {$/;"	c
+Builder	base/shared/src/main/scala/scalaz/data/APair.scala	/^  class Builder[U, F[_ <: U], G[_ <: U]] {$/;"	c
+Category	base/shared/src/main/scala/scalaz/Prelude.scala	/^  def Category[=>:[_,_]](implicit P: Category[=>:]): Category[=>:] = P $/;"	m
+Category	base/shared/src/main/scala/scalaz/Prelude.scala	/^  type Category[=>:[_,_]] = typeclass.Category[=>:]$/;"	T
+Category	base/shared/src/main/scala/scalaz/typeclass/Category.scala	/^trait Category[=>:[_,_]] {$/;"	t
+CategoryClass	base/shared/src/main/scala/scalaz/typeclass/CategoryClass.scala	/^trait CategoryClass[=>:[_,_]] extends Category[=>:] with Compose[=>:] {$/;"	t
+Chain	base/shared/src/main/scala/scalaz/data/ACatenable1.scala	/^  private[ACatenable1] final case class Chain[=>:[_, _], A, B, C](f: ACatenable1[=>:, A, B], g: ACatenable1[=>:, B, C]) extends ACatenable1[=>:, A, C]$/;"	c
+Chain	base/shared/src/main/scala/scalaz/data/FreeSemiArrow.scala	/^  private[FreeSemiArrow] final case class Chain[=>:[_, _], A, B, C](f: FreeSemiArrow[=>:, A, B], g: FreeSemiArrow[=>:, B, C]) extends FreeSemiArrow[=>:, A, C]$/;"	c
+Choice	base/shared/src/main/scala/scalaz/Prelude.scala	/^  def Choice[P[_,_]](implicit P: Choice[P]): Choice[P] = P$/;"	m
+Choice	base/shared/src/main/scala/scalaz/typeclass/Choice.scala	/^object Choice extends ChoiceInstances {$/;"	o
+Choice	base/shared/src/main/scala/scalaz/typeclass/Choice.scala	/^trait Choice[P[_, _]] {$/;"	t
+ChoiceClass	base/shared/src/main/scala/scalaz/typeclass/ChoiceClass.scala	/^object ChoiceClass {$/;"	o
+ChoiceClass	base/shared/src/main/scala/scalaz/typeclass/ChoiceClass.scala	/^trait ChoiceClass[P[_, _]] extends Choice[P] with ProfunctorClass[P] {$/;"	t
+ChoiceInstances	base/shared/src/main/scala/scalaz/typeclass/ChoiceInstances.scala	/^trait ChoiceInstances { instances =>$/;"	t
+ChoiceSyntax	base/shared/src/main/scala/scalaz/typeclass/ChoiceSyntax.scala	/^object ChoiceSyntax {$/;"	o
+ChoiceSyntax	base/shared/src/main/scala/scalaz/typeclass/ChoiceSyntax.scala	/^trait ChoiceSyntax {$/;"	t
+Cobind	base/shared/src/main/scala/scalaz/Prelude.scala	/^  def Cobind[F[_]](implicit F: Cobind[F]): Cobind[F] = F$/;"	m
+Cobind	base/shared/src/main/scala/scalaz/Prelude.scala	/^  type Cobind[F[_]] = typeclass.Cobind[F]$/;"	T
+Cobind	base/shared/src/main/scala/scalaz/typeclass/Cobind.scala	/^object Cobind extends CobindInstances with CobindSyntax {$/;"	o
+Cobind	base/shared/src/main/scala/scalaz/typeclass/Cobind.scala	/^trait Cobind[F[_]] {$/;"	t
+Cobind	base/shared/src/main/scala/scalaz/typeclass/CobindClass.scala	/^  trait Cobind[F[_]] extends Alt[Cobind[F]] with CobindClass[F] {$/;"	t
+Cobind	base/shared/src/main/scala/scalaz/typeclass/ComonadClass.scala	/^  trait Cobind[F[_]] extends Alt[Cobind[F]] with ComonadClass[F] {$/;"	t
+CobindClass	base/shared/src/main/scala/scalaz/typeclass/CobindClass.scala	/^object CobindClass {$/;"	o
+CobindClass	base/shared/src/main/scala/scalaz/typeclass/CobindClass.scala	/^trait CobindClass[F[_]] extends Cobind[F] with FunctorClass[F] {$/;"	t
+CobindInstances	base/shared/src/main/scala/scalaz/typeclass/CobindInstances.scala	/^trait CobindInstances {$/;"	t
+CobindOps	base/shared/src/main/scala/scalaz/Prelude.scala	/^  implicit def CobindOps[F[_], A](fa: F[A])(implicit F: Cobind[F]): CobindSyntax.Ops[F, A] =$/;"	m
+CobindSyntax	base/shared/src/main/scala/scalaz/typeclass/CobindSyntax.scala	/^object CobindSyntax {$/;"	o
+CobindSyntax	base/shared/src/main/scala/scalaz/typeclass/CobindSyntax.scala	/^trait CobindSyntax {$/;"	t
+Cojoin	base/shared/src/main/scala/scalaz/typeclass/CobindClass.scala	/^  trait Cojoin[F[_]] extends Alt[Cojoin[F]] with CobindClass[F] {$/;"	t
+Cojoin	base/shared/src/main/scala/scalaz/typeclass/ComonadClass.scala	/^  trait Cojoin[F[_]] extends Alt[Cojoin[F]] with ComonadClass[F] {$/;"	t
+Comonad	base/shared/src/main/scala/scalaz/Prelude.scala	/^  def Comonad[F[_]](implicit F: Comonad[F]): Comonad[F] = F$/;"	m
+Comonad	base/shared/src/main/scala/scalaz/Prelude.scala	/^  type Comonad[F[_]] = typeclass.Comonad[F]$/;"	T
+Comonad	base/shared/src/main/scala/scalaz/typeclass/Comonad.scala	/^object Comonad extends ComonadSyntax {$/;"	o
+Comonad	base/shared/src/main/scala/scalaz/typeclass/Comonad.scala	/^trait Comonad[F[_]] {$/;"	t
+ComonadClass	base/shared/src/main/scala/scalaz/typeclass/ComonadClass.scala	/^object ComonadClass {$/;"	o
+ComonadClass	base/shared/src/main/scala/scalaz/typeclass/ComonadClass.scala	/^trait ComonadClass[F[_]] extends Comonad[F] with CobindClass[F] with FunctorClass[F] {$/;"	t
+ComonadInstances	base/shared/src/main/scala/scalaz/typeclass/ComonadInstances.scala	/^trait ComonadInstances { instances =>$/;"	t
+ComonadOps	base/shared/src/main/scala/scalaz/Prelude.scala	/^  implicit def ComonadOps[F[_], A](fa: F[A])(implicit F: Comonad[F]): ComonadSyntax.Ops[F, A] =$/;"	m
+ComonadSyntax	base/shared/src/main/scala/scalaz/typeclass/ComonadSyntax.scala	/^object ComonadSyntax {$/;"	o
+ComonadSyntax	base/shared/src/main/scala/scalaz/typeclass/ComonadSyntax.scala	/^trait ComonadSyntax {$/;"	t
+Compose	base/shared/src/main/scala/scalaz/typeclass/Compose.scala	/^trait Compose[=>:[_, _]] {$/;"	t
+ComposeSyntax	base/shared/src/main/scala/scalaz/typeclass/ComposeSyntax.scala	/^object ComposeSyntax {$/;"	o
+ComposeSyntax	base/shared/src/main/scala/scalaz/typeclass/ComposeSyntax.scala	/^trait ComposeSyntax {$/;"	t
+Composed	base/shared/src/main/scala/scalaz/data/AList.scala	/^  type Composed[F[_, _], A, B] = AList[λ[(α, β) => F[β, α]], B, A]$/;"	T
+Composed	base/src/main/scala/data/ProCompose.scala	/^  case class Composed[P[_, _], A, X, B](pab: P[A, X], more: ProCompose[P, X, B]) extends ProCompose[P, A, B]$/;"	c
+Composed1	base/shared/src/main/scala/scalaz/data/AList1.scala	/^  type Composed1[F[_, _], A, B] = AList1[λ[(α, β) => F[β, α]], B, A]$/;"	T
+Const	base/shared/src/main/scala/scalaz/data/Const.scala	/^final case class  Const[A, B](getConst: A){$/;"	c
+Const	base/shared/src/main/scala/scalaz/data/Const.scala	/^object Const extends ConstInstances$/;"	o
+ConstInstances	base/shared/src/main/scala/scalaz/data/ConstInstances.scala	/^trait ConstInstances {$/;"	t
+Contravariant	base/shared/src/main/scala/scalaz/typeclass/Contravariant.scala	/^trait Contravariant[F[_]] {$/;"	t
+CrossProjectModuleHelper	project/ScalazBuild.scala	/^  implicit class CrossProjectModuleHelper(p: CrossProject.Builder) {$/;"	c
+Dimap	base/shared/src/main/scala/scalaz/typeclass/ProfunctorClass.scala	/^  trait Dimap[F[_, _]] extends Alt[Dimap[F]] with Profunctor[F] { self: Profunctor[F] =>$/;"	t
+Disjunction	base/shared/src/main/scala/scalaz/data/Disjunction.scala	/^object Disjunction extends DisjunctionInstances with DisjunctionFunctions {$/;"	o
+Disjunction	base/shared/src/main/scala/scalaz/data/Disjunction.scala	/^sealed trait Disjunction[L, R] {$/;"	t
+DisjunctionFunctions	base/shared/src/main/scala/scalaz/data/DisjunctionFunctions.scala	/^trait DisjunctionFunctions {$/;"	t
+DisjunctionInstances	base/shared/src/main/scala/scalaz/data/DisjunctionInstances.scala	/^trait DisjunctionInstances {$/;"	t
+DisjunctionSyntax	base/shared/src/main/scala/scalaz/data/DisjunctionSyntax.scala	/^trait DisjunctionSyntax {$/;"	t
+DownStar	base/shared/src/main/scala/scalaz/data/DownStar.scala	/^final case class DownStar[F[_], A, B](run: F[A] => B) extends AnyVal$/;"	c
+DownStar	base/shared/src/main/scala/scalaz/data/DownStar.scala	/^object DownStar extends DownStarInstances$/;"	o
+DownStarInstances	base/shared/src/main/scala/scalaz/data/DownStarInstances.scala	/^trait DownStarInstances {$/;"	t
+EitherAsDisjunction	base/shared/src/main/scala/scalaz/data/DisjunctionSyntax.scala	/^  implicit class EitherAsDisjunction[A, B](ab: Either[A, B]) {$/;"	c
+Empty	base/shared/src/main/scala/scalaz/data/Maybe.scala	/^  final private[data] class Empty[A] private[Maybe]() extends Maybe[A]$/;"	c
+Empty	base/shared/src/main/scala/scalaz/data/Maybe.scala	/^  private[data] val Empty = ∀.of[Empty].from(new Empty)$/;"	C
+Endo	base/shared/src/main/scala/scalaz/data/Endo.scala	/^final case class Endo[=>:[_, _], A](run: A =>: A) {$/;"	c
+F	base/shared/src/main/scala/scalaz/data/Forall.scala	/^      new Unapply[∀[G]] { type F[A] = G[A] }$/;"	T
+F	base/shared/src/main/scala/scalaz/data/Forall.scala	/^      new Unapply[∀[λ[α => G[H[α]]]]] { type F[A] = G[H[A]] }$/;"	T
+F	base/shared/src/main/scala/scalaz/data/Forall.scala	/^      new Unapply[∀[λ[α => P[G[α], H[α]]]]] { type F[A] = P[G[A], H[A]] }$/;"	T
+F	base/shared/src/main/scala/scalaz/data/Forall.scala	/^      new Unapply[∀[λ[α => P[α, α]]]] { type F[A] = P[A, A] }$/;"	T
+F	base/shared/src/main/scala/scalaz/data/Forall.scala	/^    implicit def unapply1[G[_], H[_]]: Unapply[∀[λ[α => G[H[α]]]]] { type F[A] = G[H[A]] } =$/;"	T
+F	base/shared/src/main/scala/scalaz/data/Forall.scala	/^    implicit def unapply2[P[_, _]]: Unapply[∀[λ[α => P[α, α]]]] { type F[A] = P[A, A] } =$/;"	T
+F	base/shared/src/main/scala/scalaz/data/Forall.scala	/^    implicit def unapply3[P[_, _], G[_], H[_]]: Unapply[∀[λ[α => P[G[α], H[α]]]]] { type F[A] = P[G[A], H[A]] } =$/;"	T
+F	base/shared/src/main/scala/scalaz/data/Forall.scala	/^    implicit def unapply[G[_]]: Unapply[∀[G]] { type F[A] = G[A] } =$/;"	T
+F	base/shared/src/main/scala/scalaz/data/Forall.scala	/^    type F[_]$/;"	T
+F	base/shared/src/main/scala/scalaz/data/Forall2.scala	/^      new Unapply[∀∀[G]] { type F[A, B] = G[A, B] }$/;"	T
+F	base/shared/src/main/scala/scalaz/data/Forall2.scala	/^      new Unapply[∀∀[λ[(α, β) => G[H[α, β]]]]] { type F[A, B] = G[H[A, B]] }$/;"	T
+F	base/shared/src/main/scala/scalaz/data/Forall2.scala	/^      new Unapply[∀∀[λ[(α, β) => P[G[α, β], H[α, β]]]]] { type F[A, B] = P[G[A, B], H[A, B]] }$/;"	T
+F	base/shared/src/main/scala/scalaz/data/Forall2.scala	/^      new Unapply[∀∀[λ[(α, β) => P[G[α], H[β]]]]] { type F[A, B] = P[G[A], H[B]] }$/;"	T
+F	base/shared/src/main/scala/scalaz/data/Forall2.scala	/^    implicit def unapply1[G[_], H[_, _]]: Unapply[∀∀[λ[(α, β) => G[H[α, β]]]]] { type F[A, B] = G[H[A, B]] } =$/;"	T
+F	base/shared/src/main/scala/scalaz/data/Forall2.scala	/^    implicit def unapply2[P[_, _], G[_], H[_]]: Unapply[∀∀[λ[(α, β) => P[G[α], H[β]]]]] { type F[A, B] = P[G[A], H[B]] } =$/;"	T
+F	base/shared/src/main/scala/scalaz/data/Forall2.scala	/^    implicit def unapply3[P[_, _], G[_, _], H[_, _]]: Unapply[∀∀[λ[(α, β) => P[G[α, β], H[α, β]]]]] { type F[A, B] = P[G[A, B], H[A, B]] } =$/;"	T
+F	base/shared/src/main/scala/scalaz/data/Forall2.scala	/^    implicit def unapply[G[_, _]]: Unapply[∀∀[G]] { type F[A, B] = G[A, B] } =$/;"	T
+F	base/shared/src/main/scala/scalaz/data/Forall2.scala	/^    type F[_, _]$/;"	T
+FXB	base/shared/src/main/scala/scalaz/data/AList1.scala	/^    type FXB[X] = F[X, B]$/;"	T
+FXC	base/shared/src/main/scala/scalaz/data/AList1.scala	/^    type FXC[X] = AList1[F, X, C]$/;"	T
+First	base/shared/src/main/scala/scalaz/typeclass/StrongClass.scala	/^  trait First[P[_, _]] extends Alt[First[P]] with StrongClass[P] { self: Strong[P] =>$/;"	t
+FlatMap	base/shared/src/main/scala/scalaz/typeclass/BindClass.scala	/^  trait FlatMap[M[_]] extends Alt[FlatMap[M]] { self: Bind[M] =>$/;"	t
+Flatten	base/shared/src/main/scala/scalaz/typeclass/BindClass.scala	/^  trait Flatten[M[_]] extends Alt[Flatten[M]] { self: Bind[M] =>$/;"	t
+FoldMap	base/shared/src/main/scala/scalaz/typeclass/FoldableClass.scala	/^  trait FoldMap[F[_]] extends Alt[FoldMap[F]] { self : Foldable[F] =>$/;"	t
+FoldRight	base/shared/src/main/scala/scalaz/typeclass/FoldableClass.scala	/^  trait FoldRight[F[_]] extends Alt[FoldRight[F]] { self : Foldable[F] =>$/;"	t
+Foldable	base/shared/src/main/scala/scalaz/Prelude.scala	/^  def Foldable[F[_]](implicit F: Foldable[F]): Foldable[F] = F$/;"	m
+Foldable	base/shared/src/main/scala/scalaz/Prelude.scala	/^  type Foldable[T[_]] = typeclass.Foldable[T]$/;"	T
+Foldable	base/shared/src/main/scala/scalaz/typeclass/Foldable.scala	/^object Foldable extends FoldableInstances with FoldableSyntax {$/;"	o
+Foldable	base/shared/src/main/scala/scalaz/typeclass/Foldable.scala	/^trait Foldable[F[_]] {$/;"	t
+FoldableClass	base/shared/src/main/scala/scalaz/typeclass/FoldableClass.scala	/^object FoldableClass {$/;"	o
+FoldableClass	base/shared/src/main/scala/scalaz/typeclass/FoldableClass.scala	/^trait FoldableClass[F[_]] extends Foldable[F]{$/;"	t
+FoldableInstances	base/shared/src/main/scala/scalaz/typeclass/FoldableInstances.scala	/^trait FoldableInstances {$/;"	t
+FoldableSyntax	base/shared/src/main/scala/scalaz/typeclass/FoldableSyntax.scala	/^object FoldableSyntax {$/;"	o
+FoldableSyntax	base/shared/src/main/scala/scalaz/typeclass/FoldableSyntax.scala	/^trait FoldableSyntax {$/;"	t
+Forall	base/shared/src/main/scala/scalaz/Prelude.scala	/^  type Forall[F[_]]             = Forall.Forall[F]$/;"	T
+Forall	base/shared/src/main/scala/scalaz/Prelude.scala	/^  val Forall : data.Forall.type = data.Forall$/;"	C
+Forall	base/shared/src/main/scala/scalaz/data/Forall.scala	/^  type Forall[F[_]] = F[Any]$/;"	T
+Forall	base/shared/src/main/scala/scalaz/data/Forall.scala	/^  type Forall[F[_]]$/;"	T
+Forall	base/shared/src/main/scala/scalaz/data/package.scala	/^  type Forall[F[_]] = Forall.Forall[F]$/;"	T
+Forall	base/shared/src/main/scala/scalaz/data/package.scala	/^  val Forall: ForallModule with ForallSyntax = ForallImpl$/;"	C
+Forall2	base/shared/src/main/scala/scalaz/Prelude.scala	/^  type Forall2[F[_, _]]           = Forall2.Forall2[F]$/;"	T
+Forall2	base/shared/src/main/scala/scalaz/Prelude.scala	/^  val Forall2 : data.Forall2.type = data.Forall2$/;"	C
+Forall2	base/shared/src/main/scala/scalaz/data/Forall2.scala	/^  type Forall2[F[_, _]] = F[Any, Any]$/;"	T
+Forall2	base/shared/src/main/scala/scalaz/data/Forall2.scala	/^  type Forall2[F[_, _]]$/;"	T
+Forall2	base/shared/src/main/scala/scalaz/data/package.scala	/^  type Forall2[F[_, _]] = Forall2.Forall2[F]$/;"	T
+Forall2	base/shared/src/main/scala/scalaz/data/package.scala	/^  val Forall2: Forall2Module with Forall2Syntax = Forall2Impl$/;"	C
+Forall2Impl	base/shared/src/main/scala/scalaz/data/Forall2.scala	/^private[data] object Forall2Impl extends Forall2Module with Forall2Syntax {$/;"	o
+Forall2Module	base/shared/src/main/scala/scalaz/data/Forall2.scala	/^trait Forall2Module {$/;"	t
+Forall2Syntax	base/shared/src/main/scala/scalaz/data/Forall2.scala	/^object Forall2Syntax {$/;"	o
+Forall2Syntax	base/shared/src/main/scala/scalaz/data/Forall2.scala	/^trait Forall2Syntax {$/;"	t
+ForallImpl	base/shared/src/main/scala/scalaz/data/Forall.scala	/^private[data] object ForallImpl extends ForallModule with ForallSyntax {$/;"	o
+ForallModule	base/shared/src/main/scala/scalaz/data/Forall.scala	/^trait ForallModule {$/;"	t
+ForallSyntax	base/shared/src/main/scala/scalaz/data/Forall.scala	/^object ForallSyntax {$/;"	o
+ForallSyntax	base/shared/src/main/scala/scalaz/data/Forall.scala	/^trait ForallSyntax {$/;"	t
+ForallUsage	example/shared/src/main/scala/scalaz/example/ForallUsage.scala	/^object ForallUsage extends App {$/;"	o
+Forget	base/shared/src/main/scala/scalaz/Prelude.scala	/^  type Forget[A, B, C] = data.Forget[A, B, C]$/;"	T
+Forget	base/shared/src/main/scala/scalaz/data/Forget.scala	/^final case class Forget[A, B, C](forget: B => A){$/;"	c
+Forget	base/shared/src/main/scala/scalaz/data/Forget.scala	/^object Forget extends ForgetInstances$/;"	o
+ForgetInstances	base/shared/src/main/scala/scalaz/data/ForgetInstances.scala	/^trait ForgetInstances { self =>$/;"	t
+FreeSemiArrow	base/shared/src/main/scala/scalaz/data/FreeSemiArrow.scala	/^object FreeSemiArrow {$/;"	o
+FreeSemiArrow	base/shared/src/main/scala/scalaz/data/FreeSemiArrow.scala	/^sealed abstract class FreeSemiArrow[=>:[_, _], A, B] {$/;"	c
+Functor	base/shared/src/main/scala/scalaz/Prelude.scala	/^  def Functor[F[_]](implicit F: Functor[F]): Functor[F] = F$/;"	m
+Functor	base/shared/src/main/scala/scalaz/Prelude.scala	/^  type Functor[F[_]] = typeclass.Functor[F]$/;"	T
+Functor	base/shared/src/main/scala/scalaz/typeclass/Functor.scala	/^object Functor extends FunctorFunctions with FunctorSyntax {$/;"	o
+Functor	base/shared/src/main/scala/scalaz/typeclass/Functor.scala	/^trait Functor[F[_]] {$/;"	t
+FunctorClass	base/shared/src/main/scala/scalaz/typeclass/FunctorClass.scala	/^trait FunctorClass[F[_]] extends Functor[F]{$/;"	t
+FunctorFunctions	base/shared/src/main/scala/scalaz/typeclass/FunctorFunctions.scala	/^trait FunctorFunctions {$/;"	t
+FunctorSyntax	base/shared/src/main/scala/scalaz/typeclass/FunctorSyntax.scala	/^object FunctorSyntax {$/;"	o
+FunctorSyntax	base/shared/src/main/scala/scalaz/typeclass/FunctorSyntax.scala	/^trait FunctorSyntax {$/;"	t
+GXB	base/shared/src/main/scala/scalaz/data/AList1.scala	/^    type GXB[X] = AList1[G, X, B]$/;"	T
+H	base/shared/src/main/scala/scalaz/typeclass/IsContravariantClass.scala	/^      type H[+a] = G[a] => G[F[B]]$/;"	T
+H	base/shared/src/main/scala/scalaz/typeclass/IsContravariantClass.scala	/^      type H[-a] = G[a] => G[F[A]]$/;"	T
+H	base/shared/src/main/scala/scalaz/typeclass/IsContravariantInstances.scala	/^        type H[-T] = G[F[T]]$/;"	T
+H	base/shared/src/main/scala/scalaz/typeclass/IsCovariantClass.scala	/^      type H[+a] = G[a] => G[F[A]]$/;"	T
+H	base/shared/src/main/scala/scalaz/typeclass/IsCovariantClass.scala	/^      type H[-a] = G[a] => G[F[B]]$/;"	T
+H	base/shared/src/main/scala/scalaz/typeclass/IsCovariantInstances.scala	/^        type H[+T] = G[F[T]]$/;"	T
+Id	base/shared/src/main/scala/scalaz/data/IdentityTypes.scala	/^  type Id[X] = X$/;"	T
+Identity	base/shared/src/main/scala/scalaz/Prelude.scala	/^  type Identity[A] = data.Identity[A]$/;"	T
+Identity	base/shared/src/main/scala/scalaz/data/Identity.scala	/^case class Identity[A](run: A) extends AnyVal$/;"	c
+Identity	base/shared/src/main/scala/scalaz/data/Identity.scala	/^object Identity extends IdentityTypes with IdentityInstances$/;"	o
+IdentityInstances	base/shared/src/main/scala/scalaz/data/IdentityInstances.scala	/^trait IdentityInstances {$/;"	t
+IdentityTypes	base/shared/src/main/scala/scalaz/data/IdentityTypes.scala	/^trait IdentityTypes {$/;"	t
+InvariantFunctor	base/shared/src/main/scala/scalaz/Prelude.scala	/^  def InvariantFunctor[F[_]](implicit F: InvariantFunctor[F]): InvariantFunctor[F] = F$/;"	m
+InvariantFunctor	base/shared/src/main/scala/scalaz/Prelude.scala	/^  type InvariantFunctor[F[_]] = typeclass.InvariantFunctor[F]$/;"	T
+InvariantFunctor	base/shared/src/main/scala/scalaz/typeclass/InvariantFunctor.scala	/^object InvariantFunctor extends InvariantFunctorFunctions with InvariantFunctorSyntax {$/;"	o
+InvariantFunctor	base/shared/src/main/scala/scalaz/typeclass/InvariantFunctor.scala	/^trait InvariantFunctor[F[_]] {$/;"	t
+InvariantFunctorClass	base/shared/src/main/scala/scalaz/typeclass/InvariantFunctorClass.scala	/^trait InvariantFunctorClass[F[_]] extends InvariantFunctor[F]{$/;"	t
+InvariantFunctorFunctions	base/shared/src/main/scala/scalaz/typeclass/InvariantFunctorFunctions.scala	/^trait InvariantFunctorFunctions {$/;"	t
+InvariantFunctorOps	base/shared/src/main/scala/scalaz/Prelude.scala	/^  implicit def InvariantFunctorOps[F[_], A](fa: F[A])(implicit F: InvariantFunctor[F]): InvariantFunctorSyntax.Ops[F, A] =$/;"	m
+InvariantFunctorSyntax	base/shared/src/main/scala/scalaz/typeclass/InvariantFunctorSyntax.scala	/^object InvariantFunctorSyntax {$/;"	o
+InvariantFunctorSyntax	base/shared/src/main/scala/scalaz/typeclass/InvariantFunctorSyntax.scala	/^trait InvariantFunctorSyntax {$/;"	t
+IsContravariant	base/shared/src/main/scala/scalaz/Prelude.scala	/^  def IsContravariant[F[_]](implicit F: IsContravariant[F]): IsContravariant[F] = F$/;"	m
+IsContravariant	base/shared/src/main/scala/scalaz/Prelude.scala	/^  type IsContravariant[F[_]] = typeclass.IsContravariant[F]$/;"	T
+IsContravariant	base/shared/src/main/scala/scalaz/typeclass/IsContravariant.scala	/^object IsContravariant extends IsContravariantInstances {$/;"	o
+IsContravariant	base/shared/src/main/scala/scalaz/typeclass/IsContravariant.scala	/^trait IsContravariant[F[_]] {$/;"	t
+IsContravariantClass	base/shared/src/main/scala/scalaz/typeclass/IsContravariantClass.scala	/^object IsContravariantClass {$/;"	o
+IsContravariantClass	base/shared/src/main/scala/scalaz/typeclass/IsContravariantClass.scala	/^trait IsContravariantClass[F[_]] extends IsContravariant[F] {$/;"	t
+IsContravariantInstances	base/shared/src/main/scala/scalaz/typeclass/IsContravariantInstances.scala	/^trait IsContravariantInstances {$/;"	t
+IsCovariant	base/shared/src/main/scala/scalaz/Prelude.scala	/^  def IsCovariant[F[_]](implicit F: IsCovariant[F]): IsCovariant[F] = F$/;"	m
+IsCovariant	base/shared/src/main/scala/scalaz/Prelude.scala	/^  type IsCovariant[F[_]] = typeclass.IsCovariant[F]$/;"	T
+IsCovariant	base/shared/src/main/scala/scalaz/typeclass/IsCovariant.scala	/^object IsCovariant extends IsCovariantInstances {$/;"	o
+IsCovariant	base/shared/src/main/scala/scalaz/typeclass/IsCovariant.scala	/^trait IsCovariant[F[_]] {$/;"	t
+IsCovariantClass	base/shared/src/main/scala/scalaz/typeclass/IsCovariantClass.scala	/^object IsCovariantClass {$/;"	o
+IsCovariantClass	base/shared/src/main/scala/scalaz/typeclass/IsCovariantClass.scala	/^trait IsCovariantClass[F[_]] extends IsCovariant[F] {$/;"	t
+IsCovariantInstances	base/shared/src/main/scala/scalaz/typeclass/IsCovariantInstances.scala	/^trait IsCovariantInstances {$/;"	t
+Just	base/shared/src/main/scala/scalaz/data/Maybe.scala	/^  final case class Just[A](a: A) extends Maybe[A]$/;"	c
+Lazy	base/shared/src/main/scala/scalaz/control/package.scala	/^  type Lazy[A] = Unit => A$/;"	T
+Left	base/shared/src/main/scala/scalaz/typeclass/ChoiceClass.scala	/^  trait Left[P[_, _]] extends Alt[Left[P]] with Choice[P] { self : Choice[P] =>$/;"	t
+LeftAction	base/shared/src/main/scala/scalaz/data/package.scala	/^  object LeftAction {$/;"	o
+LeftAction	base/shared/src/main/scala/scalaz/data/package.scala	/^  type LeftAction[G[_], F[_, _]] = Forall2.Prototype[λ[(α, β) => (F[α, β], G[β]) => G[α]]]$/;"	T
+LeftRightMap	base/shared/src/main/scala/scalaz/typeclass/ProfunctorClass.scala	/^  trait LeftRightMap[F[_, _]] extends Alt[LeftRightMap[F]] with Profunctor[F] { self: Profunctor[F] =>$/;"	t
+Leibniz	base/shared/src/main/scala/scalaz/data/Leibniz.scala	/^object Leibniz {$/;"	o
+Lift	base/shared/src/main/scala/scalaz/data/ACatenable1.scala	/^  private[ACatenable1] final case class Lift[=>:[_, _], A, B](f: A =>: B) extends ACatenable1[=>:, A, B]$/;"	c
+Lift	base/shared/src/main/scala/scalaz/data/FreeSemiArrow.scala	/^  private[FreeSemiArrow] final case class Lift[=>:[_, _], A, B](f: A => B) extends FreeSemiArrow[=>:, A, B]$/;"	c
+LiftLiskov	base/shared/src/main/scala/scalaz/typeclass/IsContravariantClass.scala	/^  trait LiftLiskov[F[_]] extends Alt[LiftLiskov[F]] { self: IsContravariant[F] =>$/;"	t
+LiftLiskov	base/shared/src/main/scala/scalaz/typeclass/IsCovariantClass.scala	/^  trait LiftLiskov[F[_]] extends Alt[LiftLiskov[F]] { self: IsCovariant[F] =>$/;"	t
+Liskov	base/shared/src/main/scala/scalaz/typeclass/Liskov.scala	/^object Liskov extends LiskovTypes with LiskovInstances with LiskovFunctions {$/;"	o
+Liskov	base/shared/src/main/scala/scalaz/typeclass/Liskov.scala	/^sealed abstract class Liskov[-A, +B] {$/;"	c
+LiskovFunctions	base/shared/src/main/scala/scalaz/typeclass/LiskovFunctions.scala	/^trait LiskovFunctions {$/;"	t
+LiskovInstances	base/shared/src/main/scala/scalaz/typeclass/LiskovInstances.scala	/^trait LiskovInstances {$/;"	t
+LiskovTypes	base/shared/src/main/scala/scalaz/typeclass/LiskovTypes.scala	/^trait LiskovTypes {$/;"	t
+Map	base/shared/src/main/scala/scalaz/typeclass/ApplicativeClass.scala	/^  trait Map[F[_]] { self: Applicative[F] with Apply[F] with Functor[F] =>$/;"	t
+Map	base/shared/src/main/scala/scalaz/typeclass/MonadClass.scala	/^  trait Map[M[_]] extends FlatMap[M] { self: Monad[M] with Bind[M] with Applicative[M] with Functor[M] =>$/;"	t
+MapContramap	base/shared/src/main/scala/scalaz/typeclass/PhantomClass.scala	/^  trait MapContramap[F[_]] extends PhantomClass[F] {$/;"	t
+Maybe	base/shared/src/main/scala/scalaz/Prelude.scala	/^  type Maybe[A] = data.Maybe[A]$/;"	T
+Maybe	base/shared/src/main/scala/scalaz/data/Maybe.scala	/^object Maybe extends MaybeFunctions with MaybeInstances with MaybeSyntax {$/;"	o
+Maybe	base/shared/src/main/scala/scalaz/data/Maybe.scala	/^sealed abstract class Maybe[A] {$/;"	c
+MaybeFunctions	base/shared/src/main/scala/scalaz/data/MaybeFunctions.scala	/^trait MaybeFunctions {$/;"	t
+MaybeInstances	base/shared/src/main/scala/scalaz/data/MaybeInstances.scala	/^trait MaybeInstances extends MonadClass.Template[Maybe] with TraversableClass[Maybe] with FoldRight[Maybe] with IsCovariantClass[Maybe] with IsCovariantClass.LiftLiskov[Maybe] {$/;"	t
+MaybeSyntax	base/shared/src/main/scala/scalaz/data/MaybeSyntax.scala	/^trait MaybeSyntax {$/;"	t
+MkForall	base/shared/src/main/scala/scalaz/data/Forall.scala	/^  sealed trait MkForall[F[_]] extends Any {$/;"	t
+MkForall2	base/shared/src/main/scala/scalaz/data/Forall2.scala	/^  sealed trait MkForall2[F[_, _]] extends Any {$/;"	t
+MkForall2Impl	base/shared/src/main/scala/scalaz/data/Forall2.scala	/^private[data] final class MkForall2Impl[F[_, _]](val dummy: Boolean = false) extends AnyVal with Forall2Impl.MkForall2[F] {$/;"	c
+MkForallImpl	base/shared/src/main/scala/scalaz/data/Forall.scala	/^private[data] final class MkForallImpl[F[_]](val dummy: Boolean = false) extends AnyVal with ForallImpl.MkForall[F] {$/;"	c
+ModuleHelper	project/ScalazBuild.scala	/^  implicit class ModuleHelper(p: Project) {$/;"	c
+Monad	base/shared/src/main/scala/scalaz/Prelude.scala	/^  def Monad[M[_]](implicit M: Monad[M]): Monad[M] = M$/;"	m
+Monad	base/shared/src/main/scala/scalaz/Prelude.scala	/^  type Monad[M[_]] = typeclass.Monad[M]$/;"	T
+Monad	base/shared/src/main/scala/scalaz/typeclass/Monad.scala	/^object Monad extends MonadInstances {$/;"	o
+Monad	base/shared/src/main/scala/scalaz/typeclass/Monad.scala	/^trait Monad[M[_]] {$/;"	t
+MonadClass	base/shared/src/main/scala/scalaz/typeclass/MonadClass.scala	/^object MonadClass {$/;"	o
+MonadClass	base/shared/src/main/scala/scalaz/typeclass/MonadClass.scala	/^trait MonadClass[M[_]] extends Monad[M] with BindClass[M] with ApplicativeClass[M] {$/;"	t
+MonadInstances	base/shared/src/main/scala/scalaz/typeclass/MonadInstances.scala	/^trait MonadInstances {$/;"	t
+Monoid	base/shared/src/main/scala/scalaz/typeclass/Monoid.scala	/^object Monoid {$/;"	o
+Monoid	base/shared/src/main/scala/scalaz/typeclass/Monoid.scala	/^trait Monoid[A] {$/;"	t
+MonoidClass	base/shared/src/main/scala/scalaz/typeclass/MonoidClass.scala	/^trait MonoidClass[A] extends Monoid[A] with SemigroupClass[A]{$/;"	t
+MonoidInstances	base/shared/src/main/scala/scalaz/typeclass/MonoidInstances.scala	/^trait MonoidInstances {$/;"	t
+NaturalTransformationOps	example/shared/src/main/scala/scalaz/example/ForallUsage.scala	/^  implicit class NaturalTransformationOps[F[_], G[_]](trans: F ~> G) {$/;"	c
+Nil	base/shared/src/main/scala/scalaz/data/AList.scala	/^  private val Nil = nil[Nothing, Nothing]$/;"	C
+None	base/shared/src/main/scala/scalaz/data/AMaybe.scala	/^  private val None = none[Nothing, Nothing]$/;"	C
+Ops	base/shared/src/main/scala/scalaz/data/Forall.scala	/^  final class Ops[F[_]](val a: ∀[F]) extends AnyVal {$/;"	c
+Ops	base/shared/src/main/scala/scalaz/data/Forall2.scala	/^  final class Ops[F[_, _]](val a: ∀∀[F]) extends AnyVal {$/;"	c
+Ops	base/shared/src/main/scala/scalaz/data/package.scala	/^    implicit class Ops[G[_], F[_, _]](val action: LeftAction[G, F]) extends AnyVal {$/;"	c
+Ops	base/shared/src/main/scala/scalaz/data/package.scala	/^    implicit class Ops[G[_], F[_, _]](val action: RightAction[G, F]) extends AnyVal {$/;"	c
+Ops	base/shared/src/main/scala/scalaz/typeclass/ApplySyntax.scala	/^  class Ops[F[_] : Apply, A](@silent fa: F[A]) {$/;"	c
+Ops	base/shared/src/main/scala/scalaz/typeclass/BindSyntax.scala	/^  class Ops[M[_]: Bind, A](@silent ma: M[A]) {$/;"	c
+Ops	base/shared/src/main/scala/scalaz/typeclass/ChoiceSyntax.scala	/^  class Ops[P[_, _]: Choice, A, B](@silent self: P[A, B]) {$/;"	c
+Ops	base/shared/src/main/scala/scalaz/typeclass/CobindSyntax.scala	/^  class Ops[F[_]: Cobind, A](@silent fa: F[A]) {$/;"	c
+Ops	base/shared/src/main/scala/scalaz/typeclass/ComonadSyntax.scala	/^  class Ops[F[_]: Comonad, A](@silent self: F[A]) {$/;"	c
+Ops	base/shared/src/main/scala/scalaz/typeclass/ComposeSyntax.scala	/^  class Ops[=>:[_, _]: Compose, A, B](@silent self: A =>: B) {$/;"	c
+Ops	base/shared/src/main/scala/scalaz/typeclass/FoldableSyntax.scala	/^  class Ops[F[_], A](self: F[A])(implicit F: Foldable[F]) {$/;"	c
+Ops	base/shared/src/main/scala/scalaz/typeclass/FunctorSyntax.scala	/^  class Ops[F[_], A](self: F[A])(implicit F: Functor[F]) {$/;"	c
+Ops	base/shared/src/main/scala/scalaz/typeclass/InvariantFunctorSyntax.scala	/^  class Ops[F[_]: InvariantFunctor, A](@silent self: F[A]) {$/;"	c
+Ops	base/shared/src/main/scala/scalaz/typeclass/PhantomSyntax.scala	/^  class Ops[F[_]: Phantom, A](@silent self: F[A]) {$/;"	c
+Ops	base/shared/src/main/scala/scalaz/typeclass/ProfunctorSyntax.scala	/^  class Ops[F[_, _]: Profunctor, A, B](@silent self: F[A, B]) {$/;"	c
+Ops	base/shared/src/main/scala/scalaz/typeclass/StrongSyntax.scala	/^  class Ops[F[_, _]: Strong, A, B](@silent self: F[A, B]) {$/;"	c
+Ops	base/shared/src/main/scala/scalaz/typeclass/TraversableSyntax.scala	/^  class Ops[T[_]: Traversable, A](@silent self: T[A]) {$/;"	c
+Ops	meta/shared/src/main/scala/scalaz/meta/Ops.scala	/^class Ops(val c: Context) {$/;"	c
+OpsA	base/shared/src/main/scala/scalaz/typeclass/ApplicativeSyntax.scala	/^  class OpsA[A](a: A) {$/;"	c
+OpsA	base/shared/src/main/scala/scalaz/typeclass/SemigroupSyntax.scala	/^  class OpsA[A: Semigroup](@silent a: A) {$/;"	c
+Option2	example/shared/src/main/scala/scalaz/example/ForallUsage.scala	/^  type Option2[A, B] = Option[(A, B)]$/;"	T
+OptionAsMaybe	base/shared/src/main/scala/scalaz/data/MaybeSyntax.scala	/^  implicit class OptionAsMaybe[A](oa: Option[A]) { def asMaybe: Maybe[A] = Maybe.fromOption(oa) }$/;"	c
+POptionAsMaybe	base/shared/src/main/scala/scalaz/Prelude.scala	/^  implicit class POptionAsMaybe[A](oa: Option[A]) { def asMaybe: Maybe[A] = Maybe.fromOption(oa) }$/;"	c
+PapplicativeOpsA	base/shared/src/main/scala/scalaz/Prelude.scala	/^  implicit def PapplicativeOpsA[A](a: A): ApplicativeSyntax.OpsA[A] = new ApplicativeSyntax.OpsA(a)$/;"	m
+PapplyOps	base/shared/src/main/scala/scalaz/Prelude.scala	/^  implicit def PapplyOps[F[_], A](fa: F[A])(implicit F: Apply[F]): ApplySyntax.Ops[F, A] =$/;"	m
+PbindOps	base/shared/src/main/scala/scalaz/Prelude.scala	/^  implicit def PbindOps[M[_], A](ma: M[A])(implicit M: Bind[M]): BindSyntax.Ops[M, A] =$/;"	m
+PchoiceOps	base/shared/src/main/scala/scalaz/Prelude.scala	/^  implicit def PchoiceOps[P[_,_], A, B](pab: P[A, B])(implicit P: Choice[P]): ChoiceSyntax.Ops[P, A, B] =$/;"	m
+PfoldableOps	base/shared/src/main/scala/scalaz/Prelude.scala	/^  implicit def PfoldableOps[F[_], A](fa: F[A])(implicit F: Foldable[F]): FoldableSyntax.Ops[F, A] =$/;"	m
+PfunctorOps	base/shared/src/main/scala/scalaz/Prelude.scala	/^  implicit def PfunctorOps[F[_], A](fa: F[A])(implicit F: Functor[F]): FunctorSyntax.Ops[F, A] =$/;"	m
+Phantom	base/shared/src/main/scala/scalaz/typeclass/Phantom.scala	/^object Phantom extends PhantomFunctions with PhantomSyntax {$/;"	o
+Phantom	base/shared/src/main/scala/scalaz/typeclass/Phantom.scala	/^trait Phantom[F[_]] {$/;"	t
+PhantomClass	base/shared/src/main/scala/scalaz/typeclass/PhantomClass.scala	/^object PhantomClass {$/;"	o
+PhantomClass	base/shared/src/main/scala/scalaz/typeclass/PhantomClass.scala	/^trait PhantomClass[F[_]] extends Phantom[F] with Functor[F] with Contravariant[F] {$/;"	t
+PhantomFunctions	base/shared/src/main/scala/scalaz/typeclass/PhantomFunctions.scala	/^trait PhantomFunctions {$/;"	t
+PhantomInstances	base/shared/src/main/scala/scalaz/typeclass/PhantomInstances.scala	/^trait PhantomInstances { instances =>$/;"	t
+PhantomSyntax	base/shared/src/main/scala/scalaz/typeclass/PhantomSyntax.scala	/^object PhantomSyntax {$/;"	o
+PhantomSyntax	base/shared/src/main/scala/scalaz/typeclass/PhantomSyntax.scala	/^trait PhantomSyntax {$/;"	t
+Pivot	base/shared/src/main/scala/scalaz/data/AList.scala	/^  final type Pivot = X$/;"	T
+Pivot	base/shared/src/main/scala/scalaz/data/AList1.scala	/^  type Pivot = X$/;"	T
+Pivot	base/shared/src/main/scala/scalaz/data/AList1.scala	/^  type Pivot$/;"	T
+Pivot	base/shared/src/main/scala/scalaz/data/APair.scala	/^    new BoundedAPair[U, F, G] { type Pivot = A; val _1 = fa; val _2 = ga }$/;"	T
+Pivot	base/shared/src/main/scala/scalaz/data/APair.scala	/^  type Pivot <: U$/;"	T
+Plus	example/shared/src/main/scala/scalaz/example/ForallUsage.scala	/^  type Plus[F[_]] = ∀[λ[A => Semigroup[F[A]]]]$/;"	T
+Pmap	base/shared/src/main/scala/scalaz/typeclass/PhantomClass.scala	/^  trait Pmap[F[_]] extends PhantomClass[F] {$/;"	t
+PostComposeBalancer	base/shared/src/main/scala/scalaz/data/balanced.scala	/^final class PostComposeBalancer[F[_, _], A, B](private val repr: PreComposeBalancer[λ[(α, β) => F[β, α]], B, A]) extends AnyVal {$/;"	c
+PostComposeBalancer	base/shared/src/main/scala/scalaz/data/balanced.scala	/^object PostComposeBalancer {$/;"	o
+PprofunctorOps	base/shared/src/main/scala/scalaz/Prelude.scala	/^  implicit def PprofunctorOps[P[_,_], A, B](pab: P[A, B])(implicit P: Profunctor[P]): ProfunctorSyntax.Ops[P, A, B] = $/;"	m
+PreComposeBalancer	base/shared/src/main/scala/scalaz/data/balanced.scala	/^final class PreComposeBalancer[F[_, _], A, B] private(count: Int, stack: AList1[F, A, B]) {$/;"	c
+PreComposeBalancer	base/shared/src/main/scala/scalaz/data/balanced.scala	/^object PreComposeBalancer {$/;"	o
+Prelude	base/shared/src/main/scala/scalaz/Prelude.scala	/^object Prelude extends Prelude$/;"	o
+Prelude	base/shared/src/main/scala/scalaz/Prelude.scala	/^trait Prelude  extends data.DisjunctionFunctions$/;"	t
+ProCompose	base/src/main/scala/data/ProCompose.scala	/^  trait ProCompose[P[_, _], A, B] { } $/;"	t
+ProCompose	base/src/main/scala/data/ProCompose.scala	/^object ProCompose {$/;"	o
+ProComposeStrong	base/src/main/scala/data/ProCompose.scala	/^  implicit def ProComposeStrong[P[_, _]: Strong]: StrongClass.First[ProCompose[P, ?, ?]] = new StrongClass.First[ProCompose[P, ?, ?]] with CategoryClass[ProCompose[P, ?, ?]] { $/;"	m
+Profunctor	base/shared/src/main/scala/scalaz/Prelude.scala	/^  def Profunctor[P[_,_]](implicit P: Profunctor[P]): Profunctor[P] = P$/;"	m
+Profunctor	base/shared/src/main/scala/scalaz/Prelude.scala	/^  type Profunctor[F[_,_]] = typeclass.Profunctor[F]$/;"	T
+Profunctor	base/shared/src/main/scala/scalaz/typeclass/Profunctor.scala	/^object Profunctor extends ProfunctorInstances with ProfunctorSyntax {$/;"	o
+Profunctor	base/shared/src/main/scala/scalaz/typeclass/Profunctor.scala	/^trait Profunctor[F[_, _]] {$/;"	t
+ProfunctorClass	base/shared/src/main/scala/scalaz/typeclass/ProfunctorClass.scala	/^object ProfunctorClass {$/;"	o
+ProfunctorClass	base/shared/src/main/scala/scalaz/typeclass/ProfunctorClass.scala	/^trait ProfunctorClass[F[_, _]] extends Profunctor[F] {$/;"	t
+ProfunctorInstances	base/shared/src/main/scala/scalaz/typeclass/ProfunctorInstances.scala	/^trait ProfunctorInstances { instances =>$/;"	t
+ProfunctorSyntax	base/shared/src/main/scala/scalaz/typeclass/ProfunctorSyntax.scala	/^object ProfunctorSyntax {$/;"	o
+ProfunctorSyntax	base/shared/src/main/scala/scalaz/typeclass/ProfunctorSyntax.scala	/^trait ProfunctorSyntax {$/;"	t
+Prototype	base/shared/src/main/scala/scalaz/data/Forall.scala	/^  trait Prototype[F[_]] {$/;"	t
+Prototype	base/shared/src/main/scala/scalaz/data/Forall2.scala	/^  trait Prototype[F[_, _]] {$/;"	t
+PstrongOps	base/shared/src/main/scala/scalaz/Prelude.scala	/^  implicit def PstrongOps[P[_,_], A, B](pab: P[A, B])(implicit P: Strong[P]): StrongSyntax.Ops[P, A, B] =$/;"	m
+PtraversableOps	base/shared/src/main/scala/scalaz/Prelude.scala	/^  implicit def PtraversableOps[T[_], A](ta: T[A])(implicit T: Traversable[T]): TraversableSyntax.Ops[T, A] =$/;"	m
+Pure	base/src/main/scala/data/ProCompose.scala	/^  case class Pure[P[_, _], A, B](pab: A => B) extends ProCompose[P, A, B]$/;"	c
+Refl	base/shared/src/main/scala/scalaz/data/Leibniz.scala	/^  private val Refl = ∀.of[λ[α => α === α]].from(refl_)$/;"	C
+Refl	base/shared/src/main/scala/scalaz/typeclass/Liskov.scala	/^  private val Refl = ∀.of[λ[α => α <~< α]].from(refl_)$/;"	C
+Right	base/shared/src/main/scala/scalaz/typeclass/ChoiceClass.scala	/^  trait Right[P[_, _]] extends Alt[Right[P]] with Choice[P] { self : Choice[P] =>$/;"	t
+RightAction	base/shared/src/main/scala/scalaz/data/package.scala	/^  object RightAction {$/;"	o
+RightAction	base/shared/src/main/scala/scalaz/data/package.scala	/^  type RightAction[G[_], F[_, _]] = Forall2.Prototype[λ[(α, β) => (G[α], F[α, β]) => G[β]]]$/;"	T
+SB	base/shared/src/main/scala/scalaz/data/AList.scala	/^        type SB[a] = StringBuilder$/;"	T
+Scalaz	project/ScalazBuild.scala	/^object Scalaz {$/;"	o
+Second	base/shared/src/main/scala/scalaz/typeclass/StrongClass.scala	/^  trait Second[P[_, _]] extends Alt[Second[P]]{ self: Strong[P] =>$/;"	t
+Semigroup	base/shared/src/main/scala/scalaz/typeclass/Semigroup.scala	/^object Semigroup extends SemigroupSyntax {$/;"	o
+Semigroup	base/shared/src/main/scala/scalaz/typeclass/Semigroup.scala	/^trait Semigroup[A] {$/;"	t
+SemigroupClass	base/shared/src/main/scala/scalaz/typeclass/SemigroupClass.scala	/^trait SemigroupClass[A] extends Semigroup[A]{$/;"	t
+SemigroupInstances	base/shared/src/main/scala/scalaz/typeclass/SemigroupInstances.scala	/^trait SemigroupInstances {$/;"	t
+SemigroupSyntax	base/shared/src/main/scala/scalaz/typeclass/SemigroupSyntax.scala	/^object SemigroupSyntax {$/;"	o
+SemigroupSyntax	base/shared/src/main/scala/scalaz/typeclass/SemigroupSyntax.scala	/^trait SemigroupSyntax {$/;"	t
+Sequence	base/shared/src/main/scala/scalaz/typeclass/TraversableClass.scala	/^  trait Sequence[T[_]] extends Alt[Sequence[T]] { self : Traversable[T] =>$/;"	t
+Show	base/shared/src/main/scala/scalaz/typeclass/Show.scala	/^abstract class Show[A] {$/;"	c
+Strong	base/shared/src/main/scala/scalaz/Prelude.scala	/^  def Strong[P[_,_]](implicit P: Strong[P]): Strong[P] = P$/;"	m
+Strong	base/shared/src/main/scala/scalaz/typeclass/Strong.scala	/^object Strong extends StrongInstances {$/;"	o
+Strong	base/shared/src/main/scala/scalaz/typeclass/Strong.scala	/^trait Strong[P[_, _]] {$/;"	t
+StrongClass	base/shared/src/main/scala/scalaz/typeclass/StrongClass.scala	/^object StrongClass {$/;"	o
+StrongClass	base/shared/src/main/scala/scalaz/typeclass/StrongClass.scala	/^trait StrongClass[P[_, _]] extends Strong[P] with ProfunctorClass[P] {$/;"	t
+StrongInstances	base/shared/src/main/scala/scalaz/typeclass/StrongInstances.scala	/^trait StrongInstances { instances =>$/;"	t
+StrongSyntax	base/shared/src/main/scala/scalaz/typeclass/StrongSyntax.scala	/^object StrongSyntax {$/;"	o
+StrongSyntax	base/shared/src/main/scala/scalaz/typeclass/StrongSyntax.scala	/^trait StrongSyntax {$/;"	t
+SubstCt	base/shared/src/main/scala/scalaz/typeclass/IsContravariantClass.scala	/^  trait SubstCt[F[_]] extends Alt[SubstCt[F]] { self: IsContravariant[F] =>$/;"	t
+SubstCt	base/shared/src/main/scala/scalaz/typeclass/IsCovariantClass.scala	/^  trait SubstCt[F[_]] extends Alt[SubstCt[F]] { self: IsCovariant[F] =>$/;"	t
+SubstCv	base/shared/src/main/scala/scalaz/typeclass/IsContravariantClass.scala	/^  trait SubstCv[F[_]] extends Alt[SubstCv[F]] { self: IsContravariant[F] =>$/;"	t
+SubstCv	base/shared/src/main/scala/scalaz/typeclass/IsCovariantClass.scala	/^  trait SubstCv[F[_]] extends Alt[SubstCv[F]] { self: IsCovariant[F] =>$/;"	t
+Syntax	base/shared/src/main/scala/scalaz/data/Disjunction.scala	/^  object Syntax extends DisjunctionSyntax$/;"	o
+T	base/shared/src/main/scala/scalaz/data/Forall.scala	/^    type T$/;"	T
+T	base/shared/src/main/scala/scalaz/data/Forall.scala	/^  type T = Any$/;"	T
+T	base/shared/src/main/scala/scalaz/data/Forall2.scala	/^    type T$/;"	T
+T	base/shared/src/main/scala/scalaz/data/Forall2.scala	/^  type T = Any$/;"	T
+Template	base/shared/src/main/scala/scalaz/typeclass/ApplicativeClass.scala	/^  trait Template[F[_]] extends ApplicativeClass[F] with Map[F]$/;"	t
+Template	base/shared/src/main/scala/scalaz/typeclass/BindClass.scala	/^  trait Template[M[_]] extends BindClass[M] with Ap[M]$/;"	t
+Template	base/shared/src/main/scala/scalaz/typeclass/MonadClass.scala	/^  trait Template[M[_]] extends MonadClass[M] with Map[M]$/;"	t
+Template	base/shared/src/main/scala/scalaz/typeclass/PhantomClass.scala	/^  trait Template[F[_]] extends PhantomClass[F] with MapContramap[F]$/;"	t
+ToEitherOps	base/shared/src/main/scala/scalaz/data/DisjunctionSyntax.scala	/^  implicit class ToEitherOps[A](a: A) {$/;"	c
+Traversable	base/shared/src/main/scala/scalaz/Prelude.scala	/^  def Traversable[T[_]](implicit T: Traversable[T]): Traversable[T] = T$/;"	m
+Traversable	base/shared/src/main/scala/scalaz/Prelude.scala	/^  type Traversable[T[_]] = typeclass.Traversable[T]$/;"	T
+Traversable	base/shared/src/main/scala/scalaz/typeclass/Traversable.scala	/^object Traversable extends TraversableInstances with TraversableSyntax {$/;"	o
+Traversable	base/shared/src/main/scala/scalaz/typeclass/Traversable.scala	/^trait Traversable[T[_]] {$/;"	t
+TraversableClass	base/shared/src/main/scala/scalaz/typeclass/TraversableClass.scala	/^object TraversableClass {$/;"	o
+TraversableClass	base/shared/src/main/scala/scalaz/typeclass/TraversableClass.scala	/^trait TraversableClass[T[_]] extends Traversable[T] with FunctorClass[T] with FoldableClass[T] {$/;"	t
+TraversableFunctions	base/shared/src/main/scala/scalaz/typeclass/TraversableFunctions.scala	/^trait TraversableFunctions {$/;"	t
+TraversableInstances	base/shared/src/main/scala/scalaz/typeclass/TraversableInstances.scala	/^trait TraversableInstances {$/;"	t
+TraversableSyntax	base/shared/src/main/scala/scalaz/typeclass/TraversableSyntax.scala	/^object TraversableSyntax {$/;"	o
+TraversableSyntax	base/shared/src/main/scala/scalaz/typeclass/TraversableSyntax.scala	/^trait TraversableSyntax {$/;"	t
+Traverse	base/shared/src/main/scala/scalaz/typeclass/TraversableClass.scala	/^  trait Traverse[T[_]] extends Alt[Traverse[T]] { self : Traversable[T] =>$/;"	t
+U	base/shared/src/main/scala/scalaz/data/Forall2.scala	/^    type U$/;"	T
+U	base/shared/src/main/scala/scalaz/data/Forall2.scala	/^  type U = Any$/;"	T
+Unapply	base/shared/src/main/scala/scalaz/data/Forall.scala	/^  object Unapply {$/;"	o
+Unapply	base/shared/src/main/scala/scalaz/data/Forall.scala	/^  trait Unapply[X] {$/;"	t
+Unapply	base/shared/src/main/scala/scalaz/data/Forall2.scala	/^  object Unapply {$/;"	o
+Unapply	base/shared/src/main/scala/scalaz/data/Forall2.scala	/^  trait Unapply[X] {$/;"	t
+UpStar	base/shared/src/main/scala/scalaz/data/UpStar.scala	/^final case class UpStar[F[_], A, B](run: A => F[B]) extends AnyVal$/;"	c
+UpStar	base/shared/src/main/scala/scalaz/data/UpStar.scala	/^object UpStar extends UpStarInstances$/;"	o
+UpStarInstances	base/shared/src/main/scala/scalaz/data/UpStarInstances.scala	/^trait UpStarInstances {$/;"	t
+_1	base/shared/src/main/scala/scalaz/data/APair.scala	/^  val _1: F[Pivot]$/;"	C
+_2	base/shared/src/main/scala/scalaz/data/APair.scala	/^    new BoundedAPair[U, F, G] { type Pivot = A; val _1 = fa; val _2 = ga }$/;"	C
+_2	base/shared/src/main/scala/scalaz/data/APair.scala	/^  val _2: G[Pivot]$/;"	C
+_f0	meta/shared/src/main/scala/scalaz/meta/Ops.scala	/^  def _f0[R]: Expr[R] = {$/;"	m
+_f1	meta/shared/src/main/scala/scalaz/meta/Ops.scala	/^  def _f1[A, R](f: Expr[A]): Expr[R] = {$/;"	m
+_f2	meta/shared/src/main/scala/scalaz/meta/Ops.scala	/^  def _f2[A, B, R](f: Expr[A])(g: Expr[B]): Expr[R] = {$/;"	m
+a	base/shared/src/main/scala/scalaz/data/Forall.scala	/^  final class Ops[F[_]](val a: ∀[F]) extends AnyVal {$/;"	C
+a	base/shared/src/main/scala/scalaz/data/Forall2.scala	/^  final class Ops[F[_, _]](val a: ∀∀[F]) extends AnyVal {$/;"	C
+acquire_sbt_jar	sbt	/^acquire_sbt_jar () {$/;"	f
+action	base/shared/src/main/scala/scalaz/data/package.scala	/^    implicit class Ops[G[_], F[_, _]](val action: LeftAction[G, F]) extends AnyVal {$/;"	C
+action	base/shared/src/main/scala/scalaz/data/package.scala	/^    implicit class Ops[G[_], F[_, _]](val action: RightAction[G, F]) extends AnyVal {$/;"	C
+add	base/shared/src/main/scala/scalaz/data/balanced.scala	/^  private def add[X, Y](h: F[X, Y], t: AList1[F, Y, B], hcount: Int, tfactor: Int)(implicit F: Compose[F]): PreComposeBalancer[F, X, B] = {$/;"	m
+addDebugger	sbt	/^addDebugger () { addJava "-Xdebug" ; addJava "-Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=$1"; }$/;"	f
+addJava	sbt	/^addJava ()     { vlog "[addJava] arg = '$1'"   ;     java_args+=("$1"); }$/;"	f
+addResidual	sbt	/^addResidual () { vlog "[residual] arg = '$1'"  ; residual_args+=("$1"); }$/;"	f
+addResolver	sbt	/^addResolver () { addSbt "set resolvers += $1"; }$/;"	f
+addSbt	sbt	/^addSbt ()      { vlog "[addSbt] arg = '$1'"    ;  sbt_commands+=("$1"); }$/;"	f
+addScalac	sbt	/^addScalac ()   { vlog "[addScalac] arg = '$1'" ;   scalac_args+=("$1"); }$/;"	f
+alias	base/shared/src/main/scala/scalaz/data/Forall.scala	/^  \/** The name monotonicity becomes more apparent if we define a type alias$/;"	T
+alias	base/shared/src/main/scala/scalaz/typeclass/LiskovTypes.scala	/^  \/**A convenient type alias for Liskov *\/$/;"	T
+antisymm	base/shared/src/main/scala/scalaz/typeclass/LiskovFunctions.scala	/^  \/\/def antisymm[A, B, C](f: A <~< B, g: B <~< A): (A === B) = ???$/;"	m
+ap	base/shared/src/main/scala/scalaz/data/ConstInstances.scala	/^    def ap[A, B](fa: Const[R, A])(f: Const[R, A => B]): Const[R, B] =$/;"	m
+ap	base/shared/src/main/scala/scalaz/data/DisjunctionInstances.scala	/^    override def ap[A, B](ma: L \\\/ A)(mf: L \\\/ (A => B)): L \\\/ B =$/;"	m
+ap	base/shared/src/main/scala/scalaz/data/IdentityInstances.scala	/^    override def ap[A, B](fa: Identity[A])(f: Identity[A => B]): Identity[B] = Identity(f.run.apply(fa.run))$/;"	m
+ap	base/shared/src/main/scala/scalaz/data/MaybeInstances.scala	/^  override def ap[A, B](ma: Maybe[A])(mf: Maybe[A => B]): Maybe[B] =$/;"	m
+ap	base/shared/src/main/scala/scalaz/typeclass/Apply.scala	/^  def ap[A, B](fa: F[A])(f: F[A => B]): F[B]$/;"	m
+ap	base/shared/src/main/scala/scalaz/typeclass/ApplySyntax.scala	/^    def ap[B](f: F[A => B]): F[B] = macro meta.Ops._f1[F[A => B], F[B]]$/;"	m
+ap	base/shared/src/main/scala/scalaz/typeclass/BindClass.scala	/^    override def ap[A, B](fa: M[A])(f: M[A => B]): M[B] = flatMap(f)(map(fa))$/;"	m
+ap	base/shared/src/main/scala/scalaz/typeclass/MonadInstances.scala	/^    override def ap[A, B](fab: Function0[A])(f: Function0[A => B]): Function0[B] = () => f()(fab())$/;"	m
+ap	base/shared/src/main/scala/scalaz/typeclass/MonadInstances.scala	/^    override def ap[A, B](fab: Function1[C, A])(f: Function1[C, A => B]): Function1[C, B] = (c: C) => f(c)(fab(c))$/;"	m
+ap	base/shared/src/main/scala/scalaz/typeclass/MonadInstances.scala	/^    override def ap[A, B](oa: Option[A])(f: Option[A => B]): Option[B] = oa.flatMap(a => f.map(_(a)))$/;"	m
+ap	base/shared/src/main/scala/scalaz/typeclass/MonadInstances.scala	/^    override def ap[A, B](xs: List[A])(f: List[A => B]): List[B] = xs.flatMap(a => f.map(_(a)))$/;"	m
+append	base/shared/src/main/scala/scalaz/data/ConstInstances.scala	/^    def append(a1: Const[A, B], a2: => Const[A, B]): Const[A, B] =$/;"	m
+append	base/shared/src/main/scala/scalaz/typeclass/Semigroup.scala	/^  def append(a1: A, a2: => A): A$/;"	m
+append	base/shared/src/main/scala/scalaz/typeclass/SemigroupSyntax.scala	/^    def append(f: => A): A = macro meta.Ops._f1[A, A]$/;"	m
+append	example/shared/src/main/scala/scalaz/example/ForallUsage.scala	/^    def append(x: List[A], y: => List[A]) = x ++ y$/;"	m
+applicative	base/shared/src/main/scala/scalaz/data/ConstInstances.scala	/^  implicit def applicative[R](implicit R: Monoid[R]): Applicative[Const[R, ?]] = new Applicative[Const[R, ?]] {$/;"	m
+applicative	base/shared/src/main/scala/scalaz/typeclass/ApplicativeClass.scala	/^  final def applicative: Applicative[F] = this$/;"	m
+applicative	base/shared/src/main/scala/scalaz/typeclass/Monad.scala	/^  def applicative: Applicative[M]$/;"	m
+applicativeApply	base/shared/src/main/scala/scalaz/BaseHierarchy.scala	/^    implicit def applicativeApply[M[_]](implicit M: Applicative[M]): Apply[M] = M.apply$/;"	m
+applicativeFunctor	base/shared/src/main/scala/scalaz/BaseHierarchy.scala	/^    implicit def applicativeFunctor[M[_]](implicit M: Applicative[M]): Functor[M] = M.apply.functor$/;"	m
+applicativeOpsA	base/shared/src/main/scala/scalaz/typeclass/ApplicativeSyntax.scala	/^  implicit def applicativeOpsA[A](a: A): ApplicativeSyntax.OpsA[A] = new ApplicativeSyntax.OpsA(a)$/;"	m
+apply	base/shared/src/main/scala/scalaz/data/AList.scala	/^  def apply[F[_, _], A, B](f: F[A, B]): AList[F, A, B] = f :: empty$/;"	m
+apply	base/shared/src/main/scala/scalaz/data/AList.scala	/^  def apply[F[_, _], A](): AList[F, A, A] = empty$/;"	m
+apply	base/shared/src/main/scala/scalaz/data/AList1.scala	/^  def apply[F[_, _], A, B](f: F[A, B]): AList1[F, A, B] = ACons1(f, AList.empty)$/;"	m
+apply	base/shared/src/main/scala/scalaz/data/APair.scala	/^    def apply[A <: U](fa: F[A], ga: G[A]): BoundedAPair[U, F, G] =$/;"	m
+apply	base/shared/src/main/scala/scalaz/data/APair.scala	/^  def apply[U, F[_ <: U], G[_ <: U], A <: U](fa: F[A], ga: G[A]): BoundedAPair[U, F, G] =$/;"	m
+apply	base/shared/src/main/scala/scalaz/data/ConstInstances.scala	/^    def apply: Apply[Const[R, ?]] = implicitly$/;"	m
+apply	base/shared/src/main/scala/scalaz/data/ConstInstances.scala	/^  implicit def apply[R](implicit R: Semigroup[R]): Apply[Const[R, ?]] = new Apply[Const[R, ?]] {$/;"	m
+apply	base/shared/src/main/scala/scalaz/data/Forall.scala	/^    def apply(ft: F[T]): ∀[F] = from(ft)$/;"	m
+apply	base/shared/src/main/scala/scalaz/data/Forall.scala	/^    def apply[A]: F[A] = of[A]$/;"	m
+apply	base/shared/src/main/scala/scalaz/data/Forall.scala	/^    def apply[A]: F[A]$/;"	m
+apply	base/shared/src/main/scala/scalaz/data/Forall2.scala	/^    def apply(ft: F[T, U]): ∀∀[F] = from(ft)$/;"	m
+apply	base/shared/src/main/scala/scalaz/data/Forall2.scala	/^    def apply[A, B]: F[A, B] = of[A, B]$/;"	m
+apply	base/shared/src/main/scala/scalaz/data/Forall2.scala	/^    def apply[A, B]: F[A, B]$/;"	m
+apply	base/shared/src/main/scala/scalaz/data/Leibniz.scala	/^  def apply(a: A): B = subst[Id](a)$/;"	m
+apply	base/shared/src/main/scala/scalaz/data/balanced.scala	/^  def apply[F[_, _], A, B](f: F[A, B]): PostComposeBalancer[F, A, B] =$/;"	m
+apply	base/shared/src/main/scala/scalaz/data/balanced.scala	/^  def apply[F[_, _], A, B](f: F[A, B]): PreComposeBalancer[F, A, B] =$/;"	m
+apply	base/shared/src/main/scala/scalaz/data/package.scala	/^      def apply[A, B](f: F[A, B], g: G[B]): G[A] = action.apply(f, g)$/;"	m
+apply	base/shared/src/main/scala/scalaz/data/package.scala	/^      def apply[A, B](g: G[A], f: F[A, B]): G[B] = action.apply(g, f)$/;"	m
+apply	base/shared/src/main/scala/scalaz/data/package.scala	/^    def apply[F[_], G[_], A](fa: F[A], ga: G[A]): APair[F, G] =$/;"	m
+apply	base/shared/src/main/scala/scalaz/typeclass/Applicative.scala	/^  def apply: Apply[F]$/;"	m
+apply	base/shared/src/main/scala/scalaz/typeclass/Applicative.scala	/^  def apply[F[_]](implicit F: Applicative[F]): Applicative[F] = F$/;"	m
+apply	base/shared/src/main/scala/scalaz/typeclass/Apply.scala	/^  def apply[F[_]](implicit F: Apply[F]): Apply[F] = F$/;"	m
+apply	base/shared/src/main/scala/scalaz/typeclass/ApplyClass.scala	/^  implicit final def apply: Apply[F] = this$/;"	m
+apply	base/shared/src/main/scala/scalaz/typeclass/Bind.scala	/^  def apply: Apply[M]$/;"	m
+apply	base/shared/src/main/scala/scalaz/typeclass/Bind.scala	/^  def apply[M[_]](implicit M: Bind[M]): Bind[M] = M$/;"	m
+apply	base/shared/src/main/scala/scalaz/typeclass/Choice.scala	/^  def apply[P[_, _]](implicit P: Choice[P]): Choice[P] = P$/;"	m
+apply	base/shared/src/main/scala/scalaz/typeclass/Cobind.scala	/^  def apply[F[_]](implicit F: Cobind[F]): Cobind[F] = F$/;"	m
+apply	base/shared/src/main/scala/scalaz/typeclass/Comonad.scala	/^  def apply[F[_]](implicit F: Comonad[F]): Comonad[F] = F$/;"	m
+apply	base/shared/src/main/scala/scalaz/typeclass/Foldable.scala	/^  def apply[F[_]](implicit F: Foldable[F]): Foldable[F] = F$/;"	m
+apply	base/shared/src/main/scala/scalaz/typeclass/Functor.scala	/^  def apply[F[_]](implicit F: Functor[F]): Functor[F] = F$/;"	m
+apply	base/shared/src/main/scala/scalaz/typeclass/InvariantFunctor.scala	/^  def apply[F[_]](implicit F: InvariantFunctor[F]): InvariantFunctor[F] = F$/;"	m
+apply	base/shared/src/main/scala/scalaz/typeclass/IsContravariant.scala	/^  def apply[F[_]](implicit F: IsContravariant[F]): IsContravariant[F] = F$/;"	m
+apply	base/shared/src/main/scala/scalaz/typeclass/IsCovariant.scala	/^  def apply[F[_]](implicit F: IsCovariant[F]): IsCovariant[F] = F$/;"	m
+apply	base/shared/src/main/scala/scalaz/typeclass/Liskov.scala	/^  def apply(a: A): B = {$/;"	m
+apply	base/shared/src/main/scala/scalaz/typeclass/Monad.scala	/^  def apply[M[_]](implicit M: Monad[M]): Monad[M] = M$/;"	m
+apply	base/shared/src/main/scala/scalaz/typeclass/Monoid.scala	/^  def apply[A](implicit A: Monoid[A]): Monoid[A] = A$/;"	m
+apply	base/shared/src/main/scala/scalaz/typeclass/Phantom.scala	/^  def apply[F[_]](implicit F: Phantom[F]): Phantom[F] = F$/;"	m
+apply	base/shared/src/main/scala/scalaz/typeclass/Profunctor.scala	/^  def apply[F[_, _]](implicit F: Profunctor[F]): Profunctor[F] = F$/;"	m
+apply	base/shared/src/main/scala/scalaz/typeclass/Semigroup.scala	/^  def apply[A](implicit A: Semigroup[A]): Semigroup[A] = A$/;"	m
+apply	base/shared/src/main/scala/scalaz/typeclass/Strong.scala	/^  def apply[F[_, _]](implicit F: Strong[F]): Strong[F] = F$/;"	m
+apply	base/shared/src/main/scala/scalaz/typeclass/Traversable.scala	/^  def apply[T[_]](implicit T: Traversable[T]): Traversable[T] = T$/;"	m
+applyFunctor	base/shared/src/main/scala/scalaz/BaseHierarchy.scala	/^    implicit def applyFunctor[M[_]](implicit M: Apply[M]): Functor[M] = M.functor$/;"	m
+applyOps	base/shared/src/main/scala/scalaz/typeclass/ApplySyntax.scala	/^  implicit def applyOps[F[_], A](fa: F[A])(implicit F: Apply[F]): ApplySyntax.Ops[F, A] =$/;"	m
+asDisjunction	base/shared/src/main/scala/scalaz/data/DisjunctionSyntax.scala	/^    def asDisjunction: A \\\/ B = Disjunction.fromEither(ab)$/;"	m
+asMaybe	base/shared/src/main/scala/scalaz/Prelude.scala	/^  implicit class POptionAsMaybe[A](oa: Option[A]) { def asMaybe: Maybe[A] = Maybe.fromOption(oa) }$/;"	m
+asMaybe	base/shared/src/main/scala/scalaz/data/MaybeSyntax.scala	/^  implicit class OptionAsMaybe[A](oa: Option[A]) { def asMaybe: Maybe[A] = Maybe.fromOption(oa) }$/;"	m
+bind	base/shared/src/main/scala/scalaz/typeclass/BindClass.scala	/^  final def bind: Bind[M] = this$/;"	m
+bind	base/shared/src/main/scala/scalaz/typeclass/Monad.scala	/^  def bind: Bind[M]$/;"	m
+bindApply	base/shared/src/main/scala/scalaz/BaseHierarchy.scala	/^    implicit def bindApply[M[_]](implicit M: Bind[M]): Apply[M] = M.apply$/;"	m
+bindFunctor	base/shared/src/main/scala/scalaz/BaseHierarchy.scala	/^    implicit def bindFunctor[M[_]](implicit M: Bind[M]): Functor[M] = M.apply.functor$/;"	m
+bindOps	base/shared/src/main/scala/scalaz/typeclass/BindSyntax.scala	/^  implicit def bindOps[M[_], A](ma: M[A])(implicit M: Bind[M]): BindSyntax.Ops[M, A] =$/;"	m
+build_props_sbt	sbt	/^build_props_sbt () {$/;"	f
+build_props_scala	sbt	/^build_props_scala () {$/;"	f
+c	meta/shared/src/main/scala/scalaz/meta/Ops.scala	/^class Ops(val c: Context) {$/;"	C
+categoryComposable	base/shared/src/main/scala/scalaz/BaseHierarchy.scala	/^    implicit def categoryComposable[=>:[_,_]](implicit C: Category[=>:]): Compose[=>:] = C.compose $/;"	m
+checkJava	sbt	/^checkJava() {$/;"	f
+choice	base/shared/src/main/scala/scalaz/typeclass/ChoiceClass.scala	/^  final def choice: Choice[P] = this$/;"	m
+choiceOps	base/shared/src/main/scala/scalaz/typeclass/ChoiceSyntax.scala	/^  implicit def choiceOps[F[_, _], A, B](fa: F[A, B])(implicit F: Choice[F]): ChoiceSyntax.Ops[F, A, B] =$/;"	m
+choiceProfunctor	base/shared/src/main/scala/scalaz/BaseHierarchy.scala	/^    implicit def choiceProfunctor[P[_, _]](implicit P: Choice[P]): Profunctor[P] = P.profunctor$/;"	m
+cobind	base/shared/src/main/scala/scalaz/typeclass/Cobind.scala	/^  def cobind[A, B](fa: F[A])(f: F[A] => B): F[B]$/;"	m
+cobind	base/shared/src/main/scala/scalaz/typeclass/CobindClass.scala	/^    override def cobind[A, B](fa: F[A])(f: F[A] => B): F[B] =$/;"	m
+cobind	base/shared/src/main/scala/scalaz/typeclass/CobindClass.scala	/^    override def cobind[A, B](fa: F[A])(f: F[A] => B): F[B]$/;"	m
+cobind	base/shared/src/main/scala/scalaz/typeclass/CobindClass.scala	/^  final def cobind: Cobind[F] = this$/;"	m
+cobind	base/shared/src/main/scala/scalaz/typeclass/CobindInstances.scala	/^    override def cobind[A, B](fa: List[A])(f: List[A] => B): List[B] =$/;"	m
+cobind	base/shared/src/main/scala/scalaz/typeclass/CobindInstances.scala	/^    override def cobind[A, B](fa: Option[A])(f: Option[A] => B): Option[B] =$/;"	m
+cobind	base/shared/src/main/scala/scalaz/typeclass/CobindSyntax.scala	/^    def cobind[B](f: F[A] => B): F[B] = macro meta.Ops._f1[F[A] => B, F[B]]$/;"	m
+cobind	base/shared/src/main/scala/scalaz/typeclass/Comonad.scala	/^  def cobind: Cobind[F] $/;"	m
+cobind	base/shared/src/main/scala/scalaz/typeclass/ComonadClass.scala	/^    override def cobind[A, B](fa: F[A])(f: F[A] => B): F[B] =$/;"	m
+cobind	base/shared/src/main/scala/scalaz/typeclass/ComonadClass.scala	/^    override def cobind[A, B](fa: F[A])(f: F[A] => B): F[B]$/;"	m
+cobind	base/shared/src/main/scala/scalaz/typeclass/ComonadInstances.scala	/^    override def cobind[A, B](fa: Function0[A])(f: Function0[A] => B): Function0[B] =$/;"	m
+cobind	base/shared/src/main/scala/scalaz/typeclass/ComonadInstances.scala	/^    override def cobind[A, B](fa: Tuple2[A1, A])(f: Tuple2[A1, A] => B): Tuple2[A1, B] =$/;"	m
+cobindOps	base/shared/src/main/scala/scalaz/typeclass/CobindSyntax.scala	/^  implicit def cobindOps[F[_]: Cobind, A](fa: F[A]): CobindSyntax.Ops[F, A] = new CobindSyntax.Ops(fa)$/;"	m
+cojoin	base/shared/src/main/scala/scalaz/typeclass/Cobind.scala	/^  def cojoin[A](fa: F[A]): F[F[A]]$/;"	m
+cojoin	base/shared/src/main/scala/scalaz/typeclass/CobindClass.scala	/^    override def cojoin[A](fa: F[A]): F[F[A]] = cobind(fa)(a => a)$/;"	m
+cojoin	base/shared/src/main/scala/scalaz/typeclass/CobindClass.scala	/^    override def cojoin[A](fa: F[A]): F[F[A]]$/;"	m
+cojoin	base/shared/src/main/scala/scalaz/typeclass/ComonadClass.scala	/^    override def cojoin[A](fa: F[A]): F[F[A]] = cobind(fa)(a => a)$/;"	m
+cojoin	base/shared/src/main/scala/scalaz/typeclass/ComonadClass.scala	/^    override def cojoin[A](fa: F[A]): F[F[A]]$/;"	m
+comonad	base/shared/src/main/scala/scalaz/typeclass/ComonadClass.scala	/^  final def comonad: Comonad[F] = this$/;"	m
+comonadCobind	base/shared/src/main/scala/scalaz/BaseHierarchy.scala	/^    implicit def comonadCobind[F[_]](implicit F: Comonad[F]): Cobind[F] = F.cobind$/;"	m
+comonadOps	base/shared/src/main/scala/scalaz/typeclass/ComonadSyntax.scala	/^  implicit def comonadOps[F[_], A](fa: F[A])(implicit F: Comonad[F]): ComonadSyntax.Ops[F, A] =$/;"	m
+compileOnlyDeps	project/ScalazBuild.scala	/^  val compileOnlyDeps = Seq("com.github.ghik" %% "silencer-lib" % "0.5" % "provided")$/;"	C
+compose	base/shared/src/main/scala/scalaz/data/ACatenable1.scala	/^  def compose[Z](that: ACatenable1[=>:, Z, A]): ACatenable1[=>:, Z, B] =$/;"	m
+compose	base/shared/src/main/scala/scalaz/data/Endo.scala	/^  final def compose(that: Endo[=>:, A])(implicit F: Compose[=>:]): Endo[=>:, A] =$/;"	m
+compose	base/shared/src/main/scala/scalaz/data/FreeSemiArrow.scala	/^  def compose[Z](that: FreeSemiArrow[=>:, Z, A]): FreeSemiArrow[=>:, Z, B] =$/;"	m
+compose	base/shared/src/main/scala/scalaz/data/balanced.scala	/^      def compose[A, B, C](f: F[C, B], g: F[B, A]): F[C, A] =$/;"	m
+compose	base/shared/src/main/scala/scalaz/data/package.scala	/^    def compose[F[_, _], A](implicit F: Compose[F]): RightAction[F[A, ?], F] =$/;"	m
+compose	base/shared/src/main/scala/scalaz/data/package.scala	/^    def compose[F[_, _], Z](implicit F: Compose[F]): LeftAction[F[?, Z], F] =$/;"	m
+compose	base/shared/src/main/scala/scalaz/typeclass/Category.scala	/^  def compose: Compose[=>:]$/;"	m
+compose	base/shared/src/main/scala/scalaz/typeclass/CategoryClass.scala	/^  def compose: Compose[=>:] = this$/;"	m
+compose	base/shared/src/main/scala/scalaz/typeclass/Compose.scala	/^  def compose[A, B, C](f: B =>: C, g: A =>: B): (A =>: C)$/;"	m
+compose	base/shared/src/main/scala/scalaz/typeclass/ComposeSyntax.scala	/^    def compose[C](f: B =>: C): A =>: C = macro meta.Ops._f1[B =>: C, A =>: C] $/;"	m
+compose	base/src/main/scala/data/ProCompose.scala	/^    override def compose[A, B, C](fbc: ProCompose[P, B, C], fab: ProCompose[P, A, B]): ProCompose[P, A, C] = fab match {$/;"	m
+composeOps	base/shared/src/main/scala/scalaz/typeclass/ComposeSyntax.scala	/^  implicit def composeOps[=>:[_, _], A, B](fa: A =>: B)(implicit F: Compose[=>:]): ComposeSyntax.Ops[=>:, A, B] =$/;"	m
+const	base/shared/src/main/scala/scalaz/typeclass/PhantomInstances.scala	/^  implicit def const[R]: Phantom[Const[R, ?]] = new PhantomClass.MapContramap[Const[R, ?]] {$/;"	m
+constructor	base/shared/src/main/scala/scalaz/data/AList.scala	/^   * Reversed type-aligned list is type-aligned with flipped type constructor.$/;"	T
+constructor	base/shared/src/main/scala/scalaz/data/AList1.scala	/^   * Reversed type-aligned list is type-aligned with flipped type constructor.$/;"	T
+constructor	base/shared/src/main/scala/scalaz/typeclass/IsContravariant.scala	/^ * Witnesses that the type constructor `F[_]` is contravariant,$/;"	T
+constructor	base/shared/src/main/scala/scalaz/typeclass/IsCovariant.scala	/^ * Witnesses that the type constructor `F[_]` is covariant,$/;"	T
+constructors	base/shared/src/main/scala/scalaz/data/balanced.scala	/^ * Binary counter-like accumulator for type-aligned binary type constructors,$/;"	T
+contramap	base/shared/src/main/scala/scalaz/typeclass/Contravariant.scala	/^  def contramap[A, B](r: F[A])(f: B => A): F[B]$/;"	m
+contramap	base/shared/src/main/scala/scalaz/typeclass/PhantomClass.scala	/^    override def contramap[A, B](ma: F[A])(f: (B) => A): F[B] = pmap(ma)$/;"	m
+control	base/shared/src/main/scala/scalaz/control/package.scala	/^package object control {$/;"	o
+copoint	base/shared/src/main/scala/scalaz/typeclass/Comonad.scala	/^  def copoint[A](fa: F[A]): A$/;"	m
+copoint	base/shared/src/main/scala/scalaz/typeclass/ComonadClass.scala	/^    override def copoint[A](fa: F[A]): A$/;"	m
+copoint	base/shared/src/main/scala/scalaz/typeclass/ComonadInstances.scala	/^    override def copoint[A](fa: Function0[A]): A = fa() $/;"	m
+copoint	base/shared/src/main/scala/scalaz/typeclass/ComonadInstances.scala	/^    override def copoint[A](fa: Tuple2[A1, A]): A = fa._2 $/;"	m
+copoint	base/shared/src/main/scala/scalaz/typeclass/ComonadSyntax.scala	/^    def copoint: A = macro meta.Ops._f0[A]$/;"	m
+data	base/shared/src/main/scala/scalaz/data/ACatenable1.scala	/^package data$/;"	p
+data	base/shared/src/main/scala/scalaz/data/AList.scala	/^package data$/;"	p
+data	base/shared/src/main/scala/scalaz/data/AList1.scala	/^package data$/;"	p
+data	base/shared/src/main/scala/scalaz/data/AMaybe.scala	/^package data$/;"	p
+data	base/shared/src/main/scala/scalaz/data/APair.scala	/^package data$/;"	p
+data	base/shared/src/main/scala/scalaz/data/Const.scala	/^package data$/;"	p
+data	base/shared/src/main/scala/scalaz/data/ConstInstances.scala	/^package data$/;"	p
+data	base/shared/src/main/scala/scalaz/data/Disjunction.scala	/^package data$/;"	p
+data	base/shared/src/main/scala/scalaz/data/DisjunctionFunctions.scala	/^package data$/;"	p
+data	base/shared/src/main/scala/scalaz/data/DisjunctionInstances.scala	/^package data$/;"	p
+data	base/shared/src/main/scala/scalaz/data/DisjunctionSyntax.scala	/^package data$/;"	p
+data	base/shared/src/main/scala/scalaz/data/DownStar.scala	/^package data$/;"	p
+data	base/shared/src/main/scala/scalaz/data/DownStarInstances.scala	/^package data$/;"	p
+data	base/shared/src/main/scala/scalaz/data/Endo.scala	/^package data$/;"	p
+data	base/shared/src/main/scala/scalaz/data/Forall.scala	/^package data$/;"	p
+data	base/shared/src/main/scala/scalaz/data/Forall2.scala	/^package data$/;"	p
+data	base/shared/src/main/scala/scalaz/data/Forget.scala	/^package data$/;"	p
+data	base/shared/src/main/scala/scalaz/data/ForgetInstances.scala	/^package data$/;"	p
+data	base/shared/src/main/scala/scalaz/data/FreeSemiArrow.scala	/^package data$/;"	p
+data	base/shared/src/main/scala/scalaz/data/Identity.scala	/^package data$/;"	p
+data	base/shared/src/main/scala/scalaz/data/IdentityInstances.scala	/^package data$/;"	p
+data	base/shared/src/main/scala/scalaz/data/IdentityTypes.scala	/^package data$/;"	p
+data	base/shared/src/main/scala/scalaz/data/Leibniz.scala	/^package data$/;"	p
+data	base/shared/src/main/scala/scalaz/data/Maybe.scala	/^package data$/;"	p
+data	base/shared/src/main/scala/scalaz/data/MaybeFunctions.scala	/^package data$/;"	p
+data	base/shared/src/main/scala/scalaz/data/MaybeInstances.scala	/^package data$/;"	p
+data	base/shared/src/main/scala/scalaz/data/MaybeSyntax.scala	/^package data$/;"	p
+data	base/shared/src/main/scala/scalaz/data/UpStar.scala	/^package data$/;"	p
+data	base/shared/src/main/scala/scalaz/data/UpStarInstances.scala	/^package data$/;"	p
+data	base/shared/src/main/scala/scalaz/data/balanced.scala	/^package data$/;"	p
+data	base/shared/src/main/scala/scalaz/data/package.scala	/^package object data {$/;"	o
+data	base/src/main/scala/data/ProCompose.scala	/^package data $/;"	p
+default_jvm_opts	sbt	/^default_jvm_opts () {$/;"	f
+die	sbt	/^die ()     { echo "Aborting: $@" ; exit 1; }$/;"	f
+dimap	base/shared/src/main/scala/scalaz/data/DownStarInstances.scala	/^      override def dimap[A, B, C, D](fab: DownStar[F, A, B])(ca: C => A)(bd: B => D): DownStar[F, C, D] =$/;"	m
+dimap	base/shared/src/main/scala/scalaz/data/ForgetInstances.scala	/^    override def dimap[B, C, D, E](fbc: Forget[A, B, C])(fdb: D => B)(fce: C => E): Forget[A, D, E] = $/;"	m
+dimap	base/shared/src/main/scala/scalaz/data/UpStarInstances.scala	/^    override def dimap[A, B, C, D](fab: UpStar[F, A, B])(ca: C => A)(bd: B => D): UpStar[F, C, D] =$/;"	m
+dimap	base/shared/src/main/scala/scalaz/typeclass/ChoiceInstances.scala	/^    override def dimap[A, B, C, D](fab: Function[A, B])(ca: C => A)(bd: B => D): Function[C, D] =$/;"	m
+dimap	base/shared/src/main/scala/scalaz/typeclass/Profunctor.scala	/^  def dimap[A, B, C, D](fab: F[A, B])(ca: C => A)(bd: B => D): F[C, D]$/;"	m
+dimap	base/shared/src/main/scala/scalaz/typeclass/ProfunctorClass.scala	/^    override def dimap[A, B, C, D](fab: F[A, B])(ca: C => A)(bd: B => D): F[C, D] = rmap(lmap(fab)(ca))(bd)$/;"	m
+dimap	base/shared/src/main/scala/scalaz/typeclass/ProfunctorClass.scala	/^    override def dimap[A, B, C, D](fab: F[A, B])(ca: C => A)(bd: B => D): F[C, D]$/;"	m
+dimap	base/shared/src/main/scala/scalaz/typeclass/ProfunctorInstances.scala	/^    override def dimap[A, B, C, D](fab: Function[A, B])(ca: C => A)(bd: B => D): Function[C, D] =$/;"	m
+dimap	base/shared/src/main/scala/scalaz/typeclass/ProfunctorSyntax.scala	/^    def dimap[C, D](f: C => A)(g: B => D): F[C, D] = macro meta.Ops._f2[C => A, B => D, F[C, D]]$/;"	m
+dimap	base/shared/src/main/scala/scalaz/typeclass/StrongInstances.scala	/^    override def dimap[A, B, C, D](fab: Function[A, B])(ca: C => A)(bd: B => D): Function[C, D] =$/;"	m
+dimap	base/src/main/scala/data/ProCompose.scala	/^    override def dimap[A, B, C, D](fab: ProCompose[P, A, B])(fca: C => A)(fbd: B => D): ProCompose[P, C, D] = $/;"	m
+download_url	sbt	/^download_url () {$/;"	f
+downstarProfunctor	base/shared/src/main/scala/scalaz/data/DownStarInstances.scala	/^  implicit def downstarProfunctor[F[_]](implicit F: Functor[F]): Profunctor[DownStar[F, ?, ?]] =$/;"	m
+dummy	base/shared/src/main/scala/scalaz/data/Forall.scala	/^private[data] final class MkForallImpl[F[_]](val dummy: Boolean = false) extends AnyVal with ForallImpl.MkForall[F] {$/;"	C
+dummy	base/shared/src/main/scala/scalaz/data/Forall2.scala	/^private[data] final class MkForall2Impl[F[_, _]](val dummy: Boolean = false) extends AnyVal with Forall2Impl.MkForall2[F] {$/;"	C
+echoLine	sbt	/^  echoLine () {$/;"	f
+echoerr	sbt	/^echoerr () { echo >&2 "$@"; }$/;"	f
+either	base/shared/src/main/scala/scalaz/data/DisjunctionFunctions.scala	/^  def either[A, B, C](ac: A => C)(bc: B => C): A \\\/ B => C = _ match {$/;"	m
+empty	base/shared/src/main/scala/scalaz/data/AList.scala	/^  def empty[F[_, _], A]: AList[F, A, A] = Nil.asInstanceOf[AList[F, A, A]]$/;"	m
+empty	base/shared/src/main/scala/scalaz/data/AMaybe.scala	/^  def empty[F[_, _], A]: AMaybe[F, A, A] = None.asInstanceOf[AMaybe[F, A, A]]$/;"	m
+empty	base/shared/src/main/scala/scalaz/data/ConstInstances.scala	/^    def empty: Const[A, B] = Const(A.empty)$/;"	m
+empty	base/shared/src/main/scala/scalaz/data/MaybeFunctions.scala	/^  def empty[A]: Maybe[A] = Empty[A]$/;"	m
+empty	base/shared/src/main/scala/scalaz/typeclass/Monoid.scala	/^  def empty: A$/;"	m
+emptyMap	example/shared/src/main/scala/scalaz/example/ForallUsage.scala	/^  val emptyMap: ∀∀[Map] = ∀∀.of[Map](Map())$/;"	C
+emptyMap1	example/shared/src/main/scala/scalaz/example/ForallUsage.scala	/^  val emptyMap1: ∀∀[Map] = ∀∀.mk[∀∀[Map]].from(Map())$/;"	C
+equalOpsA	base/shared/src/main/scala/scalaz/typeclass/SemigroupSyntax.scala	/^  implicit def equalOpsA[A: Semigroup](a: A): SemigroupSyntax.OpsA[A] = new SemigroupSyntax.OpsA(a)$/;"	m
+equality	base/shared/src/main/scala/scalaz/data/AList.scala	/^ * The empty case witnesses type equality between `A` and `B`.$/;"	T
+equality	base/shared/src/main/scala/scalaz/data/AMaybe.scala	/^  * The empty case contains evidence of type equality$/;"	T
+equality	base/shared/src/main/scala/scalaz/data/AMaybe.scala	/^  * the empty case witnesses type equality between `A` and `B`.$/;"	T
+example	example/shared/src/main/scala/scalaz/example/ForallUsage.scala	/^package example$/;"	p
+execRunner	sbt	/^execRunner () {$/;"	f
+f	base/shared/src/main/scala/scalaz/typeclass/Liskov.scala	/^    type f[+a] = a$/;"	T
+f	base/shared/src/main/scala/scalaz/typeclass/Liskov.scala	/^    type f[-a] = F[a] => F[B]$/;"	T
+first	base/shared/src/main/scala/scalaz/data/ForgetInstances.scala	/^    override def first[B, C, D](pab: Forget[A, B, C]): Forget[A, (B, D), (C, D)] = Forget[A, (B, D), (C, D)](bd => pab.forget(bd._1))$/;"	m
+first	base/shared/src/main/scala/scalaz/typeclass/Strong.scala	/^  def first[A, B, C](pab: P[A, B]): P[(A, C), (B, C)]$/;"	m
+first	base/shared/src/main/scala/scalaz/typeclass/StrongClass.scala	/^    override def first[A, B, C](pab: P[A, B]): P[(A, C), (B, C)] =$/;"	m
+first	base/shared/src/main/scala/scalaz/typeclass/StrongClass.scala	/^    override def first[A, B, C](pab: P[A, B]): P[(A, C), (B, C)]$/;"	m
+first	base/shared/src/main/scala/scalaz/typeclass/StrongInstances.scala	/^    override def first[A, B, C](pab: A => B): ((A, C)) => (B, C) = _ match {$/;"	m
+first	base/shared/src/main/scala/scalaz/typeclass/StrongSyntax.scala	/^    def first[C]: F[(A, C), (B, C)] = macro meta.Ops._f0[F[(A, C), (B, C)]]$/;"	m
+first	base/src/main/scala/data/ProCompose.scala	/^    override def first[A, B, C](fab: ProCompose[P,A,B]): ProCompose[P,(A, C),(B, C)] = $/;"	m
+flatMap	base/shared/src/main/scala/scalaz/data/AList.scala	/^  def flatMap[G[_, _]](φ: F ~~> AList[G, ?, ?]): AList[G, A, B] =$/;"	m
+flatMap	base/shared/src/main/scala/scalaz/data/AList1.scala	/^  def flatMap[G[_, _]](φ: F ~~> AList1[G, ?, ?]): AList1[G, A, B] = {$/;"	m
+flatMap	base/shared/src/main/scala/scalaz/data/DisjunctionInstances.scala	/^    override def flatMap[A, B](oa: L \\\/ A)(f: A => L \\\/ B): L \\\/ B =$/;"	m
+flatMap	base/shared/src/main/scala/scalaz/data/IdentityInstances.scala	/^    override def flatMap[A, B](oa: Identity[A])(f: A => Identity[B]): Identity[B] = f(oa.run)$/;"	m
+flatMap	base/shared/src/main/scala/scalaz/data/MaybeInstances.scala	/^  override def flatMap[A, B](ma: Maybe[A])(f: A => Maybe[B]): Maybe[B] =$/;"	m
+flatMap	base/shared/src/main/scala/scalaz/typeclass/Bind.scala	/^  def flatMap[A, B](ma: M[A])(f: A => M[B]): M[B]$/;"	m
+flatMap	base/shared/src/main/scala/scalaz/typeclass/BindClass.scala	/^    override def flatMap[A, B](ma: M[A])(f: (A) => M[B]): M[B] = flatten(apply.functor.map(ma)(f))$/;"	m
+flatMap	base/shared/src/main/scala/scalaz/typeclass/BindClass.scala	/^    override def flatMap[A, B](ma: M[A])(f: A => M[B]): M[B]$/;"	m
+flatMap	base/shared/src/main/scala/scalaz/typeclass/BindFunctions.scala	/^  def flatMap[M[_], A, B](ma: M[A])(f: A => M[B])(implicit M: Bind[M]): M[B] = M.flatMap(ma)(f)$/;"	m
+flatMap	base/shared/src/main/scala/scalaz/typeclass/BindSyntax.scala	/^    def flatMap[B](f: A => M[B]): M[B] = macro meta.Ops._f1[A => M[B], M[B]]$/;"	m
+flatMap	base/shared/src/main/scala/scalaz/typeclass/MonadInstances.scala	/^    override def flatMap[A, B](fab: Function0[A])(f: A => Function0[B]): Function0[B] = () => f(fab())()$/;"	m
+flatMap	base/shared/src/main/scala/scalaz/typeclass/MonadInstances.scala	/^    override def flatMap[A, B](fab: Function1[C, A])(f: A => Function1[C, B]): Function1[C, B] = (c: C) => f(fab(c))(c)$/;"	m
+flatMap	base/shared/src/main/scala/scalaz/typeclass/MonadInstances.scala	/^    override def flatMap[A, B](oa: Option[A])(f: A => Option[B]): Option[B] = oa.flatMap(f)$/;"	m
+flatMap	base/shared/src/main/scala/scalaz/typeclass/MonadInstances.scala	/^    override def flatMap[A, B](xs: List[A])(f: A => List[B]): List[B] = xs.flatMap(f)$/;"	m
+flatten	base/shared/src/main/scala/scalaz/data/IdentityInstances.scala	/^    override def flatten[A](ma: Identity[Identity[A]]): Identity[A] = ma.run$/;"	m
+flatten	base/shared/src/main/scala/scalaz/typeclass/Bind.scala	/^  def flatten[A](ma: M[M[A]]): M[A]$/;"	m
+flatten	base/shared/src/main/scala/scalaz/typeclass/BindClass.scala	/^    override def flatten[A](ma: M[M[A]]): M[A] = flatMap(ma)(identity)$/;"	m
+flatten	base/shared/src/main/scala/scalaz/typeclass/BindClass.scala	/^    override def flatten[A](ma: M[M[A]]): M[A]$/;"	m
+flip	base/shared/src/main/scala/scalaz/data/balanced.scala	/^  private def flip[F[_, _]](F: Compose[F]): Compose[λ[(α, β) => F[β, α]]] =$/;"	m
+fold	base/shared/src/main/scala/scalaz/data/ACatenable1.scala	/^  final def fold(implicit ev: Compose[=>:]): A =>: B = this match {$/;"	m
+fold	base/shared/src/main/scala/scalaz/data/AList.scala	/^  def fold(implicit F: Category[F]): F[A, B] =$/;"	m
+fold	base/shared/src/main/scala/scalaz/data/AList1.scala	/^  def fold(implicit F: Compose[F]): F[A, B] =$/;"	m
+fold	base/shared/src/main/scala/scalaz/data/Disjunction.scala	/^  final def fold[A](la: L => A)(ra: R => A): A = this match {$/;"	m
+fold	base/shared/src/main/scala/scalaz/data/FreeSemiArrow.scala	/^  final def fold(implicit ev: Compose[=>:]): A =>: B = this match {$/;"	m
+fold	base/shared/src/main/scala/scalaz/data/Maybe.scala	/^  final def fold[B](f: A => B, b: => B): B = this match {$/;"	m
+foldLeft	base/shared/src/main/scala/scalaz/data/ACatenable1.scala	/^  final def foldLeft[F[_]](fa: F[A])(φ: RightAction[F, =>:]): F[B] = {$/;"	m
+foldLeft	base/shared/src/main/scala/scalaz/data/AList.scala	/^  def foldLeft[G[_]](ga: G[A])(φ: RightAction[G, F]): G[B] = {$/;"	m
+foldLeft	base/shared/src/main/scala/scalaz/data/AList1.scala	/^  def foldLeft[G[_]](ga: G[A])(φ: RightAction[G, F]): G[B] =$/;"	m
+foldLeft	base/shared/src/main/scala/scalaz/data/ConstInstances.scala	/^    def foldLeft[A, B](fa: Const[R, A], z: B)(f: (B, A) => B): B = z$/;"	m
+foldLeft	base/shared/src/main/scala/scalaz/data/FreeSemiArrow.scala	/^  final def foldLeft[F[_]](fa: F[A])(φ: RightAction[F, =>:]): F[B] = {$/;"	m
+foldLeft	base/shared/src/main/scala/scalaz/data/MaybeInstances.scala	/^  override def foldLeft[A, B](ma: Maybe[A], b: B)(f: (B, A) => B): B = ma.fold(a => f(b, a), b)$/;"	m
+foldLeft	base/shared/src/main/scala/scalaz/typeclass/Foldable.scala	/^  def foldLeft[A, B](fa: F[A], z: B)(f: (B, A) => B): B \/\/ = TODO default implementation from foldmap$/;"	m
+foldLeft	base/shared/src/main/scala/scalaz/typeclass/FoldableSyntax.scala	/^    def foldLeft[B](f: B)(g: (B, A) => B): B = F.foldLeft(self, f)(g)$/;"	m
+foldLeft	base/shared/src/main/scala/scalaz/typeclass/TraversableInstances.scala	/^    override def foldLeft[A, B](fa: List[A], z: B)(f: (B, A) => B): B = fa.foldLeft(z)(f)$/;"	m
+foldLeft	base/shared/src/main/scala/scalaz/typeclass/TraversableInstances.scala	/^    override def foldLeft[A, B](ta: Tuple2[C, A], z: B)(f: (B, A) => B): B = f(z, ta._2)$/;"	m
+foldLeft1	base/shared/src/main/scala/scalaz/data/AList1.scala	/^  def foldLeft1[G[_]](init: F[A, ?] ~> G)(φ: RightAction[G, F]): G[B] =$/;"	m
+foldMap	base/shared/src/main/scala/scalaz/data/AList.scala	/^  def foldMap[G[_, _]](φ: F ~~> G)(implicit G: Category[G]): G[A, B] =$/;"	m
+foldMap	base/shared/src/main/scala/scalaz/data/AList1.scala	/^  def foldMap[G[_, _]](φ: F ~~> G)(implicit G: Compose[G]): G[A, B] =$/;"	m
+foldMap	base/shared/src/main/scala/scalaz/typeclass/Foldable.scala	/^  def foldMap[A, B: Monoid](fa: F[A])(f: A => B): B$/;"	m
+foldMap	base/shared/src/main/scala/scalaz/typeclass/FoldableClass.scala	/^    override def foldMap[A, B: Monoid](fa: F[A])(f: A => B) = foldRight(fa, Monoid[B].empty)((a, b) => Semigroup[B].append(f(a),b))$/;"	m
+foldMap	base/shared/src/main/scala/scalaz/typeclass/FoldableClass.scala	/^    override def foldMap[A, B: Monoid](fa: F[A])(f: A => B): B$/;"	m
+foldMapMaybe	base/shared/src/main/scala/scalaz/data/AList.scala	/^  def foldMapMaybe[G[_, _]](φ: F ~~> G)(implicit G: Compose[G]): AMaybe[G, A, B] =$/;"	m
+foldMaybe	base/shared/src/main/scala/scalaz/data/AList.scala	/^  def foldMaybe(implicit F: Compose[F]): AMaybe[F, A, B] =$/;"	m
+foldRight	base/shared/src/main/scala/scalaz/data/ACatenable1.scala	/^  def foldRight[F[_]](fb: F[B])(φ: LeftAction[F, =>:]): F[A] = {$/;"	m
+foldRight	base/shared/src/main/scala/scalaz/data/AList.scala	/^  def foldRight[G[_]](gb: G[B])(φ: LeftAction[G, F]): G[A] =$/;"	m
+foldRight	base/shared/src/main/scala/scalaz/data/AList1.scala	/^  def foldRight[G[_]](gb: G[B])(φ: LeftAction[G, F]): G[A] =$/;"	m
+foldRight	base/shared/src/main/scala/scalaz/data/ConstInstances.scala	/^    def foldRight[A, B](fa: Const[R, A], z: => B)(f: (A, => B) => B): B = z$/;"	m
+foldRight	base/shared/src/main/scala/scalaz/data/FreeSemiArrow.scala	/^  \/\/def foldRight[F[_]](fb: F[B])(φ: LeftAction[F, =>:]): F[A] = {$/;"	m
+foldRight	base/shared/src/main/scala/scalaz/data/MaybeInstances.scala	/^  override def foldRight[A, B](ma: Maybe[A], b: => B)(f: (A, => B) => B): B = ma.fold(a => f(a, b), b)$/;"	m
+foldRight	base/shared/src/main/scala/scalaz/typeclass/Foldable.scala	/^  def foldRight[A, B](fa: F[A], z: => B)(f: (A, => B) => B): B$/;"	m
+foldRight	base/shared/src/main/scala/scalaz/typeclass/FoldableClass.scala	/^    override def foldRight[A, B](fa: F[A], z: => B)(f: (A, => B) => B): B  \/\/ = TODO implement from foldmap\/endo$/;"	m
+foldRight	base/shared/src/main/scala/scalaz/typeclass/FoldableClass.scala	/^    override def foldRight[A, B](fa: F[A], z: => B)(f: (A, => B) => B): B$/;"	m
+foldRight	base/shared/src/main/scala/scalaz/typeclass/FoldableSyntax.scala	/^    def foldRight[B](f: => B)(g: (A, => B) => B): B = F.foldRight(self, f)(g) \/\/TODO: macro-ize foldable syntax$/;"	m
+foldRight	base/shared/src/main/scala/scalaz/typeclass/TraversableInstances.scala	/^    override def foldRight[A, B](fa: List[A], z: => B)(f: (A, => B) => B): B = fa.foldRight(z) { (a, b) => f(a, b) }$/;"	m
+foldRight	base/shared/src/main/scala/scalaz/typeclass/TraversableInstances.scala	/^    override def foldRight[A, B](ta: Tuple2[C, A], z: => B)(f: (A, => B) => B): B = f(ta._2, z)$/;"	m
+foldRight1	base/shared/src/main/scala/scalaz/data/AList1.scala	/^  def foldRight1[G[_]](init: F[?, B] ~> G)(φ: LeftAction[G, F]): G[A] =$/;"	m
+foldable	base/shared/src/main/scala/scalaz/typeclass/FoldableClass.scala	/^  final def foldable: Foldable[F] = this$/;"	m
+foldable	base/shared/src/main/scala/scalaz/typeclass/Traversable.scala	/^  def foldable: Foldable[T]$/;"	m
+foldableOps	base/shared/src/main/scala/scalaz/typeclass/FoldableSyntax.scala	/^  implicit def foldableOps[F[_], A](fa: F[A])(implicit F: Foldable[F]): FoldableSyntax.Ops[F, A] =$/;"	m
+from	base/shared/src/main/scala/scalaz/data/Forall.scala	/^    def from(ft: F[T]): ∀[F]$/;"	m
+from	base/shared/src/main/scala/scalaz/data/Forall.scala	/^  def from(ft: F[T]): ForallImpl.∀[F] = ft$/;"	m
+from	base/shared/src/main/scala/scalaz/data/Forall.scala	/^  def from[F[_]](p: Prototype[F]): ∀[F] = p[Any]$/;"	m
+from	base/shared/src/main/scala/scalaz/data/Forall.scala	/^  def from[F[_]](p: Prototype[F]): ∀[F]$/;"	m
+from	base/shared/src/main/scala/scalaz/data/Forall2.scala	/^    def from(ft: F[T, U]): ∀∀[F]$/;"	m
+from	base/shared/src/main/scala/scalaz/data/Forall2.scala	/^  def from(ft: F[T, U]): Forall2Impl.∀∀[F] = ft$/;"	m
+from	base/shared/src/main/scala/scalaz/data/Forall2.scala	/^  def from[F[_, _]](p: Prototype[F]): ∀∀[F] = p[Any, Any]$/;"	m
+from	base/shared/src/main/scala/scalaz/data/Forall2.scala	/^  def from[F[_, _]](p: Prototype[F]): ∀∀[F]$/;"	m
+fromEither	base/shared/src/main/scala/scalaz/data/Disjunction.scala	/^  def fromEither[L, R](ab: Either[L, R]): L \\\/ R = ab.fold(-\\\/(_), \\\/-(_))$/;"	m
+fromLeft	base/shared/src/main/scala/scalaz/data/package.scala	/^    def fromLeft[G[_], F[_, _]](act: LeftAction[G, F]): RightAction[G, λ[(α, β) => F[β, α]]] =$/;"	m
+fromOption	base/shared/src/main/scala/scalaz/data/MaybeFunctions.scala	/^  def fromOption[A](oa: Option[A]): Maybe[A] = oa.fold[Maybe[A]](empty[A])(Just(_))$/;"	m
+fromRight	base/shared/src/main/scala/scalaz/data/package.scala	/^    def fromRight[G[_], F[_, _]](act: RightAction[G, F]): LeftAction[G, λ[(α, β) => F[β, α]]] =$/;"	m
+function	base/shared/src/main/scala/scalaz/typeclass/ChoiceInstances.scala	/^  implicit val function: Choice[Function] = new ChoiceClass[Function] {$/;"	C
+function	base/shared/src/main/scala/scalaz/typeclass/MonadInstances.scala	/^  implicit val function: Monad[Function0] = new MonadClass.Template[Function0] {$/;"	C
+function	base/shared/src/main/scala/scalaz/typeclass/ProfunctorInstances.scala	/^  implicit val function: Profunctor[Function] = new ProfunctorClass.Dimap[Function] {$/;"	C
+function	base/shared/src/main/scala/scalaz/typeclass/StrongInstances.scala	/^  implicit val function: Strong[Function] = new StrongClass[Function] {$/;"	C
+function0	base/shared/src/main/scala/scalaz/typeclass/ComonadInstances.scala	/^  implicit val function0: Comonad[Function0] = new ComonadClass.Cobind[Function0] {$/;"	C
+function1	base/shared/src/main/scala/scalaz/typeclass/MonadInstances.scala	/^  implicit def function1[C]: Monad[Function1[C, ?]] = new MonadClass.Template[Function1[C, ?]] {$/;"	m
+functor	base/shared/src/main/scala/scalaz/data/ConstInstances.scala	/^    def functor: Functor[Const[R, ?]] = Const.functor[R]$/;"	m
+functor	base/shared/src/main/scala/scalaz/data/ConstInstances.scala	/^  implicit def functor[R]: Functor[Const[R, ?]] = new Functor[Const[R, ?]] {$/;"	m
+functor	base/shared/src/main/scala/scalaz/typeclass/Apply.scala	/^  def functor: Functor[F]$/;"	m
+functor	base/shared/src/main/scala/scalaz/typeclass/Cobind.scala	/^  def functor: Functor[F] $/;"	m
+functor	base/shared/src/main/scala/scalaz/typeclass/FunctorClass.scala	/^  final def functor: Functor[F] = this$/;"	m
+functor	base/shared/src/main/scala/scalaz/typeclass/InvariantFunctorClass.scala	/^  final def functor: InvariantFunctor[F] = this$/;"	m
+functor	base/shared/src/main/scala/scalaz/typeclass/Traversable.scala	/^  def functor: Functor[T]$/;"	m
+functorOps	base/shared/src/main/scala/scalaz/typeclass/FunctorSyntax.scala	/^  implicit def functorOps[F[_], A](fa: F[A])(implicit F: Functor[F]): FunctorSyntax.Ops[F, A] =$/;"	m
+getJavaVersion	sbt	/^getJavaVersion() { "$1" -version 2>&1 | grep -E -e '(java|openjdk) version' | awk '{ print $3 }' | tr -d \\"; }$/;"	f
+get_script_path	sbt	/^get_script_path () {$/;"	f
+go	base/shared/src/main/scala/scalaz/data/ACatenable1.scala	/^    @tailrec def go(step: APair[ACatenable1[=>:, A, ?], F]): F[A] =$/;"	m
+go	base/shared/src/main/scala/scalaz/data/ACatenable1.scala	/^    @tailrec def go(step: APair[F, ACatenable1[=>:, ?, B]]): F[B] =$/;"	m
+go	base/shared/src/main/scala/scalaz/data/AList.scala	/^    @tailrec def go(acc: Int, fs: AList[F, _, _]): Int = fs match {$/;"	m
+go	base/shared/src/main/scala/scalaz/data/AList.scala	/^    @tailrec def go(p: APair[AList[F, ?, B], Composed[F, A, ?]]): Composed[F, A, B] = {$/;"	m
+go	base/shared/src/main/scala/scalaz/data/AList.scala	/^    @tailrec def go(p: APair[G, AList[F, ?, B]]): G[B] = {$/;"	m
+go	base/shared/src/main/scala/scalaz/data/AList.scala	/^    @tailrec def go[G[_, _]](p: APair[AList[G, ?, Z], Composed[G, B, ?]]): Composed[G, B, Z] = {$/;"	m
+go	base/shared/src/main/scala/scalaz/data/FreeSemiArrow.scala	/^    @tailrec def go(step: APair[F, FreeSemiArrow[=>:, ?, B]]): F[B] =$/;"	m
+go	base/shared/src/main/scala/scalaz/data/FreeSemiArrow.scala	/^  \/\/  @tailrec def go(step: APair[FreeSemiArrow[=>:, A, ?], F]): F[A] =$/;"	m
+h1	base/shared/src/main/scala/scalaz/data/balanced.scala	/^      val h1 = F.compose(t.head, h)$/;"	C
+h1count	base/shared/src/main/scala/scalaz/data/balanced.scala	/^      val h1count = hcount * 2$/;"	C
+head	base/shared/src/main/scala/scalaz/data/AList1.scala	/^  def head: F[A, Pivot]$/;"	m
+headOption	example/shared/src/main/scala/scalaz/example/ForallUsage.scala	/^  val headOption: List ~> Option = ∀.mk[List ~> Option].from(_.headOption)$/;"	C
+id	base/shared/src/main/scala/scalaz/typeclass/Category.scala	/^  def id[A]: A =>: A$/;"	m
+id	base/shared/src/main/scala/scalaz/typeclass/CategoryClass.scala	/^  def id[A]: A =>: A$/;"	m
+id	base/src/main/scala/data/ProCompose.scala	/^    override def id[A]: ProCompose[P,A,A] = Pure((a: A) => a)$/;"	m
+imap	base/shared/src/main/scala/scalaz/typeclass/InvariantFunctor.scala	/^  def imap[A, B](ma: F[A])(f: A => B)(g: B => A): F[B]$/;"	m
+imap	base/shared/src/main/scala/scalaz/typeclass/InvariantFunctorFunctions.scala	/^  def imap[F[_], A, B](fa: F[A])(f: A => B)(g: B => A)(implicit F: InvariantFunctor[F]): F[B] = F.imap(fa)(f)(g)$/;"	m
+imap	base/shared/src/main/scala/scalaz/typeclass/InvariantFunctorSyntax.scala	/^    def imap[B](f: A => B)(g: B => A): F[B] = macro meta.Ops._f2[A => B, B => A, F[B]]$/;"	m
+inference	base/shared/src/main/scala/scalaz/data/APair.scala	/^ * but more robust with respect to type inference.$/;"	T
+inference	base/shared/src/main/scala/scalaz/data/package.scala	/^   * but more robust with respect to type inference.$/;"	T
+init_default_option_file	sbt	/^init_default_option_file () {$/;"	f
+instantiation	base/shared/src/main/scala/scalaz/data/Forall.scala	/^  def instantiation[F[_], A]: ∀[F] <~< F[A] = Liskov.unsafeForce$/;"	m
+instantiation	base/shared/src/main/scala/scalaz/data/Forall.scala	/^  def instantiation[F[_], A]: ∀[F] <~< F[A]$/;"	m
+invariantFunctorOps	base/shared/src/main/scala/scalaz/typeclass/InvariantFunctorSyntax.scala	/^  implicit def invariantFunctorOps[F[_], A](fa: F[A])(implicit F: InvariantFunctor[F]): InvariantFunctorSyntax.Ops[F, A] =$/;"	m
+isContravariant	base/shared/src/main/scala/scalaz/typeclass/IsContravariantClass.scala	/^  final def isContravariant: IsContravariant[F] = this$/;"	m
+isCovariant	base/shared/src/main/scala/scalaz/typeclass/IsCovariantClass.scala	/^  final def isCovariant: IsCovariant[F] = this$/;"	m
+isCovariantInstance	base/shared/src/main/scala/scalaz/data/MaybeInstances.scala	/^  implicit def isCovariantInstance: IsCovariant[Maybe] = this$/;"	m
+is_cygwin	sbt	/^is_cygwin () [[ "$(uname -a)" == "CYGWIN"* ]]$/;"	f
+isa	base/shared/src/main/scala/scalaz/typeclass/LiskovFunctions.scala	/^  def isa[A, B >: A]: A <~< B = Liskov.refl$/;"	m
+jar_file	sbt	/^jar_file () {$/;"	f
+jar_url	sbt	/^jar_url ()  { make_url "$1"; }$/;"	f
+java_version	sbt	/^java_version () {$/;"	f
+just	base/shared/src/main/scala/scalaz/data/MaybeFunctions.scala	/^  def just[A](a: A): Maybe[A] = Just(a)$/;"	m
+left	base/shared/src/main/scala/scalaz/data/DisjunctionFunctions.scala	/^  @inline def left[L, R](value: L): Disjunction[L, R] = -\\\/(value)$/;"	m
+left	base/shared/src/main/scala/scalaz/data/DisjunctionSyntax.scala	/^    def left[B]: A \\\/ B = -\\\/(a)$/;"	m
+leftAction	base/shared/src/main/scala/scalaz/data/balanced.scala	/^  def leftAction[F[_, _], Z](implicit F: Compose[F]): LeftAction[PreComposeBalancer[F, ?, Z], F] =$/;"	m
+leftAction	base/shared/src/main/scala/scalaz/data/balanced.scala	/^  def leftAction[G[_, _], F[_, _], Z](φ: F ~~> G)(implicit G: Compose[G]): LeftAction[PreComposeBalancer[G, ?, Z], F] =$/;"	m
+leftchoice	base/shared/src/main/scala/scalaz/typeclass/Choice.scala	/^  def leftchoice[A, B, C](pab: P[A, B]): P[A \\\/ C, B \\\/ C]$/;"	m
+leftchoice	base/shared/src/main/scala/scalaz/typeclass/ChoiceClass.scala	/^    override def leftchoice[A, B, C](pab: P[A, B]): P[A \\\/ C, B \\\/ C] =$/;"	m
+leftchoice	base/shared/src/main/scala/scalaz/typeclass/ChoiceClass.scala	/^    override def leftchoice[A, B, C](pab: P[A, B]): P[A \\\/ C, B \\\/ C]$/;"	m
+leftchoice	base/shared/src/main/scala/scalaz/typeclass/ChoiceInstances.scala	/^    override def leftchoice[A, B, C](ab: A => B): A \\\/ C => B \\\/ C  =$/;"	m
+leftchoice	base/shared/src/main/scala/scalaz/typeclass/ChoiceSyntax.scala	/^    def leftchoice[C]: P[A \\\/ C, B \\\/ C] = macro meta.Ops._f0[P[A \\\/ C, B \\\/ C]]$/;"	m
+leibniz	base/shared/src/main/scala/scalaz/data/AList.scala	/^  def leibniz: A === B = subst[A === ?](Leibniz.refl[A])$/;"	m
+leibniz	base/shared/src/main/scala/scalaz/data/AMaybe.scala	/^  def leibniz: A === B = subst[A === ?](Leibniz.refl)$/;"	m
+lift	base/shared/src/main/scala/scalaz/data/ACatenable1.scala	/^  def lift[F[_, _], A, B](f: F[A, B]): ACatenable1[F, A, B] =$/;"	m
+lift	base/shared/src/main/scala/scalaz/data/FreeSemiArrow.scala	/^  def lift[F[_, _], A, B](f: F[A, B]): FreeSemiArrow[F, A, B] =$/;"	m
+liftCt	base/shared/src/main/scala/scalaz/typeclass/LiskovFunctions.scala	/^  def liftCt[F[_], A, B](a: A <~< B)(implicit F: IsContravariant[F]): F[B] <~< F[A] =$/;"	m
+liftCv	base/shared/src/main/scala/scalaz/typeclass/LiskovFunctions.scala	/^  def liftCv[F[_], A, B](a: A <~< B)(implicit F: IsCovariant[F]): F[A] <~< F[B] =$/;"	m
+liftLiskov	base/shared/src/main/scala/scalaz/data/MaybeInstances.scala	/^  override def liftLiskov[A, B](implicit ev: A <~< B): Maybe[A] <~< Maybe[B] =$/;"	m
+liftLiskov	base/shared/src/main/scala/scalaz/typeclass/IsContravariant.scala	/^  def liftLiskov[A, B](implicit ev: A <~< B): F[B] <~< F[A]$/;"	m
+liftLiskov	base/shared/src/main/scala/scalaz/typeclass/IsContravariantClass.scala	/^    override def liftLiskov[A, B](implicit ev: A <~< B): F[B] <~< F[A] =$/;"	m
+liftLiskov	base/shared/src/main/scala/scalaz/typeclass/IsContravariantClass.scala	/^    override def liftLiskov[A, B](implicit ev: A <~< B): F[B] <~< F[A]$/;"	m
+liftLiskov	base/shared/src/main/scala/scalaz/typeclass/IsCovariant.scala	/^  def liftLiskov[A, B](implicit ev: A <~< B): F[A] <~< F[B]$/;"	m
+liftLiskov	base/shared/src/main/scala/scalaz/typeclass/IsCovariantClass.scala	/^    override def liftLiskov[A, B](implicit ev: A <~< B): F[A] <~< F[B] =$/;"	m
+liftLiskov	base/shared/src/main/scala/scalaz/typeclass/IsCovariantClass.scala	/^    override def liftLiskov[A, B](implicit ev: A <~< B): F[A] <~< F[B]$/;"	m
+list	base/shared/src/main/scala/scalaz/typeclass/CobindInstances.scala	/^  implicit val list: Cobind[List] = new CobindClass.Cobind[List] {$/;"	C
+list	base/shared/src/main/scala/scalaz/typeclass/MonadInstances.scala	/^  implicit val list: Monad[List] = new MonadClass.Template[List] {$/;"	C
+list	base/shared/src/main/scala/scalaz/typeclass/TraversableInstances.scala	/^  implicit val list: Traversable[List] = new TraversableClass[List] with Traverse[List] with FoldRight[List] {$/;"	C
+listPlus	example/shared/src/main/scala/scalaz/example/ForallUsage.scala	/^  val listPlus: Plus[List] =$/;"	C
+listSemigroup	example/shared/src/main/scala/scalaz/example/ForallUsage.scala	/^  def listSemigroup[A]: Semigroup[List[A]] = new Semigroup[List[A]] {$/;"	m
+lmap	base/shared/src/main/scala/scalaz/data/DownStarInstances.scala	/^      override def lmap[A, B, C](fab: DownStar[F, A, B])(ca: C => A): DownStar[F, C, B] =$/;"	m
+lmap	base/shared/src/main/scala/scalaz/data/ForgetInstances.scala	/^    override def lmap[B, C, D](fbc: Forget[A, B, C])(fdb: D => B): Forget[A, D, C] =$/;"	m
+lmap	base/shared/src/main/scala/scalaz/data/UpStarInstances.scala	/^    override def lmap[A, B, C](fab: UpStar[F, A, B])(ca: C => A): UpStar[F, C, B] =$/;"	m
+lmap	base/shared/src/main/scala/scalaz/typeclass/ChoiceInstances.scala	/^    override def lmap[A, B, C](fab: Function[A, B])(ca: C => A): Function[C, B] =$/;"	m
+lmap	base/shared/src/main/scala/scalaz/typeclass/Profunctor.scala	/^  def lmap[A, B, C](fab: F[A, B])(ca: C => A): F[C, B]$/;"	m
+lmap	base/shared/src/main/scala/scalaz/typeclass/ProfunctorClass.scala	/^    override def lmap[A, B, C](fab: F[A, B])(ca: C => A): F[C, B] = dimap[A, B, C, B](fab)(ca)(identity)$/;"	m
+lmap	base/shared/src/main/scala/scalaz/typeclass/ProfunctorClass.scala	/^    override def lmap[A, B, C](fab: F[A, B])(ca: C => A): F[C, B]$/;"	m
+lmap	base/shared/src/main/scala/scalaz/typeclass/ProfunctorInstances.scala	/^    override def lmap[A, B, C](fab: Function[A, B])(ca: C => A): Function[C, B] =$/;"	m
+lmap	base/shared/src/main/scala/scalaz/typeclass/ProfunctorSyntax.scala	/^    def lmap[C](f: C => A): F[C, B] = macro meta.Ops._f1[C => A, F[C, B]]$/;"	m
+lmap	base/shared/src/main/scala/scalaz/typeclass/StrongInstances.scala	/^    override def lmap[A, B, C](fab: Function[A, B])(ca: C => A): Function[C, B] =$/;"	m
+lmap	base/src/main/scala/data/ProCompose.scala	/^    override def lmap[A, B, C](fab: ProCompose[P, A, B])(fca: C => A): ProCompose[P, C, B] =$/;"	m
+main	sbt	/^main () {$/;"	f
+mainFiltered	sbt	/^mainFiltered () {$/;"	f
+make_url	sbt	/^make_url () {$/;"	f
+map	base/shared/src/main/scala/scalaz/data/AList.scala	/^  def map[G[_, _]](φ: F ~~> G): AList[G, A, B] =$/;"	m
+map	base/shared/src/main/scala/scalaz/data/AList1.scala	/^  def map[G[_, _]](φ: F ~~> G): AList1[G, A, B] =$/;"	m
+map	base/shared/src/main/scala/scalaz/data/ConstInstances.scala	/^    def map[A, B](fa: Const[R, A])(f: A => B): Const[R, B] =$/;"	m
+map	base/shared/src/main/scala/scalaz/data/ConstInstances.scala	/^    def map[A, B](ma: Const[R, A])(f: A => B): Const[R, B] = ma.retag$/;"	m
+map	base/shared/src/main/scala/scalaz/data/DisjunctionInstances.scala	/^    override def map[A, B](ma: L \\\/ A)(f: A => B): L \\\/ B =$/;"	m
+map	base/shared/src/main/scala/scalaz/data/IdentityInstances.scala	/^    override def map[A, B](fa: Identity[A])(f: A => B): Identity[B] = Identity(f(fa.run))$/;"	m
+map	base/shared/src/main/scala/scalaz/data/MaybeInstances.scala	/^  override def map[A, B](ma: Maybe[A])(f: A => B): Maybe[B] =$/;"	m
+map	base/shared/src/main/scala/scalaz/typeclass/ApplicativeClass.scala	/^    override def map[A, B](ma: F[A])(f: (A) => B): F[B] = ap(ma)(pure(f))$/;"	m
+map	base/shared/src/main/scala/scalaz/typeclass/CobindInstances.scala	/^    override def map[A, B](fa: List[A])(f: A => B): List[B] = fa.map(f)$/;"	m
+map	base/shared/src/main/scala/scalaz/typeclass/CobindInstances.scala	/^    override def map[A, B](fa: Option[A])(f: A => B): Option[B] = fa.map(f)$/;"	m
+map	base/shared/src/main/scala/scalaz/typeclass/ComonadInstances.scala	/^    override def map[A, B](fa: Function0[A])(f: A => B): Function0[B] = () => f(fa())$/;"	m
+map	base/shared/src/main/scala/scalaz/typeclass/ComonadInstances.scala	/^    override def map[A, B](fa: Tuple2[A1, A])(f: A => B): Tuple2[A1, B] = (fa._1, f(fa._2))$/;"	m
+map	base/shared/src/main/scala/scalaz/typeclass/Functor.scala	/^  def map[A, B](ma: F[A])(f: A => B): F[B]$/;"	m
+map	base/shared/src/main/scala/scalaz/typeclass/FunctorFunctions.scala	/^  def map[F[_], A, B](fa: F[A])(f: A => B)(implicit F: Functor[F]): F[B] = F.map(fa)(f)$/;"	m
+map	base/shared/src/main/scala/scalaz/typeclass/FunctorSyntax.scala	/^    def map[B](f: A => B): F[B] = macro meta.Ops._f1[A => B, F[B]]$/;"	m
+map	base/shared/src/main/scala/scalaz/typeclass/MonadClass.scala	/^    override def map[A, B](ma: M[A])(f: (A) => B): M[B] = flatMap(ma)(a => pure(f(a)))$/;"	m
+map	base/shared/src/main/scala/scalaz/typeclass/MonadInstances.scala	/^    override def map[A, B](fab: Function0[A])(f: A => B): Function0[B] = () => f(fab())$/;"	m
+map	base/shared/src/main/scala/scalaz/typeclass/MonadInstances.scala	/^    override def map[A, B](fab: Function1[C, A])(f: A => B): Function1[C, B] = fab andThen f$/;"	m
+map	base/shared/src/main/scala/scalaz/typeclass/MonadInstances.scala	/^    override def map[A, B](oa: Option[A])(f: A => B): Option[B] = oa.map(f)$/;"	m
+map	base/shared/src/main/scala/scalaz/typeclass/MonadInstances.scala	/^    override def map[A, B](xs: List[A])(f: A => B): List[B] = xs.map(f)$/;"	m
+map	base/shared/src/main/scala/scalaz/typeclass/PhantomClass.scala	/^    override def map[A, B](ma: F[A])(f: (A) => B): F[B] = pmap(ma)$/;"	m
+map	base/shared/src/main/scala/scalaz/typeclass/TraversableInstances.scala	/^    override def map[A, B](fa: List[A])(f: A => B) = fa.map(f)$/;"	m
+map	base/shared/src/main/scala/scalaz/typeclass/TraversableInstances.scala	/^    override def map[A, B](ta: Tuple2[C, A])(f: A =>B): Tuple2[C, B] = (ta._1, f(ta._2))$/;"	m
+maybe	base/shared/src/main/scala/scalaz/data/MaybeFunctions.scala	/^  def maybe[A, B](n: B)(f: A => B): Maybe[A] => B = _ match {$/;"	m
+meta	meta/shared/src/main/scala/scalaz/meta/Ops.scala	/^package meta$/;"	p
+mk	base/shared/src/main/scala/scalaz/data/Forall.scala	/^  def mk[X](implicit u: Unapply[X]): MkForall[u.F] = of[u.F]$/;"	m
+mk	base/shared/src/main/scala/scalaz/data/Forall2.scala	/^  def mk[X](implicit u: Unapply[X]): MkForall2[u.F] = of[u.F]$/;"	m
+mkString	base/shared/src/main/scala/scalaz/data/AList.scala	/^  def mkString(prefix: String, delim: String, suffix: String): String =$/;"	m
+module	project/ScalazBuild.scala	/^    def module : CrossProject = p.in(file(p.jvm.id.stripSuffix("JVM"))).settings(stdSettings(p.jvm.id.stripSuffix("JVM")))$/;"	m
+module	project/ScalazBuild.scala	/^    def module : Project = p.in(file(p.id)).settings(stdSettings(p.id))$/;"	m
+monad	base/shared/src/main/scala/scalaz/data/DisjunctionInstances.scala	/^  implicit def monad[L]: Monad[L \\\/ ?] = new MonadClass.Template[L \\\/ ?] {$/;"	m
+monad	base/shared/src/main/scala/scalaz/data/IdentityInstances.scala	/^  implicit val monad: Monad[Identity] = new MonadClass[Identity] {$/;"	C
+monad	base/shared/src/main/scala/scalaz/typeclass/MonadClass.scala	/^  final def monad: Monad[M] = this$/;"	m
+monadApplicative	base/shared/src/main/scala/scalaz/BaseHierarchy.scala	/^    implicit def monadApplicative[M[_]](implicit M: Monad[M]): Applicative[M] = M.applicative$/;"	m
+monadApply	base/shared/src/main/scala/scalaz/BaseHierarchy.scala	/^    implicit def monadApply[M[_]](implicit M: Monad[M]): Apply[M] = M.applicative.apply$/;"	m
+monadBind	base/shared/src/main/scala/scalaz/BaseHierarchy.scala	/^    implicit def monadBind[M[_]](implicit M: Monad[M]): Bind[M] = M.bind$/;"	m
+monadFunctor	base/shared/src/main/scala/scalaz/BaseHierarchy.scala	/^    implicit def monadFunctor[M[_]](implicit M: Monad[M]): Functor[M] = M.applicative.apply.functor$/;"	m
+monadInstance	base/shared/src/main/scala/scalaz/data/MaybeInstances.scala	/^  implicit def monadInstance: Monad[Maybe] = this$/;"	m
+monoid	base/shared/src/main/scala/scalaz/data/ConstInstances.scala	/^  implicit def monoid[A, B](implicit A: Monoid[A]): Monoid[Const[A, B]] = new Monoid[Const[A, B]] {$/;"	m
+monoid	base/shared/src/main/scala/scalaz/typeclass/MonoidClass.scala	/^  final def monoid: Monoid[A] = this$/;"	m
+monoidSemigroup	base/shared/src/main/scala/scalaz/BaseHierarchy.scala	/^    implicit def monoidSemigroup[A](implicit A: Monoid[A]): Semigroup[A] = A.semigroup$/;"	m
+monotonicity	base/shared/src/main/scala/scalaz/data/Forall.scala	/^  def monotonicity[F[_], G[_]](ev: ∀[λ[α => F[α] <~< G[α]]]): ∀[F] <~< ∀[G] = Liskov.unsafeForce$/;"	m
+monotonicity	base/shared/src/main/scala/scalaz/data/Forall.scala	/^  def monotonicity[F[_], G[_]](ev: ∀[λ[α => F[α] <~< G[α]]]): ∀[F] <~< ∀[G]$/;"	m
+nil	base/shared/src/main/scala/scalaz/data/AList.scala	/^  private def nil[F[_, _], A]: ANil[F, A, A] = new ANil[F, A, A] {$/;"	m
+nil	example/shared/src/main/scala/scalaz/example/ForallUsage.scala	/^  val nil: ∀[List] = ∀.of[List](Nil)$/;"	C
+nil1	example/shared/src/main/scala/scalaz/example/ForallUsage.scala	/^  val nil1: ∀[List] = ∀.mk[∀[List]].from(Nil)$/;"	C
+none	base/shared/src/main/scala/scalaz/data/AMaybe.scala	/^  private def none[F[_, _], A]: AMaybe[F, A, A] = new AEmpty[F, A, A] {$/;"	m
+none	example/shared/src/main/scala/scalaz/example/ForallUsage.scala	/^  val none: ∀[Option] = headOption $ nil$/;"	C
+none2	example/shared/src/main/scala/scalaz/example/ForallUsage.scala	/^  val none2: ∀∀[Option2] = pick $ emptyMap$/;"	C
+object	base/shared/src/main/scala/scalaz/control/package.scala	/^package object control {$/;"	p
+object	base/shared/src/main/scala/scalaz/data/package.scala	/^package object data {$/;"	p
+object	base/shared/src/main/scala/scalaz/package.scala	/^package object scalaz extends scalaz.BaseHierarchy$/;"	p
+of	base/shared/src/main/scala/scalaz/data/APair.scala	/^  def of[U, F[_ <: U], G[_ <: U]]: Builder[U, F, G] = new Builder[U, F, G]$/;"	m
+of	base/shared/src/main/scala/scalaz/data/Forall.scala	/^    def of[A]: F[A] = Forall.specialize(a)$/;"	m
+of	base/shared/src/main/scala/scalaz/data/Forall.scala	/^  \/\/ Having evidence `ev` that `F[α]` is a subtype of `G[α]` for all types `α`,$/;"	T
+of	base/shared/src/main/scala/scalaz/data/Forall.scala	/^  \/\/ we have that `∀[F]` is a subtype of `G[α]` for all types `α`.$/;"	T
+of	base/shared/src/main/scala/scalaz/data/Forall.scala	/^  def of[F[_]]: MkForall[F] = new MkForallImpl[F]$/;"	m
+of	base/shared/src/main/scala/scalaz/data/Forall.scala	/^  def of[F[_]]: MkForall[F]$/;"	m
+of	base/shared/src/main/scala/scalaz/data/Forall2.scala	/^    def of[A, B]: F[A, B] = Forall2.specialize(a)$/;"	m
+of	base/shared/src/main/scala/scalaz/data/Forall2.scala	/^  def of[F[_, _]]: MkForall2[F] = new MkForall2Impl[F]$/;"	m
+of	base/shared/src/main/scala/scalaz/data/Forall2.scala	/^  def of[F[_, _]]: MkForall2[F]$/;"	m
+of	base/shared/src/main/scala/scalaz/data/package.scala	/^    def of[F[_], G[_]] = BoundedAPair.of[Any, F, G]$/;"	m
+onF	base/shared/src/main/scala/scalaz/data/Leibniz.scala	/^  def onF[X](fa: X => A): X => B = subst[X => ?](fa)$/;"	m
+onSbtRunnerExit	sbt	/^onSbtRunnerExit() {$/;"	f
+op	base/shared/src/main/scala/scalaz/data/AList1.scala	/^  def op[F[_, _], A, B](f: F[A, B]): Composed1[F, A, B] = apply[λ[(α, β) => F[β, α]], B, A](f)$/;"	m
+option	base/shared/src/main/scala/scalaz/typeclass/CobindInstances.scala	/^  implicit val option: Cobind[Option] = new CobindClass.Cobind[Option] {$/;"	C
+option	base/shared/src/main/scala/scalaz/typeclass/MonadInstances.scala	/^  implicit val option: Monad[Option] = new MonadClass.Template[Option] {$/;"	C
+pair	base/shared/src/main/scala/scalaz/data/ACatenable1.scala	/^    @inline def pair[X](f: ACatenable1[=>:, A, X], fx: F[X]) = APair[ACatenable1[=>:, A, ?], F, X](f, fx)$/;"	m
+pair	base/shared/src/main/scala/scalaz/data/ACatenable1.scala	/^    @inline def pair[X](fx: F[X], f: ACatenable1[=>:, X, B]) = APair[F, ACatenable1[=>:, ?, B], X](fx, f)$/;"	m
+pair	base/shared/src/main/scala/scalaz/data/FreeSemiArrow.scala	/^    @inline def pair[X](fx: F[X], f: FreeSemiArrow[=>:, X, B]) = APair[F, FreeSemiArrow[=>:, ?, B], X](fx, f)$/;"	m
+pair	base/shared/src/main/scala/scalaz/data/FreeSemiArrow.scala	/^  \/\/  @inline def pair[X](f: FreeSemiArrow[=>:, A, X], fx: F[X]) = APair[FreeSemiArrow[=>:, A, ?], F, X](f, fx)$/;"	m
+parameter	base/shared/src/main/scala/scalaz/data/APair.scala	/^ * Type-aligned pair with upper-bounded type parameter. Isomorphic to$/;"	T
+parameter	base/shared/src/main/scala/scalaz/typeclass/IsContravariant.scala	/^ * even though the variance annotation of its type parameter has been forgotten.$/;"	T
+parameter	base/shared/src/main/scala/scalaz/typeclass/IsCovariant.scala	/^ * even though the variance annotation of its type parameter has been forgotten.$/;"	T
+phantom	base/shared/src/main/scala/scalaz/typeclass/PhantomClass.scala	/^  final def phantom: Phantom[F] = this$/;"	m
+phantomOps	base/shared/src/main/scala/scalaz/typeclass/PhantomSyntax.scala	/^  implicit def phantomOps[F[_], A](fa: F[A])(implicit F: Phantom[F]): PhantomSyntax.Ops[F, A] =$/;"	m
+pick	example/shared/src/main/scala/scalaz/example/ForallUsage.scala	/^  val pick: Map ~~> Option2 = ∀∀.mk[Map ~~> Option2].from(_.headOption)$/;"	C
+pmap	base/shared/src/main/scala/scalaz/typeclass/Phantom.scala	/^  def pmap[A, B](ma: F[A]): F[B]$/;"	m
+pmap	base/shared/src/main/scala/scalaz/typeclass/PhantomClass.scala	/^    override def pmap[A, B](ma: F[A]): F[B] = contramap(map(ma)(_ => ()))(_ => ())$/;"	m
+pmap	base/shared/src/main/scala/scalaz/typeclass/PhantomFunctions.scala	/^  def pmap[F[_], A, B](fa: F[A])(implicit F: Phantom[F]): F[B] = F.pmap(fa)$/;"	m
+pmap	base/shared/src/main/scala/scalaz/typeclass/PhantomInstances.scala	/^    def pmap[A, B](ma: Const[R, A]): Const[R, B] = ma.retag[B]$/;"	m
+pmap	base/shared/src/main/scala/scalaz/typeclass/PhantomSyntax.scala	/^    def pmap[B]: F[B] = macro meta.Ops._f0[F[B]]$/;"	m
+process_args	sbt	/^process_args () {$/;"	f
+profunctor	base/shared/src/main/scala/scalaz/typeclass/Choice.scala	/^  def profunctor: Profunctor[P]$/;"	m
+profunctor	base/shared/src/main/scala/scalaz/typeclass/ProfunctorClass.scala	/^  final def profunctor: Profunctor[F] = this$/;"	m
+profunctor	base/shared/src/main/scala/scalaz/typeclass/Strong.scala	/^  def profunctor: Profunctor[P]$/;"	m
+profunctorOps	base/shared/src/main/scala/scalaz/typeclass/ProfunctorSyntax.scala	/^  implicit def profunctorOps[F[_, _], A, B](fa: F[A, B])(implicit F: Profunctor[F]): ProfunctorSyntax.Ops[F, A, B] =$/;"	m
+pure	base/shared/src/main/scala/scalaz/data/ConstInstances.scala	/^    def pure[A](a: A): Const[R, A] = Const(R.empty)$/;"	m
+pure	base/shared/src/main/scala/scalaz/data/DisjunctionInstances.scala	/^    override def pure[A](a: A): L \\\/ A =$/;"	m
+pure	base/shared/src/main/scala/scalaz/data/IdentityInstances.scala	/^    override def pure[A](a: A): Identity[A] = Identity(a)$/;"	m
+pure	base/shared/src/main/scala/scalaz/data/MaybeInstances.scala	/^  override def pure[A](a: A): Maybe[A] =$/;"	m
+pure	base/shared/src/main/scala/scalaz/typeclass/Applicative.scala	/^  def pure[A](a: A): F[A]$/;"	m
+pure	base/shared/src/main/scala/scalaz/typeclass/ApplicativeSyntax.scala	/^    def pure[F[_]](implicit F: Applicative[F]): F[A] = F.pure(a)$/;"	m
+pure	base/shared/src/main/scala/scalaz/typeclass/MonadInstances.scala	/^    override def pure[A](a: A): Function0[A] = () => a$/;"	m
+pure	base/shared/src/main/scala/scalaz/typeclass/MonadInstances.scala	/^    override def pure[A](a: A): Function1[C, A] = (c: C) => a$/;"	m
+pure	base/shared/src/main/scala/scalaz/typeclass/MonadInstances.scala	/^    override def pure[A](a: A): List[A] = List(a)$/;"	m
+pure	base/shared/src/main/scala/scalaz/typeclass/MonadInstances.scala	/^    override def pure[A](a: A): Option[A] = Option(a)$/;"	m
+readConfigFile	sbt	/^readConfigFile() {$/;"	f
+refl	base/shared/src/main/scala/scalaz/data/Leibniz.scala	/^  def refl[A]: A === A = Refl[A]$/;"	m
+refl	base/shared/src/main/scala/scalaz/typeclass/Liskov.scala	/^  implicit def refl[A]: (A <~< A) = Refl[A]$/;"	m
+refl_	base/shared/src/main/scala/scalaz/data/Leibniz.scala	/^  private def refl_[A]: A === A = new (A === A) {$/;"	m
+refl_	base/shared/src/main/scala/scalaz/typeclass/Liskov.scala	/^  private def refl_[A]: (A <~< A) = new (A <~< A) {$/;"	m
+repr	base/shared/src/main/scala/scalaz/data/balanced.scala	/^final class PostComposeBalancer[F[_, _], A, B](private val repr: PreComposeBalancer[λ[(α, β) => F[β, α]], B, A]) extends AnyVal {$/;"	C
+require_arg	sbt	/^  require_arg () {$/;"	f
+result	base/shared/src/main/scala/scalaz/data/balanced.scala	/^  def result(implicit F: Compose[F]): F[A, B] =$/;"	m
+retag	base/shared/src/main/scala/scalaz/data/Const.scala	/^  def retag[C]: Const[A, C] = this.asInstanceOf[Const[A, C]]$/;"	m
+retag	base/shared/src/main/scala/scalaz/data/Forget.scala	/^  def retag[D]: Forget[A, B, D] = this.asInstanceOf[Forget[A, B, D]]$/;"	m
+reverse	base/shared/src/main/scala/scalaz/data/AList.scala	/^  def reverse: Composed[F, A, B] = {$/;"	m
+reverse	base/shared/src/main/scala/scalaz/data/AList1.scala	/^  def reverse: Composed1[F, A, B] = $/;"	m
+reverse_	base/shared/src/main/scala/scalaz/data/AList.scala	/^  def reverse_:::[Z](that: Composed[F, Z, A]): AList[F, Z, B] = {$/;"	m
+reverse_	base/shared/src/main/scala/scalaz/data/AList1.scala	/^  def reverse_:::[Z](that: AList.Composed[F, Z, A]): AList1[F, Z, B] =$/;"	m
+reverse_	base/shared/src/main/scala/scalaz/data/AList1.scala	/^  def reverse_:::[Z](that: Composed1[F, Z, A]): AList1[F, Z, B] =$/;"	m
+right	base/shared/src/main/scala/scalaz/data/DisjunctionFunctions.scala	/^  @inline def right[L, R](value: R): Disjunction[L, R] = \\\/-(value)$/;"	m
+right	base/shared/src/main/scala/scalaz/data/DisjunctionSyntax.scala	/^    def right[B]: B \\\/ A = \\\/-(a)$/;"	m
+rightAction	base/shared/src/main/scala/scalaz/data/balanced.scala	/^  def rightAction[F[_, _], A](implicit F: Compose[F]): RightAction[PostComposeBalancer[F, A, ?], F] =$/;"	m
+rightAction	base/shared/src/main/scala/scalaz/data/balanced.scala	/^  def rightAction[G[_, _], F[_, _], A](φ: F ~~> G)(implicit G: Compose[G]): RightAction[PostComposeBalancer[G, A, ?], F] =$/;"	m
+rightchoice	base/shared/src/main/scala/scalaz/typeclass/Choice.scala	/^  def rightchoice[A, B, C](pab: P[A, B]): P[C \\\/ A, C \\\/ B]$/;"	m
+rightchoice	base/shared/src/main/scala/scalaz/typeclass/ChoiceClass.scala	/^    override def rightchoice[A, B, C](pab: P[A, B]): P[C \\\/ A, C \\\/ B] =$/;"	m
+rightchoice	base/shared/src/main/scala/scalaz/typeclass/ChoiceClass.scala	/^    override def rightchoice[A, B, C](pab: P[A, B]): P[C \\\/ A, C \\\/ B]$/;"	m
+rightchoice	base/shared/src/main/scala/scalaz/typeclass/ChoiceInstances.scala	/^    override def rightchoice[A, B, C](ab: A => B): C \\\/ A => C \\\/ B =$/;"	m
+rightchoice	base/shared/src/main/scala/scalaz/typeclass/ChoiceSyntax.scala	/^    def rightchoice[C]: P[C \\\/ A, C \\\/ B] = macro meta.Ops._f0[P[C \\\/ A, C \\\/ B]]$/;"	m
+rmap	base/shared/src/main/scala/scalaz/data/DownStarInstances.scala	/^      override def rmap[A, B, C](fab: DownStar[F, A, B])(bc: B => C): DownStar[F, A, C] =$/;"	m
+rmap	base/shared/src/main/scala/scalaz/data/ForgetInstances.scala	/^    override def rmap[B, C, D](fbc: Forget[A, B, C])(fcd: C => D): Forget[A, B, D] =$/;"	m
+rmap	base/shared/src/main/scala/scalaz/data/UpStarInstances.scala	/^    override def rmap[A, B, C](fab: UpStar[F, A, B])(bc: B => C): UpStar[F, A, C] =$/;"	m
+rmap	base/shared/src/main/scala/scalaz/typeclass/ChoiceInstances.scala	/^    override def rmap[A, B, C](fab: Function[A, B])(bc: B => C): Function[A, C] =$/;"	m
+rmap	base/shared/src/main/scala/scalaz/typeclass/Profunctor.scala	/^  def rmap[A, B, C](fab: F[A, B])(bc: B => C): F[A, C]$/;"	m
+rmap	base/shared/src/main/scala/scalaz/typeclass/ProfunctorClass.scala	/^    override def rmap[A, B, C](fab: F[A, B])(bc: B => C): F[A, C] = dimap[A, B, A, C](fab)(identity)(bc)$/;"	m
+rmap	base/shared/src/main/scala/scalaz/typeclass/ProfunctorClass.scala	/^    override def rmap[A, B, C](fab: F[A, B])(bc: B => C): F[A, C]$/;"	m
+rmap	base/shared/src/main/scala/scalaz/typeclass/ProfunctorInstances.scala	/^    override def rmap[A, B, C](fab: Function[A, B])(bc: B => C): Function[A, C] =$/;"	m
+rmap	base/shared/src/main/scala/scalaz/typeclass/ProfunctorSyntax.scala	/^    def rmap[C](f: B => C): F[A, C] = macro meta.Ops._f1[B => C, F[A, C]]$/;"	m
+rmap	base/shared/src/main/scala/scalaz/typeclass/StrongInstances.scala	/^    override def rmap[A, B, C](fab: Function[A, B])(bc: B => C): Function[A, C] =$/;"	m
+rmap	base/src/main/scala/data/ProCompose.scala	/^    override def rmap[A, B, D](fab: ProCompose[P, A, B])(fbd: B => D): ProCompose[P, A, D] =$/;"	m
+sb	base/shared/src/main/scala/scalaz/data/AList.scala	/^        val sb = new StringBuilder(prefix)$/;"	C
+scalaContravariant	base/shared/src/main/scala/scalaz/typeclass/IsContravariantInstances.scala	/^  implicit def scalaContravariant[F[-_]]: IsContravariant[F] =$/;"	m
+scalaCovariant	base/shared/src/main/scala/scalaz/typeclass/IsCovariantInstances.scala	/^  implicit def scalaCovariant[F[+_]]: IsCovariant[F] =$/;"	m
+scalaz	base/shared/src/main/scala/scalaz/BaseHierarchy.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/Prelude.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/control/package.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/data/ACatenable1.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/data/AList.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/data/AList1.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/data/AMaybe.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/data/APair.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/data/Const.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/data/ConstInstances.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/data/Disjunction.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/data/DisjunctionFunctions.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/data/DisjunctionInstances.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/data/DisjunctionSyntax.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/data/DownStar.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/data/DownStarInstances.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/data/Endo.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/data/Forall.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/data/Forall2.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/data/Forget.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/data/ForgetInstances.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/data/FreeSemiArrow.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/data/Identity.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/data/IdentityInstances.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/data/IdentityTypes.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/data/Leibniz.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/data/Maybe.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/data/MaybeFunctions.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/data/MaybeInstances.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/data/MaybeSyntax.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/data/UpStar.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/data/UpStarInstances.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/data/balanced.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/data/package.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/package.scala	/^package object scalaz extends scalaz.BaseHierarchy$/;"	o
+scalaz	base/shared/src/main/scala/scalaz/typeclass/Applicative.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/typeclass/ApplicativeClass.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/typeclass/ApplicativeSyntax.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/typeclass/Apply.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/typeclass/ApplyClass.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/typeclass/ApplySyntax.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/typeclass/Bind.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/typeclass/BindClass.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/typeclass/BindFunctions.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/typeclass/BindInstances.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/typeclass/BindSyntax.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/typeclass/Category.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/typeclass/CategoryClass.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/typeclass/Choice.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/typeclass/ChoiceClass.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/typeclass/ChoiceInstances.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/typeclass/ChoiceSyntax.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/typeclass/Cobind.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/typeclass/CobindClass.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/typeclass/CobindInstances.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/typeclass/CobindSyntax.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/typeclass/Comonad.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/typeclass/ComonadClass.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/typeclass/ComonadInstances.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/typeclass/ComonadSyntax.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/typeclass/Compose.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/typeclass/ComposeSyntax.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/typeclass/Contravariant.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/typeclass/Foldable.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/typeclass/FoldableClass.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/typeclass/FoldableInstances.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/typeclass/FoldableSyntax.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/typeclass/Functor.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/typeclass/FunctorClass.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/typeclass/FunctorFunctions.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/typeclass/FunctorSyntax.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/typeclass/InvariantFunctor.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/typeclass/InvariantFunctorClass.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/typeclass/InvariantFunctorFunctions.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/typeclass/InvariantFunctorSyntax.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/typeclass/IsContravariant.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/typeclass/IsContravariantClass.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/typeclass/IsContravariantInstances.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/typeclass/IsCovariant.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/typeclass/IsCovariantClass.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/typeclass/IsCovariantInstances.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/typeclass/Liskov.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/typeclass/LiskovFunctions.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/typeclass/LiskovInstances.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/typeclass/LiskovTypes.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/typeclass/Monad.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/typeclass/MonadClass.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/typeclass/MonadInstances.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/typeclass/Monoid.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/typeclass/MonoidClass.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/typeclass/MonoidInstances.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/typeclass/Phantom.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/typeclass/PhantomClass.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/typeclass/PhantomFunctions.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/typeclass/PhantomInstances.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/typeclass/PhantomSyntax.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/typeclass/Profunctor.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/typeclass/ProfunctorClass.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/typeclass/ProfunctorInstances.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/typeclass/ProfunctorSyntax.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/typeclass/Semigroup.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/typeclass/SemigroupClass.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/typeclass/SemigroupInstances.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/typeclass/SemigroupSyntax.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/typeclass/Show.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/typeclass/Strong.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/typeclass/StrongClass.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/typeclass/StrongInstances.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/typeclass/StrongSyntax.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/typeclass/Traversable.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/typeclass/TraversableClass.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/typeclass/TraversableFunctions.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/typeclass/TraversableInstances.scala	/^package scalaz$/;"	p
+scalaz	base/shared/src/main/scala/scalaz/typeclass/TraversableSyntax.scala	/^package scalaz$/;"	p
+scalaz	base/src/main/scala/data/ProCompose.scala	/^package scalaz$/;"	p
+scalaz	example/shared/src/main/scala/scalaz/example/ForallUsage.scala	/^package scalaz$/;"	p
+scalaz	meta/shared/src/main/scala/scalaz/meta/Ops.scala	/^package scalaz$/;"	p
+second	base/shared/src/main/scala/scalaz/data/ForgetInstances.scala	/^    override def second[B, C, D](pab: Forget[A, B, C]): Forget[A, (D, B), (D, C)] = Forget[A, (D, B), (D, C)](bd => pab.forget(bd._2)) $/;"	m
+second	base/shared/src/main/scala/scalaz/typeclass/Strong.scala	/^  def second[A, B, C](pab: P[A, B]): P[(C, A), (C, B)]$/;"	m
+second	base/shared/src/main/scala/scalaz/typeclass/StrongClass.scala	/^    override def second[A, B, C](pab: P[A, B]): P[(C, A), (C, B)] =$/;"	m
+second	base/shared/src/main/scala/scalaz/typeclass/StrongClass.scala	/^    override def second[A, B, C](pab: P[A, B]): P[(C, A), (C, B)]$/;"	m
+second	base/shared/src/main/scala/scalaz/typeclass/StrongInstances.scala	/^    override def second[A, B, C](pab: A => B): ((C, A)) => (C, B) = _ match {$/;"	m
+second	base/shared/src/main/scala/scalaz/typeclass/StrongSyntax.scala	/^    def second[C]: F[(C, A), (C, B)] = macro meta.Ops._f0[F[(C, A), (C, B)]]$/;"	m
+second	base/src/main/scala/data/ProCompose.scala	/^    override def second[A, B, C](fab: ProCompose[P,A,B]): ProCompose[P,(C, A),(C, B)] = $/;"	m
+semigroup	base/shared/src/main/scala/scalaz/data/ConstInstances.scala	/^    def semigroup: Semigroup[Const[A, B]] = implicitly$/;"	m
+semigroup	base/shared/src/main/scala/scalaz/data/ConstInstances.scala	/^  implicit def semigroup[A, B](implicit A: Semigroup[A]): Semigroup[Const[A, B]] = new Semigroup[Const[A, B]] {$/;"	m
+semigroup	base/shared/src/main/scala/scalaz/typeclass/Monoid.scala	/^  def semigroup: Semigroup[A]$/;"	m
+semigroup	base/shared/src/main/scala/scalaz/typeclass/SemigroupClass.scala	/^  final def semigroup: Semigroup[A] = this$/;"	m
+sequence	base/shared/src/main/scala/scalaz/data/MaybeInstances.scala	/^  override def sequence[F[_], A](ma: Maybe[F[A]])(implicit F: Applicative[F]): F[Maybe[A]] =$/;"	m
+sequence	base/shared/src/main/scala/scalaz/typeclass/Traversable.scala	/^  def sequence[F[_], A](ta: T[F[A]])(implicit F: Applicative[F]): F[T[A]]$/;"	m
+sequence	base/shared/src/main/scala/scalaz/typeclass/TraversableClass.scala	/^    override def sequence[F[_], A](ta: T[F[A]])(implicit F: Applicative[F]): F[T[A]] = traverse(ta)(identity)$/;"	m
+sequence	base/shared/src/main/scala/scalaz/typeclass/TraversableClass.scala	/^    override def sequence[F[_], A](ta: T[F[A]])(implicit F: Applicative[F]): F[T[A]]$/;"	m
+sequence	base/shared/src/main/scala/scalaz/typeclass/TraversableFunctions.scala	/^  def sequence[T[_], F[_], A](tfa: T[F[A]])(implicit F: Applicative[F], T: Traversable[T]): F[T[A]] =$/;"	m
+setJavaHome	sbt	/^setJavaHome () {$/;"	f
+setScalaVersion	sbt	/^setScalaVersion () {$/;"	f
+setThisBuild	sbt	/^setThisBuild () {$/;"	f
+setTraceLevel	sbt	/^setTraceLevel() {$/;"	f
+set_sbt_version	sbt	/^set_sbt_version () {$/;"	f
+shouldFilter	sbt	/^shouldFilter () { [[ -f ~\/.sbtignore ]] && ! egrep -q '\\b(shell|console|consoleProject)\\b' <<<"${residual_args[@]}"; }$/;"	f
+show	base/shared/src/main/scala/scalaz/typeclass/Show.scala	/^  def show(a: A): String$/;"	m
+size	base/shared/src/main/scala/scalaz/data/AList.scala	/^  def size: Int = {$/;"	m
+size	base/shared/src/main/scala/scalaz/data/AList1.scala	/^  def size: Int = 1 + tail.size$/;"	m
+specialize	base/shared/src/main/scala/scalaz/data/Forall.scala	/^  def specialize[F[_], A](f: ∀[F]): F[A] = f.asInstanceOf[F[A]]$/;"	m
+specialize	base/shared/src/main/scala/scalaz/data/Forall.scala	/^  def specialize[F[_], A](f: ∀[F]): F[A]$/;"	m
+specialize	base/shared/src/main/scala/scalaz/data/Forall2.scala	/^  def specialize[F[_, _], A, B](f: ∀∀[F]): F[A, B] = f.asInstanceOf[F[A, B]]$/;"	m
+specialize	base/shared/src/main/scala/scalaz/data/Forall2.scala	/^  def specialize[F[_, _], A, B](f: ∀∀[F]): F[A, B]$/;"	m
+stdOptions	project/ScalazBuild.scala	/^  private val stdOptions = Seq($/;"	C
+stdSettings	project/ScalazBuild.scala	/^  def stdSettings(prjName: String) = Seq($/;"	m
+strong	base/shared/src/main/scala/scalaz/data/ForgetInstances.scala	/^ implicit def strong[A]: Strong[Forget[A, ?, ?]] = new StrongClass.First[Forget[A, ?, ?]] {$/;"	m
+strong	base/shared/src/main/scala/scalaz/typeclass/StrongClass.scala	/^  final def strong: Strong[P] = this$/;"	m
+strongOps	base/shared/src/main/scala/scalaz/typeclass/StrongSyntax.scala	/^  implicit def strongOps[F[_, _], A, B](fa: F[A, B])(implicit F: Strong[F]): StrongSyntax.Ops[F, A, B] =$/;"	m
+strongProfunctor	base/shared/src/main/scala/scalaz/BaseHierarchy.scala	/^    implicit def strongProfunctor[P[_, _]](implicit P: Strong[P]): Profunctor[P] = P.profunctor$/;"	m
+subst	base/shared/src/main/scala/scalaz/data/AList.scala	/^    def   subst[G[_]](ga: G[A]): G[A] = ga$/;"	m
+subst	base/shared/src/main/scala/scalaz/data/AList.scala	/^  def   subst[G[_]](ga: G[A]): G[B]$/;"	m
+subst	base/shared/src/main/scala/scalaz/data/AMaybe.scala	/^    def   subst[G[_]](ga: G[A]): G[A] = ga$/;"	m
+subst	base/shared/src/main/scala/scalaz/data/AMaybe.scala	/^  def   subst[G[_]](ga: G[A]): G[B]$/;"	m
+subst	base/shared/src/main/scala/scalaz/data/Leibniz.scala	/^    def subst[F[_]](fa: F[A]): F[A] = fa$/;"	m
+subst	base/shared/src/main/scala/scalaz/data/Leibniz.scala	/^  def subst[F[_]](fa: F[A]): F[B]$/;"	m
+subst	base/shared/src/main/scala/scalaz/typeclass/Liskov.scala	/^    def subst[F[-_]](p: F[A]): F[A] = p$/;"	m
+subst	base/shared/src/main/scala/scalaz/typeclass/Liskov.scala	/^  def subst[F[-_]](p: F[B]): F[A]$/;"	m
+substCt	base/shared/src/main/scala/scalaz/typeclass/IsContravariant.scala	/^  def substCt[G[-_], A, B](g: G[F[A]])(implicit ev: A <~< B): G[F[B]]$/;"	m
+substCt	base/shared/src/main/scala/scalaz/typeclass/IsContravariantClass.scala	/^    override def substCt[G[-_], A, B](g: G[F[A]])(implicit ev: A <~< B): G[F[B]] = {$/;"	m
+substCt	base/shared/src/main/scala/scalaz/typeclass/IsContravariantClass.scala	/^    override def substCt[G[-_], A, B](g: G[F[A]])(implicit ev: A <~< B): G[F[B]] =$/;"	m
+substCt	base/shared/src/main/scala/scalaz/typeclass/IsContravariantClass.scala	/^    override def substCt[G[-_], A, B](g: G[F[A]])(implicit ev: A <~< B): G[F[B]]$/;"	m
+substCt	base/shared/src/main/scala/scalaz/typeclass/IsCovariant.scala	/^  def substCt[G[-_], A, B](g: G[F[B]])(implicit ev: A <~< B): G[F[A]]$/;"	m
+substCt	base/shared/src/main/scala/scalaz/typeclass/IsCovariantClass.scala	/^    override def substCt[G[-_], A, B](g: G[F[B]])(implicit ev: A <~< B): G[F[A]] = {$/;"	m
+substCt	base/shared/src/main/scala/scalaz/typeclass/IsCovariantClass.scala	/^    override def substCt[G[-_], A, B](g: G[F[B]])(implicit ev: A <~< B): G[F[A]] =$/;"	m
+substCt	base/shared/src/main/scala/scalaz/typeclass/IsCovariantClass.scala	/^    override def substCt[G[-_], A, B](g: G[F[B]])(implicit ev: A <~< B): G[F[A]]$/;"	m
+substCv	base/shared/src/main/scala/scalaz/typeclass/IsContravariant.scala	/^  def substCv[G[+_], A, B](g: G[F[B]])(implicit ev: A <~< B): G[F[A]]$/;"	m
+substCv	base/shared/src/main/scala/scalaz/typeclass/IsContravariantClass.scala	/^    override def substCv[G[+_], A, B](g: G[F[B]])(implicit ev: A <~< B): G[F[A]] = {$/;"	m
+substCv	base/shared/src/main/scala/scalaz/typeclass/IsContravariantClass.scala	/^    override def substCv[G[+_], A, B](g: G[F[B]])(implicit ev: A <~< B): G[F[A]] =$/;"	m
+substCv	base/shared/src/main/scala/scalaz/typeclass/IsContravariantClass.scala	/^    override def substCv[G[+_], A, B](g: G[F[B]])(implicit ev: A <~< B): G[F[A]]$/;"	m
+substCv	base/shared/src/main/scala/scalaz/typeclass/IsContravariantInstances.scala	/^      def substCv[G[+_], A, B](g: G[F[B]])(implicit ev: A <~< B): G[F[A]] = {$/;"	m
+substCv	base/shared/src/main/scala/scalaz/typeclass/IsCovariant.scala	/^  def substCv[G[+_], A, B](g: G[F[A]])(implicit ev: A <~< B): G[F[B]]$/;"	m
+substCv	base/shared/src/main/scala/scalaz/typeclass/IsCovariantClass.scala	/^    override def substCv[G[+_], A, B](g: G[F[A]])(implicit ev: A <~< B): G[F[B]] = {$/;"	m
+substCv	base/shared/src/main/scala/scalaz/typeclass/IsCovariantClass.scala	/^    override def substCv[G[+_], A, B](g: G[F[A]])(implicit ev: A <~< B): G[F[B]] =$/;"	m
+substCv	base/shared/src/main/scala/scalaz/typeclass/IsCovariantClass.scala	/^    override def substCv[G[+_], A, B](g: G[F[A]])(implicit ev: A <~< B): G[F[B]]$/;"	m
+substCv	base/shared/src/main/scala/scalaz/typeclass/IsCovariantInstances.scala	/^      def substCv[G[+_], A, B](g: G[F[A]])(implicit ev: A <~< B): G[F[B]] = {$/;"	m
+substCv	base/shared/src/main/scala/scalaz/typeclass/Liskov.scala	/^  def substCv[F[+_]](f: F[A]): F[B] = {$/;"	m
+swap	base/shared/src/main/scala/scalaz/data/Disjunction.scala	/^  def swap[L, R](ab: L \\\/ R): R \\\/ L = ab.fold[R \\\/ L](\\\/-(_))(-\\\/(_))$/;"	m
+syntax	base/shared/src/main/scala/scalaz/typeclass/Bind.scala	/^  object syntax extends BindSyntax$/;"	o
+tail	base/shared/src/main/scala/scalaz/data/AList1.scala	/^  def tail: AList[F, Pivot, B]$/;"	m
+testDeps	project/ScalazBuild.scala	/^  val testDeps = Seq("org.scalacheck" %% "scalacheck" % "1.13.4" % "test")$/;"	C
+toForall2Ops	base/shared/src/main/scala/scalaz/data/Forall2.scala	/^  implicit def toForall2Ops[F[_, _]](a: ∀∀[F]): Ops[F] = new Ops[F](a)$/;"	m
+toForall2Ops1	base/shared/src/main/scala/scalaz/data/Forall2.scala	/^  implicit def toForall2Ops1[F[_], G[_, _]](a: ∀∀[λ[(α, β) => F[G[α, β]]]]): Ops[λ[(α, β) => F[G[α, β]]]] = new Ops[λ[(α, β) => F[G[α, β]]]](a)$/;"	m
+toForall2Ops2	base/shared/src/main/scala/scalaz/data/Forall2.scala	/^  implicit def toForall2Ops2[F[_, _], G[_], H[_]](a: ∀∀[λ[(α, β) => F[G[α], H[β]]]]): Ops[λ[(α, β) => F[G[α], H[β]]]] = new Ops[λ[(α, β) => F[G[α], H[β]]]](a)$/;"	m
+toForall2Ops3	base/shared/src/main/scala/scalaz/data/Forall2.scala	/^  implicit def toForall2Ops3[F[_, _], G[_, _], H[_, _]](a: ∀∀[λ[(α, β) => F[G[α, β], H[α, β]]]]): Ops[λ[(α, β) => F[G[α, β], H[α, β]]]] = new Ops[λ[(α, β) => F[G[α, β], H[α, β]]]](a)$/;"	m
+toForallOps	base/shared/src/main/scala/scalaz/data/Forall.scala	/^  implicit def toForallOps[F[_]](a: ∀[F]): Ops[F] = new Ops[F](a)$/;"	m
+toForallOps1	base/shared/src/main/scala/scalaz/data/Forall.scala	/^  implicit def toForallOps1[F[_], G[_]](a: ∀[λ[α => F[G[α]]]]): Ops[λ[α => F[G[α]]]] = new Ops[λ[α => F[G[α]]]](a)$/;"	m
+toForallOps2	base/shared/src/main/scala/scalaz/data/Forall.scala	/^  implicit def toForallOps2[F[_, _]](a: ∀[λ[α => F[α, α]]]): Ops[λ[α => F[α, α]]] = new Ops[λ[α => F[α, α]]](a)$/;"	m
+toForallOps3	base/shared/src/main/scala/scalaz/data/Forall.scala	/^  implicit def toForallOps3[F[_, _], G[_], H[_]](a: ∀[λ[α => F[G[α], H[α]]]]): Ops[λ[α => F[G[α], H[α]]]] = new Ops[λ[α => F[G[α], H[α]]]](a)$/;"	m
+toList	base/shared/src/main/scala/scalaz/data/AList1.scala	/^  def toList: AList[F, A, B] = head :: tail$/;"	m
+toList	base/shared/src/main/scala/scalaz/data/ConstInstances.scala	/^    override def toList[A](fa: Const[R, A]): List[A] = Nil$/;"	m
+toList	base/shared/src/main/scala/scalaz/data/MaybeInstances.scala	/^  override def toList[A](ma: Maybe[A]): List[A] = ma.fold(List(_), Nil)$/;"	m
+toList	base/shared/src/main/scala/scalaz/typeclass/Foldable.scala	/^  def toList[A](fa: F[A]): List[A] = foldLeft(fa, List[A]())((t, h) => h :: t).reverse$/;"	m
+toList	base/shared/src/main/scala/scalaz/typeclass/FoldableSyntax.scala	/^    def toList: List[A] = macro meta.Ops._f0[List[A]]$/;"	m
+toList	base/shared/src/main/scala/scalaz/typeclass/TraversableInstances.scala	/^    override def toList[A](ta: Tuple2[C, A]): List[A] = List(ta._2)$/;"	m
+toList	base/shared/src/main/scala/scalaz/typeclass/TraversableInstances.scala	/^    override def toList[A](xs: List[A]): List[A] = xs$/;"	m
+toString	base/shared/src/main/scala/scalaz/data/AList.scala	/^  override def toString: String =$/;"	m
+toString	base/shared/src/main/scala/scalaz/data/AList1.scala	/^  override def toString: String = toList.mkString("AList1(", ", ", ")")$/;"	m
+toappl	meta/shared/src/main/scala/scalaz/meta/Ops.scala	/^    val toappl = Apply(y, List(f.tree))$/;"	C
+trans	base/shared/src/main/scala/scalaz/typeclass/LiskovFunctions.scala	/^  def trans[A, B, C](f: B <~< C, g: A <~< B): A <~< C =$/;"	m
+traversable	base/shared/src/main/scala/scalaz/typeclass/TraversableClass.scala	/^  final def traversable: Traversable[T] = this$/;"	m
+traversableFoldable	base/shared/src/main/scala/scalaz/BaseHierarchy.scala	/^    implicit def traversableFoldable[T[_]](implicit T: Traversable[T]): Foldable[T] = T.foldable$/;"	m
+traversableFunctor	base/shared/src/main/scala/scalaz/BaseHierarchy.scala	/^    implicit def traversableFunctor[T[_]](implicit T: Traversable[T]): Functor[T] = T.functor$/;"	m
+traversableInstance	base/shared/src/main/scala/scalaz/data/MaybeInstances.scala	/^  implicit def traversableInstance: Traversable[Maybe] = this$/;"	m
+traversableOps	base/shared/src/main/scala/scalaz/typeclass/TraversableSyntax.scala	/^  implicit def traversableOps[T[_], A](ta: T[A])(implicit T: Traversable[T]): TraversableSyntax.Ops[T, A] =$/;"	m
+traverse	base/shared/src/main/scala/scalaz/data/ConstInstances.scala	/^    def traverse[F[_], A, B](ta: Const[R, A])(f: A => F[B])(implicit F: Applicative[F]): F[Const[R, B]] =$/;"	m
+traverse	base/shared/src/main/scala/scalaz/data/ConstInstances.scala	/^  implicit def traverse[R]: Traversable[Const[R, ?]] = new TraversableClass[Const[R, ?]] with FoldRight[Const[R, ?]] with Traverse[Const[R, ?]] {$/;"	m
+traverse	base/shared/src/main/scala/scalaz/data/MaybeInstances.scala	/^  override def traverse[F[_], A, B](ma: Maybe[A])(f: A => F[B])(implicit F: Applicative[F]): F[Maybe[B]] =$/;"	m
+traverse	base/shared/src/main/scala/scalaz/typeclass/Traversable.scala	/^  def traverse[F[_], A, B](ta: T[A])(f: A => F[B])(implicit F: Applicative[F]): F[T[B]]$/;"	m
+traverse	base/shared/src/main/scala/scalaz/typeclass/TraversableClass.scala	/^    override def traverse[F[_], A, B](ta: T[A])(f: A => F[B])(implicit F: Applicative[F]): F[T[B]] = sequence(functor.map(ta)(f))$/;"	m
+traverse	base/shared/src/main/scala/scalaz/typeclass/TraversableClass.scala	/^    override def traverse[F[_], A, B](ta: T[A])(f: A => F[B])(implicit F: Applicative[F]): F[T[B]]$/;"	m
+traverse	base/shared/src/main/scala/scalaz/typeclass/TraversableInstances.scala	/^    override def traverse[F[_], A, B](ta: List[A])(f: A => F[B])(implicit F: Applicative[F]): F[List[B]] =$/;"	m
+traverse	base/shared/src/main/scala/scalaz/typeclass/TraversableInstances.scala	/^    override def traverse[F[_], A, B](ta: Tuple2[C, A])(f: A => F[B])(implicit F: Applicative[F]): F[Tuple2[C, B]] =$/;"	m
+traverse	base/shared/src/main/scala/scalaz/typeclass/TraversableSyntax.scala	/^    def traverse[F[_], B](f: A => F[B])(implicit g: Applicative[F]): F[T[B]] = macro meta.Ops._f2[A => F[B], Applicative[F], F[T[B]]]$/;"	m
+tuple2	base/shared/src/main/scala/scalaz/typeclass/ComonadInstances.scala	/^  implicit def tuple2[A1]: Comonad[Tuple2[A1, ?]] = new ComonadClass.Cobind[Tuple2[A1, ?]] {$/;"	m
+tuple2	base/shared/src/main/scala/scalaz/typeclass/TraversableInstances.scala	/^  implicit def tuple2[C]: Traversable[Tuple2[C, ?]] = new TraversableClass[Tuple2[C, ?]] with Traverse[Tuple2[C, ?]] with FoldRight[Tuple2[C, ?]] {$/;"	m
+typeclass	base/shared/src/main/scala/scalaz/typeclass/Applicative.scala	/^package typeclass$/;"	p
+typeclass	base/shared/src/main/scala/scalaz/typeclass/ApplicativeClass.scala	/^package typeclass$/;"	p
+typeclass	base/shared/src/main/scala/scalaz/typeclass/ApplicativeSyntax.scala	/^package typeclass$/;"	p
+typeclass	base/shared/src/main/scala/scalaz/typeclass/Apply.scala	/^package typeclass$/;"	p
+typeclass	base/shared/src/main/scala/scalaz/typeclass/ApplyClass.scala	/^package typeclass$/;"	p
+typeclass	base/shared/src/main/scala/scalaz/typeclass/ApplySyntax.scala	/^package typeclass$/;"	p
+typeclass	base/shared/src/main/scala/scalaz/typeclass/Bind.scala	/^package typeclass$/;"	p
+typeclass	base/shared/src/main/scala/scalaz/typeclass/BindClass.scala	/^package typeclass$/;"	p
+typeclass	base/shared/src/main/scala/scalaz/typeclass/BindFunctions.scala	/^package typeclass$/;"	p
+typeclass	base/shared/src/main/scala/scalaz/typeclass/BindInstances.scala	/^package typeclass$/;"	p
+typeclass	base/shared/src/main/scala/scalaz/typeclass/BindSyntax.scala	/^package typeclass$/;"	p
+typeclass	base/shared/src/main/scala/scalaz/typeclass/Category.scala	/^package typeclass$/;"	p
+typeclass	base/shared/src/main/scala/scalaz/typeclass/CategoryClass.scala	/^package typeclass$/;"	p
+typeclass	base/shared/src/main/scala/scalaz/typeclass/Choice.scala	/^package typeclass$/;"	p
+typeclass	base/shared/src/main/scala/scalaz/typeclass/ChoiceClass.scala	/^package typeclass$/;"	p
+typeclass	base/shared/src/main/scala/scalaz/typeclass/ChoiceInstances.scala	/^package typeclass$/;"	p
+typeclass	base/shared/src/main/scala/scalaz/typeclass/ChoiceSyntax.scala	/^package typeclass$/;"	p
+typeclass	base/shared/src/main/scala/scalaz/typeclass/Cobind.scala	/^package typeclass$/;"	p
+typeclass	base/shared/src/main/scala/scalaz/typeclass/CobindClass.scala	/^package typeclass$/;"	p
+typeclass	base/shared/src/main/scala/scalaz/typeclass/CobindInstances.scala	/^package typeclass$/;"	p
+typeclass	base/shared/src/main/scala/scalaz/typeclass/CobindSyntax.scala	/^package typeclass$/;"	p
+typeclass	base/shared/src/main/scala/scalaz/typeclass/Comonad.scala	/^package typeclass$/;"	p
+typeclass	base/shared/src/main/scala/scalaz/typeclass/ComonadClass.scala	/^package typeclass$/;"	p
+typeclass	base/shared/src/main/scala/scalaz/typeclass/ComonadInstances.scala	/^package typeclass$/;"	p
+typeclass	base/shared/src/main/scala/scalaz/typeclass/ComonadSyntax.scala	/^package typeclass$/;"	p
+typeclass	base/shared/src/main/scala/scalaz/typeclass/Compose.scala	/^package typeclass$/;"	p
+typeclass	base/shared/src/main/scala/scalaz/typeclass/ComposeSyntax.scala	/^package typeclass$/;"	p
+typeclass	base/shared/src/main/scala/scalaz/typeclass/Contravariant.scala	/^package typeclass$/;"	p
+typeclass	base/shared/src/main/scala/scalaz/typeclass/Foldable.scala	/^package typeclass$/;"	p
+typeclass	base/shared/src/main/scala/scalaz/typeclass/FoldableClass.scala	/^package typeclass$/;"	p
+typeclass	base/shared/src/main/scala/scalaz/typeclass/FoldableInstances.scala	/^package typeclass$/;"	p
+typeclass	base/shared/src/main/scala/scalaz/typeclass/FoldableSyntax.scala	/^package typeclass$/;"	p
+typeclass	base/shared/src/main/scala/scalaz/typeclass/Functor.scala	/^package typeclass$/;"	p
+typeclass	base/shared/src/main/scala/scalaz/typeclass/FunctorClass.scala	/^package typeclass$/;"	p
+typeclass	base/shared/src/main/scala/scalaz/typeclass/FunctorFunctions.scala	/^package typeclass$/;"	p
+typeclass	base/shared/src/main/scala/scalaz/typeclass/FunctorSyntax.scala	/^package typeclass$/;"	p
+typeclass	base/shared/src/main/scala/scalaz/typeclass/InvariantFunctor.scala	/^package typeclass$/;"	p
+typeclass	base/shared/src/main/scala/scalaz/typeclass/InvariantFunctorClass.scala	/^package typeclass$/;"	p
+typeclass	base/shared/src/main/scala/scalaz/typeclass/InvariantFunctorFunctions.scala	/^package typeclass$/;"	p
+typeclass	base/shared/src/main/scala/scalaz/typeclass/InvariantFunctorSyntax.scala	/^package typeclass$/;"	p
+typeclass	base/shared/src/main/scala/scalaz/typeclass/IsContravariant.scala	/^package typeclass$/;"	p
+typeclass	base/shared/src/main/scala/scalaz/typeclass/IsContravariantClass.scala	/^package typeclass$/;"	p
+typeclass	base/shared/src/main/scala/scalaz/typeclass/IsContravariantInstances.scala	/^package typeclass$/;"	p
+typeclass	base/shared/src/main/scala/scalaz/typeclass/IsCovariant.scala	/^package typeclass$/;"	p
+typeclass	base/shared/src/main/scala/scalaz/typeclass/IsCovariantClass.scala	/^package typeclass$/;"	p
+typeclass	base/shared/src/main/scala/scalaz/typeclass/IsCovariantInstances.scala	/^package typeclass$/;"	p
+typeclass	base/shared/src/main/scala/scalaz/typeclass/Liskov.scala	/^package typeclass$/;"	p
+typeclass	base/shared/src/main/scala/scalaz/typeclass/LiskovFunctions.scala	/^package typeclass$/;"	p
+typeclass	base/shared/src/main/scala/scalaz/typeclass/LiskovInstances.scala	/^package typeclass$/;"	p
+typeclass	base/shared/src/main/scala/scalaz/typeclass/LiskovTypes.scala	/^package typeclass$/;"	p
+typeclass	base/shared/src/main/scala/scalaz/typeclass/Monad.scala	/^package typeclass$/;"	p
+typeclass	base/shared/src/main/scala/scalaz/typeclass/MonadClass.scala	/^package typeclass$/;"	p
+typeclass	base/shared/src/main/scala/scalaz/typeclass/MonadInstances.scala	/^package typeclass$/;"	p
+typeclass	base/shared/src/main/scala/scalaz/typeclass/Monoid.scala	/^package typeclass$/;"	p
+typeclass	base/shared/src/main/scala/scalaz/typeclass/MonoidClass.scala	/^package typeclass$/;"	p
+typeclass	base/shared/src/main/scala/scalaz/typeclass/MonoidInstances.scala	/^package typeclass$/;"	p
+typeclass	base/shared/src/main/scala/scalaz/typeclass/Phantom.scala	/^package typeclass$/;"	p
+typeclass	base/shared/src/main/scala/scalaz/typeclass/PhantomClass.scala	/^package typeclass$/;"	p
+typeclass	base/shared/src/main/scala/scalaz/typeclass/PhantomFunctions.scala	/^package typeclass$/;"	p
+typeclass	base/shared/src/main/scala/scalaz/typeclass/PhantomInstances.scala	/^package typeclass$/;"	p
+typeclass	base/shared/src/main/scala/scalaz/typeclass/PhantomSyntax.scala	/^package typeclass$/;"	p
+typeclass	base/shared/src/main/scala/scalaz/typeclass/Profunctor.scala	/^package typeclass$/;"	p
+typeclass	base/shared/src/main/scala/scalaz/typeclass/ProfunctorClass.scala	/^package typeclass$/;"	p
+typeclass	base/shared/src/main/scala/scalaz/typeclass/ProfunctorInstances.scala	/^package typeclass$/;"	p
+typeclass	base/shared/src/main/scala/scalaz/typeclass/ProfunctorSyntax.scala	/^package typeclass$/;"	p
+typeclass	base/shared/src/main/scala/scalaz/typeclass/Semigroup.scala	/^package typeclass$/;"	p
+typeclass	base/shared/src/main/scala/scalaz/typeclass/SemigroupClass.scala	/^package typeclass$/;"	p
+typeclass	base/shared/src/main/scala/scalaz/typeclass/SemigroupInstances.scala	/^package typeclass$/;"	p
+typeclass	base/shared/src/main/scala/scalaz/typeclass/SemigroupSyntax.scala	/^package typeclass$/;"	p
+typeclass	base/shared/src/main/scala/scalaz/typeclass/Strong.scala	/^package typeclass$/;"	p
+typeclass	base/shared/src/main/scala/scalaz/typeclass/StrongClass.scala	/^package typeclass$/;"	p
+typeclass	base/shared/src/main/scala/scalaz/typeclass/StrongInstances.scala	/^package typeclass$/;"	p
+typeclass	base/shared/src/main/scala/scalaz/typeclass/StrongSyntax.scala	/^package typeclass$/;"	p
+typeclass	base/shared/src/main/scala/scalaz/typeclass/Traversable.scala	/^package typeclass$/;"	p
+typeclass	base/shared/src/main/scala/scalaz/typeclass/TraversableClass.scala	/^package typeclass$/;"	p
+typeclass	base/shared/src/main/scala/scalaz/typeclass/TraversableFunctions.scala	/^package typeclass$/;"	p
+typeclass	base/shared/src/main/scala/scalaz/typeclass/TraversableInstances.scala	/^package typeclass$/;"	p
+typeclass	base/shared/src/main/scala/scalaz/typeclass/TraversableSyntax.scala	/^package typeclass$/;"	p
+unapply	base/shared/src/main/scala/scalaz/data/APair.scala	/^  def unapply[U, F[_ <: U], G[_ <: U]](p: BoundedAPair[U, F, G]): Option[(F[p.Pivot], G[p.Pivot])] =$/;"	m
+unapply	base/shared/src/main/scala/scalaz/data/Forall.scala	/^    implicit def unapply[G[_]]: Unapply[∀[G]] { type F[A] = G[A] } =$/;"	m
+unapply	base/shared/src/main/scala/scalaz/data/Forall2.scala	/^    implicit def unapply[G[_, _]]: Unapply[∀∀[G]] { type F[A, B] = G[A, B] } =$/;"	m
+unapply	base/shared/src/main/scala/scalaz/data/package.scala	/^    def unapply[F[_], G[_]](p: APair[F, G]): Option[(F[p.Pivot], G[p.Pivot])] =$/;"	m
+unapply1	base/shared/src/main/scala/scalaz/data/Forall.scala	/^    implicit def unapply1[G[_], H[_]]: Unapply[∀[λ[α => G[H[α]]]]] { type F[A] = G[H[A]] } =$/;"	m
+unapply1	base/shared/src/main/scala/scalaz/data/Forall2.scala	/^    implicit def unapply1[G[_], H[_, _]]: Unapply[∀∀[λ[(α, β) => G[H[α, β]]]]] { type F[A, B] = G[H[A, B]] } =$/;"	m
+unapply2	base/shared/src/main/scala/scalaz/data/Forall.scala	/^    implicit def unapply2[P[_, _]]: Unapply[∀[λ[α => P[α, α]]]] { type F[A] = P[A, A] } =$/;"	m
+unapply2	base/shared/src/main/scala/scalaz/data/Forall2.scala	/^    implicit def unapply2[P[_, _], G[_], H[_]]: Unapply[∀∀[λ[(α, β) => P[G[α], H[β]]]]] { type F[A, B] = P[G[A], H[B]] } =$/;"	m
+unapply3	base/shared/src/main/scala/scalaz/data/Forall.scala	/^    implicit def unapply3[P[_, _], G[_], H[_]]: Unapply[∀[λ[α => P[G[α], H[α]]]]] { type F[A] = P[G[A], H[A]] } =$/;"	m
+unapply3	base/shared/src/main/scala/scalaz/data/Forall2.scala	/^    implicit def unapply3[P[_, _], G[_, _], H[_, _]]: Unapply[∀∀[λ[(α, β) => P[G[α, β], H[α, β]]]]] { type F[A, B] = P[G[A, B], H[A, B]] } =$/;"	m
+uncons	base/shared/src/main/scala/scalaz/data/AList1.scala	/^  def uncons: Either[F[A, B], APair[F[A, ?], AList1[F, ?, B]]] =$/;"	m
+unpack	meta/shared/src/main/scala/scalaz/meta/Ops.scala	/^  def unpack = {$/;"	m
+unsafeForce	base/shared/src/main/scala/scalaz/typeclass/LiskovFunctions.scala	/^  def unsafeForce[A, B]: A <~< B =$/;"	m
+unsubst	base/shared/src/main/scala/scalaz/data/AList.scala	/^    def unsubst[G[_]](gb: G[A]): G[A] = gb$/;"	m
+unsubst	base/shared/src/main/scala/scalaz/data/AList.scala	/^  def unsubst[G[_]](gb: G[B]): G[A]$/;"	m
+unsubst	base/shared/src/main/scala/scalaz/data/AMaybe.scala	/^    def unsubst[G[_]](gb: G[A]): G[A] = gb$/;"	m
+unsubst	base/shared/src/main/scala/scalaz/data/AMaybe.scala	/^  def unsubst[G[_]](gb: G[B]): G[A]$/;"	m
+update_build_props_sbt	sbt	/^update_build_props_sbt () {$/;"	f
+upstarProfunctor	base/shared/src/main/scala/scalaz/data/UpStarInstances.scala	/^  implicit def upstarProfunctor[F[_]](implicit F: Functor[F]): Profunctor[UpStar[F, ?, ?]] = new Profunctor[UpStar[F, ?, ?]] {$/;"	m
+url_base	sbt	/^url_base () {$/;"	f
+usage	sbt	/^usage () {$/;"	f
+vacuous	base/shared/src/main/scala/scalaz/data/Forall.scala	/^  def vacuous[A]: A <~< ∀[λ[α => A]] = Liskov.refl[A]$/;"	m
+vacuous	base/shared/src/main/scala/scalaz/data/Forall.scala	/^  def vacuous[A]: A <~< ∀[λ[α => A]]$/;"	m
+vlog	sbt	/^vlog ()    { [[ -n "$verbose" ]] && echoerr "$@"; }$/;"	f
+void	base/shared/src/main/scala/scalaz/typeclass/FunctorSyntax.scala	/^    def void: F[Unit] = F.map[A, Unit](self)(_ => ())$/;"	m
+widen	base/shared/src/main/scala/scalaz/typeclass/IsContravariant.scala	/^  def widen[A, B](fa: F[B])(implicit ev: A <~< B): F[A]$/;"	m
+widen	base/shared/src/main/scala/scalaz/typeclass/IsContravariantClass.scala	/^    override def widen[A, B](fb: F[B])(implicit ev: A <~< B): F[A] =$/;"	m
+widen	base/shared/src/main/scala/scalaz/typeclass/IsCovariant.scala	/^  def widen[A, B](fa: F[A])(implicit ev: A <~< B): F[B]$/;"	m
+widen	base/shared/src/main/scala/scalaz/typeclass/IsCovariantClass.scala	/^    override def widen[A, B](fa: F[A])(implicit ev: A <~< B): F[B] =$/;"	m
+witness	base/shared/src/main/scala/scalaz/typeclass/LiskovInstances.scala	/^  implicit def witness[A, B](lt: A <~< B): A => B = lt(_)$/;"	m
+wrap	base/shared/src/main/scala/scalaz/data/balanced.scala	/^  def wrap[F[_, _], A, B](pre: PreComposeBalancer[λ[(α, β) => F[β, α]], B, A]): PostComposeBalancer[F, A, B] =$/;"	m
+y	meta/shared/src/main/scala/scalaz/meta/Ops.scala	/^    val y = Apply(Select(ev, TermName(c.macroApplication.symbol.name.toString)), List(lhs))$/;"	C
