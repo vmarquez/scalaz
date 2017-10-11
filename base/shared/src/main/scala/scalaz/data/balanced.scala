@@ -66,8 +66,21 @@ object PostComposeBalancer {
   def wrap[F[_, _], A, B](pre: PreComposeBalancer[λ[(α, β) => F[β, α]], B, A]): PostComposeBalancer[F, A, B] =
     new PostComposeBalancer[F, A, B](pre)
 
-  def rightAction[F[_, _], A](implicit F: Compose[F]): RightAction[PostComposeBalancer[F, A, ?], F] =
-    ν[RightAction[PostComposeBalancer[F, A, ?], F]][B, C]((acc, f) => acc :+ f)
+  def rightAction[F[_, _], A](implicit F: Compose[F]): RightAction[PostComposeBalancer[F, A, ?], F] = {
+     //type RightAction[G[_], F[_, _]] = Forall2.Prototype[λ[(α, β) => (G[α], F[α, β]) => G[β]]]
+    //new Prototype[λ[(a, b) => (PostComposeBalancer[F, A, a], F[a, B])]] {
+    //   
+    //}
+    //val y = ν[RightAction[PostComposeBalancer[F, A, ?], F]][B, C](4)
+
+    val y = ν[RightAction[PostComposeBalancer[F, A, ?], F]][B, C]((acc, f) => {
+      //val y: String = f
+      //val x: Int = acc
+      //val y: String = acc :+ f 
+      acc :+ f
+    })
+    y
+  }
 
   def rightAction[G[_, _], F[_, _], A](φ: F ~~> G)(implicit G: Compose[G]): RightAction[PostComposeBalancer[G, A, ?], F] =
     ν[RightAction[PostComposeBalancer[G, A, ?], F]][B, C]((acc, f) => acc :+ φ.apply(f))

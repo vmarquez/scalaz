@@ -26,8 +26,8 @@ object Scalaz {
     "-Ywarn-nullary-override",
     "-Ywarn-nullary-unit",
     "-Ywarn-numeric-widen",
-    "-Ywarn-unused:_,-imports",
-    "-Ywarn-value-discard",
+    //"-Ywarn-unused:_,-imports",
+    //"-Ywarn-value-discard",
     "-opt:l:inline",
     "-opt-inline-from:<source>"
   )
