@@ -106,6 +106,19 @@ trait MapSubInstances0 extends MapSub {
       implicit override def V = S
       implicit override def BK = B
     }
+  
+  implicit def mapCofoldable[F[_], K, A](implicit F: Foldable[λ[a => Map[K, a]]]): Cofoldable[λ[a => Map[K, a]], (K, A)] = new Cofoldable[λ[a => Map[K, a]], (K, A)] {
+   val foldable = F 
+    def build[B](b: B)(f: B => Option[((K, A), B)]): Map[K, (K, A)] = {
+      def unfold(b: B, m: Map[K, (K, A)]): Map[K, (K, A)] =
+        f(b) match {
+          case Some(((k, a), b)) => 
+            unfold(b, m + (k -> ((k, a))))
+          case None => m
+        }
+      unfold(b, Map())
+    }
+  }
 }
 
 trait MapSubInstances extends MapSubInstances0 with MapSubFunctions {

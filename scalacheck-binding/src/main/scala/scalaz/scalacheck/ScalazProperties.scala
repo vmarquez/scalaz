@@ -467,6 +467,20 @@ object ScalazProperties {
       }
   }
 
+  object cofoldable {
+    def toListWeakIdempotence[F[_], A](implicit F: Cofoldable[F, A], fa: Arbitrary[F[A]], ea: Equal[A]): Prop =
+      forAll(F.cofoldLaw.toListWeakIdempotence[F, A] _ )
+    
+    def fromListWeakIdempotence[F[_], A](implicit F: Cofoldable[F, A], fa: Arbitrary[F[A]], ea: Equal[F[A]]): Prop =
+        forAll(F.cofoldLaw.fromListWeakIdempotence[F, A] _ )
+  
+    def laws[F[_]](implicit fa: Arbitrary[F[Int]], F: Cofoldable[F, Int], E: Equal[F[Int]]): Properties =
+      new Properties("cofoldable") { p =>
+        p.property("toListWeakIdempotence") = toListWeakIdempotence[F, Int]
+        p.property("fromListWeakIdempotence") = fromListWeakIdempotence[F, Int]
+      }
+  }
+
   object traverse1 {
     def identityTraverse1[F[_], X, Y](implicit f: Traverse1[F], afx: Arbitrary[F[X]], axy: Arbitrary[X => Y], ef: Equal[F[Y]]): Prop =
       forAll(f.traverse1Law.identityTraverse1[X, Y] _)

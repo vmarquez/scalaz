@@ -521,11 +521,11 @@ object IList extends IListInstances {
 
 sealed abstract class IListInstance0 {
 
+
   implicit def equal[A](implicit A0: Equal[A]): Equal[IList[A]] =
     new IListEqual[A] {
       val A = A0
     }
-
 }
 
 sealed abstract class IListInstances extends IListInstance0 {
@@ -671,6 +671,17 @@ sealed abstract class IListInstances extends IListInstance0 {
       }
     }
 
+  implicit def unfoldable[A](implicit F: Foldable[IList]): Cofoldable[IList, A] = new Cofoldable[IList, A] {
+      val foldable = F
+      println(foldable)
+      def build[B](b: B)(f: B => Option[(A, B)]): IList[A] = {
+        def unfold(bb: B, il: IList[A]): IList[A] = f(bb) match {
+          case Some((a, b)) => unfold(b, a :: il) 
+          case None => il 
+        }
+      unfold(b, INil())
+    }
+  }
 
   implicit def order[A](implicit A0: Order[A]): Order[IList[A]] =
     new IListOrder[A] {

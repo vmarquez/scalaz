@@ -112,10 +112,10 @@ object build {
 
   val lintOptions = Seq(
     "-Xlint:_,-type-parameter-shadow",
-    "-Ywarn-dead-code",
-    "-Ywarn-unused-import",
-    "-Ywarn-numeric-widen",
-    "-Ywarn-value-discard",
+    //"-Ywarn-dead-code",
+    //"-Ywarn-unused-import",
+    //"-Ywarn-numeric-widen",
+    //"-Ywarn-value-discard",
     "-Yrangepos"
   )
 

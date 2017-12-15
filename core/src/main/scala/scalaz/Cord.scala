@@ -111,11 +111,11 @@ final case class Cord(self: FingerTree[Int, String]) {
   def toStream: Stream[Char] = toVector.toStream
   def toVector: Vector[Char] = self.foldMap(_.toVector)
   override def toString: String = {
-    import syntax.foldable._
-    import Free._
+    //import syntax.foldable._
+    //import Free._
     val sb = new StringBuilder(self.measure)
-    val t = self.traverse_[Trampoline](x => Trampoline.delay {val _ = sb ++= x})
-    t.run
+    //val t = self.traverse_[Trampoline](x => Trampoline.delay {val _ = sb ++= x})
+    //t.run
     sb.toString
   }
 

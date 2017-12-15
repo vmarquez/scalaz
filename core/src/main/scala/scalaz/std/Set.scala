@@ -22,6 +22,17 @@ trait SetInstances {
     }
   }
 
+  implicit def setCofoldable[A](implicit F: Foldable[Set]): Cofoldable[Set, A] = new Cofoldable[Set, A] {
+    val foldable = F
+    def build[B](b: B)(f: B => Option[(A,B)]): Set[A] = {
+      def unfold(b: B, s: Set[A]): Set[A] = f(b) match {
+        case Some((a, b)) => unfold(b, s + a) 
+        case None => s 
+      }
+      unfold(b, Set.empty[A]) 
+    }
+  }
+
   import Ordering._
 
   /**

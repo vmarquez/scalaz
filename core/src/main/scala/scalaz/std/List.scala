@@ -10,6 +10,19 @@ trait ListInstances0 {
 }
 
 trait ListInstances extends ListInstances0 {
+  
+  implicit def lcofdable[A](implicit F: Foldable[List]): Cofoldable[List, A] = new Cofoldable[List, A] {
+    val foldable = F
+    println(foldable) 
+    def build[B](b: B)(f: B => Option[(A, B)]): List[A] = {
+      def unfold(b: B, d: List[A]): List[A] = f(b) match {
+        case Some((a, b)) => unfold(b, a +: d) 
+        case None => d
+      }
+      unfold(b, List())
+    }
+  } 
+  
   implicit val listInstance: Traverse[List] with MonadPlus[List] with BindRec[List] with Zip[List] with Unzip[List] with Align[List] with IsEmpty[List] with Cobind[List] =
     new Traverse[List] with MonadPlus[List] with BindRec[List] with Zip[List] with Unzip[List] with Align[List] with IsEmpty[List] with Cobind[List] with IterableSubtypeFoldable[List] with StrictSeqSubtypeCovariant[List] {
       protected[this] override val Factory = List

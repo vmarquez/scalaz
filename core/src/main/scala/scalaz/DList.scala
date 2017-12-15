@@ -100,6 +100,18 @@ sealed abstract class DListInstances {
     val zero = DList[A]()
     def append(a: DList[A], b: => DList[A]) = a ++ b
   }
+
+  implicit def dlistCofoldable[A](implicit F: Foldable[DList]): Cofoldable[DList, A] = new Cofoldable[DList, A] {
+    val foldable = F
+    def build[B](b: B)(f: B => Option[(A, B)]): DList[A] = {
+      def unfold(b: B, d: DList[A]): DList[A] = f(b) match {
+        case Some((a, b)) => unfold(b, a +: d) 
+        case None => d
+      }
+      unfold(b, DList())
+    }
+  }
+
   implicit val dlistMonadPlus: MonadPlus[DList] with Traverse[DList] with BindRec[DList] with Zip[DList] with IsEmpty[DList] = new MonadPlus[DList] with Traverse[DList] with BindRec[DList] with Zip[DList] with IsEmpty[DList] {
     def point[A](a: => A) = DList(a)
     def bind[A, B](as: DList[A])(f: A => DList[B]) = as flatMap f
