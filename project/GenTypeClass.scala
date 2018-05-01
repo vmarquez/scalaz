@@ -89,8 +89,9 @@ object TypeClass {
   lazy val comonadStore = TypeClass("ComonadStore", |*->*|->*, extendsList = Seq(comonad), createSyntax = false)
   
   lazy val bindRec = TypeClass("BindRec", *->*, extendsList = Seq(bind))
-  lazy val cofoldable = TypeClass("Cofoldable", |*->*|->*, extendsList = Seq(cofoldable1), createSyntax = true)
-  lazy val cofoldable1 = TypeClass("Cofoldable1", |*->*|->*, extendsList = Seq(), createSyntax = true)
+  lazy val cofoldable = TypeClass("Cofoldable", |*->*|->*)
+  //lazy val cofoldable = TypeClass("Cofoldable", |*->*|->*, extendsList = Seq(cofoldable1), createSyntax = false)
+  //lazy val cofoldable1 = TypeClass("Cofoldable1", |*->*|->*, extendsList = Seq(), createSyntax = false)
 
   def core: List[TypeClass] = List(semigroup,
     monoid,
@@ -153,8 +154,9 @@ object TypeClass {
     monadReader,
     comonadStore,
     bindRec,
-    cofoldable,
-    cofoldable1
+    cofoldable
+    //,
+    //cofoldable1
   )
   lazy val concurrent = Seq[TypeClass]()
   def effect = Seq(liftIO, monadIO, liftControlIO, monadControlIO, resource)

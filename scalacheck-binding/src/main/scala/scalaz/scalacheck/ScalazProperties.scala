@@ -506,10 +506,10 @@ object ScalazProperties {
 
   object cofoldable {
     def toListWeakIdempotence[F[_], A](implicit F: Cofoldable[F, A], fa: Arbitrary[F[A]], ea: Equal[A], G: Foldable[F]): Prop =
-      forAll(F.cofoldLaw.toListWeakIdempotence[F, A] _ )
+      forAll(F.cofoldableLaw.toListWeakIdempotence[F, A] _ )
     
     def fromListWeakIdempotence[F[_], A](implicit F: Cofoldable[F, A], fa: Arbitrary[F[A]], ea: Equal[F[A]], G: Foldable[F]): Prop =
-        forAll(F.cofoldLaw.fromListWeakIdempotence[F, A] _ )
+        forAll(F.cofoldableLaw.fromListWeakIdempotence[F, A] _ )
   
     def laws[F[_]](implicit fa: Arbitrary[F[Int]], F: Cofoldable[F, Int], E: Equal[F[Int]], G: Foldable[F]): Properties =
       newProperties("cofoldable") { p =>

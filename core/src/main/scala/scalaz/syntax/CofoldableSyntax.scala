@@ -20,4 +20,13 @@ final class CofoldableOps[F[_], A](val self: F[A])(implicit val F: Cofoldable[F,
 trait ToCofoldableOps[TC[F[_], A] <: Cofoldable[F, A]] {
   implicit def ToCofoldableOps[F[_], A](v: F[A])(implicit F0: TC[F, A]) =
     new CofoldableOps[F, A](v)
+
+    ////
+    ////
+}
+
+trait CofoldableSyntax[F[_], A] {
+  implicit def ToCofoldableOps(v: F[A]): CofoldableOps[F, A] = new CofoldableOps[F, A](v)(CofoldableSyntax.this.F)
+
+  def F: Cofoldable[F, A]
 }
