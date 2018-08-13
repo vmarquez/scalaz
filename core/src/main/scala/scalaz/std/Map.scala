@@ -66,7 +66,7 @@ trait MapInstances0 {
       implicit override def V = S
     }
   
-  implicit def mapCofoldable[F[_], K, A]: Cofoldable[λ[a => Map[K, a]], (K, A)] = new Cofoldable[λ[a => Map[K, a]], (K, A)] {
+  implicit def mapCofoldable[K, A]: Cofoldable[Map[K, (K, A)], (K, A)] = new Cofoldable[Map[K, (K, A)], (K, A)] {
     def unfoldr[B](b: B)(f: B => Option[(B, (K, A))]): Map[K, (K, A)] = {
       def unfold(b: B, m: Map[K, (K, A)]): Map[K, (K, A)] =
         f(b) match {
