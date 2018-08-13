@@ -11,7 +11,7 @@ trait ListInstances0 {
 
 trait ListInstances extends ListInstances0 {
   
-  implicit def listCofdable[A]: Cofoldable[List, A] = new Cofoldable[List, A] {
+  implicit def listCofdable[A]: Cofoldable[List[A], A] = new Cofoldable[List[A], A] {
     def unfoldr[B](b: B)(f: B => Option[(B, A)]): List[A] = {
       def unfold(b: B, d: List[A]): List[A] = f(b) match {
         case Some((b, a)) => unfold(b, a +: d)

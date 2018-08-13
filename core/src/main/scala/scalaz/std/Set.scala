@@ -22,7 +22,7 @@ trait SetInstances {
     }
   }
 
-  implicit def setCofoldable[A]: Cofoldable[Set, A] = new Cofoldable[Set, A] {
+  implicit def setCofoldable[A]: Cofoldable[Set[A], A] = new Cofoldable[Set[A], A] {
     def unfoldr[B](b: B)(f: B => Option[(B, A)]): Set[A] = {
       def unfold(b: B, s: Set[A]): Set[A] = f(b) match {
         case Some((b, a)) => unfold(b, s + a) 

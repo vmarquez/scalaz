@@ -674,7 +674,7 @@ sealed abstract class ISetInstances {
     def A = implicitly
   }
 
-  implicit def iSetCofoldable[A](implicit o: Order[A]): Cofoldable[ISet, A] = new Cofoldable[ISet, A] {
+  implicit def iSetCofoldable[A](implicit o: Order[A]): Cofoldable[ISet[A], A] = new Cofoldable[ISet[A], A] {
     def unfoldr[B](b: B)(f: B => Option[(B, A)]): ISet[A] = {
       def unfold(b: B, is: ISet[A]): ISet[A] = f(b) match {
         case Some((b, a)) => unfold(b, is.insert(a))

@@ -710,7 +710,7 @@ sealed abstract class IListInstances extends IListInstance0 {
       }
     }
 
-  implicit def unfoldable[A]: Cofoldable[IList, A] = new Cofoldable[IList, A] {
+  implicit def unfoldable[A]: Cofoldable[IList[A], A] = new Cofoldable[IList[A], A] {
       def unfoldr[B](b: B)(f: B => Option[(B, A)]): IList[A] = {
         def unfold(bb: B, il: IList[A]): IList[A] = f(bb) match {
           case Some((b, a)) => unfold(b, a :: il)

@@ -511,13 +511,13 @@ object ScalazProperties {
   }
 
   object cofoldable {
-    def toListWeakIdempotence[F[_], A](implicit F: Cofoldable[F, A], fa: Arbitrary[F[A]], ea: Equal[A], G: Foldable[F]): Prop =
+    def toListWeakIdempotence[F[_], A](implicit F: Cofoldable[F[A], A], fa: Arbitrary[F[A]], ea: Equal[A], G: Foldable[F]): Prop =
       forAll(F.cofoldLaw.toListWeakIdempotence[F, A] _ )
     
-    def fromListWeakIdempotence[F[_], A](implicit F: Cofoldable[F, A], fa: Arbitrary[F[A]], ea: Equal[F[A]], G: Foldable[F]): Prop =
+    def fromListWeakIdempotence[F[_], A](implicit F: Cofoldable[F[A], A], fa: Arbitrary[F[A]], ea: Equal[F[A]], G: Foldable[F]): Prop =
         forAll(F.cofoldLaw.fromListWeakIdempotence[F, A] _ )
   
-    def laws[F[_]](implicit fa: Arbitrary[F[Int]], F: Cofoldable[F, Int], E: Equal[F[Int]], G: Foldable[F]): Properties =
+    def laws[F[_]](implicit fa: Arbitrary[F[Int]], F: Cofoldable[F[Int], Int], E: Equal[F[Int]], G: Foldable[F]): Properties =
       newProperties("cofoldable") { p =>
         p.property("toListWeakIdempotence") = toListWeakIdempotence[F, Int]
         p.property("fromListWeakIdempotence") = fromListWeakIdempotence[F, Int]
@@ -525,14 +525,14 @@ object ScalazProperties {
   }
 
   object cofoldable1 {
-    def toNelWeakIdempotence[F[_], A](implicit F: Cofoldable1[F, A], fa: Arbitrary[F[A]], ea: Equal[A], G: Foldable1[F]): Prop =
+    def toNelWeakIdempotence[F[_], A](implicit F: Cofoldable1[F[A], A], fa: Arbitrary[F[A]], ea: Equal[A], G: Foldable1[F]): Prop =
       forAll(F.cofold1Law.toNelWeakIdempotence[F, A] _ )
 
-    def fromNelWeakIdempotence[F[_], A](implicit F: Cofoldable1[F, A], fa: Arbitrary[F[A]], ea: Equal[F[A]], G: Foldable1[F]): Prop =
+    def fromNelWeakIdempotence[F[_], A](implicit F: Cofoldable1[F[A], A], fa: Arbitrary[F[A]], ea: Equal[F[A]], G: Foldable1[F]): Prop =
       forAll(F.cofold1Law.fromNelWeakIdempotence[F, A] _ )
       
     
-    def laws[F[_]](implicit fa: Arbitrary[F[Int]], F: Cofoldable1[F, Int], E: Equal[F[Int]], G: Foldable1[F]): Properties =
+    def laws[F[_]](implicit fa: Arbitrary[F[Int]], F: Cofoldable1[F[Int], Int], E: Equal[F[Int]], G: Foldable1[F]): Properties =
       newProperties("cofoldable1") { p =>
         p.property("toNelWeakIdempotence") = toNelWeakIdempotence[F, Int]
         p.property("fromNelWeakIdempotence") = fromNelWeakIdempotence[F, Int]

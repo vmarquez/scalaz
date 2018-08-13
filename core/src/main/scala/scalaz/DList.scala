@@ -101,7 +101,7 @@ sealed abstract class DListInstances {
     def append(a: DList[A], b: => DList[A]) = a ++ b
   }
 
-  implicit def dlistCofoldable[A]: Cofoldable[DList, A] = new Cofoldable[DList, A] {
+  implicit def dlistCofoldable[A]: Cofoldable[DList[A], A] = new Cofoldable[DList[A], A] {
     def unfoldr[B](b: B)(f: B => Option[(B, A)]): DList[A] = {
       def unfold(b: B, d: DList[A]): DList[A] = f(b) match {
         case Some((b, a)) => unfold(b, a +: d)
